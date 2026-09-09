@@ -14,6 +14,10 @@ config/name="Knox Platformer Test"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*uid://f3w7a6l1scut"
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -68,6 +72,7 @@ swap={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
