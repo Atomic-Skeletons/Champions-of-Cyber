@@ -233,6 +233,7 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1713843606 node_paths=PackedStringArray("resurfacing_raycasts", "wall_digging_raycast") groups=["Player"]]
+collision_mask = 6
 script = ExtResource("1_i1o8p")
 ground_acceleration = 300
 ground_speed = 200
@@ -259,17 +260,17 @@ autoplay = "idle"
 [node name="Digging Raycast 1" type="RayCast2D" parent="." unique_id=1750925987]
 position = Vector2(-10, 14)
 target_position = Vector2(0, -25)
-collision_mask = 3
+collision_mask = 4
 
 [node name="Digging Raycast 2" type="RayCast2D" parent="." unique_id=1839086121]
 position = Vector2(10, 14)
 target_position = Vector2(0, -25)
-collision_mask = 3
+collision_mask = 4
 
 [node name="Digging Raycast 3" type="RayCast2D" parent="." unique_id=1144860231]
 position = Vector2(0, 14)
 target_position = Vector2(0, -25)
-collision_mask = 3
+collision_mask = 4
 
 [node name="Digging Timer" type="Timer" parent="." unique_id=2035109572]
 one_shot = true
@@ -280,5 +281,6 @@ position = Vector2(0, 14)
 [node name="Wall Digging Cast" type="RayCast2D" parent="." unique_id=1481027794]
 position = Vector2(0, 14)
 target_position = Vector2(0, 10)
+collision_mask = 4
 
 [connection signal="timeout" from="Digging Timer" to="." method="_on_digging_timer_timeout"]

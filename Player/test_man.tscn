@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bevybkxdicwlh"]
+
+[ext_resource type="Script" uid="uid://bgkvonwv4g7hq" path="res://player_controller.gd" id="1_6lkes"]
+[ext_resource type="Texture2D" uid="uid://nt2grdjoo275" path="res://icon.svg" id="2_kyo1i"]
+[ext_resource type="Script" uid="uid://ruwx47ah5iu0" path="res://Components/input_component.gd" id="3_b0o8g"]
+[ext_resource type="Script" uid="uid://cic7mje0h7hec" path="res://Components/Movement/basic_movement_component.gd" id="4_yasy4"]
+[ext_resource type="Script" uid="uid://p1xnms82c4f" path="res://Components/Attacks/basic_melee_attack.gd" id="5_l2l8o"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+
+[node name="Test Man" type="CharacterBody2D" unique_id=614161461 node_paths=PackedStringArray("movement_component", "attack_component") groups=["Player"]]
+script = ExtResource("1_6lkes")
+movement_component = NodePath("BasicMovementComponent")
+attack_component = NodePath("BasicMeleeAttack")
+
+[node name="Hurtbox" type="CollisionShape2D" parent="." unique_id=1348234681]
+shape = SubResource("CapsuleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1947524400]
+scale = Vector2(0.109374985, 0.1875)
+texture = ExtResource("2_kyo1i")
+
+[node name="InputComponent" type="Node" parent="." unique_id=1239473231]
+unique_name_in_owner = true
+script = ExtResource("3_b0o8g")
+metadata/_custom_type_script = "uid://ruwx47ah5iu0"
+
+[node name="BasicMovementComponent" type="Node" parent="." unique_id=630016998]
+unique_name_in_owner = true
+script = ExtResource("4_yasy4")
+metadata/_custom_type_script = "uid://cic7mje0h7hec"
+
+[node name="BasicMeleeAttack" type="Node" parent="." unique_id=2143708888 node_paths=PackedStringArray("hitbox", "cooldown_timer", "attack_duration_timer")]
+unique_name_in_owner = true
+script = ExtResource("5_l2l8o")
+hitbox = NodePath("../Hitbox")
+cooldown_timer = NodePath("Cooldown Timer")
+attack_duration_timer = NodePath("Attack Duration Timer")
+metadata/_custom_type_script = "uid://p1xnms82c4f"
+
+[node name="Cooldown Timer" type="Timer" parent="BasicMeleeAttack" unique_id=768174125]
+wait_time = 0.1
+one_shot = true
+
+[node name="Attack Duration Timer" type="Timer" parent="BasicMeleeAttack" unique_id=1207164925]
+wait_time = 0.2
+one_shot = true
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=728348805]
+position = Vector2(21, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=609916268]
+shape = SubResource("CircleShape2D_g4v7s")
+disabled = true
