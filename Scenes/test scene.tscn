@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://de5h44var8xll"]
+
+[ext_resource type="Script" uid="uid://bgkvonwv4g7hq" path="res://player_controller.gd" id="1_jkl10"]
+[ext_resource type="Texture2D" uid="uid://nt2grdjoo275" path="res://icon.svg" id="2_4nf2p"]
+[ext_resource type="Script" uid="uid://ruwx47ah5iu0" path="res://Components/input_component.gd" id="3_4nf2p"]
+[ext_resource type="Script" uid="uid://cic7mje0h7hec" path="res://Components/Movement/basic_movement_component.gd" id="4_58ov2"]
+[ext_resource type="Script" uid="uid://p1xnms82c4f" path="res://Components/Attacks/basic_melee_attack.gd" id="5_op41l"]
+[ext_resource type="Script" uid="uid://yllam5egj4yw" path="res://Scenes/destructable.gd" id="6_wv3x6"]
+[ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="7_oyovm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(266, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+
+[node name="Node2D" type="Node2D" unique_id=1246508524]
+
+[node name="Test Man" type="CharacterBody2D" parent="." unique_id=1912635409 node_paths=PackedStringArray("movement_component", "attack_component")]
+script = ExtResource("1_jkl10")
+movement_component = NodePath("BasicMovementComponent")
+attack_component = NodePath("BasicMeleeAttack")
+
+[node name="Camera2D" type="Camera2D" parent="Test Man" unique_id=968615043]
+
+[node name="Hurtbox" type="CollisionShape2D" parent="Test Man" unique_id=760509827]
+shape = SubResource("CapsuleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Test Man" unique_id=2065968630]
+scale = Vector2(0.109374985, 0.1875)
+texture = ExtResource("2_4nf2p")
+
+[node name="InputComponent" type="Node" parent="Test Man" unique_id=570812088]
+unique_name_in_owner = true
+script = ExtResource("3_4nf2p")
+metadata/_custom_type_script = "uid://ruwx47ah5iu0"
+
+[node name="BasicMovementComponent" type="Node" parent="Test Man" unique_id=30369986]
+unique_name_in_owner = true
+script = ExtResource("4_58ov2")
+metadata/_custom_type_script = "uid://cic7mje0h7hec"
+
+[node name="BasicMeleeAttack" type="Node" parent="Test Man" unique_id=1552632371 node_paths=PackedStringArray("hitbox", "cooldown_timer", "attack_duration_timer")]
+unique_name_in_owner = true
+script = ExtResource("5_op41l")
+hitbox = NodePath("../Hitbox")
+cooldown_timer = NodePath("Cooldown Timer")
+attack_duration_timer = NodePath("Attack Duration Timer")
+metadata/_custom_type_script = "uid://p1xnms82c4f"
+
+[node name="Cooldown Timer" type="Timer" parent="Test Man/BasicMeleeAttack" unique_id=1040144560]
+wait_time = 0.1
+one_shot = true
+
+[node name="Attack Duration Timer" type="Timer" parent="Test Man/BasicMeleeAttack" unique_id=1164353639]
+wait_time = 0.2
+one_shot = true
+
+[node name="Hitbox" type="Area2D" parent="Test Man" unique_id=1347754375]
+position = Vector2(21, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test Man/Hitbox" unique_id=1227878318]
+shape = SubResource("CircleShape2D_g4v7s")
+disabled = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1559098819]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1882000690]
+position = Vector2(-1, 53)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Destructable" type="StaticBody2D" parent="." unique_id=488297755]
+position = Vector2(-76, 4)
+script = ExtResource("6_wv3x6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Destructable" unique_id=1585320480]
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="HealthComponent" type="Node" parent="Destructable" unique_id=377808191]
+unique_name_in_owner = true
+script = ExtResource("7_oyovm")
+metadata/_custom_type_script = "uid://k1npmfprvwwt"
+
+[connection signal="died" from="Destructable/HealthComponent" to="Destructable" method="_on_health_component_died"]
