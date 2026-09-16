@@ -1,6 +1,10 @@
 extends Node
 
 
-func get_player() -> Player:
-	var player: Player = get_tree().get_first_node_in_group("Player")
+func get_player() -> PlayerCharacterHolder:
+	var player: PlayerCharacterHolder = get_tree().get_first_node_in_group("Player")
 	return player
+
+func get_phantom_camera() -> PhantomCamera2D:
+	var phantom_camera: PhantomCamera2D = get_tree().get_first_node_in_group("Phantom Camera")
+	return phantom_camera

@@ -1,19 +1,15 @@
-[gd_scene format=4 uid="uid://de5h44var8xll"]
+[gd_scene format=4 uid="uid://cidkhra0legvv"]
 
-[ext_resource type="Script" uid="uid://drvcxtpf6wvu3" path="res://Player/player_character_holder.gd" id="1_nura0"]
-[ext_resource type="PackedScene" uid="uid://cb3g7rkvm3hel" path="res://Player/Character Scenes/Roller Shark.tscn" id="2_58ov2"]
-[ext_resource type="PackedScene" uid="uid://7lw1yr2xg5ye" path="res://Player/Character Scenes/Explorer.tscn" id="3_8tdcx"]
-[ext_resource type="Texture2D" uid="uid://j0uvimf66mwa" path="res://Level Art/Floor Tiles1.png" id="4_a3gxn"]
-[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_t42ey"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_hf2ew"]
-[ext_resource type="Script" uid="uid://yllam5egj4yw" path="res://Scenes/destructable.gd" id="6_wv3x6"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_hf2ew"]
-[ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="7_oyovm"]
-[ext_resource type="Texture2D" uid="uid://nt2grdjoo275" path="res://icon.svg" id="11_a3gxn"]
-[ext_resource type="Script" uid="uid://dqjk8w61gfu5g" path="res://Scripts/camera_focus_zone.gd" id="12_n2ckv"]
+[ext_resource type="Script" uid="uid://drvcxtpf6wvu3" path="res://Player/player_character_holder.gd" id="1_ply5q"]
+[ext_resource type="PackedScene" uid="uid://7lw1yr2xg5ye" path="res://Player/Character Scenes/Explorer.tscn" id="2_tvwhj"]
+[ext_resource type="PackedScene" uid="uid://cb3g7rkvm3hel" path="res://Player/Character Scenes/Roller Shark.tscn" id="3_87p33"]
+[ext_resource type="Texture2D" uid="uid://j0uvimf66mwa" path="res://Level Art/Floor Tiles1.png" id="4_yddkp"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_qc46c"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_75rs4"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_cew3w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n2ckv"]
-texture = ExtResource("4_a3gxn")
+texture = ExtResource("4_yddkp")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -421,32 +417,27 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_n2ckv")
 
 [sub_resource type="Resource" id="Resource_a3gxn"]
-script = ExtResource("6_hf2ew")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(323, 267)
+script = ExtResource("6_75rs4")
 
 [node name="Node2D" type="Node2D" unique_id=1246508524]
 
 [node name="Player Character Holder" type="Node" parent="." unique_id=1787809907 node_paths=PackedStringArray("spawn_point") groups=["Player"]]
-script = ExtResource("1_nura0")
-character_1_scene = ExtResource("3_8tdcx")
-character_2_scene = ExtResource("2_58ov2")
+script = ExtResource("1_ply5q")
+character_1_scene = ExtResource("2_tvwhj")
+character_2_scene = ExtResource("3_87p33")
 spawn_point = NodePath("../Player Spawn Point")
 
 [node name="Player Spawn Point" type="Marker2D" parent="." unique_id=1432454489]
-position = Vector2(-181, -100)
+position = Vector2(-264, -117)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=813585436]
-tile_map_data = PackedByteArray("AAD6/wQAAAAHAAAAAAD6/wMAAAABAAEAAAD6/wIAAAABAAEAAAD6/wEAAAAFAAMAAAD6/wAAAAAGAAEAAAD6////AAAGAAEAAAD6//7/AAACAAMAAAD5/wQAAAABAAIAAAD5/wMAAAABAAEAAAD5/wIAAAABAAEAAAD5/wEAAAABAAEAAAD5/wAAAAABAAEAAAD5////AAABAAEAAAD5//7/AAABAAAAAAD4/wQAAAABAAIAAAD4/wMAAAABAAEAAAD4/wIAAAABAAEAAAD4/wEAAAABAAEAAAD4/wAAAAABAAEAAAD4////AAABAAEAAAD4//7/AAABAAAAAAD3/wQAAAABAAIAAAD3/wMAAAABAAEAAAD3/wIAAAABAAEAAAD3/wEAAAABAAEAAAD3/wAAAAABAAEAAAD3////AAABAAEAAAD3//7/AAABAAAAAAD2/wQAAAAHAAAAAAD2/wMAAAABAAEAAAD2/wIAAAABAAEAAAD2/wEAAAABAAEAAAD2/wAAAAABAAEAAAD2////AAABAAEAAAD2//7/AAABAAAAAAD1/wQAAAABAAIAAAD1/wMAAAABAAEAAAD1/wIAAAABAAEAAAD1/wEAAAABAAEAAAD1/wAAAAABAAEAAAD1////AAABAAEAAAD1//7/AAABAAAAAAD0/wQAAAAHAAAAAAD0/wMAAAABAAEAAAD0/wIAAAABAAEAAAD0/wEAAAABAAEAAAD0/wAAAAABAAEAAAD0////AAABAAEAAAD0//7/AAABAAAAAADz/wQAAAAAAAIAAADz/wMAAAAIAAEAAADz/wIAAAAIAAEAAADz/wEAAAAAAAEAAADz/wAAAAAAAAEAAADz////AAAIAAEAAADz//7/AAABAAMAAAAHAAQAAAACAAUAAAAHAAMAAAAGAAEAAAAHAAIAAAAGAAEAAAAHAAEAAAACAAAAAAAGAAQAAAABAAIAAAAGAAMAAAABAAEAAAAGAAIAAAABAAEAAAAGAAEAAAABAAAAAAAFAAQAAAABAAIAAAAFAAMAAAABAAEAAAAFAAIAAAABAAEAAAAFAAEAAAABAAAAAAAEAAQAAAABAAIAAAAEAAMAAAABAAEAAAAEAAIAAAABAAEAAAAEAAEAAAABAAAAAAADAAQAAAAHAAAAAAADAAMAAAABAAEAAAADAAIAAAABAAEAAAADAAEAAAABAAAAAAACAAQAAAABAAIAAAACAAMAAAABAAEAAAACAAIAAAABAAEAAAACAAEAAAABAAAAAAABAAQAAAABAAIAAAABAAMAAAABAAEAAAABAAIAAAABAAEAAAABAAEAAAABAAAAAAAAAAQAAAAHAAAAAAAAAAMAAAABAAEAAAAAAAIAAAABAAEAAAAAAAEAAAABAAAAAAD//wQAAAABAAIAAAD//wMAAAABAAEAAAD//wIAAAABAAEAAAD//wEAAAABAAAAAAD+/wQAAAABAAIAAAD+/wMAAAABAAEAAAD+/wIAAAABAAEAAAD+/wEAAAABAAAAAAD9/wQAAAAHAAAAAAD9/wMAAAABAAEAAAD9/wIAAAABAAEAAAD9/wEAAAABAAAAAAD8/wQAAAABAAIAAAD8/wMAAAABAAEAAAD8/wIAAAABAAEAAAD8/wEAAAABAAAAAAD7/wQAAAABAAIAAAD7/wMAAAABAAEAAAD7/wIAAAABAAEAAAD7/wEAAAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAD6/wQAAAAHAAAAAAD6/wMAAAABAAEAAAD6/wIAAAABAAEAAAD6/wEAAAAFAAMAAAD6/wAAAAAGAAEAAAD6////AAAGAAEAAAD6//7/AAACAAMAAAD5/wQAAAABAAIAAAD5/wMAAAABAAEAAAD5/wIAAAABAAEAAAD5/wEAAAABAAEAAAD5/wAAAAABAAEAAAD5////AAABAAEAAAD5//7/AAABAAAAAAD4/wQAAAABAAIAAAD4/wMAAAABAAEAAAD4/wIAAAABAAEAAAD4/wEAAAABAAEAAAD4/wAAAAABAAEAAAD4////AAABAAEAAAD4//7/AAABAAAAAAD3/wQAAAABAAIAAAD3/wMAAAABAAEAAAD3/wIAAAABAAEAAAD3/wEAAAABAAEAAAD3/wAAAAABAAEAAAD3////AAABAAEAAAD3//7/AAABAAAAAAD2/wQAAAAHAAAAAAD2/wMAAAABAAEAAAD2/wIAAAABAAEAAAD2/wEAAAABAAEAAAD2/wAAAAABAAEAAAD2////AAABAAEAAAD2//7/AAABAAAAAAD1/wQAAAABAAIAAAD1/wMAAAABAAEAAAD1/wIAAAABAAEAAAD1/wEAAAABAAEAAAD1/wAAAAABAAEAAAD1////AAABAAEAAAD1//7/AAABAAAAAAD0/wQAAAAHAAAAAAD0/wMAAAABAAEAAAD0/wIAAAABAAEAAAD0/wEAAAABAAEAAAD0/wAAAAABAAEAAAD0////AAABAAEAAAD0//7/AAABAAAAAADz/wQAAAAAAAIAAADz/wMAAAAIAAEAAADz/wIAAAAIAAEAAADz/wEAAAAAAAEAAADz/wAAAAAAAAEAAADz////AAAIAAEAAADz//7/AAABAAMAAAAHAAQAAAABAAIAAAAHAAMAAAABAAEAAAAHAAIAAAABAAEAAAAHAAEAAAAEAAMAAAAGAAQAAAABAAIAAAAGAAMAAAABAAEAAAAGAAIAAAABAAEAAAAGAAEAAAABAAAAAAAFAAQAAAABAAIAAAAFAAMAAAABAAEAAAAFAAIAAAABAAEAAAAFAAEAAAABAAAAAAAEAAQAAAABAAIAAAAEAAMAAAABAAEAAAAEAAIAAAABAAEAAAAEAAEAAAABAAAAAAADAAQAAAAHAAAAAAADAAMAAAABAAEAAAADAAIAAAABAAEAAAADAAEAAAABAAAAAAACAAQAAAABAAIAAAACAAMAAAABAAEAAAACAAIAAAABAAEAAAACAAEAAAABAAAAAAABAAQAAAABAAIAAAABAAMAAAABAAEAAAABAAIAAAABAAEAAAABAAEAAAABAAAAAAAAAAQAAAAHAAAAAAAAAAMAAAABAAEAAAAAAAIAAAABAAEAAAAAAAEAAAABAAAAAAD//wQAAAABAAIAAAD//wMAAAABAAEAAAD//wIAAAABAAEAAAD//wEAAAABAAAAAAD+/wQAAAABAAIAAAD+/wMAAAABAAEAAAD+/wIAAAABAAEAAAD+/wEAAAABAAAAAAD9/wQAAAAHAAAAAAD9/wMAAAABAAEAAAD9/wIAAAABAAEAAAD9/wEAAAABAAAAAAD8/wQAAAABAAIAAAD8/wMAAAABAAEAAAD8/wIAAAABAAEAAAD8/wEAAAABAAAAAAD7/wQAAAABAAIAAAD7/wMAAAABAAEAAAD7/wIAAAABAAEAAAD7/wEAAAABAAAAAAAPAAQAAAACAAUAAAAPAAMAAAACAAEAAAAPAAIAAAAGAAEAAAAPAAEAAAACAAEAAAAPAAAAAAACAAEAAAAPAP//AAACAAEAAAAPAP7/AAACAAAAAAAOAAQAAAAHAAAAAAAOAAMAAAABAAEAAAAOAAIAAAABAAEAAAAOAAEAAAABAAEAAAAOAAAAAAABAAEAAAAOAP//AAABAAEAAAAOAP7/AAABAAAAAAANAAQAAAABAAIAAAANAAMAAAABAAEAAAANAAIAAAABAAEAAAANAAEAAAABAAEAAAANAAAAAAABAAEAAAANAP//AAABAAEAAAANAP7/AAABAAAAAAAMAAQAAAABAAIAAAAMAAMAAAABAAEAAAAMAAIAAAABAAEAAAAMAAEAAAABAAEAAAAMAAAAAAABAAEAAAAMAP//AAABAAEAAAAMAP7/AAABAAAAAAALAAQAAAAHAAAAAAALAAMAAAABAAEAAAALAAIAAAABAAEAAAALAAEAAAABAAEAAAALAAAAAAABAAEAAAALAP//AAABAAEAAAALAP7/AAABAAAAAAAKAAQAAAAHAAAAAAAKAAMAAAABAAEAAAAKAAIAAAABAAEAAAAKAAEAAAABAAEAAAAKAAAAAAABAAEAAAAKAP//AAABAAEAAAAKAP7/AAABAAAAAAAJAAQAAAAHAAAAAAAJAAMAAAABAAEAAAAJAAIAAAABAAEAAAAJAAEAAAABAAEAAAAJAAAAAAABAAEAAAAJAP//AAABAAEAAAAJAP7/AAABAAAAAAAIAAQAAAABAAIAAAAIAAMAAAABAAEAAAAIAAIAAAABAAEAAAAIAAEAAAABAAEAAAAIAAAAAAABAAEAAAAIAP//AAABAAEAAAAIAP7/AAABAAAAAAAHAAAAAAAAAAEAAAAHAP//AAAAAAEAAAAHAP7/AAABAAMAAAA=")
 tile_set = SubResource("TileSet_bjhaf")
 
 [node name="PhantomCamera2D" type="Node2D" parent="." unique_id=1156627732 groups=["Phantom Camera"]]
 top_level = true
 position = Vector2(-2, -37)
-script = ExtResource("5_t42ey")
+script = ExtResource("5_qc46c")
 priority = 1
 follow_mode = 2
 zoom = Vector2(1.835, 1.835)
@@ -463,34 +454,5 @@ zoom = Vector2(1.835, 1.835)
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1755526593]
 process_priority = 300
 process_physics_priority = 300
-script = ExtResource("7_hf2ew")
+script = ExtResource("7_cew3w")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
-
-[node name="Destructable" type="StaticBody2D" parent="." unique_id=488297755]
-position = Vector2(-76, 4)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("6_wv3x6")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Destructable" unique_id=1585320480]
-shape = SubResource("RectangleShape2D_yf5fn")
-
-[node name="HealthComponent" type="Node" parent="Destructable" unique_id=377808191]
-unique_name_in_owner = true
-script = ExtResource("7_oyovm")
-metadata/_custom_type_script = "uid://k1npmfprvwwt"
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2000458555]
-position = Vector2(380, -111)
-texture = ExtResource("11_a3gxn")
-
-[node name="Camera Focus Zone" type="Area2D" parent="Sprite2D" unique_id=1689592490]
-script = ExtResource("12_n2ckv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Camera Focus Zone" unique_id=232128999]
-position = Vector2(-58.5, 50.5)
-shape = SubResource("RectangleShape2D_g4v7s")
-
-[connection signal="died" from="Destructable/HealthComponent" to="Destructable" method="_on_health_component_died"]
-[connection signal="body_entered" from="Sprite2D/Camera Focus Zone" to="Sprite2D/Camera Focus Zone" method="_on_body_entered"]
-[connection signal="body_exited" from="Sprite2D/Camera Focus Zone" to="Sprite2D/Camera Focus Zone" method="_on_body_exited"]

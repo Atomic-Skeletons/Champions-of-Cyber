@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8s6shehj2kup"
-path="res://.godot/imported/rollerblading.png-0e15b8cb0be8ac00d510b02d8ec2daf4.ctex"
+uid="uid://c1pp3o82fwr7e"
+path="res://.godot/imported/descending.png-42f176dd3818a760de90f3f611a16d8b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Art/rollerblading.png"
-dest_files=["res://.godot/imported/rollerblading.png-0e15b8cb0be8ac00d510b02d8ec2daf4.ctex"]
+source_file="res://Player/Art/Roller Shark/descending.png"
+dest_files=["res://.godot/imported/descending.png-42f176dd3818a760de90f3f611a16d8b.ctex"]
 
 [params]
 

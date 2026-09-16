@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1pp3o82fwr7e"
-path="res://.godot/imported/descending.png-c1fb0bd87cc20f7424bf26bbc00801c1.ctex"
+uid="uid://j0uvimf66mwa"
+path="res://.godot/imported/Floor Tiles1.png-67d41a17608f918069b296e5ad23d08e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Art/descending.png"
-dest_files=["res://.godot/imported/descending.png-c1fb0bd87cc20f7424bf26bbc00801c1.ctex"]
+source_file="res://Level Art/Floor Tiles1.png"
+dest_files=["res://.godot/imported/Floor Tiles1.png-67d41a17608f918069b296e5ad23d08e.ctex"]
 
 [params]
 

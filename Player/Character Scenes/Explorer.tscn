@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://7lw1yr2xg5ye"]
+
+[ext_resource type="Script" uid="uid://fxopwerwirot" path="res://Player/Character Scenes/explorer_controller.gd" id="1_dmmqk"]
+[ext_resource type="Texture2D" uid="uid://dqau46lu8jnxf" path="res://Player/Art/Explorer/explorer.webp" id="1_ip285"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(10, 23)
+
+[node name="Player" type="CharacterBody2D" unique_id=1713843606]
+collision_mask = 6
+script = ExtResource("1_dmmqk")
+
+[node name="Normal Hurtbox" type="CollisionShape2D" parent="." unique_id=1992489529]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=269669794]
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("1_ip285")

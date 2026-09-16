@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://cb3g7rkvm3hel"]
 
-[ext_resource type="Script" uid="uid://bsy2rwp6dwdgb" path="res://Player/player_state_machine.gd" id="1_i1o8p"]
-[ext_resource type="Texture2D" uid="uid://crirj7oo7sl0m" path="res://Player/Art/breaking.png" id="2_mbcum"]
-[ext_resource type="Texture2D" uid="uid://c1pp3o82fwr7e" path="res://Player/Art/descending.png" id="3_artx4"]
-[ext_resource type="Texture2D" uid="uid://chvebfumyiuyl" path="res://Player/Art/diggin_anim.png" id="4_p1lnk"]
-[ext_resource type="Texture2D" uid="uid://bkr1owu1lqrsp" path="res://Player/Art/digging transition.png" id="5_ifqw5"]
-[ext_resource type="Texture2D" uid="uid://8s6shehj2kup" path="res://Player/Art/rollerblading.png" id="6_3awjg"]
-[ext_resource type="Texture2D" uid="uid://bjs8gqbjri5kv" path="res://Player/Art/rising.png" id="7_40411"]
+[ext_resource type="Texture2D" uid="uid://crirj7oo7sl0m" path="res://Player/Art/Roller Shark/breaking.png" id="2_mbcum"]
+[ext_resource type="Script" uid="uid://d0pytk2ojhfhj" path="res://Player/Character Scenes/roller_sharke_controller.gd" id="2_p20pb"]
+[ext_resource type="Texture2D" uid="uid://c1pp3o82fwr7e" path="res://Player/Art/Roller Shark/descending.png" id="3_artx4"]
+[ext_resource type="Texture2D" uid="uid://chvebfumyiuyl" path="res://Player/Art/Roller Shark/diggin_anim.png" id="4_p1lnk"]
+[ext_resource type="Texture2D" uid="uid://bkr1owu1lqrsp" path="res://Player/Art/Roller Shark/digging transition.png" id="5_ifqw5"]
+[ext_resource type="Texture2D" uid="uid://8s6shehj2kup" path="res://Player/Art/Roller Shark/rollerblading.png" id="6_3awjg"]
+[ext_resource type="Texture2D" uid="uid://bjs8gqbjri5kv" path="res://Player/Art/Roller Shark/rising.png" id="7_40411"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_coq8p"]
 radius = 13.0
@@ -232,26 +232,23 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1713843606 node_paths=PackedStringArray("resurfacing_raycasts", "wall_digging_raycast") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1713843606 groups=["Player"]]
 collision_mask = 6
-script = ExtResource("1_i1o8p")
-ground_acceleration = 300
-ground_speed = 200
-digging_accelaration = 500
-digging_move_speed = 300
-resurfacing_raycasts = [NodePath("Digging Raycast 1"), NodePath("Digging Raycast 2"), NodePath("Digging Raycast 3")]
-wall_digging_raycast = NodePath("Wall Digging Cast")
+script = ExtResource("2_p20pb")
 
 [node name="Normal Hurtbox" type="CollisionShape2D" parent="." unique_id=1992489529]
+unique_name_in_owner = true
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_coq8p")
 
 [node name="Digging Hurtbox" type="CollisionShape2D" parent="." unique_id=1379347777]
+unique_name_in_owner = true
 position = Vector2(0, 13.5)
 shape = SubResource("RectangleShape2D_g4v7s")
 disabled = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=403601317]
+[node name="Anim Sprite" type="AnimatedSprite2D" parent="." unique_id=403601317]
+unique_name_in_owner = true
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"idle"
@@ -273,6 +270,7 @@ target_position = Vector2(0, -25)
 collision_mask = 4
 
 [node name="Digging Timer" type="Timer" parent="." unique_id=2035109572]
+unique_name_in_owner = true
 one_shot = true
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1155065306]
@@ -282,5 +280,3 @@ position = Vector2(0, 14)
 position = Vector2(0, 14)
 target_position = Vector2(0, 10)
 collision_mask = 4
-
-[connection signal="timeout" from="Digging Timer" to="." method="_on_digging_timer_timeout"]

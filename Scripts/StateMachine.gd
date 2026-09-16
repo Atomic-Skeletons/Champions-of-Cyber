@@ -1,4 +1,4 @@
-class_name StateMachine extends CharacterBody2D
+class_name StateMachine extends Character
 
 
 var state = null
