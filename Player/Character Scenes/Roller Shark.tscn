@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://cb3g7rkvm3hel"]
 
-[ext_resource type="Shader" uid="uid://dhqnthhyhb402" path="res://Player/desaturation_shader.tres" id="1_17kqk"]
-[ext_resource type="Texture2D" uid="uid://crirj7oo7sl0m" path="res://Player/Art/Roller Shark/breaking.png" id="2_mbcum"]
-[ext_resource type="Script" uid="uid://d0pytk2ojhfhj" path="res://Player/Character Scenes/roller_shark_controller.gd" id="2_p20pb"]
-[ext_resource type="Texture2D" uid="uid://c1pp3o82fwr7e" path="res://Player/Art/Roller Shark/descending.png" id="3_artx4"]
-[ext_resource type="Texture2D" uid="uid://chvebfumyiuyl" path="res://Player/Art/Roller Shark/diggin_anim.png" id="4_p1lnk"]
-[ext_resource type="Texture2D" uid="uid://bkr1owu1lqrsp" path="res://Player/Art/Roller Shark/digging transition.png" id="5_ifqw5"]
-[ext_resource type="Texture2D" uid="uid://8s6shehj2kup" path="res://Player/Art/Roller Shark/rollerblading.png" id="6_3awjg"]
-[ext_resource type="Texture2D" uid="uid://bjs8gqbjri5kv" path="res://Player/Art/Roller Shark/rising.png" id="7_40411"]
+[ext_resource type="Shader" uid="uid://dhqnthhyhb402" path="res://Shaders/desaturation_shader.tres" id="1_17kqk"]
+[ext_resource type="Texture2D" uid="uid://crirj7oo7sl0m" path="res://Player/Character Assets/Roller Shark/Art/breaking.png" id="2_mbcum"]
+[ext_resource type="Script" uid="uid://d0pytk2ojhfhj" path="res://Player/Character Assets/Roller Shark/roller_shark_controller.gd" id="2_p20pb"]
+[ext_resource type="Texture2D" uid="uid://c1pp3o82fwr7e" path="res://Player/Character Assets/Roller Shark/Art/descending.png" id="3_artx4"]
+[ext_resource type="Texture2D" uid="uid://chvebfumyiuyl" path="res://Player/Character Assets/Roller Shark/Art/diggin_anim.png" id="4_p1lnk"]
+[ext_resource type="Texture2D" uid="uid://bkr1owu1lqrsp" path="res://Player/Character Assets/Roller Shark/Art/digging transition.png" id="5_ifqw5"]
+[ext_resource type="Texture2D" uid="uid://cw40pe2v3j4hy" path="res://Player/Character Assets/Roller Shark/Art/rollerblading.png" id="6_3awjg"]
+[ext_resource type="Texture2D" uid="uid://bjs8gqbjri5kv" path="res://Player/Character Assets/Roller Shark/Art/rising.png" id="7_40411"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a2jtb"]
 shader = ExtResource("1_17kqk")

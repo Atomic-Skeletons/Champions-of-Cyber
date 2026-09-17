@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dgg80udjapec8"]
 
 [ext_resource type="Script" uid="uid://bt5jjllfu0jka" path="res://Enemies/Scripts/enemy_test_controller.gd" id="1_qabkg"]
-[ext_resource type="Texture2D" uid="uid://dqau46lu8jnxf" path="res://Player/Art/Explorer/explorer.webp" id="2_6sjec"]
+[ext_resource type="Texture2D" uid="uid://dqau46lu8jnxf" path="res://Player/Character Assets/Explorer/Art/explorer.webp" id="2_6sjec"]
 [ext_resource type="Shader" uid="uid://des7fibqi0pj" path="res://Shaders/stacked_pixel_art_outlines_shader.gdshader" id="2_8iene"]
 [ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="3_8iene"]
 

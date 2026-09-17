@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://7lw1yr2xg5ye"]
 
-[ext_resource type="Shader" uid="uid://dhqnthhyhb402" path="res://Player/desaturation_shader.tres" id="1_a2jtb"]
-[ext_resource type="Script" uid="uid://fxopwerwirot" path="res://Player/Character Scenes/explorer_controller.gd" id="1_dmmqk"]
-[ext_resource type="Texture2D" uid="uid://dqau46lu8jnxf" path="res://Player/Art/Explorer/explorer.webp" id="1_ip285"]
+[ext_resource type="Shader" uid="uid://dhqnthhyhb402" path="res://Shaders/desaturation_shader.tres" id="1_a2jtb"]
+[ext_resource type="Script" uid="uid://fxopwerwirot" path="res://Player/Character Assets/Explorer/explorer_controller.gd" id="1_dmmqk"]
 [ext_resource type="Script" uid="uid://crxaysem1tfnv" path="res://Components/hitbox.gd" id="3_dmmqk"]
 [ext_resource type="Script" uid="uid://bhd4nuiu23e7l" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd" id="4_li0xc"]
 [ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="5_a2jtb"]
@@ -12,9 +11,12 @@ shader = ExtResource("1_a2jtb")
 shader_parameter/saturation = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(10, 23)
+size = Vector2(14, 31)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iy3ii"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_li0xc"]
+load_path = "res://.godot/imported/explorer shape sprite.png-021c5db8d23e479644773841db050449.ctex"
 
 [sub_resource type="Resource" id="Resource_g4v7s"]
 script = ExtResource("5_a2jtb")
@@ -28,7 +30,7 @@ collision_mask = 6
 script = ExtResource("1_dmmqk")
 
 [node name="Normal Hurtbox" type="CollisionShape2D" parent="." unique_id=1992489529]
-position = Vector2(1, 0.5)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="Fliproot" type="Node2D" parent="." unique_id=1052527165]
@@ -37,12 +39,11 @@ use_parent_material = true
 [node name="Sprite2D" type="Sprite2D" parent="Fliproot" unique_id=269669794]
 material = SubResource("ShaderMaterial_iy3ii")
 use_parent_material = true
-scale = Vector2(0.075, 0.075)
-texture = ExtResource("1_ip285")
+texture = SubResource("CompressedTexture2D_li0xc")
 
 [node name="Laser Start Point" type="Marker2D" parent="Fliproot" unique_id=1436290803]
 unique_name_in_owner = true
-position = Vector2(2.2431793, -7.3073196)
+position = Vector2(4, -8)
 
 [node name="Laser Raycast" type="RayCast2D" parent="Fliproot/Laser Start Point" unique_id=244528736]
 unique_name_in_owner = true

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bkr1owu1lqrsp"
-path="res://.godot/imported/digging transition.png-6c1b0a6a6389d49277602af3dbfe02ec.ctex"
+path="res://.godot/imported/digging transition.png-70b3fd9d240391b476e73ba2c61f8dd4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Art/Roller Shark/digging transition.png"
-dest_files=["res://.godot/imported/digging transition.png-6c1b0a6a6389d49277602af3dbfe02ec.ctex"]
+source_file="res://Player/Character Assets/Roller Shark/Art/digging transition.png"
+dest_files=["res://.godot/imported/digging transition.png-70b3fd9d240391b476e73ba2c61f8dd4.ctex"]
 
 [params]
 

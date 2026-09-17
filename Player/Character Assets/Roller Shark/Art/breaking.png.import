@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjs8gqbjri5kv"
-path="res://.godot/imported/rising.png-28cce36df7373aa545d8f12923ada1b4.ctex"
+uid="uid://crirj7oo7sl0m"
+path="res://.godot/imported/breaking.png-dcb046405f989c65948522bf03fc942f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Art/Roller Shark/rising.png"
-dest_files=["res://.godot/imported/rising.png-28cce36df7373aa545d8f12923ada1b4.ctex"]
+source_file="res://Player/Character Assets/Roller Shark/Art/breaking.png"
+dest_files=["res://.godot/imported/breaking.png-dcb046405f989c65948522bf03fc942f.ctex"]
 
 [params]
 
