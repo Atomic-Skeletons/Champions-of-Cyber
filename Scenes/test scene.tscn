@@ -531,9 +531,8 @@ position = Vector2(-2, -37)
 script = ExtResource("5_t42ey")
 priority = 1
 follow_mode = 2
-zoom = Vector2(2, 2)
 tween_resource = SubResource("Resource_a3gxn")
-follow_offset = Vector2(-40, -30)
+follow_offset = Vector2(20, -30)
 follow_damping = true
 lookahead_max = true
 lookahead_max_value = Vector2(50, 50)
@@ -544,7 +543,6 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1786324642]
 top_level = true
 position = Vector2(-2, -37)
-zoom = Vector2(2, 2)
 limit_bottom = 52
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1755526593]

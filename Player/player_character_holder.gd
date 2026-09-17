@@ -29,6 +29,8 @@ func _ready() -> void:
 	phantom_camera.global_position = active_character.global_position
 
 func _process(delta: float) -> void:
+	phantom_camera.follow_offset.x = abs(phantom_camera.follow_offset.x) * active_character.facing_dir
+	
 	if not active_character.air_movement:
 		active_character.material.set_shader_parameter("saturation", .5)
 	else:

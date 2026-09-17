@@ -3,8 +3,14 @@
 [ext_resource type="Shader" uid="uid://dhqnthhyhb402" path="res://Shaders/desaturation_shader.tres" id="1_a2jtb"]
 [ext_resource type="Script" uid="uid://fxopwerwirot" path="res://Player/Character Assets/Explorer/explorer_controller.gd" id="1_dmmqk"]
 [ext_resource type="Script" uid="uid://crxaysem1tfnv" path="res://Components/hitbox.gd" id="3_dmmqk"]
+[ext_resource type="Texture2D" uid="uid://0puqleepv0k0" path="res://Player/Character Assets/Explorer/Art/laser_shot_anim.png" id="4_d84m8"]
 [ext_resource type="Script" uid="uid://bhd4nuiu23e7l" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd" id="4_li0xc"]
+[ext_resource type="Texture2D" uid="uid://b7qyud32eky12" path="res://Player/Character Assets/Explorer/Art/laser start.png" id="4_neio3"]
+[ext_resource type="Texture2D" uid="uid://dhnoghyfltoyg" path="res://Player/Character Assets/Explorer/Art/laser end.png" id="5_6vsvd"]
 [ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="5_a2jtb"]
+[ext_resource type="Texture2D" uid="uid://chxconcuso2pk" path="res://Player/Character Assets/Explorer/Art/explorer shape sprite.png" id="5_j2i38"]
+[ext_resource type="PackedScene" uid="uid://bs1gkeavl1uf1" path="res://Player/Character Assets/Explorer/Scripts/laser_bullet.tscn" id="6_a2jtb"]
+[ext_resource type="Texture2D" uid="uid://khdibka87ybe" path="res://Player/Character Assets/Explorer/Art/laser body.png" id="6_j2i38"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jbxru"]
 shader = ExtResource("1_a2jtb")
@@ -13,21 +19,37 @@ shader_parameter/saturation = 1.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(14, 31)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_iy3ii"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_d84m8")
+}],
+"loop": 0,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_j2i38")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_li0xc"]
-load_path = "res://.godot/imported/explorer shape sprite.png-021c5db8d23e479644773841db050449.ctex"
-
-[sub_resource type="Resource" id="Resource_g4v7s"]
+[sub_resource type="Resource" id="Resource_neio3"]
 script = ExtResource("5_a2jtb")
-amplitude = 20.0
-noise_seed = 392
+frequency = 5.0
+noise_seed = 672
 metadata/_custom_type_script = "uid://dimvdouy8g0sv"
 
 [node name="Player" type="CharacterBody2D" unique_id=1713843606]
 material = SubResource("ShaderMaterial_jbxru")
 collision_mask = 6
 script = ExtResource("1_dmmqk")
+laser_bullet_scene = ExtResource("6_a2jtb")
+laser_bullet_speed = 1000.0
 
 [node name="Normal Hurtbox" type="CollisionShape2D" parent="." unique_id=1992489529]
 position = Vector2(0, 0.5)
@@ -36,27 +58,44 @@ shape = SubResource("RectangleShape2D_yf5fn")
 [node name="Fliproot" type="Node2D" parent="." unique_id=1052527165]
 use_parent_material = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Fliproot" unique_id=269669794]
-material = SubResource("ShaderMaterial_iy3ii")
-use_parent_material = true
-texture = SubResource("CompressedTexture2D_li0xc")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fliproot" unique_id=86812366]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"attack"
+autoplay = "idle"
 
 [node name="Laser Start Point" type="Marker2D" parent="Fliproot" unique_id=1436290803]
 unique_name_in_owner = true
 position = Vector2(4, -8)
 
-[node name="Laser Raycast" type="RayCast2D" parent="Fliproot/Laser Start Point" unique_id=244528736]
+[node name="Laser Raycast" type="RayCast2D" parent="Fliproot" unique_id=244528736]
 unique_name_in_owner = true
-target_position = Vector2(1000, 0)
+position = Vector2(4, -8)
+target_position = Vector2(160, 0)
 collision_mask = 6
 
-[node name="Laser Line" type="Line2D" parent="Fliproot" unique_id=1163900613]
-unique_name_in_owner = true
-position = Vector2(2.250657, -7.3175907)
-width = 1.68
-default_color = Color(1, 0, 0.1254902, 1)
+[node name="Laser Pieces" type="Node2D" parent="Fliproot" unique_id=1851421119]
+visible = false
 
-[node name="Laser Hitbox" type="Area2D" parent="Fliproot" unique_id=1300442941 node_paths=PackedStringArray("screen_shake")]
+[node name="Laser Start" type="Sprite2D" parent="Fliproot/Laser Pieces" unique_id=489101113]
+z_index = 1
+position = Vector2(5, -8)
+texture = ExtResource("4_neio3")
+
+[node name="Start Marker" type="Marker2D" parent="Fliproot/Laser Pieces/Laser Start" unique_id=699544545]
+unique_name_in_owner = true
+position = Vector2(8, 0)
+
+[node name="Laser End" type="Sprite2D" parent="Fliproot/Laser Pieces" unique_id=1949441768]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(45, -8)
+texture = ExtResource("5_6vsvd")
+
+[node name="End Marker" type="Marker2D" parent="Fliproot/Laser Pieces/Laser End" unique_id=625951810]
+unique_name_in_owner = true
+position = Vector2(-8, 0)
+
+[node name="Laser Hitbox" type="Area2D" parent="." unique_id=1300442941]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 2
@@ -64,11 +103,26 @@ script = ExtResource("3_dmmqk")
 damage_tags = Array[int]([2])
 knockback_angle = -80.0
 knockback_strength = 30.0
-screen_shake = NodePath("../../PhantomCameraNoiseEmitter2D")
 metadata/_custom_type_script = "uid://crxaysem1tfnv"
 
-[node name="PhantomCameraNoiseEmitter2D" type="Node2D" parent="." unique_id=821740996]
+[node name="Laser Collision Polygon" type="CollisionPolygon2D" parent="Laser Hitbox" unique_id=1207603043]
+unique_name_in_owner = true
+polygon = PackedVector2Array(2, 0, 2, -15, 12, -15, 12, 0)
+disabled = true
+
+[node name="Laser Line" type="Line2D" parent="." unique_id=1163900613]
+unique_name_in_owner = true
+visible = false
+position = Vector2(2.250657, -7.3175907)
+points = PackedVector2Array(10.749343, -0.6824093, 34.749344, -0.6824093)
+width = 32.0
+texture = ExtResource("6_j2i38")
+texture_mode = 1
+
+[node name="Mega Laser Shake" type="Node2D" parent="." unique_id=1089475892]
 script = ExtResource("4_li0xc")
-noise = SubResource("Resource_g4v7s")
+noise = SubResource("Resource_neio3")
+continuous = true
 duration = 0.1
+decay_time = 0.5
 metadata/_custom_type_script = "uid://bhd4nuiu23e7l"
