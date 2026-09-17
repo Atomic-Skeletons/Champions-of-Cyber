@@ -561,17 +561,17 @@ script = ExtResource("6_wv3x6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Destructable" unique_id=1585320480]
 shape = SubResource("RectangleShape2D_yf5fn")
 
-[node name="Sprite2D" type="Sprite2D" parent="Destructable" unique_id=961941010]
-position = Vector2(-7.838011e-06, 5.9604645e-08)
-scale = Vector2(0.15624999, 0.15624999)
-texture = ExtResource("11_a3gxn")
-
-[node name="HealthComponent" type="Node" parent="Destructable" unique_id=71169911]
+[node name="HealthComponent" type="Node" parent="Destructable" unique_id=377808191]
 unique_name_in_owner = true
 script = ExtResource("16_w2iq6")
 weakness_tags = Array[int]([2])
 weakness_only_damage = true
 metadata/_custom_type_script = "uid://k1npmfprvwwt"
+
+[node name="Sprite2D" type="Sprite2D" parent="Destructable" unique_id=961941010]
+position = Vector2(-7.838011e-06, 5.9604645e-08)
+scale = Vector2(0.15624999, 0.15624999)
+texture = ExtResource("11_a3gxn")
 
 [node name="Enemy Dude" parent="." unique_id=1938194074 instance=ExtResource("18_w2iq6")]
 

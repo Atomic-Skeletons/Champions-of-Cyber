@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dgg80udjapec8"]
+
+[ext_resource type="Script" uid="uid://bt5jjllfu0jka" path="res://Enemies/Scripts/enemy_test_controller.gd" id="1_qabkg"]
+[ext_resource type="Texture2D" uid="uid://dqau46lu8jnxf" path="res://Player/Art/Explorer/explorer.webp" id="2_6sjec"]
+[ext_resource type="Shader" uid="uid://des7fibqi0pj" path="res://Shaders/stacked_pixel_art_outlines_shader.gdshader" id="2_8iene"]
+[ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="3_8iene"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2iq6"]
+size = Vector2(10, 19)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_43yf3"]
+shader = ExtResource("2_8iene")
+shader_parameter/active_outlines = 3
+shader_parameter/line_thickness = 1.0
+shader_parameter/outline_colors = PackedColorArray(0.6392157, 0, 0.08627451, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="Enemy Dude" type="CharacterBody2D" unique_id=1938194074]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_qabkg")
+move_speed = 50.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1008038119]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_w2iq6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1204134202]
+material = SubResource("ShaderMaterial_43yf3")
+position = Vector2(-0.5000001, 0)
+scale = Vector2(0.048991352, 0.051873196)
+texture = ExtResource("2_6sjec")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1076224343]
+script = ExtResource("3_8iene")
+max_hp = 20
+metadata/_custom_type_script = "uid://k1npmfprvwwt"
+
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="knockback" from="HealthComponent" to="." method="_on_health_component_knockback"]

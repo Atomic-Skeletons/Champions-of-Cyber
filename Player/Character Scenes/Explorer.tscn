@@ -1,12 +1,29 @@
 [gd_scene format=3 uid="uid://7lw1yr2xg5ye"]
 
+[ext_resource type="Shader" uid="uid://dhqnthhyhb402" path="res://Player/desaturation_shader.tres" id="1_a2jtb"]
 [ext_resource type="Script" uid="uid://fxopwerwirot" path="res://Player/Character Scenes/explorer_controller.gd" id="1_dmmqk"]
 [ext_resource type="Texture2D" uid="uid://dqau46lu8jnxf" path="res://Player/Art/Explorer/explorer.webp" id="1_ip285"]
+[ext_resource type="Script" uid="uid://crxaysem1tfnv" path="res://Components/hitbox.gd" id="3_dmmqk"]
+[ext_resource type="Script" uid="uid://bhd4nuiu23e7l" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd" id="4_li0xc"]
+[ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="5_a2jtb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jbxru"]
+shader = ExtResource("1_a2jtb")
+shader_parameter/saturation = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(10, 23)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iy3ii"]
+
+[sub_resource type="Resource" id="Resource_g4v7s"]
+script = ExtResource("5_a2jtb")
+amplitude = 20.0
+noise_seed = 392
+metadata/_custom_type_script = "uid://dimvdouy8g0sv"
+
 [node name="Player" type="CharacterBody2D" unique_id=1713843606]
+material = SubResource("ShaderMaterial_jbxru")
 collision_mask = 6
 script = ExtResource("1_dmmqk")
 
@@ -14,6 +31,43 @@ script = ExtResource("1_dmmqk")
 position = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_yf5fn")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=269669794]
+[node name="Fliproot" type="Node2D" parent="." unique_id=1052527165]
+use_parent_material = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Fliproot" unique_id=269669794]
+material = SubResource("ShaderMaterial_iy3ii")
+use_parent_material = true
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("1_ip285")
+
+[node name="Laser Start Point" type="Marker2D" parent="Fliproot" unique_id=1436290803]
+unique_name_in_owner = true
+position = Vector2(2.2431793, -7.3073196)
+
+[node name="Laser Raycast" type="RayCast2D" parent="Fliproot/Laser Start Point" unique_id=244528736]
+unique_name_in_owner = true
+target_position = Vector2(1000, 0)
+collision_mask = 6
+
+[node name="Laser Line" type="Line2D" parent="Fliproot" unique_id=1163900613]
+unique_name_in_owner = true
+position = Vector2(2.250657, -7.3175907)
+width = 1.68
+default_color = Color(1, 0, 0.1254902, 1)
+
+[node name="Laser Hitbox" type="Area2D" parent="Fliproot" unique_id=1300442941 node_paths=PackedStringArray("screen_shake")]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_dmmqk")
+damage_tags = Array[int]([2])
+knockback_angle = -80.0
+knockback_strength = 30.0
+screen_shake = NodePath("../../PhantomCameraNoiseEmitter2D")
+metadata/_custom_type_script = "uid://crxaysem1tfnv"
+
+[node name="PhantomCameraNoiseEmitter2D" type="Node2D" parent="." unique_id=821740996]
+script = ExtResource("4_li0xc")
+noise = SubResource("Resource_g4v7s")
+duration = 0.1
+metadata/_custom_type_script = "uid://bhd4nuiu23e7l"

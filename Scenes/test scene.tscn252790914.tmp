@@ -16,7 +16,6 @@
 [ext_resource type="Script" uid="uid://yllam5egj4yw" path="res://Scenes/destructable.gd" id="6_wv3x6"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_hf2ew"]
 [ext_resource type="Texture2D" uid="uid://nt2grdjoo275" path="res://icon.svg" id="11_a3gxn"]
-[ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="16_w2iq6"]
 [ext_resource type="PackedScene" uid="uid://dgg80udjapec8" path="res://Enemies/Scenes/test_enemy_dude.tscn" id="18_w2iq6"]
 [ext_resource type="Script" uid="uid://bm4v5ospdj8vn" path="res://Enemies/Scripts/enemy_spawner.gd" id="20_4vt6j"]
 
@@ -448,6 +447,57 @@ script = ExtResource("6_hf2ew")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 
+[sub_resource type="GDScript" id="GDScript_43yf3"]
+script/source = "class_name HealthComponent extends Node
+
+signal health_changed()
+signal died()
+signal knockback(vector: Vector2)
+
+@export_category(\"Health\")
+@export var max_hp = 10
+var current_hp = 10
+
+@export_category(\"Tags\")
+@export var immunity_tags: Array[Data.damage_tag]
+@export var weakness_tags: Array[Data.damage_tag]
+## If this is set to true, only damage tags that match a weakness will deal damage.
+## Useful for destructables that can only be damaged by a specific tag
+@export var weakness_only_damage: bool
+
+func _ready() -> void:
+	current_hp = max_hp
+
+func damage(amount: int, damage_tags: Array[Data.damage_tag], knockback_vector: Vector2):
+	if can_damage(damage_tags):
+		current_hp -= amount
+		if knockback_vector:
+			knockback.emit(knockback_vector * 10)
+	if current_hp <= 0:
+		died.emit()
+
+func heal(amount):
+	current_hp += amount
+	current_hp = min(max_hp, current_hp)
+
+func can_damage(damage_tags: Array[Data.damage_tag]) -> bool:
+	if not immunity_tags:
+		return true
+	# if any of the damage tags are in the immunity tag, 
+	if weakness_only_damage:
+		# can only damage if tag is in weaknesses
+		for tag in damage_tags:
+			if tag in weakness_tags:
+				return true
+		return false
+	else:
+		# can only damage if there is at least 1 tag not in immunities
+		for tag in damage_tags:
+			if tag not in immunity_tags:
+				return true
+		return false
+"
+
 [node name="Node2D" type="Node2D" unique_id=1246508524]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=666681385]
@@ -561,17 +611,17 @@ script = ExtResource("6_wv3x6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Destructable" unique_id=1585320480]
 shape = SubResource("RectangleShape2D_yf5fn")
 
+[node name="HealthComponent" type="Node" parent="Destructable" unique_id=377808191]
+unique_name_in_owner = true
+script = SubResource("GDScript_43yf3")
+weakness_tags = Array[int]([2])
+weakness_only_damage = true
+metadata/_custom_type_script = "uid://k1npmfprvwwt"
+
 [node name="Sprite2D" type="Sprite2D" parent="Destructable" unique_id=961941010]
 position = Vector2(-7.838011e-06, 5.9604645e-08)
 scale = Vector2(0.15624999, 0.15624999)
 texture = ExtResource("11_a3gxn")
-
-[node name="HealthComponent" type="Node" parent="Destructable" unique_id=71169911]
-unique_name_in_owner = true
-script = ExtResource("16_w2iq6")
-weakness_tags = Array[int]([2])
-weakness_only_damage = true
-metadata/_custom_type_script = "uid://k1npmfprvwwt"
 
 [node name="Enemy Dude" parent="." unique_id=1938194074 instance=ExtResource("18_w2iq6")]
 
@@ -584,5 +634,4 @@ enemy_scene = ExtResource("18_w2iq6")
 wait_time = 0.5
 autostart = true
 
-[connection signal="died" from="Destructable/HealthComponent" to="Destructable" method="_on_health_component_died"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
