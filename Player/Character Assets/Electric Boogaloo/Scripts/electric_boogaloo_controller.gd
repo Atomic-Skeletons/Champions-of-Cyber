@@ -1,25 +1,63 @@
-extends Character
+class_name ElectricController extends Character
 
 
 @export var move_speed := 200
 @export var jump_strength = -300.0
 
+@export var dash_distance: float = 100
+
+@onready var fliproot: Node2D = %Fliproot
+
+@onready var melee_hitbox: Hitbox = %"Melee Hitbox"
+@export var melee_collision_shape: CollisionShape2D
+@onready var attack_sprite: Sprite2D = $"Fliproot/Melee Hitbox/Attack Sprite"
+
+var in_attack = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_strength
-
+	else:
+		air_movement = true
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := get_x_axis()
 	if direction:
+		if not in_attack:
+			update_facing_direction(direction)
 		velocity.x = direction * move_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
-
+	
+	# Handle jump.
+	if is_action_just_pressed("jump"):
+		if is_on_floor():
+			velocity.y = jump_strength
+		elif air_movement:
+			# this is where the dash happens
+			var dir = direction
+			if not dir:
+				dir = facing_dir
+			global_position.x += dash_distance * dir
+			air_movement = false
+	
 	move_and_slide()
+	
+	if is_action_just_pressed("attack"):
+		in_attack = true
+		melee_collision_shape.disabled = false
+		attack_sprite.show()
+		await get_tree().create_timer(.1).timeout
+		in_attack = false
+		attack_sprite.hide()
+		melee_collision_shape.disabled = true
+
+func update_facing_direction(dir: int):
+	facing_dir = sign(dir)
+	fliproot.scale.x = sign(dir)
+
+var hit_counter = 0
+func _on_melee_hitbox_hit_body(body: Node2D) -> void:
+	TimeController.control_time_scale(.01, .2, 0, 0, 1)
+	hit_counter+=1

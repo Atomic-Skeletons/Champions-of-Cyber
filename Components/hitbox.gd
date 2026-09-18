@@ -1,6 +1,7 @@
 class_name Hitbox
 extends Area2D
 
+signal hit_body(body: Node2D)
 
 @export var damage: int = 10
 @export var damage_tags: Array[Data.damage_tag]
@@ -11,7 +12,7 @@ var knockback_flipped := false
 @export var knockback_strength: float
 
 @export var hitstun_duration: float = .5
-#@export var screen_shake: PhantomCameraNoiseEmitter2D
+@export var screen_shake: PhantomCameraNoiseEmitter2D
 
 
 func _ready() -> void:
@@ -20,7 +21,9 @@ func _ready() -> void:
 func on_hit(body: Node2D):
 	var hit_health_component := Global.get_health_component(body)
 	if hit_health_component:
-		#screen_shake.emit()
+		hit_body.emit(body)
+		if screen_shake:
+			screen_shake.emit()
 		var angle = knockback_angle
 		if knockback_flipped:
 			angle = 180 - knockback_angle

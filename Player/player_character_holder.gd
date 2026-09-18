@@ -43,19 +43,20 @@ func tag():
 	if not active_character.can_tag: return
 	# Swap character with other based on index
 	if active_character_index == 1:
-		activate_character(character_2)
 		update_new_character(character_2, character_1)
 		deactivate_character(character_1)
+		activate_character(character_2)
 		active_character = character_2
 		active_character_index = 2
 	
 	elif active_character_index == 2:
-		activate_character(character_1)
 		update_new_character(character_1, character_2)
 		deactivate_character(character_2)
+		activate_character(character_1)
 		active_character = character_1
 		active_character_index = 1
 	
+	active_character.move_and_slide()
 
 func update_new_character(new: Character, old: Character):
 	new.velocity = old.velocity

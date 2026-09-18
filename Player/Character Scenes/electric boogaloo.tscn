@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cr8pon842evx8" path="res://Player/Character Assets/Electric Boogaloo/Scripts/electric_boogaloo_controller.gd" id="2_aa6g8"]
 [ext_resource type="Texture2D" uid="uid://0puqleepv0k0" path="res://Player/Character Assets/Explorer/Art/laser_shot_anim.png" id="4_titfj"]
 [ext_resource type="Texture2D" uid="uid://e0454mamtsq2" path="res://Player/Character Assets/Electric Boogaloo/Art/electric boogaloo.png" id="5_0otec"]
+[ext_resource type="Texture2D" uid="uid://nt2grdjoo275" path="res://icon.svg" id="6_v60ed"]
 [ext_resource type="Script" uid="uid://crxaysem1tfnv" path="res://Components/hitbox.gd" id="8_qyvub"]
 [ext_resource type="Texture2D" uid="uid://khdibka87ybe" path="res://Player/Character Assets/Explorer/Art/laser body.png" id="9_7hw07"]
 [ext_resource type="Script" uid="uid://bhd4nuiu23e7l" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd" id="10_cwy66"]
@@ -35,22 +36,27 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(20, 24)
+
 [sub_resource type="Resource" id="Resource_neio3"]
 script = ExtResource("11_qdcu2")
 frequency = 5.0
 noise_seed = 672
 metadata/_custom_type_script = "uid://dimvdouy8g0sv"
 
-[node name="Player" type="CharacterBody2D" unique_id=1713843606]
+[node name="Player" type="CharacterBody2D" unique_id=1713843606 node_paths=PackedStringArray("melee_collision_shape")]
 material = SubResource("ShaderMaterial_jbxru")
 collision_mask = 6
 script = ExtResource("2_aa6g8")
+melee_collision_shape = NodePath("Fliproot/Melee Hitbox/CollisionShape2D")
 
 [node name="Normal Hurtbox" type="CollisionShape2D" parent="." unique_id=1992489529]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="Fliproot" type="Node2D" parent="." unique_id=1052527165]
+unique_name_in_owner = true
 use_parent_material = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fliproot" unique_id=86812366]
@@ -72,17 +78,25 @@ target_position = Vector2(100, 0)
 position = Vector2(0, 12)
 target_position = Vector2(100, 0)
 
-[node name="Laser Hitbox" type="Area2D" parent="." unique_id=1300442941]
+[node name="Melee Hitbox" type="Area2D" parent="Fliproot" unique_id=1300442941]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("8_qyvub")
-damage = null
 damage_tags = Array[int]([2])
 knockback_angle = -80.0
 knockback_strength = 30.0
-hitstun_duration = null
 metadata/_custom_type_script = "uid://crxaysem1tfnv"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fliproot/Melee Hitbox" unique_id=2015066030]
+position = Vector2(15, 1)
+shape = SubResource("RectangleShape2D_g4v7s")
+disabled = true
+
+[node name="Attack Sprite" type="Sprite2D" parent="Fliproot/Melee Hitbox" unique_id=1137831647]
+position = Vector2(16, 1.0000002)
+scale = Vector2(0.140625, 0.1875)
+texture = ExtResource("6_v60ed")
 
 [node name="Laser Line" type="Line2D" parent="." unique_id=1163900613]
 unique_name_in_owner = true
@@ -100,3 +114,5 @@ continuous = true
 duration = 0.1
 decay_time = 0.5
 metadata/_custom_type_script = "uid://bhd4nuiu23e7l"
+
+[connection signal="hit_body" from="Fliproot/Melee Hitbox" to="." method="_on_melee_hitbox_hit_body"]
