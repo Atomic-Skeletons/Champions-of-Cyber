@@ -12,6 +12,8 @@ var knockback_flipped := false
 @export var knockback_strength: float
 
 @export var hitstun_duration: float = .5
+#@export var invincibility_duration: float = 1
+
 @export var screen_shake: PhantomCameraNoiseEmitter2D
 
 

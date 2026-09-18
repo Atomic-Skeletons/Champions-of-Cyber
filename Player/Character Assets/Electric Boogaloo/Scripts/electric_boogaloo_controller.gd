@@ -40,6 +40,7 @@ func _physics_process(delta: float) -> void:
 			if not dir:
 				dir = facing_dir
 			global_position.x += dash_distance * dir
+			velocity.y = 0
 			air_movement = false
 	
 	move_and_slide()

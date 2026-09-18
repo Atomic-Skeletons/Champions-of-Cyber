@@ -94,6 +94,7 @@ shape = SubResource("RectangleShape2D_g4v7s")
 disabled = true
 
 [node name="Attack Sprite" type="Sprite2D" parent="Fliproot/Melee Hitbox" unique_id=1137831647]
+visible = false
 position = Vector2(16, 1.0000002)
 scale = Vector2(0.140625, 0.1875)
 texture = ExtResource("6_v60ed")
