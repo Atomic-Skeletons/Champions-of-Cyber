@@ -7,8 +7,10 @@ extends Area2D
 
 # knockback will be based on facing direction
 @export_range(-180, 180) var knockback_angle: float
+var knockback_flipped := false
 @export var knockback_strength: float
 
+@export var hitstun_duration: float = .5
 #@export var screen_shake: PhantomCameraNoiseEmitter2D
 
 
@@ -19,6 +21,9 @@ func on_hit(body: Node2D):
 	var hit_health_component := Global.get_health_component(body)
 	if hit_health_component:
 		#screen_shake.emit()
-		var knockback_rad = deg_to_rad(knockback_angle)
+		var angle = knockback_angle
+		if knockback_flipped:
+			angle = 180 - knockback_angle
+		var knockback_rad = deg_to_rad(angle)
 		var knockback_vector: Vector2 = Vector2.RIGHT.rotated(knockback_rad) * knockback_strength
-		hit_health_component.damage(damage, damage_tags, knockback_vector)
+		hit_health_component.damage(damage, damage_tags, knockback_vector, hitstun_duration)

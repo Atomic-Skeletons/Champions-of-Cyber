@@ -6,5 +6,5 @@ extends Marker2D
 func _on_timer_timeout() -> void:
 	var enemy: CharacterBody2D = enemy_scene.instantiate()
 	
-	get_parent().add_child(enemy)
 	enemy.global_position = global_position
+	get_parent().add_child(enemy)

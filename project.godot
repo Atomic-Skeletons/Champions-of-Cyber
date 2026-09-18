@@ -20,11 +20,12 @@ Global="*uid://f3w7a6l1scut"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 Data="*uid://bxflsv17w3ph2"
 Stoat="*uid://d3gkbh7wwhulk"
+TimeController="*uid://duarl0kriqsfe"
 
 [display]
 
-window/size/viewport_width=320
-window/size/viewport_height=180
+window/size/viewport_width=640
+window/size/viewport_height=480
 window/size/resizable=false
 window/size/window_width_override=1280
 window/size/window_height_override=720

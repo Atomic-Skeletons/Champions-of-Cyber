@@ -1,15 +1,21 @@
-extends Character
+class_name Explorer extends Character
 
+
+@export_group("Movement Variables")
+#@export var ground_acceleration = 100
+#@export var ground_max_speed = 100
+#@export var ground_breaking_speed = 200
 
 @export var move_speed = 100.0
 @export var jump_strength = 300.0
-@export var laser_duration: float = .5
+
 
 @onready var laser_start_point: Marker2D = %"Laser Start Point"
 @onready var laser_raycast: RayCast2D = %"Laser Raycast"
 @onready var laser_line: Line2D = %"Laser Line"
 @onready var laser_hitbox: Hitbox = %"Laser Hitbox"
 
+@export_group("Laser Bullet")
 @export var laser_bullet_scene: PackedScene
 @export var laser_bullet_speed: float = 100
 
@@ -17,9 +23,12 @@ extends Character
 
 @onready var anim_sprite: AnimatedSprite2D = $Fliproot/AnimatedSprite2D
 
-var laser_charge_duration = .4
+@export_group("Laser Charge")
+@export var laser_charge_duration = .4
 var laser_charge = 0
 var mega_laser = false
+@export var max_move_speed: float = 50
+
 
 func _ready() -> void:
 	laser_hitbox.reparent(get_parent())
@@ -28,7 +37,17 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		if is_action_pressed("attack"):
+			# while the player is holding the mega laser button
+			# they slow down their movement
+			velocity += get_gravity() * delta / 10
+			if velocity.y < 0:
+				velocity.y = lerp(velocity.y, 0.0, .2)
+			elif velocity.y > 0:
+				if velocity.y > max_move_speed:
+					velocity.y = lerp(velocity.y, max_move_speed, .2)
+		else:
+			velocity += get_gravity() * delta
 	else:
 		air_movement = true
 	# Handle jump.
@@ -44,7 +63,12 @@ func _physics_process(delta: float) -> void:
 	var direction := get_x_axis()
 	if direction:
 		update_facing_direction(direction)
-		velocity.x = direction * move_speed
+		
+		var speed = move_speed
+		if mega_laser:
+			speed /= 2
+		#velocity.x += direction * ground_acceleration * delta
+		velocity.x = direction * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
 
@@ -70,6 +94,7 @@ func _physics_process(delta: float) -> void:
 func update_facing_direction(dir: int):
 	facing_dir = sign(dir)
 	fliproot.scale.x = sign(dir)
+	laser_hitbox.knockback_flipped = dir == -1 if true else false
 
 func shoot_laser_bullet():
 	var laser_bullet: RigidBody2D = laser_bullet_scene.instantiate()
@@ -88,6 +113,7 @@ func shoot_laser_bullet():
 @onready var mega_laser_shake: PhantomCameraNoiseEmitter2D = $"Mega Laser Shake"
 
 func start_mega_laser():
+	can_tag = false
 	mega_laser = true
 	laser_pieces.show()
 	laser_line.show()
@@ -95,6 +121,7 @@ func start_mega_laser():
 	mega_laser_shake.emit()
 
 func end_mega_laser():
+	can_tag = true
 	mega_laser = false
 	laser_pieces.hide()
 	laser_line.hide()
@@ -130,34 +157,3 @@ func update_mega_laser():
 	var bottom_left = laser_collision_polygon.to_local(laser_start_point.global_position + Vector2(0, width))
 	
 	laser_collision_polygon.polygon = [top_left, top_right, bottom_right, bottom_left]
-
-func shoot_laser_with_raycast_node():
-	# if the raycast is not hitting anything, it will default to
-	# 160 pixels in front of the player to create a laser to
-	var end_point: Vector2 = laser_start_point.global_position
-	end_point.x += 160 * facing_dir
-	
-	# force the raycast to update so it's collisions are up to date
-	laser_raycast.force_raycast_update()
-	if laser_raycast.is_colliding():
-		# if the raycast is colliding with anything, 
-		# add that point as the end point
-		end_point = laser_raycast.get_collision_point()
-	
-	laser_end.global_position = end_point
-	
-	laser_line.clear_points()
-	# add the start and end points to the line
-	laser_line.add_point(start_marker.position)
-	laser_line.add_point(end_marker.position)
-	
-	
-	# create the collision polygon to hit enemies
-	end_point += Vector2(10*facing_dir, 0)
-	var width := laser_line.width * 2
-	laser_collision_polygon.polygon = [
-		laser_start_point.global_position + Vector2(0, -width), # top left
-		end_point + Vector2(0, -width),   # top right
-		end_point + Vector2(0, width),    # bottom right
-		laser_start_point.global_position + Vector2(0, width),  # bottom left
-		]

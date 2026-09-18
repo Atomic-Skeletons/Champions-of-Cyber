@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://bfukd726rcgk2"]
+
+[ext_resource type="Shader" uid="uid://dhqnthhyhb402" path="res://Shaders/desaturation_shader.tres" id="1_0otec"]
+[ext_resource type="Script" uid="uid://cr8pon842evx8" path="res://Player/Character Assets/Electric Boogaloo/Scripts/electric_boogaloo_controller.gd" id="2_aa6g8"]
+[ext_resource type="Texture2D" uid="uid://0puqleepv0k0" path="res://Player/Character Assets/Explorer/Art/laser_shot_anim.png" id="4_titfj"]
+[ext_resource type="Texture2D" uid="uid://e0454mamtsq2" path="res://Player/Character Assets/Electric Boogaloo/Art/electric boogaloo.png" id="5_0otec"]
+[ext_resource type="Script" uid="uid://crxaysem1tfnv" path="res://Components/hitbox.gd" id="8_qyvub"]
+[ext_resource type="Texture2D" uid="uid://khdibka87ybe" path="res://Player/Character Assets/Explorer/Art/laser body.png" id="9_7hw07"]
+[ext_resource type="Script" uid="uid://bhd4nuiu23e7l" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd" id="10_cwy66"]
+[ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="11_qdcu2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jbxru"]
+shader = ExtResource("1_0otec")
+shader_parameter/saturation = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(14, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_titfj")
+}],
+"loop": 0,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_0otec")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_neio3"]
+script = ExtResource("11_qdcu2")
+frequency = 5.0
+noise_seed = 672
+metadata/_custom_type_script = "uid://dimvdouy8g0sv"
+
+[node name="Player" type="CharacterBody2D" unique_id=1713843606]
+material = SubResource("ShaderMaterial_jbxru")
+collision_mask = 6
+script = ExtResource("2_aa6g8")
+
+[node name="Normal Hurtbox" type="CollisionShape2D" parent="." unique_id=1992489529]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="Fliproot" type="Node2D" parent="." unique_id=1052527165]
+use_parent_material = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fliproot" unique_id=86812366]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Dash Raycasts" type="Node2D" parent="Fliproot" unique_id=1883581587]
+unique_name_in_owner = true
+
+[node name="RayCast2D" type="RayCast2D" parent="Fliproot/Dash Raycasts" unique_id=958839020]
+position = Vector2(0, -13)
+target_position = Vector2(100, 0)
+
+[node name="RayCast2D3" type="RayCast2D" parent="Fliproot/Dash Raycasts" unique_id=1168818004]
+target_position = Vector2(100, 0)
+
+[node name="RayCast2D2" type="RayCast2D" parent="Fliproot/Dash Raycasts" unique_id=1652120398]
+position = Vector2(0, 12)
+target_position = Vector2(100, 0)
+
+[node name="Laser Hitbox" type="Area2D" parent="." unique_id=1300442941]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("8_qyvub")
+damage = null
+damage_tags = Array[int]([2])
+knockback_angle = -80.0
+knockback_strength = 30.0
+hitstun_duration = null
+metadata/_custom_type_script = "uid://crxaysem1tfnv"
+
+[node name="Laser Line" type="Line2D" parent="." unique_id=1163900613]
+unique_name_in_owner = true
+visible = false
+position = Vector2(2.250657, -7.3175907)
+points = PackedVector2Array(10.749343, -0.6824093, 34.749344, -0.6824093)
+width = 32.0
+texture = ExtResource("9_7hw07")
+texture_mode = 1
+
+[node name="Mega Laser Shake" type="Node2D" parent="." unique_id=1089475892]
+script = ExtResource("10_cwy66")
+noise = SubResource("Resource_neio3")
+continuous = true
+duration = 0.1
+decay_time = 0.5
+metadata/_custom_type_script = "uid://bhd4nuiu23e7l"

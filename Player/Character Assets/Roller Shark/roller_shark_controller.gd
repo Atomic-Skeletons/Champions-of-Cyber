@@ -1,4 +1,4 @@
-extends StateMachine
+class_name RollerShark extends StateMachine
 
 @export var ground_acceleration = 100
 @export var ground_speed = 100
@@ -182,6 +182,7 @@ func _enter_state(new_state, old_state):
 		anim_sprite.play("idle")
 	
 	if new_state == states.digging:
+		can_tag = false
 		resurfacing = false
 		digging_timer.start()
 		normal_hurtbox.disabled = true
@@ -189,6 +190,7 @@ func _enter_state(new_state, old_state):
 		anim_sprite.play("digging transition")
 	
 	if new_state == states.wall_digging:
+		can_tag = false
 		# translate horizontal move speed into vertical speed
 		velocity.y = -abs(last_x_speed)
 		wall_dig_direction = sign(last_x_speed)
@@ -205,11 +207,13 @@ func _enter_state(new_state, old_state):
 
 func _exit_state(old_state, new_state):
 	if old_state == states.digging:
+		can_tag = true
 		can_dig = false
 		normal_hurtbox.disabled = false
 		digging_hurtbox.disabled = true
 	
 	if old_state == states.wall_digging:
+		can_tag = true
 		rotate(deg_to_rad(90 * wall_dig_direction))
 		can_dig = false
 		normal_hurtbox.disabled = false

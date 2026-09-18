@@ -18,7 +18,7 @@ var current_hp = 10
 func _ready() -> void:
 	current_hp = max_hp
 
-func damage(amount: int, damage_tags: Array[Data.damage_tag], knockback_vector: Vector2):
+func damage(amount: int, damage_tags: Array[Data.damage_tag], knockback_vector: Vector2, hitstun_duration: float):
 	if can_damage(damage_tags):
 		current_hp -= amount
 		if knockback_vector:

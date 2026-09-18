@@ -2,7 +2,6 @@
 
 [ext_resource type="Shader" uid="uid://dhqnthhyhb402" path="res://Shaders/desaturation_shader.tres" id="1_a2jtb"]
 [ext_resource type="Script" uid="uid://fxopwerwirot" path="res://Player/Character Assets/Explorer/explorer_controller.gd" id="1_dmmqk"]
-[ext_resource type="Script" uid="uid://crxaysem1tfnv" path="res://Components/hitbox.gd" id="3_dmmqk"]
 [ext_resource type="Texture2D" uid="uid://0puqleepv0k0" path="res://Player/Character Assets/Explorer/Art/laser_shot_anim.png" id="4_d84m8"]
 [ext_resource type="Script" uid="uid://bhd4nuiu23e7l" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd" id="4_li0xc"]
 [ext_resource type="Texture2D" uid="uid://b7qyud32eky12" path="res://Player/Character Assets/Explorer/Art/laser start.png" id="4_neio3"]
@@ -11,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://chxconcuso2pk" path="res://Player/Character Assets/Explorer/Art/explorer shape sprite.png" id="5_j2i38"]
 [ext_resource type="PackedScene" uid="uid://bs1gkeavl1uf1" path="res://Player/Character Assets/Explorer/Scripts/laser_bullet.tscn" id="6_a2jtb"]
 [ext_resource type="Texture2D" uid="uid://khdibka87ybe" path="res://Player/Character Assets/Explorer/Art/laser body.png" id="6_j2i38"]
+[ext_resource type="Script" uid="uid://cybfhnkr2grvs" path="res://Player/Character Assets/constant_trigger_hitbox.gd" id="8_neio3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jbxru"]
 shader = ExtResource("1_a2jtb")
@@ -99,10 +99,11 @@ position = Vector2(-8, 0)
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("3_dmmqk")
+script = ExtResource("8_neio3")
+damage_interval = 0.01
 damage_tags = Array[int]([2])
-knockback_angle = -80.0
-knockback_strength = 30.0
+knockback_strength = 1.0
+hitstun_duration = 0.2
 metadata/_custom_type_script = "uid://crxaysem1tfnv"
 
 [node name="Laser Collision Polygon" type="CollisionPolygon2D" parent="Laser Hitbox" unique_id=1207603043]

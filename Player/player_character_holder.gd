@@ -40,6 +40,7 @@ func _process(delta: float) -> void:
 		phantom_camera.follow_target = active_character
 
 func tag():
+	if not active_character.can_tag: return
 	# Swap character with other based on index
 	if active_character_index == 1:
 		activate_character(character_2)
