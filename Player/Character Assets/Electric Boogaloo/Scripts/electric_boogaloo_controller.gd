@@ -5,6 +5,10 @@ class_name ElectricController extends Character
 @export var jump_strength = -300.0
 
 @export var dash_distance: float = 100
+@export var dash_duration: float = 1
+var in_dash = false
+var dash_velocity: Vector2
+@onready var dash_timer: Timer = %"Dash Timer"
 
 @onready var fliproot: Node2D = %Fliproot
 
@@ -13,6 +17,9 @@ class_name ElectricController extends Character
 @onready var attack_sprite: Sprite2D = $"Fliproot/Melee Hitbox/Attack Sprite"
 
 var in_attack = false
+
+func _ready() -> void:
+	dash_timer.wait_time = dash_duration
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -31,21 +38,29 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
 	
 	# Handle jump.
-	if is_action_just_pressed("jump"):
+	if is_action_just_pressed("jump") and not in_dash:
 		if is_on_floor():
 			velocity.y = jump_strength
 		elif air_movement:
+			can_tag = false
+			in_dash = true
+			air_movement = false
 			# this is where the dash happens
 			var dir = direction
 			if not dir:
 				dir = facing_dir
-			global_position.x += dash_distance * dir
-			velocity.y = 0
-			air_movement = false
+			
+			#global_position.x += dash_distance * dir
+			dash_velocity = Vector2(facing_dir * dash_distance/dash_duration, 0)
+			
+			dash_timer.start()
+	
+	if in_dash:
+		velocity = dash_velocity
 	
 	move_and_slide()
 	
-	if is_action_just_pressed("attack"):
+	if is_action_just_pressed("attack") and not in_dash:
 		in_attack = true
 		melee_collision_shape.disabled = false
 		attack_sprite.show()
@@ -62,3 +77,8 @@ var hit_counter = 0
 func _on_melee_hitbox_hit_body(body: Node2D) -> void:
 	TimeController.control_time_scale(.01, .2, 0, 0, 1)
 	hit_counter+=1
+
+
+func _on_dash_timer_timeout() -> void:
+	in_dash = false
+	can_tag = true

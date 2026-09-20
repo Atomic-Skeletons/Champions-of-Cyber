@@ -96,7 +96,10 @@ func update_facing_direction(dir: int):
 	fliproot.scale.x = sign(dir)
 	laser_hitbox.knockback_flipped = dir == -1 if true else false
 
+@onready var laser_bullet: RandomPitchPlayer = %LaserBullet
+
 func shoot_laser_bullet():
+	laser_bullet.play_random_pitch()
 	var laser_bullet: RigidBody2D = laser_bullet_scene.instantiate()
 	get_parent().add_child(laser_bullet)
 	

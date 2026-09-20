@@ -49,6 +49,7 @@ metadata/_custom_type_script = "uid://dimvdouy8g0sv"
 material = SubResource("ShaderMaterial_jbxru")
 collision_mask = 6
 script = ExtResource("2_aa6g8")
+dash_duration = 0.1
 melee_collision_shape = NodePath("Fliproot/Melee Hitbox/CollisionShape2D")
 
 [node name="Normal Hurtbox" type="CollisionShape2D" parent="." unique_id=1992489529]
@@ -63,20 +64,6 @@ use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"idle"
 autoplay = "idle"
-
-[node name="Dash Raycasts" type="Node2D" parent="Fliproot" unique_id=1883581587]
-unique_name_in_owner = true
-
-[node name="RayCast2D" type="RayCast2D" parent="Fliproot/Dash Raycasts" unique_id=958839020]
-position = Vector2(0, -13)
-target_position = Vector2(100, 0)
-
-[node name="RayCast2D3" type="RayCast2D" parent="Fliproot/Dash Raycasts" unique_id=1168818004]
-target_position = Vector2(100, 0)
-
-[node name="RayCast2D2" type="RayCast2D" parent="Fliproot/Dash Raycasts" unique_id=1652120398]
-position = Vector2(0, 12)
-target_position = Vector2(100, 0)
 
 [node name="Melee Hitbox" type="Area2D" parent="Fliproot" unique_id=1300442941]
 unique_name_in_owner = true
@@ -116,4 +103,9 @@ duration = 0.1
 decay_time = 0.5
 metadata/_custom_type_script = "uid://bhd4nuiu23e7l"
 
+[node name="Dash Timer" type="Timer" parent="." unique_id=1437718145]
+unique_name_in_owner = true
+one_shot = true
+
 [connection signal="hit_body" from="Fliproot/Melee Hitbox" to="." method="_on_melee_hitbox_hit_body"]
+[connection signal="timeout" from="Dash Timer" to="." method="_on_dash_timer_timeout"]

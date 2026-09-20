@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://bs1gkeavl1uf1" path="res://Player/Character Assets/Explorer/Scripts/laser_bullet.tscn" id="6_a2jtb"]
 [ext_resource type="Texture2D" uid="uid://khdibka87ybe" path="res://Player/Character Assets/Explorer/Art/laser body.png" id="6_j2i38"]
 [ext_resource type="Script" uid="uid://cybfhnkr2grvs" path="res://Player/Character Assets/constant_trigger_hitbox.gd" id="8_neio3"]
+[ext_resource type="AudioStream" uid="uid://d0duh57bucjsl" path="res://Player/Character Assets/Explorer/Audio/laser bullet.wav" id="12_6vsvd"]
+[ext_resource type="Script" uid="uid://bxcx45dpdno2q" path="res://Player/random_pitch_shifter.gd" id="13_xpils"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jbxru"]
 shader = ExtResource("1_a2jtb")
@@ -127,3 +129,13 @@ continuous = true
 duration = 0.1
 decay_time = 0.5
 metadata/_custom_type_script = "uid://bhd4nuiu23e7l"
+
+[node name="Audio" type="Node" parent="." unique_id=2134196532]
+
+[node name="LaserBullet" type="AudioStreamPlayer" parent="Audio" unique_id=1060211262]
+unique_name_in_owner = true
+stream = ExtResource("12_6vsvd")
+script = ExtResource("13_xpils")
+min_pitch = 0.9
+max_pitch = 1.1
+metadata/_custom_type_script = "uid://bxcx45dpdno2q"
