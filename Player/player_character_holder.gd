@@ -1,5 +1,6 @@
 class_name PlayerCharacterHolder extends Node
 
+
 var active_character: Character
 var active_character_index = 1
 

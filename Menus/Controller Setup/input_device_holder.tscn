@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cr8632aaoor7h"]
+
+[ext_resource type="Script" uid="uid://cs4yo6isb14ta" path="res://Menus/Controller Setup/input_device_decider.gd" id="1_r1x75"]
+[ext_resource type="Texture2D" uid="uid://nt2grdjoo275" path="res://icon.svg" id="2_2w7in"]
+
+[node name="Input Device Holder" type="MarginContainer" unique_id=1752917079]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r1x75")
+joypad_index = -1
+
+[node name="Keyboard Controller" type="VBoxContainer" parent="." unique_id=276026857]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Keyboard Controller" unique_id=1590506078]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_2w7in")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Keyboard Controller" unique_id=1939045058]
+layout_mode = 2
+
+[node name="Left Arrow" type="Label" parent="Keyboard Controller/HBoxContainer" unique_id=1253856703]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "<"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Right Arrow" type="Label" parent="Keyboard Controller/HBoxContainer" unique_id=505664229]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = ">"
+horizontal_alignment = 1
+vertical_alignment = 1

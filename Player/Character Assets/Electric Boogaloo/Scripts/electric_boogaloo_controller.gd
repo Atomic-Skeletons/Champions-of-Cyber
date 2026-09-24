@@ -40,8 +40,10 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if is_action_just_pressed("jump") and not in_dash:
 		if is_on_floor():
+			# jump
 			velocity.y = jump_strength
 		elif air_movement:
+			# dash
 			can_tag = false
 			in_dash = true
 			air_movement = false
@@ -72,6 +74,7 @@ func _physics_process(delta: float) -> void:
 func update_facing_direction(dir: int):
 	facing_dir = sign(dir)
 	fliproot.scale.x = sign(dir)
+	melee_hitbox.knockback_flipped = false if dir == 1 else true
 
 var hit_counter = 0
 func _on_melee_hitbox_hit_body(body: Node2D) -> void:

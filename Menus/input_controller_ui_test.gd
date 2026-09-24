@@ -1,5 +1,5 @@
-class_name InputHandler
-extends CharacterBody2D
+class_name GUIInputHandler
+extends Panel
 
 
 enum InputSource { KEYBOARD, JOYPAD }
@@ -26,7 +26,7 @@ enum InputSource { KEYBOARD, JOYPAD }
 
 var _joy_now := {
 	"left": false, "right": false, "up": false, "down": false,
-	"jump": false, "attack": false,
+	"jump": false, "attack": false, "tag": false
 }
 var _joy_prev := _joy_now.duplicate()
 

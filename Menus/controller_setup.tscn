@@ -1,0 +1,169 @@
+[gd_scene format=3 uid="uid://bndhmjwv3783"]
+
+[ext_resource type="PackedScene" uid="uid://cr8632aaoor7h" path="res://Menus/Controller Setup/input_device_holder.tscn" id="3_ihi54"]
+
+[node name="Controller Setup" type="Control" unique_id=465136458]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=832409472]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1876831755]
+layout_mode = 2
+
+[node name="Player 1" type="Panel" parent="MarginContainer/HBoxContainer" unique_id=1158097458]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Player 1 Container" type="MarginContainer" parent="MarginContainer/HBoxContainer/Player 1" unique_id=168971532]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 150
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Player 1" unique_id=1712201091]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.19600001
+offset_bottom = -5.1600037
+text = "Player 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Active Controllers" type="Panel" parent="MarginContainer/HBoxContainer" unique_id=881758126]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Active Controllers" unique_id=560096017]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Active Controllers Holder" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Active Controllers/MarginContainer" unique_id=138200170]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Keyboard" type="Panel" parent="MarginContainer/HBoxContainer/Active Controllers/MarginContainer/Active Controllers Holder" unique_id=584344626]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Active Controllers/MarginContainer/Active Controllers Holder/Keyboard" unique_id=1482582009]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Input Device Holder" parent="MarginContainer/HBoxContainer/Active Controllers/MarginContainer/Active Controllers Holder/Keyboard/MarginContainer" unique_id=1752917079 node_paths=PackedStringArray("player_1_container", "player_2_container") instance=ExtResource("3_ihi54")]
+layout_mode = 2
+player_1_container = NodePath("../../../../../../Player 1/Player 1 Container")
+player_2_container = NodePath("../../../../../../Player 2/Player 2 Container")
+
+[node name="Controller 1" type="Panel" parent="MarginContainer/HBoxContainer/Active Controllers/MarginContainer/Active Controllers Holder" unique_id=2088688277]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Active Controllers/MarginContainer/Active Controllers Holder/Controller 1" unique_id=216060571]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Input Device Holder" parent="MarginContainer/HBoxContainer/Active Controllers/MarginContainer/Active Controllers Holder/Controller 1/MarginContainer" unique_id=1855222164 node_paths=PackedStringArray("player_1_container", "player_2_container") instance=ExtResource("3_ihi54")]
+layout_mode = 2
+player_1_container = NodePath("../../../../../../Player 1/Player 1 Container")
+player_2_container = NodePath("../../../../../../Player 2/Player 2 Container")
+joypad_index = 0
+
+[node name="Controller 2" type="Panel" parent="MarginContainer/HBoxContainer/Active Controllers/MarginContainer/Active Controllers Holder" unique_id=1424774843]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Active Controllers/MarginContainer/Active Controllers Holder/Controller 2" unique_id=405487313]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Input Device Holder" parent="MarginContainer/HBoxContainer/Active Controllers/MarginContainer/Active Controllers Holder/Controller 2/MarginContainer" unique_id=691626269 node_paths=PackedStringArray("player_1_container", "player_2_container") instance=ExtResource("3_ihi54")]
+layout_mode = 2
+player_1_container = NodePath("../../../../../../Player 1/Player 1 Container")
+player_2_container = NodePath("../../../../../../Player 2/Player 2 Container")
+joypad_index = 1
+
+[node name="Controller 3" type="Panel" parent="MarginContainer/HBoxContainer/Active Controllers/MarginContainer/Active Controllers Holder" unique_id=1852788110]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Active Controllers/MarginContainer/Active Controllers Holder/Controller 3" unique_id=251573052]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Input Device Holder" parent="MarginContainer/HBoxContainer/Active Controllers/MarginContainer/Active Controllers Holder/Controller 3/MarginContainer" unique_id=713887133 node_paths=PackedStringArray("player_1_container", "player_2_container") instance=ExtResource("3_ihi54")]
+layout_mode = 2
+player_1_container = NodePath("../../../../../../Player 1/Player 1 Container")
+player_2_container = NodePath("../../../../../../Player 2/Player 2 Container")
+joypad_index = 2
+
+[node name="Player 2" type="Panel" parent="MarginContainer/HBoxContainer" unique_id=1157266916]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Player 2 Container" type="MarginContainer" parent="MarginContainer/HBoxContainer/Player 2" unique_id=1668807048]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 150
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Player 2" unique_id=38059570]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.19600001
+offset_bottom = -5.1600037
+text = "Player 2"
+horizontal_alignment = 1
+vertical_alignment = 1
