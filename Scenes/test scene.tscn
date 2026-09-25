@@ -40,6 +40,19 @@ shader_parameter/color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4vt6j"]
 
+[sub_resource type="Gradient" id="Gradient_0fqnc"]
+offsets = PackedFloat32Array(0.3135965, 0.5504386)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yf5fn"]
+gradient = SubResource("Gradient_0fqnc")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Curve" id="Curve_juohv"]
+_data = [Vector2(0.00390625, 0), 0.0, 0.0, 0, 0, Vector2(0.203125, 1), 0.0, 0.0, 0, 0, Vector2(0.828125, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n2ckv"]
 texture = ExtResource("4_a3gxn")
 texture_region_size = Vector2i(32, 32)
@@ -807,6 +820,21 @@ repeat_times = 4
 [node name="Sprite2D" type="Sprite2D" parent="Paralax Layers2/Layer 1" unique_id=889147733]
 material = SubResource("ShaderMaterial_4vt6j")
 texture = ExtResource("8_4vt6j")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Paralax Layers2/Layer 1" unique_id=2135659027]
+position = Vector2(0, 75)
+amount = 50
+texture = SubResource("GradientTexture2D_yf5fn")
+lifetime = 5.0
+preprocess = 2.0
+speed_scale = 0.8
+emission_shape = 3
+emission_rect_extents = Vector2(187.5, 60)
+gravity = Vector2(0, -15)
+scale_amount_min = 0.05
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_juohv")
+color = Color(0.4627451, 0, 1, 0.30588236)
 
 [node name="Player Character Holder" type="Node" parent="." unique_id=1787809907 node_paths=PackedStringArray("spawn_point") groups=["Player"]]
 script = ExtResource("1_nura0")
