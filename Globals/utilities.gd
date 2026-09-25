@@ -13,3 +13,11 @@ static func reset_tween(tween: Tween, parent: Node) -> Tween:
 		tween.kill()
 	
 	return parent.create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+
+static func disable_enemy_collision(node: CollisionObject2D):
+	node.set_collision_layer_value(1, false)
+	node.set_collision_mask_value(2, false)
+
+static func enable_enemy_collision(node: CollisionObject2D):
+	node.set_collision_layer_value(1, true)
+	node.set_collision_mask_value(2, true)

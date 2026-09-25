@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 			if not dir:
 				dir = facing_dir
 			
-			#global_position.x += dash_distance * dir
+			Utilities.disable_enemy_collision(self)
 			dash_velocity = Vector2(facing_dir * dash_distance/dash_duration, 0)
 			
 			dash_timer.start()
@@ -85,3 +85,4 @@ func _on_melee_hitbox_hit_body(body: Node2D) -> void:
 func _on_dash_timer_timeout() -> void:
 	in_dash = false
 	can_tag = true
+	Utilities.enable_enemy_collision(self)

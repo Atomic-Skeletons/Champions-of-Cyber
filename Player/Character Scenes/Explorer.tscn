@@ -48,6 +48,7 @@ metadata/_custom_type_script = "uid://dimvdouy8g0sv"
 
 [node name="Player" type="CharacterBody2D" unique_id=1713843606]
 material = SubResource("ShaderMaterial_jbxru")
+collision_layer = 257
 collision_mask = 6
 script = ExtResource("1_dmmqk")
 laser_bullet_scene = ExtResource("6_a2jtb")
@@ -137,6 +138,6 @@ metadata/_custom_type_script = "uid://bhd4nuiu23e7l"
 unique_name_in_owner = true
 stream = ExtResource("12_6vsvd")
 script = ExtResource("13_xpils")
-min_pitch = 0.9
-max_pitch = 1.1
+min_pitch = 0.8
+max_pitch = 1.2
 metadata/_custom_type_script = "uid://bxcx45dpdno2q"
