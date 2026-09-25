@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1w8ltjc7ihrk"
-path="res://.godot/imported/3rdlayer_forest-bg.png-f42ebf69fb4de57afa1fee64fe6ada37.ctex"
+uid="uid://6r3du18luonn"
+path="res://.godot/imported/FRONT_forestbg.png-4caa11091312e98fa788bc20da704395.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level Art/Eva'sBG_Art/Forest_Bg/3rdlayer_forest-bg.png"
-dest_files=["res://.godot/imported/3rdlayer_forest-bg.png-f42ebf69fb4de57afa1fee64fe6ada37.ctex"]
+source_file="res://Level Art/Eva'sBG_Art/Forest_Bg/FRONT_forestbg.png"
+dest_files=["res://.godot/imported/FRONT_forestbg.png-4caa11091312e98fa788bc20da704395.ctex"]
 
 [params]
 
