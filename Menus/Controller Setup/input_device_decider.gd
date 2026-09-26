@@ -1,6 +1,8 @@
 class_name InputDeviceHolder
 extends MarginContainer
 
+var input: UiInputHandler
+
 # These are the destinations when those are selected
 @export var player_1_container: Control
 @export var player_2_container: Control
@@ -18,55 +20,50 @@ enum input_menu_states {
 
 var input_menu_state: input_menu_states = input_menu_states.NONE
 
-@export_range(-1, 2) var joypad_index: int
-var joypad_id = null
 
 func _ready() -> void:
-	Input.joy_connection_changed.connect(_on_joy_connection_changed)
+	# get first child ui input handler if it exists
+	for child in get_children():
+		if child is UiInputHandler:
+			input = child
+	if input.input_source == input.InputSource.JOYPAD:
+		Input.joy_connection_changed.connect(_on_joy_connection_changed)
 	init_parent = get_parent()
-	update_controllers()
+	update_visual()
 
 func _on_joy_connection_changed(device: int, connected: bool) -> void:
-	if device == joypad_id:
+	if device == input.joypad_device:
+		# if the device is disconnected, move it back to the center
 		if not connected:
-			print("Controller disconnected from index: ", device)
+			set_input_menu_state(input_menu_states.NONE)
+		update_visual()
 
-func update_controllers():
-	var connected_joypads = Input.get_connected_joypads()
-	if joypad_index != -1:
-		if joypad_index < connected_joypads.size():
-			show()
-			joypad_id = connected_joypads[joypad_index]
-		else:
-			hide()
-
-func _unhandled_input(event: InputEvent) -> void:
-	# if they press a button and it's the right controller
-	# then make it appear rather than move it
+func update_visual():
+	if input.input_source == input.InputSource.KEYBOARD: return
 	
-	# if keyboard
-	if joypad_index == -1:
-		if event is InputEventKey and event.pressed:
-			var direction = Input.get_axis("left", "right")
-			if direction == 1:
-				move_right()
-			elif direction == -1:
-				move_left()
+	var connected = is_joypad_connected()
+	
+	if connected:
+		show()
 	else:
-		# checking if input was from this index's device
-		if (event is InputEventJoypadButton and event.pressed) or event is InputEventJoypadMotion:
-			var controller_id = event.device
-			if controller_id == joypad_index:
-				if not visible:
-					show()
-				else:
-					if event is InputEventJoypadMotion:
-						var deadzone = 1
-						var axis_value = event.axis_value
-						if axis_value >= deadzone:
-							move_right()
-						elif axis_value <= -deadzone:
-							move_left()
+		hide()
+
+func is_joypad_connected() -> bool:
+	var connected_joypads = Input.get_connected_joypads()
+	
+	# if my joypad index is connected return true
+	for i in connected_joypads:
+		if i == input.joypad_device:
+			return true
+	
+	return false
+
+func _physics_process(delta: float) -> void:
+	if input.is_action_just_pressed("left"):
+		move_left()
+	elif input.is_action_just_pressed("right"):
+		move_right()
+
 
 func set_input_menu_state(state: input_menu_states):
 	input_menu_state = state

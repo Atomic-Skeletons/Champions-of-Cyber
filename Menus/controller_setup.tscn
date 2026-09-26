@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bndhmjwv3783"]
 
+[ext_resource type="Script" uid="uid://du5nykuhfv02p" path="res://Player/Input Controller/ui_input_handler.gd" id="2_erc7r"]
 [ext_resource type="PackedScene" uid="uid://cr8632aaoor7h" path="res://Menus/Controller Setup/input_device_holder.tscn" id="3_ihi54"]
 
 [node name="Controller Setup" type="Control" unique_id=465136458]
@@ -88,6 +89,10 @@ layout_mode = 2
 player_1_container = NodePath("../../../../../../Player 1/Player 1 Container")
 player_2_container = NodePath("../../../../../../Player 2/Player 2 Container")
 
+[node name="UiInputHandler" type="Node" parent="MarginContainer/HBoxContainer/Active Controllers/MarginContainer/Active Controllers Holder/Keyboard/MarginContainer/Input Device Holder" unique_id=2072086087]
+script = ExtResource("2_erc7r")
+metadata/_custom_type_script = "uid://du5nykuhfv02p"
+
 [node name="Controller 1" type="Panel" parent="MarginContainer/HBoxContainer/Active Controllers/MarginContainer/Active Controllers Holder" unique_id=2088688277]
 layout_mode = 2
 size_flags_vertical = 3
@@ -104,7 +109,11 @@ grow_vertical = 2
 layout_mode = 2
 player_1_container = NodePath("../../../../../../Player 1/Player 1 Container")
 player_2_container = NodePath("../../../../../../Player 2/Player 2 Container")
-joypad_index = 0
+
+[node name="UiInputHandler" type="Node" parent="MarginContainer/HBoxContainer/Active Controllers/MarginContainer/Active Controllers Holder/Controller 1/MarginContainer/Input Device Holder" unique_id=183012012]
+script = ExtResource("2_erc7r")
+input_source = 1
+metadata/_custom_type_script = "uid://du5nykuhfv02p"
 
 [node name="Controller 2" type="Panel" parent="MarginContainer/HBoxContainer/Active Controllers/MarginContainer/Active Controllers Holder" unique_id=1424774843]
 layout_mode = 2
@@ -122,7 +131,12 @@ grow_vertical = 2
 layout_mode = 2
 player_1_container = NodePath("../../../../../../Player 1/Player 1 Container")
 player_2_container = NodePath("../../../../../../Player 2/Player 2 Container")
-joypad_index = 1
+
+[node name="UiInputHandler" type="Node" parent="MarginContainer/HBoxContainer/Active Controllers/MarginContainer/Active Controllers Holder/Controller 2/MarginContainer/Input Device Holder" unique_id=1025404379]
+script = ExtResource("2_erc7r")
+input_source = 1
+joypad_device = 1
+metadata/_custom_type_script = "uid://du5nykuhfv02p"
 
 [node name="Controller 3" type="Panel" parent="MarginContainer/HBoxContainer/Active Controllers/MarginContainer/Active Controllers Holder" unique_id=1852788110]
 layout_mode = 2
@@ -140,7 +154,12 @@ grow_vertical = 2
 layout_mode = 2
 player_1_container = NodePath("../../../../../../Player 1/Player 1 Container")
 player_2_container = NodePath("../../../../../../Player 2/Player 2 Container")
-joypad_index = 2
+
+[node name="UiInputHandler" type="Node" parent="MarginContainer/HBoxContainer/Active Controllers/MarginContainer/Active Controllers Holder/Controller 3/MarginContainer/Input Device Holder" unique_id=324055242]
+script = ExtResource("2_erc7r")
+input_source = 1
+joypad_device = 2
+metadata/_custom_type_script = "uid://du5nykuhfv02p"
 
 [node name="Player 2" type="Panel" parent="MarginContainer/HBoxContainer" unique_id=1157266916]
 layout_mode = 2

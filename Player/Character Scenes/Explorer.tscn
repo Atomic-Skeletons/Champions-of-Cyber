@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://0puqleepv0k0" path="res://Player/Character Assets/Explorer/Art/laser_shot_anim.png" id="4_d84m8"]
 [ext_resource type="Script" uid="uid://bhd4nuiu23e7l" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd" id="4_li0xc"]
 [ext_resource type="Texture2D" uid="uid://b7qyud32eky12" path="res://Player/Character Assets/Explorer/Art/laser start.png" id="4_neio3"]
+[ext_resource type="Script" uid="uid://dqtier8s750jn" path="res://Player/Input Controller/input_handler.gd" id="4_sdjjc"]
 [ext_resource type="Texture2D" uid="uid://dhnoghyfltoyg" path="res://Player/Character Assets/Explorer/Art/laser end.png" id="5_6vsvd"]
 [ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="5_a2jtb"]
 [ext_resource type="Texture2D" uid="uid://chxconcuso2pk" path="res://Player/Character Assets/Explorer/Art/explorer shape sprite.png" id="5_j2i38"]
@@ -53,6 +54,10 @@ collision_mask = 6
 script = ExtResource("1_dmmqk")
 laser_bullet_scene = ExtResource("6_a2jtb")
 laser_bullet_speed = 1000.0
+
+[node name="PlayerInputHandler" type="Node" parent="." unique_id=1113545624]
+script = ExtResource("4_sdjjc")
+metadata/_custom_type_script = "uid://dqtier8s750jn"
 
 [node name="Normal Hurtbox" type="CollisionShape2D" parent="." unique_id=1992489529]
 position = Vector2(0, 0.5)

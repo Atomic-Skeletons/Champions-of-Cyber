@@ -37,7 +37,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		if is_action_pressed("attack"):
+		if input.is_action_pressed("attack"):
 			# while the player is holding the mega laser button
 			# they slow down their movement
 			velocity += get_gravity() * delta / 10
@@ -51,7 +51,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		air_movement = true
 	# Handle jump.
-	if is_action_just_pressed("jump"):
+	if input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y = -jump_strength
 		elif air_movement:
@@ -60,9 +60,9 @@ func _physics_process(delta: float) -> void:
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := get_x_axis()
+	var direction := input.get_x_axis()
 	if direction:
-		update_facing_direction(direction)
+		update_facing_direction(sign(direction))
 		
 		var speed = move_speed
 		if mega_laser:
@@ -74,7 +74,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-	if is_action_pressed("attack"):
+	if input.is_action_pressed("attack"):
 		anim_sprite.play("attack")
 		laser_charge += delta
 		if not mega_laser and laser_charge >= laser_charge_duration:
@@ -82,7 +82,7 @@ func _physics_process(delta: float) -> void:
 		if mega_laser:
 			update_mega_laser()
 	
-	if is_action_just_released("attack"):
+	if input.is_action_just_released("attack"):
 		laser_charge = 0
 		if mega_laser:
 			end_mega_laser()
@@ -100,12 +100,12 @@ func update_facing_direction(dir: int):
 
 func shoot_laser_bullet():
 	laser_bullet.play_random_pitch()
-	var laser_bullet: RigidBody2D = laser_bullet_scene.instantiate()
-	get_parent().add_child(laser_bullet)
+	var laser_bullet_object: RigidBody2D = laser_bullet_scene.instantiate()
+	get_parent().add_child(laser_bullet_object)
 	
-	laser_bullet.global_position = laser_start_point.global_position
-	laser_bullet.global_position.x += 15 * facing_dir
-	laser_bullet.linear_velocity = Vector2(facing_dir*laser_bullet_speed, 0)
+	laser_bullet_object.global_position = laser_start_point.global_position
+	laser_bullet_object.global_position.x += 15 * facing_dir
+	laser_bullet_object.linear_velocity = Vector2(facing_dir*laser_bullet_speed, 0)
 
 
 @onready var laser_pieces: Node2D = $"Fliproot/Laser Pieces"

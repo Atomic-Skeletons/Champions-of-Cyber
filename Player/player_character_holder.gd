@@ -27,7 +27,9 @@ func _ready() -> void:
 	
 	phantom_camera.follow_target = active_character
 	active_character.global_position = spawn_point.global_position
-	phantom_camera.global_position = active_character.global_position
+	#phantom_camera.global_position = active_character.global_position
+	await get_tree().process_frame
+	phantom_camera.teleport_position()
 
 func _process(delta: float) -> void:
 	phantom_camera.follow_offset.x = abs(phantom_camera.follow_offset.x) * active_character.facing_dir
@@ -36,7 +38,7 @@ func _process(delta: float) -> void:
 		active_character.material.set_shader_parameter("saturation", .5)
 	else:
 		active_character.material.set_shader_parameter("saturation", 1)
-	if active_character.is_action_just_pressed("tag"):
+	if active_character.input.is_action_just_pressed("tag"):
 		tag()
 		phantom_camera.follow_target = active_character
 

@@ -54,7 +54,7 @@ func _state_logic(delta):
 	
 	if state == states.skating:
 		# if the player is moving in a direction they should keep their speed
-		var direction := get_x_axis()
+		var direction := input.get_x_axis()
 		if anim_sprite.animation != "skating":
 			anim_sprite.play("skating")
 		if direction:
@@ -80,7 +80,7 @@ func _state_logic(delta):
 			anim_sprite.play("rising")
 		elif velocity.y > 0:
 			anim_sprite.play("descending")
-		var direction := get_x_axis()
+		var direction := input.get_x_axis()
 		if direction:
 			if moving_away(direction):
 				velocity.x += direction * air_accelaration * delta
@@ -91,7 +91,7 @@ func _state_logic(delta):
 		update_facing_sprite()
 	
 	if state == states.digging:
-		var direction := get_x_axis()
+		var direction := input.get_x_axis()
 		if direction:
 			if moving_away(direction):
 				velocity.x *= -1
@@ -115,8 +115,8 @@ func _get_transition(delta):
 	if locked and state != states.locked and state != states.airborne:
 		return states.locked
 	if state == states.skating:
-		if is_action_just_pressed("jump"):
-			if is_action_pressed("down") and standing_on_one_way_platform():
+		if input.is_action_just_pressed("jump"):
+			if input.is_action_pressed("down") and standing_on_one_way_platform():
 				global_position.y += 1
 				return states.airborne
 			velocity.y = -jump_strength
@@ -126,11 +126,11 @@ func _get_transition(delta):
 	
 	if state == states.airborne:
 		if is_on_floor():
-			if is_action_pressed("jump") and can_dig:
+			if input.is_action_pressed("jump") and can_dig:
 				return states.digging
 			return states.skating
 		if is_on_wall():
-			if is_action_pressed("jump") and can_dig:
+			if input.is_action_pressed("jump") and can_dig:
 				#get position of collision and put player there
 				return states.wall_digging
 	
@@ -141,13 +141,13 @@ func _get_transition(delta):
 		if is_on_wall():
 			return states.wall_digging
 		# if there is something above the player then don't undig
-		if is_action_just_released("jump"):
+		if input.is_action_just_released("jump"):
 			resurfacing = true
 		# if the player is trying to undig
 		if resurfacing:
 			# if neither raycasts are colliding, then undig
 			if free_for_resurfacing():
-				if not is_action_pressed("down"):
+				if not input.is_action_pressed("down"):
 					velocity.y = -digging_jump_strength
 				#velocity.x = sign(velocity.x) * digging_stored_speed
 				return states.airborne
@@ -161,7 +161,7 @@ func _get_transition(delta):
 		else:
 			wall_digging_timer += delta
 		
-		if is_action_just_released("jump"):
+		if input.is_action_just_released("jump"):
 			resurfacing = true
 		
 		if resurfacing:

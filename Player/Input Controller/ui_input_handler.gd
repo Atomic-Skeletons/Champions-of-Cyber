@@ -1,4 +1,4 @@
-class_name PlayerInputHandler
+class_name UiInputHandler
 extends Node
 
 
@@ -6,15 +6,10 @@ enum InputSource { KEYBOARD, JOYPAD }
 
 @export var input_source: InputSource = InputSource.KEYBOARD
 
-## Only used when input_source == KEYBOARD.
-## Selects between the "p1_*" / "p2_*" actions defined in Project Settings
-## -> Input Map (see SETUP.md).
+
 @export_range(1, 2) var player_index: int = 1
 
 ## Only used when input_source == JOYPAD.
-## Index into Input.get_connected_joypads(): 0 = first controller plugged
-## in, 1 = second, etc. This is what actually separates "P1 controller" from
-## "P2 controller" -- the Input Map alone can't do that.
 @export var joypad_device: int = 0
 
 ## Controller button mapping. Change these if your pad's face buttons don't
@@ -30,6 +25,8 @@ var _joy_now := {
 }
 var _joy_prev := _joy_now.duplicate()
 
+func _ready() -> void:
+	process_physics_priority -= 1
 
 func _physics_process(_delta: float) -> void:
 	if input_source == InputSource.JOYPAD:

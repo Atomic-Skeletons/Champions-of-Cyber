@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 		air_movement = true
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := get_x_axis()
+	var direction := input.get_x_axis()
 	if direction:
 		if not in_attack:
 			update_facing_direction(direction)
@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
 	
 	# Handle jump.
-	if is_action_just_pressed("jump") and not in_dash:
+	if input.is_action_just_pressed("jump") and not in_dash:
 		if is_on_floor():
 			# jump
 			velocity.y = jump_strength
@@ -62,7 +62,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-	if is_action_just_pressed("attack") and not in_dash:
+	if input.is_action_just_pressed("attack") and not in_dash:
 		in_attack = true
 		melee_collision_shape.disabled = false
 		attack_sprite.show()
