@@ -1,6 +1,7 @@
 class_name PlayerInputHandler
 extends Node
 
+@export_range(1, 2) var player_id: int = 1
 
 enum InputSource { KEYBOARD, JOYPAD }
 
@@ -97,10 +98,10 @@ func get_y_axis() -> float:
 func update_input_data():
 	var input_data: Dictionary
 	
-	if player_index == 1:
+	if player_id == 1:
 		input_data = InputInfo.player_1_input_info
-	if player_index == 2:
-		input_data = InputInfo.player_1_input_info
+	if player_id == 2:
+		input_data = InputInfo.player_2_input_info
 	
 	input_source = input_data.input_source
 	player_index = input_data.player_index

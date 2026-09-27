@@ -1,5 +1,6 @@
 class_name PlayerCharacterHolder extends Node
 
+@export_range(1,2) var player_id: int = 1
 
 var active_character: Character
 var active_character_index = 1
@@ -20,14 +21,18 @@ func _ready() -> void:
 		character_1 = character_1_scene.instantiate()
 		active_character = character_1
 		add_child(character_1)
+		character_1.input.player_id = player_id
+		character_1.input.update_input_data()
 	if not character_2:
 		character_2 = character_2_scene.instantiate()
 		add_child(character_2)
+		character_2.input.player_id = player_id
+		character_2.input.update_input_data()
 		deactivate_character(character_2)
 	
-	phantom_camera.follow_target = active_character
+	#phantom_camera.follow_target = active_character
 	active_character.global_position = spawn_point.global_position
-	#phantom_camera.global_position = active_character.global_position
+	
 	await get_tree().process_frame
 	phantom_camera.teleport_position()
 
@@ -40,7 +45,7 @@ func _process(delta: float) -> void:
 		active_character.material.set_shader_parameter("saturation", 1)
 	if active_character.input.is_action_just_pressed("tag"):
 		tag()
-		phantom_camera.follow_target = active_character
+		#phantom_camera.follow_target = active_character
 
 func tag():
 	if not active_character.can_tag: return
