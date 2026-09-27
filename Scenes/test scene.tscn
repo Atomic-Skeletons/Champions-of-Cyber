@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://drvcxtpf6wvu3" path="res://Player/player_character_holder.gd" id="1_nura0"]
 [ext_resource type="Shader" uid="uid://bfqjypm8l61mc" path="res://Shaders/double_dither.gdshader" id="1_w2iq6"]
+[ext_resource type="Script" uid="uid://cetcpqlgpoh36" path="res://Menus/Pause Menu/pause menu controller.gd" id="2_w2iq6"]
+[ext_resource type="PackedScene" uid="uid://bndhmjwv3783" path="res://Menus/controller_setup.tscn" id="3_4vt6j"]
 [ext_resource type="PackedScene" uid="uid://7lw1yr2xg5ye" path="res://Player/Character Scenes/Explorer.tscn" id="3_8tdcx"]
 [ext_resource type="Texture2D" uid="uid://j0uvimf66mwa" path="res://Level Art/Floor Tiles1.png" id="4_a3gxn"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_t42ey"]
@@ -731,6 +733,67 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="Pause Menu" type="Control" parent="CanvasLayer" unique_id=1788942078]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_w2iq6")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Pause Menu" unique_id=1825556955]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 234.0
+offset_top = 155.0
+offset_right = -214.0
+offset_bottom = -191.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Pause Menu/Panel" unique_id=2007755394]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Pause Menu/Panel/VBoxContainer" unique_id=175742551]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Resume" type="Button" parent="CanvasLayer/Pause Menu/Panel/VBoxContainer/MarginContainer2" unique_id=1928780649]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Resume"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Pause Menu/Panel/VBoxContainer" unique_id=1155345433]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Controller Setup" type="Button" parent="CanvasLayer/Pause Menu/Panel/VBoxContainer/MarginContainer" unique_id=1871401966]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Controller Setup"
+
+[node name="Controller Setup" parent="CanvasLayer/Pause Menu" unique_id=465136458 instance=ExtResource("3_4vt6j")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
 [node name="Paralax Layers2" type="Node2D" parent="." unique_id=1296795371]
 position = Vector2(187, -71)
 
@@ -919,5 +982,7 @@ enemy_scene = ExtResource("18_w2iq6")
 [node name="Timer" type="Timer" parent="Spawner" unique_id=492084770]
 autostart = true
 
+[connection signal="pressed" from="CanvasLayer/Pause Menu/Panel/VBoxContainer/MarginContainer2/Resume" to="CanvasLayer/Pause Menu" method="unpause"]
+[connection signal="pressed" from="CanvasLayer/Pause Menu/Panel/VBoxContainer/MarginContainer/Controller Setup" to="CanvasLayer/Pause Menu" method="_on_controller_setup_pressed"]
 [connection signal="died" from="Destructable/HealthComponent" to="Destructable" method="_on_health_component_died"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

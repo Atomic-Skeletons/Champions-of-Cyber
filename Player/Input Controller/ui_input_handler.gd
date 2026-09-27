@@ -87,3 +87,12 @@ func get_y_axis() -> float:
 	if absf(axis) > joy_deadzone:
 		return axis
 	return float(is_action_pressed("down")) - float(is_action_pressed("up"))
+
+
+func get_input_data() -> Dictionary:
+	var input_data: Dictionary = {
+		input_source = input_source,
+		player_index = player_index,
+		joypad_device = joypad_device
+	}
+	return input_data

@@ -30,10 +30,13 @@ var _joy_now := {
 }
 var _joy_prev := _joy_now.duplicate()
 
+func _ready() -> void:
+	update_input_data()
 
 func _physics_process(_delta: float) -> void:
 	if input_source == InputSource.JOYPAD:
 		_poll_joypad()
+	update_input_data()
 
 
 func _poll_joypad() -> void:
@@ -90,3 +93,28 @@ func get_y_axis() -> float:
 	if absf(axis) > joy_deadzone:
 		return axis
 	return float(is_action_pressed("down")) - float(is_action_pressed("up"))
+
+func update_input_data():
+	var input_data: Dictionary
+	
+	if player_index == 1:
+		input_data = InputInfo.player_1_input_info
+	if player_index == 2:
+		input_data = InputInfo.player_1_input_info
+	
+	input_source = input_data.input_source
+	player_index = input_data.player_index
+	joypad_device = input_data.joypad_device
+
+func get_input_data() -> Dictionary:
+	var input_data: Dictionary = {
+		input_source = input_source,
+		player_index = player_index,
+		joypad_device = joypad_device
+	}
+	return input_data
+
+func set_input_data(input_data: Dictionary):
+	input_source = input_data.input_source
+	player_index = input_data.player_index
+	joypad_device = input_data.joypad_device

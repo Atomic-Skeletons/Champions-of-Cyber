@@ -1,17 +1,21 @@
 class_name InputData
 extends Resource
 
-# Directional Input
-var directional_axis: Vector2
 
-# Movement Input
-var jump_pressed: bool
-var jump_just_pressed: bool
-var jump_released: bool
-var jump_just_released: bool
+var input_source: PlayerInputHandler.InputSource = PlayerInputHandler.InputSource.KEYBOARD
 
-# Attack Input
-var attack_pressed: bool
-var attack_just_pressed: bool
-var attack_released: bool
-var attack_just_released: bool
+
+var player_index: int = 1
+
+var joypad_device: int = 0
+
+var jump_button: JoyButton = JOY_BUTTON_A
+var attack_button: JoyButton = JOY_BUTTON_X
+var tag_button: JoyButton = JOY_BUTTON_Y
+var joy_deadzone: float = 0.3
+
+var _joy_now := {
+	"left": false, "right": false, "up": false, "down": false,
+	"jump": false, "attack": false,
+}
+var _joy_prev := _joy_now.duplicate()

@@ -4,8 +4,9 @@ extends MarginContainer
 var input: UiInputHandler
 
 # These are the destinations when those are selected
-@export var player_1_container: Control
-@export var player_2_container: Control
+@onready var player_1_container: MarginContainer = %"Player 1 Container"
+@onready var player_2_container: MarginContainer = %"Player 2 Container"
+
 @onready var init_parent
 
 @onready var left_arrow: Label = %"Left Arrow"
@@ -76,10 +77,12 @@ func set_input_menu_state(state: input_menu_states):
 	elif state == input_menu_states.P1:
 		reparent(player_1_container, false)
 		left_arrow.hide()
+		update_global_input_data()
 	
 	elif state == input_menu_states.P2:
 		reparent(player_2_container, false)
 		right_arrow.hide()
+		update_global_input_data()
 
 func move_left():
 	if input_menu_state == input_menu_states.NONE and not is_player_container_filled(player_1_container):
@@ -100,3 +103,9 @@ func is_player_container_filled(control: Control) -> bool:
 	if control.get_child_count() >= 1:
 		has_child = true
 	return has_child
+
+func update_global_input_data():
+	if input_menu_state == input_menu_states.P1:
+		InputInfo.player_1_input_info = input.get_input_data()
+	elif input_menu_state == input_menu_states.P2:
+		InputInfo.player_2_input_info = input.get_input_data()
