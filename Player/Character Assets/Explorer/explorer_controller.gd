@@ -90,6 +90,8 @@ func _physics_process(delta: float) -> void:
 			shoot_laser_bullet()
 			anim_sprite.stop()
 		anim_sprite.play("idle")
+	
+	global_position = global_position.round()
 
 func update_facing_direction(dir: int):
 	facing_dir = sign(dir)

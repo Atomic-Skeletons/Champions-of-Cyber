@@ -36,6 +36,7 @@ func _ready() -> void:
 	await get_tree().process_frame
 	phantom_camera.teleport_position()
 
+
 func _process(delta: float) -> void:
 	phantom_camera.follow_offset.x = abs(phantom_camera.follow_offset.x) * active_character.facing_dir
 	

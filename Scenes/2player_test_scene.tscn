@@ -969,7 +969,7 @@ position = Vector2(-161, 0)
 shape = SubResource("WorldBoundaryShape2D_g4v7s")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Group Player Follow/StaticBody2D" unique_id=1139083488]
-position = Vector2(162, 0)
+position = Vector2(200, 0)
 shape = SubResource("WorldBoundaryShape2D_xos45")
 
 [node name="Path2D" type="Path2D" parent="." unique_id=206212382]
