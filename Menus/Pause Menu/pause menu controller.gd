@@ -71,3 +71,7 @@ func unpause():
 
 func _on_controller_setup_pressed() -> void:
 	add_menu_to_stack(controller_setup)
+
+
+func _on_toggle_fullscreen_pressed() -> void:
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)

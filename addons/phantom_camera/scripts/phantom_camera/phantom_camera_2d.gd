@@ -514,7 +514,7 @@ var _should_rotate_with_target: bool = false
 var _is_active: bool = false
 
 var _should_follow: bool = false
-var _follow_target_physics_based: bool = false
+var _follow_target_physics_based: bool = true
 var _physics_interpolation_enabled: bool = false # NOTE - Enable for Godot 4.3 and when PhysicsInterpolationMode bug is resolved
 
 var _follow_target_physics_class: FollowTargetPhysicsClass = FollowTargetPhysicsClass.OTHER

@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_hf2ew"]
 [ext_resource type="Script" uid="uid://yllam5egj4yw" path="res://Scenes/destructable.gd" id="6_wv3x6"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_hf2ew"]
-[ext_resource type="Texture2D" uid="uid://6r3du18luonn" path="res://Level Art/Eva'sBG_Art/Forest_Bg/FRONT_forestbg.png" id="8_4vt6j"]
+[ext_resource type="Texture2D" uid="uid://cwp8g7883o37n" path="res://Level Art/Eva'sBG_Art/Forest_Bg/foreground-layer_forest-bg_02.png" id="7_xos45"]
 [ext_resource type="Texture2D" uid="uid://cfh3tvbso0ky2" path="res://Level Art/Eva'sBG_Art/Forest_Bg/4thlayer_forestbg.png" id="8_e5fwi"]
 [ext_resource type="Texture2D" uid="uid://g2eu2vmi5gov" path="res://Level Art/Eva'sBG_Art/Forest_Bg/3rdlayer_forestbg.png" id="9_0fqnc"]
 [ext_resource type="Texture2D" uid="uid://bkg77k1q7kyqy" path="res://Level Art/Eva'sBG_Art/Forest_Bg/2ndlayer_forestbg.png" id="10_juohv"]
@@ -784,6 +784,19 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Resume"
 
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/Pause Menu/Panel/VBoxContainer" unique_id=513735045]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Toggle Fullscreen" type="Button" parent="CanvasLayer/Pause Menu/Panel/VBoxContainer/MarginContainer3" unique_id=1996031367]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Toggle Fullscreen"
+
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Pause Menu/Panel/VBoxContainer" unique_id=1155345433]
 layout_mode = 2
 size_flags_vertical = 3
@@ -864,7 +877,7 @@ repeat_times = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Paralax Layers/Foreground 2" unique_id=889147733]
 material = SubResource("ShaderMaterial_4vt6j")
-texture = ExtResource("8_4vt6j")
+texture = ExtResource("7_xos45")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Paralax Layers/Foreground 2" unique_id=2135659027]
 amount = 10
@@ -997,7 +1010,7 @@ weakness_tags = Array[int]([2])
 weakness_only_damage = true
 metadata/_custom_type_script = "uid://k1npmfprvwwt"
 
-[node name="Enemy Dude" parent="." unique_id=1938194074 instance=ExtResource("18_w2iq6")]
+[node name="Enemy Dude" parent="." unique_id=1938194074 groups=["Enemy"] instance=ExtResource("18_w2iq6")]
 
 [node name="Spawner" type="Marker2D" parent="." unique_id=1188518613]
 position = Vector2(114, -38)
@@ -1008,6 +1021,7 @@ enemy_scene = ExtResource("18_w2iq6")
 autostart = true
 
 [connection signal="pressed" from="CanvasLayer/Pause Menu/Panel/VBoxContainer/MarginContainer2/Resume" to="CanvasLayer/Pause Menu" method="unpause"]
+[connection signal="pressed" from="CanvasLayer/Pause Menu/Panel/VBoxContainer/MarginContainer3/Toggle Fullscreen" to="CanvasLayer/Pause Menu" method="_on_toggle_fullscreen_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause Menu/Panel/VBoxContainer/MarginContainer/Controller Setup" to="CanvasLayer/Pause Menu" method="_on_controller_setup_pressed"]
 [connection signal="died" from="Destructable/HealthComponent" to="Destructable" method="_on_health_component_died"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

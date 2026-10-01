@@ -33,7 +33,6 @@ window/size/resizable=false
 window/size/window_width_override=1440
 window/size/window_height_override=960
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [editor_plugins]
 
@@ -45,6 +44,7 @@ enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 Player=""
 "Phantom Camera"=""
 Player_1=""
+Enemy=""
 
 [gui]
 
@@ -224,7 +224,6 @@ p2_tag={
 
 [physics]
 
-common/physics_jitter_fix=0.0
 3d/physics_engine="Jolt Physics"
 common/physics_interpolation=true
 
