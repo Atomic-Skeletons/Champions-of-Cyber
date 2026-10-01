@@ -3,6 +3,7 @@
 [ext_resource type="Shader" uid="uid://dhqnthhyhb402" path="res://Shaders/desaturation_shader.tres" id="1_0otec"]
 [ext_resource type="Script" uid="uid://cr8pon842evx8" path="res://Player/Character Assets/Electric Boogaloo/Scripts/electric_boogaloo_controller.gd" id="2_aa6g8"]
 [ext_resource type="Script" uid="uid://dqtier8s750jn" path="res://Player/Input Controller/input_handler.gd" id="3_q6cqq"]
+[ext_resource type="Script" uid="uid://cr2xbhach1rlt" path="res://Components/attack_metter_component.gd" id="4_0otec"]
 [ext_resource type="Texture2D" uid="uid://0puqleepv0k0" path="res://Player/Character Assets/Explorer/Art/laser_shot_anim.png" id="4_titfj"]
 [ext_resource type="Texture2D" uid="uid://e0454mamtsq2" path="res://Player/Character Assets/Electric Boogaloo/Art/electric boogaloo.png" id="5_0otec"]
 [ext_resource type="Texture2D" uid="uid://nt2grdjoo275" path="res://icon.svg" id="6_v60ed"]
@@ -58,6 +59,11 @@ melee_collision_shape = NodePath("Fliproot/Melee Hitbox/CollisionShape2D")
 [node name="PlayerInputHandler" type="Node" parent="." unique_id=589996107]
 script = ExtResource("3_q6cqq")
 metadata/_custom_type_script = "uid://dqtier8s750jn"
+
+[node name="AttackMetterComponent" type="Node" parent="." unique_id=1545214305]
+process_mode = 3
+script = ExtResource("4_0otec")
+metadata/_custom_type_script = "uid://cr2xbhach1rlt"
 
 [node name="Normal Hurtbox" type="CollisionShape2D" parent="." unique_id=1992489529]
 position = Vector2(0, 0.5)

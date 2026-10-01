@@ -444,12 +444,15 @@ zoom = Vector2(1.835, 1.835)
 tween_resource = SubResource("Resource_a3gxn")
 follow_damping = true
 follow_damping_value = Vector2(0.1, 0.25)
+draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1786324642]
+physics_interpolation_mode = 1
 top_level = true
 position = Vector2(-2, -37)
 zoom = Vector2(1.835, 1.835)
+editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1755526593]
 process_priority = 300

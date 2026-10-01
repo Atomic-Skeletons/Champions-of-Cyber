@@ -13,6 +13,7 @@ config_version=5
 config/name="Champions of Cyber"
 run/main_scene="uid://de5h44var8xll"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
@@ -225,7 +226,6 @@ p2_tag={
 [physics]
 
 3d/physics_engine="Jolt Physics"
-common/physics_interpolation=true
 
 [rendering]
 

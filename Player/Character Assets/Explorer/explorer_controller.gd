@@ -2,10 +2,6 @@ class_name Explorer extends Character
 
 
 @export_group("Movement Variables")
-#@export var ground_acceleration = 100
-#@export var ground_max_speed = 100
-#@export var ground_breaking_speed = 200
-
 @export var move_speed = 100.0
 @export var jump_strength = 300.0
 
