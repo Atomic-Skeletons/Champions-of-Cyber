@@ -44,9 +44,13 @@ func _process(delta: float) -> void:
 		active_character.material.set_shader_parameter("saturation", .5)
 	else:
 		active_character.material.set_shader_parameter("saturation", 1)
+	
 	if active_character.input.is_action_just_pressed("tag"):
 		tag()
-		#phantom_camera.follow_target = active_character
+	
+	if active_character.is_on_floor():
+		character_1.air_movement = true
+		character_2.air_movement = true
 
 func tag():
 	if not active_character.can_tag: return
@@ -71,7 +75,6 @@ func update_new_character(new: Character, old: Character):
 	new.velocity = old.velocity
 	new.global_position = old.global_position
 	new.facing_dir = old.facing_dir
-	new.air_movement = old.air_movement
 
 func activate_character(character: Character):
 	character.show()

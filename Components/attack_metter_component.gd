@@ -1,12 +1,22 @@
 class_name AttackMetterComponent
 extends Node
 
+@export var max_metter: float = 100
+var value : float
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	pass # Replace with function body.
+	value = max_metter
 
+func can_use_metter(amount: float) -> bool:
+	if value < amount:
+		return false
+	return true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func use_metter(amount: float):
+	value -= amount
+	value = clamp(value, 0, max_metter)
+
+func gain_metter(amount: float):
+	value -= amount
+	value = clamp(value, 0, max_metter)

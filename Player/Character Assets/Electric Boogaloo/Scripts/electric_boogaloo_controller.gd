@@ -1,8 +1,12 @@
 class_name ElectricController extends Character
 
+# components
+@onready var health_component: HealthComponent = $HealthComponent
+@onready var attack_metter_component: AttackMetterComponent = $AttackMetterComponent
+
 
 @export var move_speed := 200
-@export var jump_strength = -300.0
+@export var jump_strength = 300.0
 
 @export var dash_distance: float = 100
 @export var dash_duration: float = 1
@@ -30,9 +34,10 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := input.get_x_axis()
+	if not in_attack:
+		update_facing_direction(direction)
+	
 	if direction:
-		if not in_attack:
-			update_facing_direction(direction)
 		velocity.x = direction * move_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
@@ -41,7 +46,7 @@ func _physics_process(delta: float) -> void:
 	if input.is_action_just_pressed("jump") and not in_dash:
 		if is_on_floor():
 			# jump
-			velocity.y = jump_strength
+			velocity.y = -jump_strength
 		elif air_movement:
 			# dash
 			can_tag = false
@@ -63,6 +68,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if input.is_action_just_pressed("attack") and not in_dash:
+		attack_metter_component.use_metter(30)
 		in_attack = true
 		melee_collision_shape.disabled = false
 		attack_sprite.show()
@@ -72,9 +78,10 @@ func _physics_process(delta: float) -> void:
 		melee_collision_shape.disabled = true
 
 func update_facing_direction(dir: int):
-	facing_dir = sign(dir)
-	fliproot.scale.x = sign(dir)
-	melee_hitbox.knockback_flipped = false if dir == 1 else true
+	if dir != 0 and dir != facing_dir:
+		facing_dir = sign(dir)
+	fliproot.scale.x = sign(facing_dir)
+	melee_hitbox.knockback_flipped = false if facing_dir == 1 else true
 
 var hit_counter = 0
 func _on_melee_hitbox_hit_body(body: Node2D) -> void:

@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cr2xbhach1rlt" path="res://Components/attack_metter_component.gd" id="4_0otec"]
 [ext_resource type="Texture2D" uid="uid://0puqleepv0k0" path="res://Player/Character Assets/Explorer/Art/laser_shot_anim.png" id="4_titfj"]
 [ext_resource type="Texture2D" uid="uid://e0454mamtsq2" path="res://Player/Character Assets/Electric Boogaloo/Art/electric boogaloo.png" id="5_0otec"]
+[ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="5_n7p02"]
 [ext_resource type="Texture2D" uid="uid://nt2grdjoo275" path="res://icon.svg" id="6_v60ed"]
 [ext_resource type="Script" uid="uid://crxaysem1tfnv" path="res://Components/hitbox.gd" id="8_qyvub"]
 [ext_resource type="Texture2D" uid="uid://khdibka87ybe" path="res://Player/Character Assets/Explorer/Art/laser body.png" id="9_7hw07"]
@@ -53,13 +54,17 @@ collision_layer = 257
 collision_mask = 4102
 script = ExtResource("2_aa6g8")
 move_speed = 100
-jump_strength = -400.0
+jump_strength = 400.0
 dash_duration = 0.2
 melee_collision_shape = NodePath("Fliproot/Melee Hitbox/CollisionShape2D")
 
 [node name="PlayerInputHandler" type="Node" parent="." unique_id=589996107]
 script = ExtResource("3_q6cqq")
 metadata/_custom_type_script = "uid://dqtier8s750jn"
+
+[node name="HealthComponent" type="Node" parent="." unique_id=858309791]
+script = ExtResource("5_n7p02")
+metadata/_custom_type_script = "uid://k1npmfprvwwt"
 
 [node name="AttackMetterComponent" type="Node" parent="." unique_id=1545214305]
 process_mode = 3
@@ -121,4 +126,5 @@ metadata/_custom_type_script = "uid://bhd4nuiu23e7l"
 unique_name_in_owner = true
 one_shot = true
 
+[connection signal="hit_body" from="Fliproot/Melee Hitbox" to="." method="_on_melee_hitbox_hit_body"]
 [connection signal="timeout" from="Dash Timer" to="." method="_on_dash_timer_timeout"]

@@ -8,9 +8,11 @@
 [ext_resource type="Script" uid="uid://dqtier8s750jn" path="res://Player/Input Controller/input_handler.gd" id="4_sdjjc"]
 [ext_resource type="Texture2D" uid="uid://dhnoghyfltoyg" path="res://Player/Character Assets/Explorer/Art/laser end.png" id="5_6vsvd"]
 [ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="5_a2jtb"]
+[ext_resource type="Script" uid="uid://cr2xbhach1rlt" path="res://Components/attack_metter_component.gd" id="5_i3a4x"]
 [ext_resource type="Texture2D" uid="uid://chxconcuso2pk" path="res://Player/Character Assets/Explorer/Art/explorer shape sprite.png" id="5_j2i38"]
 [ext_resource type="PackedScene" uid="uid://bs1gkeavl1uf1" path="res://Player/Character Assets/Explorer/Scripts/laser_bullet.tscn" id="6_a2jtb"]
 [ext_resource type="Texture2D" uid="uid://khdibka87ybe" path="res://Player/Character Assets/Explorer/Art/laser body.png" id="6_j2i38"]
+[ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="6_nq4sq"]
 [ext_resource type="Script" uid="uid://cybfhnkr2grvs" path="res://Player/Character Assets/constant_trigger_hitbox.gd" id="8_neio3"]
 [ext_resource type="AudioStream" uid="uid://d0duh57bucjsl" path="res://Player/Character Assets/Explorer/Audio/laser bullet.wav" id="12_6vsvd"]
 [ext_resource type="Script" uid="uid://bxcx45dpdno2q" path="res://Player/random_pitch_shifter.gd" id="13_xpils"]
@@ -59,6 +61,14 @@ laser_bullet_speed = 1000.0
 [node name="PlayerInputHandler" type="Node" parent="." unique_id=1113545624]
 script = ExtResource("4_sdjjc")
 metadata/_custom_type_script = "uid://dqtier8s750jn"
+
+[node name="HealthComponent" type="Node" parent="." unique_id=927420535]
+script = ExtResource("6_nq4sq")
+metadata/_custom_type_script = "uid://k1npmfprvwwt"
+
+[node name="AttackMetterComponent" type="Node" parent="." unique_id=1657568129]
+script = ExtResource("5_i3a4x")
+metadata/_custom_type_script = "uid://cr2xbhach1rlt"
 
 [node name="Normal Hurtbox" type="CollisionShape2D" parent="." unique_id=1992489529]
 position = Vector2(0, 0.5)

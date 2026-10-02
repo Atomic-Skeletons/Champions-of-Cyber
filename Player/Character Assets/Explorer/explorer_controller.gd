@@ -1,5 +1,9 @@
 class_name Explorer extends Character
 
+# components
+@onready var health_component: HealthComponent = $HealthComponent
+@onready var attack_metter_component: AttackMetterComponent = $AttackMetterComponent
+
 
 @export_group("Movement Variables")
 @export var move_speed = 100.0
@@ -57,9 +61,9 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := input.get_x_axis()
+	update_facing_direction(sign(direction))
+	
 	if direction:
-		update_facing_direction(sign(direction))
-		
 		var speed = move_speed
 		if mega_laser:
 			speed /= 2
@@ -90,9 +94,10 @@ func _physics_process(delta: float) -> void:
 	global_position = global_position.round()
 
 func update_facing_direction(dir: int):
-	facing_dir = sign(dir)
-	fliproot.scale.x = sign(dir)
-	laser_hitbox.knockback_flipped = dir == -1 if true else false
+	if dir != 0 and dir != facing_dir:
+		facing_dir = sign(dir)
+	fliproot.scale.x = sign(facing_dir)
+	laser_hitbox.knockback_flipped = facing_dir == -1 if true else false
 
 @onready var laser_bullet: RandomPitchPlayer = %LaserBullet
 

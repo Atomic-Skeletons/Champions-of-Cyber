@@ -5,6 +5,9 @@
 [ext_resource type="Script" uid="uid://cetcpqlgpoh36" path="res://Menus/Pause Menu/pause menu controller.gd" id="2_w2iq6"]
 [ext_resource type="PackedScene" uid="uid://bndhmjwv3783" path="res://Menus/controller_setup.tscn" id="3_4vt6j"]
 [ext_resource type="PackedScene" uid="uid://7lw1yr2xg5ye" path="res://Player/Character Scenes/Explorer.tscn" id="3_8tdcx"]
+[ext_resource type="Script" uid="uid://csmg2t23mawo6" path="res://Player/player_health_bar_and_metter_controller.gd" id="4_nx035"]
+[ext_resource type="Texture2D" uid="uid://chxconcuso2pk" path="res://Player/Character Assets/Explorer/Art/explorer shape sprite.png" id="5_e5fwi"]
+[ext_resource type="Texture2D" uid="uid://e0454mamtsq2" path="res://Player/Character Assets/Electric Boogaloo/Art/electric boogaloo.png" id="5_nx035"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_t42ey"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_hf2ew"]
 [ext_resource type="Script" uid="uid://yllam5egj4yw" path="res://Scenes/destructable.gd" id="6_wv3x6"]
@@ -155,6 +158,93 @@ text = "Controller Setup"
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
+
+[node name="Metter Bar" type="Control" parent="CanvasLayer" unique_id=649388502]
+layout_mode = 3
+anchor_top = 0.85625
+anchor_right = 1.0
+anchor_bottom = 1.0000001
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Metter Bar" unique_id=1847299499]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -39.0
+offset_bottom = -6.1035156e-05
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player UI" type="VBoxContainer" parent="CanvasLayer/Metter Bar/HBoxContainer" unique_id=1956674037 node_paths=PackedStringArray("health_bar_1", "metter_bar_1", "health_bar_2", "metter_bar_2")]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("4_nx035")
+health_bar_1 = NodePath("HBoxContainer2/VBoxContainer/Character 1 Health Bar")
+metter_bar_1 = NodePath("HBoxContainer2/VBoxContainer/MarginContainer/Character 1 Metter")
+health_bar_2 = NodePath("HBoxContainer3/VBoxContainer/Character 2 Health Bar")
+metter_bar_2 = NodePath("HBoxContainer3/VBoxContainer/MarginContainer/Character 2 Metter")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI" unique_id=821232727]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI/HBoxContainer2" unique_id=1340708715]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+texture = ExtResource("5_e5fwi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI/HBoxContainer2" unique_id=534953585]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Character 1 Health Bar" type="ProgressBar" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer" unique_id=913200148]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer" unique_id=2143791490]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_right = 500
+
+[node name="Character 1 Metter" type="ProgressBar" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer/MarginContainer" unique_id=1936366678]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+max_value = 90.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI" unique_id=1467561423]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI/HBoxContainer3" unique_id=242257523]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+texture = ExtResource("5_nx035")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI/HBoxContainer3" unique_id=958601320]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Character 2 Health Bar" type="ProgressBar" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI/HBoxContainer3/VBoxContainer" unique_id=457214505]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI/HBoxContainer3/VBoxContainer" unique_id=850597974]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_right = 500
+
+[node name="Character 2 Metter" type="ProgressBar" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI/HBoxContainer3/VBoxContainer/MarginContainer" unique_id=988524368]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+max_value = 90.0
 
 [node name="Paralax Layers" type="Node2D" parent="." unique_id=1296795371]
 position = Vector2(187, -71)
@@ -319,7 +409,6 @@ shape = SubResource("WorldBoundaryShape2D_xos45")
 curve = SubResource("Curve2D_w2iq6")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1786324642]
-top_level = true
 position = Vector2(20, -71)
 zoom = Vector2(2, 2)
 editor_draw_limits = true
