@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SaveFlags" format=3 uid="uid://cvpmbf1g6l0lk"]
+
+[ext_resource type="Script" uid="uid://cpuyt0cwt050v" path="res://Globals/Save Data/save_flags.gd" id="1_8pkdj"]
+
+[resource]
+script = ExtResource("1_8pkdj")
+metadata/_custom_type_script = "uid://cpuyt0cwt050v"

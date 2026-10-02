@@ -16,6 +16,7 @@ class_name Explorer extends Character
 @onready var laser_hitbox: Hitbox = %"Laser Hitbox"
 
 @export_group("Laser Bullet")
+@export var laser_bullet_meter_use: float = 20
 @export var laser_bullet_scene: PackedScene
 @export var laser_bullet_speed: float = 100
 
@@ -24,6 +25,7 @@ class_name Explorer extends Character
 @onready var anim_sprite: AnimatedSprite2D = $Fliproot/AnimatedSprite2D
 
 @export_group("Laser Charge")
+@export var laser_meter_use_per_sec: float = 20
 @export var laser_charge_duration = .4
 var laser_charge = 0
 var mega_laser = false
@@ -80,7 +82,7 @@ func _physics_process(delta: float) -> void:
 		if not mega_laser and laser_charge >= laser_charge_duration:
 			start_mega_laser()
 		if mega_laser:
-			update_mega_laser()
+			update_mega_laser(delta)
 	
 	if input.is_action_just_released("attack"):
 		laser_charge = 0
@@ -136,9 +138,16 @@ func end_mega_laser():
 	laser_line.hide()
 	laser_collision_polygon.disabled = true
 	mega_laser_shake.stop(true)
+	laser_charge = 0
 
-func update_mega_laser():
+func update_mega_laser(delta: float):
+	var mega_laser_meter_use = laser_meter_use_per_sec * delta
+	# if they don't have enough meter, then end the mega laser
+	if not attack_metter_component.can_use_metter(mega_laser_meter_use):
+		end_mega_laser()
+		return
 	
+	attack_metter_component.use_metter(mega_laser_meter_use)
 	# base point if there is no collision
 	var collision_point := laser_raycast.global_position + laser_raycast.target_position * facing_dir
 	# force raycast to update collision
