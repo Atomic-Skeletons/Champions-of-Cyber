@@ -16,7 +16,7 @@ var dash_velocity: Vector2
 
 @onready var fliproot: Node2D = %Fliproot
 
-
+@export var melee_meter_use: float = 30
 @onready var melee_hitbox: Hitbox = %"Melee Hitbox"
 @export var melee_collision_shape: CollisionShape2D
 @onready var attack_sprite: Sprite2D = $"Fliproot/Melee Hitbox/Attack Sprite"
@@ -79,9 +79,8 @@ func update_facing_direction(dir: int):
 
 #region Attack Methods
 func neutral_melee_attack():
-	var metter_used = 30
-	if attack_metter_component.can_use_metter(metter_used):
-		attack_metter_component.use_metter(metter_used)
+	if attack_metter_component.can_use_metter(melee_meter_use):
+		attack_metter_component.use_metter(melee_meter_use)
 		in_attack = true
 		melee_collision_shape.disabled = false
 		attack_sprite.show()
