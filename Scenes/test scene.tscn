@@ -409,6 +409,7 @@ shape = SubResource("WorldBoundaryShape2D_xos45")
 curve = SubResource("Curve2D_w2iq6")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1786324642]
+top_level = true
 position = Vector2(20, -71)
 zoom = Vector2(2, 2)
 editor_draw_limits = true

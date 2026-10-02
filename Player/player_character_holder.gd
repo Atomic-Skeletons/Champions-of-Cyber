@@ -23,11 +23,13 @@ func _ready() -> void:
 		add_child(character_1)
 		character_1.input.player_id = player_id
 		character_1.input.update_input_data()
+		character_1.attack_metter_component.reparent(self)
 	if not character_2:
 		character_2 = character_2_scene.instantiate()
 		add_child(character_2)
 		character_2.input.player_id = player_id
 		character_2.input.update_input_data()
+		character_2.attack_metter_component.reparent(self)
 		deactivate_character(character_2)
 	
 	#phantom_camera.follow_target = active_character
@@ -78,8 +80,10 @@ func update_new_character(new: Character, old: Character):
 
 func activate_character(character: Character):
 	character.show()
+	character.attack_metter_component.out = false
 	character.process_mode = Node.PROCESS_MODE_INHERIT
 
 func deactivate_character(character: Character):
 	character.hide()
+	character.attack_metter_component.out = true
 	character.process_mode = Node.PROCESS_MODE_DISABLED

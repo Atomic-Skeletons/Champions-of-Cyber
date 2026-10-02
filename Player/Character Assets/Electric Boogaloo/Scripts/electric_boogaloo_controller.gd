@@ -16,6 +16,7 @@ var dash_velocity: Vector2
 
 @onready var fliproot: Node2D = %Fliproot
 
+
 @onready var melee_hitbox: Hitbox = %"Melee Hitbox"
 @export var melee_collision_shape: CollisionShape2D
 @onready var attack_sprite: Sprite2D = $"Fliproot/Melee Hitbox/Attack Sprite"
@@ -68,7 +69,19 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if input.is_action_just_pressed("attack") and not in_dash:
-		attack_metter_component.use_metter(30)
+		neutral_melee_attack()
+
+func update_facing_direction(dir: int):
+	if dir != 0 and dir != facing_dir:
+		facing_dir = sign(dir)
+	fliproot.scale.x = sign(facing_dir)
+	melee_hitbox.knockback_flipped = false if facing_dir == 1 else true
+
+#region Attack Methods
+func neutral_melee_attack():
+	var metter_used = 30
+	if attack_metter_component.can_use_metter(metter_used):
+		attack_metter_component.use_metter(metter_used)
 		in_attack = true
 		melee_collision_shape.disabled = false
 		attack_sprite.show()
@@ -77,11 +90,11 @@ func _physics_process(delta: float) -> void:
 		attack_sprite.hide()
 		melee_collision_shape.disabled = true
 
-func update_facing_direction(dir: int):
-	if dir != 0 and dir != facing_dir:
-		facing_dir = sign(dir)
-	fliproot.scale.x = sign(facing_dir)
-	melee_hitbox.knockback_flipped = false if facing_dir == 1 else true
+func burst_attack():
+	pass
+
+func air_dash():
+	pass
 
 var hit_counter = 0
 func _on_melee_hitbox_hit_body(body: Node2D) -> void:

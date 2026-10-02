@@ -71,7 +71,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
-
+	
 	move_and_slide()
 	
 	if input.is_action_pressed("attack"):
@@ -102,13 +102,16 @@ func update_facing_direction(dir: int):
 @onready var laser_bullet: RandomPitchPlayer = %LaserBullet
 
 func shoot_laser_bullet():
-	laser_bullet.play_random_pitch()
-	var laser_bullet_object: RigidBody2D = laser_bullet_scene.instantiate()
-	get_parent().add_child(laser_bullet_object)
-	
-	laser_bullet_object.global_position = laser_start_point.global_position
-	laser_bullet_object.global_position.x += 15 * facing_dir
-	laser_bullet_object.linear_velocity = Vector2(facing_dir*laser_bullet_speed, 0)
+	var metter_used = 20
+	if attack_metter_component.can_use_metter(metter_used):
+		attack_metter_component.use_metter(20)
+		laser_bullet.play_random_pitch()
+		var laser_bullet_object: RigidBody2D = laser_bullet_scene.instantiate()
+		get_parent().add_child(laser_bullet_object)
+		
+		laser_bullet_object.global_position = laser_start_point.global_position
+		laser_bullet_object.global_position.x += 15 * facing_dir
+		laser_bullet_object.linear_velocity = Vector2(facing_dir*laser_bullet_speed, 0)
 
 
 @onready var laser_pieces: Node2D = $"Fliproot/Laser Pieces"

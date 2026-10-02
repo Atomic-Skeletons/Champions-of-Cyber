@@ -67,8 +67,8 @@ script = ExtResource("5_n7p02")
 metadata/_custom_type_script = "uid://k1npmfprvwwt"
 
 [node name="AttackMetterComponent" type="Node" parent="." unique_id=1545214305]
-process_mode = 3
 script = ExtResource("4_0otec")
+max_metter = 90.0
 metadata/_custom_type_script = "uid://cr2xbhach1rlt"
 
 [node name="Normal Hurtbox" type="CollisionShape2D" parent="." unique_id=1992489529]
