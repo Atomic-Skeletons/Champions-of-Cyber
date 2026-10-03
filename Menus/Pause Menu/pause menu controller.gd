@@ -75,3 +75,7 @@ func _on_controller_setup_pressed() -> void:
 
 func _on_toggle_fullscreen_pressed() -> void:
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+
+
+func _on_save_game_pressed() -> void:
+	SaveDataController.save_game()

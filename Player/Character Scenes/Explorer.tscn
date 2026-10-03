@@ -14,8 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://khdibka87ybe" path="res://Player/Character Assets/Explorer/Art/laser body.png" id="6_j2i38"]
 [ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="6_nq4sq"]
 [ext_resource type="Script" uid="uid://cybfhnkr2grvs" path="res://Player/Character Assets/constant_trigger_hitbox.gd" id="8_neio3"]
+[ext_resource type="AudioStream" uid="uid://browkq6aj3i3i" path="res://Player/Character Assets/Electric Boogaloo/Audio/SFX_JUMMP.wav" id="9_r15qa"]
 [ext_resource type="AudioStream" uid="uid://d0duh57bucjsl" path="res://Player/Character Assets/Explorer/Audio/laser bullet.wav" id="12_6vsvd"]
 [ext_resource type="Script" uid="uid://bxcx45dpdno2q" path="res://Player/random_pitch_shifter.gd" id="13_xpils"]
+[ext_resource type="Script" uid="uid://dh1mpplaeqbu5" path="res://Components/attack_data_resource.gd" id="15_w36s2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jbxru"]
 shader = ExtResource("1_a2jtb")
@@ -43,6 +45,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Resource" id="Resource_0phe6"]
+script = ExtResource("15_w36s2")
+knockback_angle = 70.0
+knockback_strength = 20.0
+hitstun_duration = 0.2
+metadata/_custom_type_script = "uid://dh1mpplaeqbu5"
+
 [sub_resource type="Resource" id="Resource_neio3"]
 script = ExtResource("5_a2jtb")
 frequency = 5.0
@@ -64,12 +73,28 @@ metadata/_custom_type_script = "uid://dqtier8s750jn"
 
 [node name="HealthComponent" type="Node" parent="." unique_id=927420535]
 script = ExtResource("6_nq4sq")
+max_hp = 100
 metadata/_custom_type_script = "uid://k1npmfprvwwt"
 
 [node name="AttackMetterComponent" type="Node" parent="." unique_id=1657568129]
 script = ExtResource("5_i3a4x")
 max_metter = 90.0
 metadata/_custom_type_script = "uid://cr2xbhach1rlt"
+
+[node name="Audio" type="Node" parent="." unique_id=2134196532]
+
+[node name="LaserBullet" type="AudioStreamPlayer" parent="Audio" unique_id=1060211262]
+unique_name_in_owner = true
+stream = ExtResource("12_6vsvd")
+script = ExtResource("13_xpils")
+min_pitch = 0.8
+max_pitch = 1.2
+metadata/_custom_type_script = "uid://bxcx45dpdno2q"
+
+[node name="SfxJummp" type="AudioStreamPlayer" parent="Audio" unique_id=1749305004]
+stream = ExtResource("9_r15qa")
+script = ExtResource("13_xpils")
+metadata/_custom_type_script = "uid://bxcx45dpdno2q"
 
 [node name="Normal Hurtbox" type="CollisionShape2D" parent="." unique_id=1992489529]
 position = Vector2(0, 0.5)
@@ -118,13 +143,10 @@ position = Vector2(-8, 0)
 [node name="Laser Hitbox" type="Area2D" parent="." unique_id=1300442941]
 unique_name_in_owner = true
 collision_layer = 0
-collision_mask = 2
+collision_mask = 66
 script = ExtResource("8_neio3")
 damage_interval = 0.2
-damage_tags = Array[int]([2])
-knockback_angle = -80.0
-knockback_strength = 30.0
-hitstun_duration = 0.2
+attack_data = SubResource("Resource_0phe6")
 metadata/_custom_type_script = "uid://crxaysem1tfnv"
 
 [node name="Laser Collision Polygon" type="CollisionPolygon2D" parent="Laser Hitbox" unique_id=1207603043]
@@ -149,12 +171,5 @@ duration = 0.1
 decay_time = 0.5
 metadata/_custom_type_script = "uid://bhd4nuiu23e7l"
 
-[node name="Audio" type="Node" parent="." unique_id=2134196532]
-
-[node name="LaserBullet" type="AudioStreamPlayer" parent="Audio" unique_id=1060211262]
-unique_name_in_owner = true
-stream = ExtResource("12_6vsvd")
-script = ExtResource("13_xpils")
-min_pitch = 0.8
-max_pitch = 1.2
-metadata/_custom_type_script = "uid://bxcx45dpdno2q"
+[connection signal="damaged" from="HealthComponent" to="." method="_on_health_component_damaged"]
+[connection signal="knockback" from="HealthComponent" to="." method="_on_health_component_knockback"]

@@ -1,37 +1,37 @@
-[gd_scene format=3 uid="uid://bs1gkeavl1uf1"]
+[gd_scene format=3 uid="uid://c8bbg2hoja35u"]
 
-[ext_resource type="Script" uid="uid://c8ml2hpeekjfs" path="res://Combat Scripts/bullet_script.gd" id="1_o6q4j"]
-[ext_resource type="Script" uid="uid://dh1mpplaeqbu5" path="res://Components/attack_data_resource.gd" id="2_7gdpj"]
-[ext_resource type="Texture2D" uid="uid://bxnnexb2w8fxl" path="res://Player/Character Assets/Explorer/Art/laser bullet.png" id="2_ffq5e"]
-[ext_resource type="PackedScene" uid="uid://b1n1r103f6dv0" path="res://Player/Character Assets/Explorer/Scripts/laser_explosion.tscn" id="3_ffq5e"]
+[ext_resource type="Script" uid="uid://c8ml2hpeekjfs" path="res://Combat Scripts/bullet_script.gd" id="1_vopls"]
+[ext_resource type="Script" uid="uid://dh1mpplaeqbu5" path="res://Components/attack_data_resource.gd" id="2_pxmtn"]
+[ext_resource type="PackedScene" uid="uid://b1n1r103f6dv0" path="res://Player/Character Assets/Explorer/Scripts/laser_explosion.tscn" id="3_4tr5n"]
+[ext_resource type="Texture2D" uid="uid://bxnnexb2w8fxl" path="res://Player/Character Assets/Explorer/Art/laser bullet.png" id="4_3n7i6"]
 
 [sub_resource type="Resource" id="Resource_6sjec"]
-script = ExtResource("2_7gdpj")
+script = ExtResource("2_pxmtn")
 damage_tags = Array[int]([3])
 knockback_angle = 30.0
-knockback_strength = 10.0
+knockback_strength = 20.0
 metadata/_custom_type_script = "uid://dh1mpplaeqbu5"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2jtb"]
 size = Vector2(32, 8)
 
 [node name="RigidBody2D" type="RigidBody2D" unique_id=859712774]
-collision_layer = 16
-collision_mask = 6
+collision_layer = 32
+collision_mask = 5
 gravity_scale = 0.0
 continuous_cd = 2
 contact_monitor = true
 max_contacts_reported = 4
-script = ExtResource("1_o6q4j")
+script = ExtResource("1_vopls")
 attack_data = SubResource("Resource_6sjec")
-explosion_anim = ExtResource("3_ffq5e")
+explosion_anim = ExtResource("3_4tr5n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1071340967]
 shape = SubResource("RectangleShape2D_a2jtb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=480145264]
 position = Vector2(2, 0)
-texture = ExtResource("2_ffq5e")
+texture = ExtResource("4_3n7i6")
 offset = Vector2(0.5, 0)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1073093309]
@@ -39,7 +39,7 @@ offset_left = -15.0
 offset_top = -2.0
 offset_right = 15.0
 offset_bottom = 2.0
-texture = ExtResource("2_ffq5e")
+texture = ExtResource("4_3n7i6")
 region_rect = Rect2(0, 0, 9, 4)
 patch_margin_left = 1
 patch_margin_top = 1

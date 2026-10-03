@@ -23,6 +23,9 @@
 [ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="16_w2iq6"]
 [ext_resource type="PackedScene" uid="uid://dgg80udjapec8" path="res://Enemies/Scenes/test_enemy_dude.tscn" id="18_w2iq6"]
 [ext_resource type="Script" uid="uid://bm4v5ospdj8vn" path="res://Enemies/Scripts/enemy_spawner.gd" id="20_4vt6j"]
+[ext_resource type="Script" uid="uid://d1qfxrkmf0a2x" path="res://Enemies/Scripts/stationary_turret_controller.gd" id="24_juohv"]
+[ext_resource type="PackedScene" uid="uid://c8bbg2hoja35u" path="res://Enemies/Scenes/enemy_laser_bullet.tscn" id="25_ci7mw"]
+[ext_resource type="Texture2D" uid="uid://b7qyud32eky12" path="res://Player/Character Assets/Explorer/Art/laser start.png" id="25_fmamq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("1_w2iq6")
@@ -70,6 +73,8 @@ point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+
 [node name="Node2D" type="Node2D" unique_id=1246508524]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=666681385]
@@ -94,19 +99,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_w2iq6")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Pause Menu" unique_id=1825556955]
+[node name="Controller Setup" parent="CanvasLayer/Pause Menu" unique_id=465136458 instance=ExtResource("3_4vt6j")]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 234.0
-offset_top = 155.0
-offset_right = -214.0
-offset_bottom = -191.0
-grow_horizontal = 2
-grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Pause Menu/Panel" unique_id=2007755394]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Pause Menu" unique_id=102446610]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -114,7 +112,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Pause Menu/Panel/VBoxContainer" unique_id=175742551]
+[node name="Control" type="Control" parent="CanvasLayer/Pause Menu/CenterContainer" unique_id=1568784307]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Pause Menu/CenterContainer/Control" unique_id=1825556955]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Pause Menu/CenterContainer/Control/Panel" unique_id=2007755394]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Pause Menu/CenterContainer/Control/Panel/VBoxContainer" unique_id=175742551]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 10
@@ -122,13 +140,13 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Resume" type="Button" parent="CanvasLayer/Pause Menu/Panel/VBoxContainer/MarginContainer2" unique_id=1928780649]
+[node name="Resume" type="Button" parent="CanvasLayer/Pause Menu/CenterContainer/Control/Panel/VBoxContainer/MarginContainer2" unique_id=1928780649]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Resume"
 
-[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/Pause Menu/Panel/VBoxContainer" unique_id=513735045]
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/Pause Menu/CenterContainer/Control/Panel/VBoxContainer" unique_id=513735045]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 10
@@ -136,12 +154,12 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Toggle Fullscreen" type="Button" parent="CanvasLayer/Pause Menu/Panel/VBoxContainer/MarginContainer3" unique_id=1996031367]
+[node name="Toggle Fullscreen" type="Button" parent="CanvasLayer/Pause Menu/CenterContainer/Control/Panel/VBoxContainer/MarginContainer3" unique_id=1996031367]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Toggle Fullscreen"
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Pause Menu/Panel/VBoxContainer" unique_id=1155345433]
+[node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer/Pause Menu/CenterContainer/Control/Panel/VBoxContainer" unique_id=1978044259]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 10
@@ -149,36 +167,42 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Controller Setup" type="Button" parent="CanvasLayer/Pause Menu/Panel/VBoxContainer/MarginContainer" unique_id=1871401966]
+[node name="Save Game" type="Button" parent="CanvasLayer/Pause Menu/CenterContainer/Control/Panel/VBoxContainer/MarginContainer4" unique_id=727840076]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Save Game"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Pause Menu/CenterContainer/Control/Panel/VBoxContainer" unique_id=1155345433]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Controller Setup" type="Button" parent="CanvasLayer/Pause Menu/CenterContainer/Control/Panel/VBoxContainer/MarginContainer" unique_id=1871401966]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Controller Setup"
 
-[node name="Controller Setup" parent="CanvasLayer/Pause Menu" unique_id=465136458 instance=ExtResource("3_4vt6j")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-
-[node name="Metter Bar" type="Control" parent="CanvasLayer" unique_id=649388502]
+[node name="Player GUI" type="Control" parent="CanvasLayer" unique_id=649388502]
 layout_mode = 3
-anchor_top = 0.85625
+anchor_top = 0.76875
 anchor_right = 1.0
 anchor_bottom = 1.0000001
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Metter Bar" unique_id=1847299499]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Player GUI" unique_id=1847299499]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -39.0
-offset_bottom = -6.1035156e-05
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Player UI" type="VBoxContainer" parent="CanvasLayer/Metter Bar/HBoxContainer" unique_id=1956674037 node_paths=PackedStringArray("health_bar_1", "metter_bar_1", "health_bar_2", "metter_bar_2")]
+[node name="Player UI" type="VBoxContainer" parent="CanvasLayer/Player GUI/HBoxContainer" unique_id=1956674037 node_paths=PackedStringArray("health_bar_1", "metter_bar_1", "health_bar_2", "metter_bar_2")]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("4_nx035")
@@ -187,60 +211,60 @@ metter_bar_1 = NodePath("HBoxContainer2/VBoxContainer/MarginContainer/Character 
 health_bar_2 = NodePath("HBoxContainer3/VBoxContainer/Character 2 Health Bar")
 metter_bar_2 = NodePath("HBoxContainer3/VBoxContainer/MarginContainer/Character 2 Metter")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI" unique_id=821232727]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Player GUI/HBoxContainer/Player UI" unique_id=821232727]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI/HBoxContainer2" unique_id=1340708715]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer2" unique_id=1340708715]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 texture = ExtResource("5_e5fwi")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI/HBoxContainer2" unique_id=534953585]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer2" unique_id=534953585]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Character 1 Health Bar" type="ProgressBar" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer" unique_id=913200148]
+[node name="Character 1 Health Bar" type="ProgressBar" parent="CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer" unique_id=913200148]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer" unique_id=2143791490]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer" unique_id=2143791490]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_right = 500
 
-[node name="Character 1 Metter" type="ProgressBar" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer/MarginContainer" unique_id=1936366678]
+[node name="Character 1 Metter" type="ProgressBar" parent="CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer/MarginContainer" unique_id=1936366678]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 max_value = 90.0
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI" unique_id=1467561423]
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Player GUI/HBoxContainer/Player UI" unique_id=1467561423]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI/HBoxContainer3" unique_id=242257523]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer3" unique_id=242257523]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 texture = ExtResource("5_nx035")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI/HBoxContainer3" unique_id=958601320]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer3" unique_id=958601320]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Character 2 Health Bar" type="ProgressBar" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI/HBoxContainer3/VBoxContainer" unique_id=457214505]
+[node name="Character 2 Health Bar" type="ProgressBar" parent="CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer3/VBoxContainer" unique_id=457214505]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI/HBoxContainer3/VBoxContainer" unique_id=850597974]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer3/VBoxContainer" unique_id=850597974]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_right = 500
 
-[node name="Character 2 Metter" type="ProgressBar" parent="CanvasLayer/Metter Bar/HBoxContainer/Player UI/HBoxContainer3/VBoxContainer/MarginContainer" unique_id=988524368]
+[node name="Character 2 Metter" type="ProgressBar" parent="CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer3/VBoxContainer/MarginContainer" unique_id=988524368]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
@@ -451,8 +475,30 @@ enemy_scene = ExtResource("18_w2iq6")
 [node name="Timer" type="Timer" parent="Spawner" unique_id=492084770]
 autostart = true
 
-[connection signal="pressed" from="CanvasLayer/Pause Menu/Panel/VBoxContainer/MarginContainer2/Resume" to="CanvasLayer/Pause Menu" method="unpause"]
-[connection signal="pressed" from="CanvasLayer/Pause Menu/Panel/VBoxContainer/MarginContainer3/Toggle Fullscreen" to="CanvasLayer/Pause Menu" method="_on_toggle_fullscreen_pressed"]
-[connection signal="pressed" from="CanvasLayer/Pause Menu/Panel/VBoxContainer/MarginContainer/Controller Setup" to="CanvasLayer/Pause Menu" method="_on_controller_setup_pressed"]
+[node name="Turret" type="StaticBody2D" parent="." unique_id=1181078644]
+position = Vector2(11, -133)
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("24_juohv")
+bullet_scene = ExtResource("25_ci7mw")
+
+[node name="HealthComponent" type="Node" parent="Turret" unique_id=2038527022]
+script = ExtResource("16_w2iq6")
+metadata/_custom_type_script = "uid://k1npmfprvwwt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Turret" unique_id=457255158]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Turret" unique_id=266150381]
+texture = ExtResource("25_fmamq")
+
+[node name="Shot Interval Timer" type="Timer" parent="Turret" unique_id=1252081858]
+autostart = true
+
+[connection signal="pressed" from="CanvasLayer/Pause Menu/CenterContainer/Control/Panel/VBoxContainer/MarginContainer2/Resume" to="CanvasLayer/Pause Menu" method="unpause"]
+[connection signal="pressed" from="CanvasLayer/Pause Menu/CenterContainer/Control/Panel/VBoxContainer/MarginContainer3/Toggle Fullscreen" to="CanvasLayer/Pause Menu" method="_on_toggle_fullscreen_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause Menu/CenterContainer/Control/Panel/VBoxContainer/MarginContainer4/Save Game" to="CanvasLayer/Pause Menu" method="_on_save_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause Menu/CenterContainer/Control/Panel/VBoxContainer/MarginContainer/Controller Setup" to="CanvasLayer/Pause Menu" method="_on_controller_setup_pressed"]
 [connection signal="died" from="Destructable/HealthComponent" to="Destructable" method="_on_health_component_died"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="Turret/Shot Interval Timer" to="Turret" method="_on_shot_interval_timer_timeout"]

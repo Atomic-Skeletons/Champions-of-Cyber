@@ -9,7 +9,7 @@ static func clear_all_children(parent: Node) -> void:
 		child.queue_free()
 
 static func reset_tween(tween: Tween, parent: Node) -> Tween:
-	if tween.is_valid():
+	if tween and tween.is_valid():
 		tween.kill()
 	
 	return parent.create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)

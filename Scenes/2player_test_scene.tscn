@@ -954,6 +954,7 @@ follow_damping = true
 lookahead = true
 lookahead_max = true
 lookahead_max_value = Vector2(20, 20)
+auto_zoom = true
 draw_limits = true
 noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"

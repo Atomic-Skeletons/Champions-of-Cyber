@@ -1,5 +1,11 @@
 class_name Explorer extends Character
 
+
+signal jumped()
+signal shot_laser_bullet()
+signal started_laser_beam()
+
+
 # components
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var attack_metter_component: AttackMetterComponent = $AttackMetterComponent
@@ -37,6 +43,17 @@ func _ready() -> void:
 	laser_hitbox.global_position = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
+	if is_hitstopped: return
+	
+	if is_hitstunned:
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+		else:
+			air_movement = true
+		
+		move_and_slide()
+		return
+	
 	# Add the gravity.
 	if not is_on_floor():
 		if input.is_action_pressed("attack"):
@@ -175,3 +192,28 @@ func update_mega_laser(delta: float):
 	var bottom_left = laser_collision_polygon.to_local(laser_start_point.global_position + Vector2(0, width))
 	
 	laser_collision_polygon.polygon = [top_left, top_right, bottom_right, bottom_left]
+
+
+var hitstun_tween: Tween
+var hitstop_tween: Tween
+func _on_health_component_damaged(amount: Variant, hitstun_duration: Variant, hitstop_duration: Variant) -> void:
+	if mega_laser:
+		end_mega_laser()
+	# create tween timers
+	if hitstun_duration:
+		is_hitstunned = true
+		hitstun_tween = Utilities.reset_tween(hitstun_tween, self)
+		
+		hitstun_tween.tween_interval(hitstun_duration)
+		hitstun_tween.tween_callback(func(): is_hitstunned = false)
+	
+	if hitstop_duration:
+		is_hitstopped = true
+		hitstop_tween = Utilities.reset_tween(hitstop_tween, self)
+		
+		hitstop_tween.tween_interval(hitstop_duration)
+		hitstop_tween.tween_callback(func(): is_hitstopped = false)
+
+
+func _on_health_component_knockback(vector: Vector2) -> void:
+	velocity = vector

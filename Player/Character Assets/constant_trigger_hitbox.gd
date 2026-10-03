@@ -18,9 +18,8 @@ func on_tick():
 	
 		if hit_health_component:
 			#screen_shake.emit()
-			var angle = knockback_angle
+			var final_attack_data := attack_data
 			if knockback_flipped:
-				angle = 180 - knockback_angle
-			var knockback_rad = deg_to_rad(angle)
-			var knockback_vector: Vector2 = Vector2.RIGHT.rotated(knockback_rad) * knockback_strength
-			hit_health_component.damage(damage, damage_tags, knockback_vector, hitstun_duration)
+				final_attack_data = attack_data.get_reversed_knockback_andle()
+			
+			hit_health_component.damage(final_attack_data)

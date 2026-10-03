@@ -1,0 +1,165 @@
+[gd_scene format=3 uid="uid://qwf08mxbvhth"]
+
+[ext_resource type="Script" uid="uid://du5nykuhfv02p" path="res://Player/Input Controller/ui_input_handler.gd" id="1_1po3u"]
+[ext_resource type="Script" uid="uid://choatjq4mi8w3" path="res://Menus/Character Select Menu/character_select_menu_controller.gd" id="1_sc23g"]
+[ext_resource type="Texture2D" uid="uid://chxconcuso2pk" path="res://Player/Character Assets/Explorer/Art/explorer shape sprite.png" id="2_uguow"]
+[ext_resource type="Texture2D" uid="uid://e0454mamtsq2" path="res://Player/Character Assets/Electric Boogaloo/Art/electric boogaloo.png" id="3_sc23g"]
+
+[node name="Character Select Menu" type="Control" unique_id=684922013]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sc23g")
+
+[node name="UiInputHandler" type="Node" parent="." unique_id=1389123151]
+script = ExtResource("1_1po3u")
+metadata/_custom_type_script = "uid://du5nykuhfv02p"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=707770001]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Character Full Art" type="HBoxContainer" parent="VBoxContainer" unique_id=1716928746]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Player 1" type="HBoxContainer" parent="VBoxContainer/Character Full Art" unique_id=387343132]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Character Full Art/Player 1" unique_id=813539720]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_uguow")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Character Full Art/Player 1" unique_id=813286025]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_sc23g")
+
+[node name="Player 2" type="HBoxContainer" parent="VBoxContainer/Character Full Art" unique_id=756391370]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Selection Menu" type="MarginContainer" parent="VBoxContainer" unique_id=1403844650]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/Selection Menu" unique_id=1549759868]
+layout_mode = 2
+columns = 4
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Selection Menu/GridContainer" unique_id=1330262443]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Selection Menu/GridContainer/Panel" unique_id=1076374337]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_uguow")
+
+[node name="Player 1 Indicator" type="Control" parent="VBoxContainer/Selection Menu/GridContainer/Panel" unique_id=706504194]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Selection Menu/GridContainer/Panel/Player 1 Indicator" unique_id=1188408217]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -83.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.39841208, 0.3984121, 0.39841208, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/Selection Menu/GridContainer/Panel/Player 1 Indicator/ColorRect" unique_id=2118792976]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player 2 Indicator" type="Control" parent="VBoxContainer/Selection Menu/GridContainer/Panel" unique_id=1994451515]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Selection Menu/GridContainer/Panel/Player 2 Indicator" unique_id=885524246]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 83.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.39841208, 0.3984121, 0.39841208, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/Selection Menu/GridContainer/Panel/Player 2 Indicator/ColorRect" unique_id=884864782]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="VBoxContainer/Selection Menu/GridContainer" unique_id=1991946323]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Selection Menu/GridContainer/Panel2" unique_id=415335734]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_sc23g")
+
+[node name="Panel3" type="Panel" parent="VBoxContainer/Selection Menu/GridContainer" unique_id=1284282392]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Selection Menu/GridContainer/Panel3" unique_id=98727081]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

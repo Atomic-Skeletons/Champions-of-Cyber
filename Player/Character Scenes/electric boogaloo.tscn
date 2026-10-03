@@ -7,11 +7,16 @@
 [ext_resource type="Texture2D" uid="uid://0puqleepv0k0" path="res://Player/Character Assets/Explorer/Art/laser_shot_anim.png" id="4_titfj"]
 [ext_resource type="Texture2D" uid="uid://e0454mamtsq2" path="res://Player/Character Assets/Electric Boogaloo/Art/electric boogaloo.png" id="5_0otec"]
 [ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="5_n7p02"]
+[ext_resource type="AudioStream" uid="uid://b66srkljm7ncd" path="res://Player/Character Assets/Electric Boogaloo/Audio/SFX_Electric_Ball.wav" id="6_titfj"]
 [ext_resource type="Texture2D" uid="uid://nt2grdjoo275" path="res://icon.svg" id="6_v60ed"]
+[ext_resource type="AudioStream" uid="uid://c1ri1axv430q6" path="res://Player/Character Assets/Electric Boogaloo/Audio/SFX_Electric_Kick.wav" id="7_064tw"]
+[ext_resource type="Script" uid="uid://bxcx45dpdno2q" path="res://Player/random_pitch_shifter.gd" id="7_j7wdp"]
 [ext_resource type="Script" uid="uid://crxaysem1tfnv" path="res://Components/hitbox.gd" id="8_qyvub"]
 [ext_resource type="Texture2D" uid="uid://khdibka87ybe" path="res://Player/Character Assets/Explorer/Art/laser body.png" id="9_7hw07"]
+[ext_resource type="AudioStream" uid="uid://browkq6aj3i3i" path="res://Player/Character Assets/Electric Boogaloo/Audio/SFX_JUMMP.wav" id="9_j7wdp"]
 [ext_resource type="Script" uid="uid://bhd4nuiu23e7l" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd" id="10_cwy66"]
 [ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="11_qdcu2"]
+[ext_resource type="Script" uid="uid://dh1mpplaeqbu5" path="res://Components/attack_data_resource.gd" id="13_0phe6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jbxru"]
 shader = ExtResource("1_0otec")
@@ -39,6 +44,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Resource" id="Resource_j7wdp"]
+script = ExtResource("13_0phe6")
+damage_tags = Array[int]([2])
+knockback_angle = 80.0
+knockback_strength = 40.0
+metadata/_custom_type_script = "uid://dh1mpplaeqbu5"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(20, 24)
 
@@ -64,12 +76,34 @@ metadata/_custom_type_script = "uid://dqtier8s750jn"
 
 [node name="HealthComponent" type="Node" parent="." unique_id=858309791]
 script = ExtResource("5_n7p02")
+max_hp = 100
 metadata/_custom_type_script = "uid://k1npmfprvwwt"
 
 [node name="AttackMetterComponent" type="Node" parent="." unique_id=1545214305]
 script = ExtResource("4_0otec")
 max_metter = 90.0
 metadata/_custom_type_script = "uid://cr2xbhach1rlt"
+
+[node name="Audio" type="Node" parent="." unique_id=17032005]
+
+[node name="SfxElectricBall" type="AudioStreamPlayer" parent="Audio" unique_id=893120688]
+stream = ExtResource("6_titfj")
+script = ExtResource("7_j7wdp")
+metadata/_custom_type_script = "uid://bxcx45dpdno2q"
+
+[node name="SfxElectricKick" type="AudioStreamPlayer" parent="Audio" unique_id=2050717029]
+stream = ExtResource("7_064tw")
+script = ExtResource("7_j7wdp")
+metadata/_custom_type_script = "uid://bxcx45dpdno2q"
+
+[node name="SfxJummp" type="AudioStreamPlayer" parent="Audio" unique_id=2012208167]
+stream = ExtResource("9_j7wdp")
+script = ExtResource("7_j7wdp")
+metadata/_custom_type_script = "uid://bxcx45dpdno2q"
+
+[node name="Melee Attack Hitstop Timer" type="Timer" parent="." unique_id=189695193]
+unique_name_in_owner = true
+wait_time = 0.1
 
 [node name="Normal Hurtbox" type="CollisionShape2D" parent="." unique_id=1992489529]
 position = Vector2(0, 0.5)
@@ -87,11 +121,9 @@ autoplay = "idle"
 [node name="Melee Hitbox" type="Area2D" parent="Fliproot" unique_id=1300442941]
 unique_name_in_owner = true
 collision_layer = 0
-collision_mask = 2
+collision_mask = 66
 script = ExtResource("8_qyvub")
-damage_tags = Array[int]([2])
-knockback_angle = -80.0
-knockback_strength = 30.0
+attack_data = SubResource("Resource_j7wdp")
 metadata/_custom_type_script = "uid://crxaysem1tfnv"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fliproot/Melee Hitbox" unique_id=2015066030]
@@ -126,5 +158,11 @@ metadata/_custom_type_script = "uid://bhd4nuiu23e7l"
 unique_name_in_owner = true
 one_shot = true
 
+[connection signal="jumped" from="." to="Audio/SfxJummp" method="play_random_pitch"]
+[connection signal="used_charge_attack" from="." to="Audio/SfxElectricBall" method="play_random_pitch"]
+[connection signal="used_melee_attack" from="." to="Audio/SfxElectricKick" method="play_random_pitch"]
+[connection signal="damaged" from="HealthComponent" to="." method="_on_health_component_damaged"]
+[connection signal="knockback" from="HealthComponent" to="." method="_on_health_component_knockback"]
+[connection signal="timeout" from="Melee Attack Hitstop Timer" to="." method="_on_melee_attack_hitstop_timer_timeout"]
 [connection signal="hit_body" from="Fliproot/Melee Hitbox" to="." method="_on_melee_hitbox_hit_body"]
 [connection signal="timeout" from="Dash Timer" to="." method="_on_dash_timer_timeout"]

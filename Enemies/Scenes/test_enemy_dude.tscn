@@ -35,5 +35,6 @@ script = ExtResource("3_8iene")
 max_hp = 20
 metadata/_custom_type_script = "uid://k1npmfprvwwt"
 
+[connection signal="damaged" from="HealthComponent" to="." method="_on_damaged"]
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="knockback" from="HealthComponent" to="." method="_on_health_component_knockback"]

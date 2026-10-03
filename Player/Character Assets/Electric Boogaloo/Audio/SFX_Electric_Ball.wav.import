@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b66srkljm7ncd"
+path="res://.godot/imported/SFX_Electric_Ball.wav-f746ad5912516d82153391b7c041cd67.sample"
+
+[deps]
+
+source_file="res://Player/Character Assets/Electric Boogaloo/Audio/SFX_Electric_Ball.wav"
+dest_files=["res://.godot/imported/SFX_Electric_Ball.wav-f746ad5912516d82153391b7c041cd67.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

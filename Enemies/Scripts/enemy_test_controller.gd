@@ -5,15 +5,22 @@ extends CharacterBody2D
 @onready var health_component: HealthComponent = $HealthComponent
 
 var in_knockback := false
+var is_hitstopped := false
 @onready var knockback_timer: Timer = Timer.new()
+@onready var hitstop_timer: Timer = Timer.new()
 
 func _ready() -> void:
 	add_child(knockback_timer)
 	knockback_timer.one_shot = true
 	knockback_timer.timeout.connect(end_knockback)
-	knockback_timer.wait_time = .3
+	
+	add_child(hitstop_timer)
+	hitstop_timer.one_shot = true
+	hitstop_timer.timeout.connect(end_hitstop)
+	
 
 func _physics_process(delta: float) -> void:
+	if is_hitstopped: return
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -42,8 +49,17 @@ func _on_health_component_died() -> void:
 
 func _on_health_component_knockback(vector: Vector2) -> void:
 	velocity = vector
-	in_knockback = true
-	knockback_timer.start()
 
 func end_knockback():
 	in_knockback = false
+
+func end_hitstop():
+	is_hitstopped = false
+
+func _on_damaged(_amount: Variant, hitstun_duration: Variant, hitstop_duration: Variant) -> void:
+	if hitstun_duration:
+		in_knockback = true
+		knockback_timer.start(hitstun_duration)
+	if hitstop_duration:
+		is_hitstopped = true
+		hitstop_timer.start(hitstop_duration)

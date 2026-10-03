@@ -6,11 +6,11 @@ const save_file_path := "user://data.dat"
 
 
 func _ready() -> void:
-	load_data()
+	load_game()
 
-func load_data():
+func load_game():
 	if !FileAccess.file_exists(save_file_path):
-		save_data()
+		save_game()
 		return
 
 	var file = FileAccess.open(save_file_path, FileAccess.READ)
@@ -18,7 +18,7 @@ func load_data():
 	load_data_into_resource(SAVE_FLAGS, save_dictionary)
 	file.close()
 
-func save_data():
+func save_game():
 	var file = FileAccess.open(save_file_path, FileAccess.WRITE)
 	var save_dictionary := get_save_dictionary()
 	file.store_string(str(save_dictionary))

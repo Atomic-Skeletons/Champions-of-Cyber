@@ -18,14 +18,12 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+SaveDataController="*uid://ftta6oouue40"
 Global="*uid://f3w7a6l1scut"
-PhantomCameraManager="*uid://duq6jhf6unyis"
-Data="*uid://bxflsv17w3ph2"
 Stoat="*uid://d3gkbh7wwhulk"
 TimeController="*uid://duarl0kriqsfe"
 InputInfo="*uid://p1ryna07icqy"
-PlayerInfo="*uid://c3i7102hh6ttq"
-SaveDataController="*uid://ftta6oouue40"
+PhantomCameraManager="*uid://duq6jhf6unyis"
 
 [display]
 
@@ -220,6 +218,7 @@ p2_tag={
 2d_physics/layer_3="Environment"
 2d_physics/layer_5="Player Projectiles"
 2d_physics/layer_6="Enemy Projectiles"
+2d_physics/layer_7="Enemy Hurtboxes"
 2d_physics/layer_9="True Player"
 2d_physics/layer_10="True Enemy"
 2d_physics/layer_13="Player Environment"

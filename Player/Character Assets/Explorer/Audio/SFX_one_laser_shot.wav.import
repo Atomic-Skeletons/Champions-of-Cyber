@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ds6a60w4wj0kt"
+path="res://.godot/imported/SFX_one_laser_shot.wav-2a8176de44e06bd0fbd02474e0bcd6d2.sample"
+
+[deps]
+
+source_file="res://Player/Character Assets/Explorer/Audio/SFX_one_laser_shot.wav"
+dest_files=["res://.godot/imported/SFX_one_laser_shot.wav-2a8176de44e06bd0fbd02474e0bcd6d2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

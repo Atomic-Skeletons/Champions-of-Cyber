@@ -39,7 +39,7 @@ func _ready() -> void:
 	phantom_camera.teleport_position()
 
 
-func _process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	phantom_camera.follow_offset.x = abs(phantom_camera.follow_offset.x) * active_character.facing_dir
 	
 	if not active_character.air_movement:
@@ -57,6 +57,7 @@ func _process(delta: float) -> void:
 func tag():
 	if not active_character.can_tag: return
 	# Swap character with other based on index
+	# if the first character is active
 	if active_character_index == 1:
 		update_new_character(character_2, character_1)
 		deactivate_character(character_1)
@@ -64,6 +65,7 @@ func tag():
 		active_character = character_2
 		active_character_index = 2
 	
+	# if the second character is active
 	elif active_character_index == 2:
 		update_new_character(character_1, character_2)
 		deactivate_character(character_2)
@@ -71,7 +73,9 @@ func tag():
 		active_character = character_1
 		active_character_index = 1
 	
-	active_character.move_and_slide()
+	# I need to make it so after tagging the player gets a frame
+	# of invulnerability so they spawn without triggering the
+	# old position
 
 func update_new_character(new: Character, old: Character):
 	new.velocity = old.velocity
@@ -82,6 +86,11 @@ func activate_character(character: Character):
 	character.show()
 	character.attack_metter_component.out = false
 	character.process_mode = Node.PROCESS_MODE_INHERIT
+	# makes the player not interact with enemies until a short delay
+	# after tagging in
+	Utilities.disable_enemy_collision(character)
+	await get_tree().create_timer(.1, false, true).timeout
+	Utilities.enable_enemy_collision(character)
 
 func deactivate_character(character: Character):
 	character.hide()
