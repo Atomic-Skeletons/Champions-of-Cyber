@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Champions of Cyber"
-run/main_scene="uid://de5h44var8xll"
+run/main_scene="uid://dx81m8wp1kusu"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 run/max_fps=60
 config/icon="res://icon.svg"
@@ -25,6 +25,7 @@ TimeController="*uid://duarl0kriqsfe"
 InputInfo="*uid://p1ryna07icqy"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 PlayerInfo="*uid://c3i7102hh6ttq"
+LevelManager="*uid://bhk5uj0fihtuc"
 
 [display]
 
