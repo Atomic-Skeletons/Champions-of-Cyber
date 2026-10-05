@@ -23,7 +23,7 @@ shader = ExtResource("1_0otec")
 shader_parameter/saturation = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(14, 31)
+size = Vector2(6, 31)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{

@@ -24,3 +24,7 @@ func shoot():
 
 func _on_shot_interval_timer_timeout() -> void:
 	shoot()
+
+
+func _on_health_component_died() -> void:
+	queue_free()

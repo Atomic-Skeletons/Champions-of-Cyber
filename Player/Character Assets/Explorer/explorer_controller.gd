@@ -153,7 +153,7 @@ func end_mega_laser():
 	mega_laser = false
 	laser_pieces.hide()
 	laser_line.hide()
-	laser_collision_polygon.disabled = true
+	laser_collision_polygon.set_deferred("disabled", true)
 	mega_laser_shake.stop(true)
 	laser_charge = 0
 

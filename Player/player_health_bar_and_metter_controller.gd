@@ -3,14 +3,14 @@ extends VBoxContainer
 
 @export_range(1,2) var player_id = 1
 
-@export var health_bar_1: ProgressBar
-@export var metter_bar_1: ProgressBar
+@export var health_bar_1: Range
+@export var metter_bar_1: Range
 var health_controller_1: HealthComponent
 var metter_controller_1: AttackMetterComponent
 
 
-@export var health_bar_2: ProgressBar
-@export var metter_bar_2: ProgressBar
+@export var health_bar_2: Range
+@export var metter_bar_2: Range
 var health_controller_2: HealthComponent
 var metter_controller_2: AttackMetterComponent
 

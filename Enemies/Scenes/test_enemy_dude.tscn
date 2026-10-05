@@ -14,7 +14,7 @@ shader_parameter/active_outlines = 3
 shader_parameter/line_thickness = 1.0
 shader_parameter/outline_colors = PackedColorArray(0.6392157, 0, 0.08627451, 1, 0, 0, 0, 0, 0, 0, 0, 0)
 
-[node name="Enemy Dude" type="CharacterBody2D" unique_id=1938194074]
+[node name="Enemy Dude" type="CharacterBody2D" unique_id=1938194074 groups=["Enemy"]]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_qabkg")

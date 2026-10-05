@@ -17,11 +17,12 @@ size = Vector2(32, 8)
 
 [node name="RigidBody2D" type="RigidBody2D" unique_id=859712774]
 collision_layer = 16
-collision_mask = 6
+collision_mask = 70
 gravity_scale = 0.0
 continuous_cd = 2
 contact_monitor = true
 max_contacts_reported = 4
+linear_damp_mode = 1
 script = ExtResource("1_o6q4j")
 attack_data = SubResource("Resource_6sjec")
 explosion_anim = ExtResource("3_ffq5e")

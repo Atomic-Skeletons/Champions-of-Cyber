@@ -8,8 +8,9 @@ var active_character_index = 1
 var character_1: Character
 var character_2: Character
 
-@export var character_1_scene: PackedScene
-@export var character_2_scene: PackedScene
+@onready var character_1_scene: PackedScene = load(PlayerInfo.p1_character1_uid) if player_id == 1 else load(PlayerInfo.p2_character1_uid)
+@onready var character_2_scene: PackedScene = load(PlayerInfo.p1_character2_uid) if player_id == 1 else load(PlayerInfo.p2_character2_uid)
+
 
 @export var spawn_point: Marker2D
 
