@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 
-	if is_on_floor():
+	if is_on_floor() and player_holder:
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		var player_pos = player_holder.active_character.global_position.x

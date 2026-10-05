@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dx81m8wp1kusu"]
+
+[ext_resource type="Script" uid="uid://c1vdgov5fbf2x" path="res://Menus/Main Menu/main menu controller.gd" id="1_s5h8b"]
+[ext_resource type="Script" uid="uid://pid5dbdd2x7w" path="res://Menus/Main Menu/level_button.gd" id="2_h6le2"]
+
+[node name="Main Menu" type="Control" unique_id=21229634]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s5h8b")
+
+[node name="Test Scene Button" type="Button" parent="." unique_id=1075987319]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 199.0
+offset_top = 135.0
+offset_right = -513.0
+offset_bottom = -337.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Test Scene"
+
+[node name="2 Player Test Scene Button" type="Button" parent="." unique_id=1180323521]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 375.0
+offset_top = 126.0
+offset_right = -173.0
+offset_bottom = -326.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2 Player Test Scene"
+script = ExtResource("2_h6le2")
+
+[node name="Quit" type="Button" parent="." unique_id=1509722116]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 332.0
+offset_top = 347.0
+offset_right = -348.0
+offset_bottom = -105.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

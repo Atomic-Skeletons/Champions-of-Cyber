@@ -21,7 +21,8 @@ func load_game():
 func save_game():
 	var file = FileAccess.open(save_file_path, FileAccess.WRITE)
 	var save_dictionary := get_save_dictionary()
-	file.store_string(str(save_dictionary))
+	var jstr := JSON.stringify(save_dictionary)
+	file.store_string(jstr)
 	file.close()
 
 func get_save_dictionary() -> Dictionary:
