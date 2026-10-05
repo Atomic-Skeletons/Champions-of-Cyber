@@ -1,4 +1,4 @@
-class_name PlayerCharacterHolder extends Node
+class_name PlayerCharacterHolder extends Node2D
 
 @export_range(1,2) var player_id: int = 1
 
