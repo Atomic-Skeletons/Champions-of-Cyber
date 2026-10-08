@@ -397,7 +397,7 @@ spawn_point = NodePath("../../Player Spawn Point")
 [node name="Camera2D" type="Camera2D" parent="Camera Nodes" unique_id=1786324642]
 top_level = true
 position = Vector2(20, -30)
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera Nodes/Camera2D" unique_id=1755526593]
@@ -414,7 +414,7 @@ priority = 1
 follow_mode = 2
 follow_target = NodePath("../Group Player Follow")
 follow_path = NodePath("../Path2D")
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 tween_resource = SubResource("Resource_a3gxn")
 follow_offset = Vector2(20, -30)
 follow_damping = true

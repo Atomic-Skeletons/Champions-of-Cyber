@@ -1,24 +1,24 @@
 [gd_scene format=3 uid="uid://ca3ecej47uuqf"]
 
-[ext_resource type="Script" uid="uid://c0lt1tcf3rv6y" path="res://Test Levels/game_manager.gd" id="1_6h1gt"]
-[ext_resource type="Shader" uid="uid://bfqjypm8l61mc" path="res://Shaders/double_dither.gdshader" id="1_iyc7f"]
-[ext_resource type="Script" uid="uid://cetcpqlgpoh36" path="res://Menus/Pause Menu/pause menu controller.gd" id="2_3mj3u"]
-[ext_resource type="PackedScene" uid="uid://bndhmjwv3783" path="res://Menus/controller_setup.tscn" id="3_twsxh"]
-[ext_resource type="Script" uid="uid://csmg2t23mawo6" path="res://Player/player_health_bar_and_metter_controller.gd" id="4_p4hxf"]
-[ext_resource type="Texture2D" uid="uid://chxconcuso2pk" path="res://Player/Character Assets/Explorer/Art/explorer shape sprite.png" id="5_q8bwp"]
-[ext_resource type="Texture2D" uid="uid://82ix15nf31cd" path="res://GUI/progress_bar_inner_and_fill.png" id="6_nr55m"]
-[ext_resource type="Texture2D" uid="uid://bl60mtj3i88ss" path="res://GUI/progress_bar_outter.png" id="7_eb84x"]
-[ext_resource type="Script" uid="uid://ffrn8kv8vaec" path="res://GUI/ui_bar_value_shower.gd" id="8_kltfn"]
-[ext_resource type="Texture2D" uid="uid://e0454mamtsq2" path="res://Player/Character Assets/Electric Boogaloo/Art/electric boogaloo.png" id="9_xpxvc"]
-[ext_resource type="Script" uid="uid://drvcxtpf6wvu3" path="res://Player/player_character_holder.gd" id="10_muhl5"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="11_o8nxy"]
-[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="12_d7jcj"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="13_tv5xb"]
-[ext_resource type="Script" uid="uid://bdtyj37jcj626" path="res://Scenes/group_player_follow.gd" id="14_rkexq"]
-[ext_resource type="Script" uid="uid://cjgicx5f63ran" path="res://Scenes/test_level.gd" id="15_wq8us"]
+[ext_resource type="Script" uid="uid://c0lt1tcf3rv6y" path="res://Test Levels/game_manager.gd" id="1_hova8"]
+[ext_resource type="Shader" uid="uid://bfqjypm8l61mc" path="res://Shaders/double_dither.gdshader" id="2_w7l6a"]
+[ext_resource type="Script" uid="uid://cetcpqlgpoh36" path="res://Menus/Pause Menu/pause menu controller.gd" id="3_qa8nm"]
+[ext_resource type="PackedScene" uid="uid://bndhmjwv3783" path="res://Menus/controller_setup.tscn" id="4_ofxdp"]
+[ext_resource type="Script" uid="uid://csmg2t23mawo6" path="res://Player/player_health_bar_and_metter_controller.gd" id="5_sv04o"]
+[ext_resource type="Texture2D" uid="uid://chxconcuso2pk" path="res://Player/Character Assets/Explorer/Art/explorer shape sprite.png" id="6_tpcff"]
+[ext_resource type="Texture2D" uid="uid://82ix15nf31cd" path="res://GUI/progress_bar_inner_and_fill.png" id="7_a1tws"]
+[ext_resource type="Texture2D" uid="uid://bl60mtj3i88ss" path="res://GUI/progress_bar_outter.png" id="8_5i58w"]
+[ext_resource type="Script" uid="uid://ffrn8kv8vaec" path="res://GUI/ui_bar_value_shower.gd" id="9_ng1ba"]
+[ext_resource type="Texture2D" uid="uid://e0454mamtsq2" path="res://Player/Character Assets/Electric Boogaloo/Art/electric boogaloo.png" id="10_kyptf"]
+[ext_resource type="Script" uid="uid://drvcxtpf6wvu3" path="res://Player/player_character_holder.gd" id="11_4wedu"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="12_n2ab8"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="13_tufbe"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="14_yfmmj"]
+[ext_resource type="Script" uid="uid://bdtyj37jcj626" path="res://Scenes/group_player_follow.gd" id="15_o17ug"]
+[ext_resource type="Script" uid="uid://cjgicx5f63ran" path="res://Scenes/test_level.gd" id="16_fe762"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
-shader = ExtResource("1_iyc7f")
+shader = ExtResource("2_w7l6a")
 shader_parameter/center = Vector2(0.5, 0.67)
 shader_parameter/radius = 0.490000023275
 shader_parameter/pixel_size = 8.0
@@ -31,7 +31,7 @@ shader_parameter/falloff = 2.5
 shader_parameter/color = Color(0, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_a3gxn"]
-script = ExtResource("13_tv5xb")
+script = ExtResource("14_yfmmj")
 duration = 0.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
@@ -40,14 +40,8 @@ normal = Vector2(1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xos45"]
 normal = Vector2(-1, 0)
 
-[sub_resource type="Curve2D" id="Curve2D_w2iq6"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1709, -71, 0, 0, 0, 0, 1217.275, -71)
-}
-point_count = 2
-
 [node name="Game Holder" type="Node2D" unique_id=1246508524]
-script = ExtResource("1_6h1gt")
+script = ExtResource("1_hova8")
 
 [node name="Player" type="Node" parent="." unique_id=1471035203]
 
@@ -72,9 +66,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_3mj3u")
+script = ExtResource("3_qa8nm")
 
-[node name="Controller Setup" parent="Player/CanvasLayer/Pause Menu" unique_id=465136458 instance=ExtResource("3_twsxh")]
+[node name="Controller Setup" parent="Player/CanvasLayer/Pause Menu" unique_id=465136458 instance=ExtResource("4_ofxdp")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -182,7 +176,7 @@ grow_vertical = 2
 [node name="Player UI" type="VBoxContainer" parent="Player/CanvasLayer/Player GUI/HBoxContainer" unique_id=1956674037 node_paths=PackedStringArray("health_bar_1", "metter_bar_1", "health_bar_2", "metter_bar_2")]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("4_p4hxf")
+script = ExtResource("5_sv04o")
 health_bar_1 = NodePath("HBoxContainer2/VBoxContainer/Character 1 Health Bar")
 metter_bar_1 = NodePath("HBoxContainer2/VBoxContainer/Character 1 Metter")
 health_bar_2 = NodePath("HBoxContainer3/VBoxContainer/Character 2 Health Bar")
@@ -196,7 +190,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
-texture = ExtResource("5_q8bwp")
+texture = ExtResource("6_tpcff")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer2" unique_id=534953585]
 layout_mode = 2
@@ -212,9 +206,9 @@ stretch_margin_left = 1
 stretch_margin_top = 1
 stretch_margin_right = 1
 stretch_margin_bottom = 1
-texture_under = ExtResource("6_nr55m")
-texture_over = ExtResource("7_eb84x")
-texture_progress = ExtResource("6_nr55m")
+texture_under = ExtResource("7_a1tws")
+texture_over = ExtResource("8_5i58w")
+texture_progress = ExtResource("7_a1tws")
 tint_under = Color(0.3019608, 0.32156864, 0.32156864, 1)
 tint_over = Color(0, 0, 0, 1)
 tint_progress = Color(1, 0, 0, 1)
@@ -230,7 +224,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer/Character 1 Health Bar/CenterContainer" unique_id=1007728992]
 layout_mode = 2
 text = "0"
-script = ExtResource("8_kltfn")
+script = ExtResource("9_ng1ba")
 
 [node name="Character 1 Metter" type="TextureProgressBar" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer" unique_id=162281084]
 layout_mode = 2
@@ -243,9 +237,9 @@ stretch_margin_left = 1
 stretch_margin_top = 1
 stretch_margin_right = 1
 stretch_margin_bottom = 1
-texture_under = ExtResource("6_nr55m")
-texture_over = ExtResource("7_eb84x")
-texture_progress = ExtResource("6_nr55m")
+texture_under = ExtResource("7_a1tws")
+texture_over = ExtResource("8_5i58w")
+texture_progress = ExtResource("7_a1tws")
 tint_under = Color(0.3019608, 0.32156864, 0.32156864, 1)
 tint_over = Color(0, 0, 0, 1)
 tint_progress = Color(4.428029e-06, 0.57824045, 0.80593693, 1)
@@ -261,7 +255,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer/Character 1 Metter/CenterContainer" unique_id=182985218]
 layout_mode = 2
 text = "0"
-script = ExtResource("8_kltfn")
+script = ExtResource("9_ng1ba")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI" unique_id=1467561423]
 layout_mode = 2
@@ -271,7 +265,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
-texture = ExtResource("9_xpxvc")
+texture = ExtResource("10_kyptf")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer3" unique_id=958601320]
 layout_mode = 2
@@ -287,9 +281,9 @@ stretch_margin_left = 1
 stretch_margin_top = 1
 stretch_margin_right = 1
 stretch_margin_bottom = 1
-texture_under = ExtResource("6_nr55m")
-texture_over = ExtResource("7_eb84x")
-texture_progress = ExtResource("6_nr55m")
+texture_under = ExtResource("7_a1tws")
+texture_over = ExtResource("8_5i58w")
+texture_progress = ExtResource("7_a1tws")
 tint_under = Color(0.3019608, 0.32156864, 0.32156864, 1)
 tint_over = Color(0, 0, 0, 1)
 tint_progress = Color(1, 0, 0, 1)
@@ -305,7 +299,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer3/VBoxContainer/Character 2 Health Bar/CenterContainer" unique_id=73388923]
 layout_mode = 2
 text = "0"
-script = ExtResource("8_kltfn")
+script = ExtResource("9_ng1ba")
 
 [node name="Character 2 Metter" type="TextureProgressBar" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer3/VBoxContainer" unique_id=1406717503]
 layout_mode = 2
@@ -318,9 +312,9 @@ stretch_margin_left = 1
 stretch_margin_top = 1
 stretch_margin_right = 1
 stretch_margin_bottom = 1
-texture_under = ExtResource("6_nr55m")
-texture_over = ExtResource("7_eb84x")
-texture_progress = ExtResource("6_nr55m")
+texture_under = ExtResource("7_a1tws")
+texture_over = ExtResource("8_5i58w")
+texture_progress = ExtResource("7_a1tws")
 tint_under = Color(0.3019608, 0.32156864, 0.32156864, 1)
 tint_over = Color(0, 0, 0, 1)
 tint_progress = Color(4.428029e-06, 0.57824045, 0.80593693, 1)
@@ -336,7 +330,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer3/VBoxContainer/Character 2 Metter/CenterContainer" unique_id=1044638480]
 layout_mode = 2
 text = "0"
-script = ExtResource("8_kltfn")
+script = ExtResource("9_ng1ba")
 
 [node name="Panel" type="Panel" parent="Player/CanvasLayer/Player GUI/HBoxContainer" unique_id=2052811008]
 layout_mode = 2
@@ -349,7 +343,7 @@ size_flags_horizontal = 3
 
 [node name="Player Character Holder" type="Node2D" parent="Player" unique_id=2005116031 node_paths=PackedStringArray("spawn_point") groups=["Player"]]
 z_index = 2
-script = ExtResource("10_muhl5")
+script = ExtResource("11_4wedu")
 spawn_point = NodePath("")
 
 [node name="Camera Nodes" type="Node" parent="." unique_id=260398653]
@@ -363,17 +357,17 @@ editor_draw_limits = true
 [node name="PhantomCameraHost" type="Node" parent="Camera Nodes/Camera2D" unique_id=1755526593]
 process_priority = 300
 process_physics_priority = 300
-script = ExtResource("11_o8nxy")
+script = ExtResource("12_n2ab8")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="Camera Nodes" unique_id=1156627732 node_paths=PackedStringArray("follow_target", "follow_path") groups=["Phantom Camera"]]
 top_level = true
 position = Vector2(20, -30)
-script = ExtResource("12_d7jcj")
+script = ExtResource("13_tufbe")
 priority = 1
 follow_mode = 2
 follow_target = NodePath("../Group Player Follow")
-follow_path = NodePath("../Path2D")
+follow_path = NodePath("")
 zoom = Vector2(2, 2)
 tween_resource = SubResource("Resource_a3gxn")
 follow_offset = Vector2(20, -30)
@@ -386,7 +380,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Group Player Follow" type="Marker2D" parent="Camera Nodes" unique_id=54974854]
 process_physics_priority = 1
-script = ExtResource("14_rkexq")
+script = ExtResource("15_o17ug")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Camera Nodes/Group Player Follow" unique_id=353084144]
 collision_layer = 4096
@@ -400,11 +394,8 @@ shape = SubResource("WorldBoundaryShape2D_g4v7s")
 position = Vector2(162, 0)
 shape = SubResource("WorldBoundaryShape2D_xos45")
 
-[node name="Path2D" type="Path2D" parent="Camera Nodes" unique_id=206212382]
-curve = SubResource("Curve2D_w2iq6")
-
 [node name="Level" type="Node" parent="." unique_id=1107788057]
-script = ExtResource("15_wq8us")
+script = ExtResource("16_fe762")
 
 [connection signal="pressed" from="Player/CanvasLayer/Pause Menu/CenterContainer/Control/Panel/VBoxContainer/MarginContainer2/Resume" to="Player/CanvasLayer/Pause Menu" method="unpause"]
 [connection signal="pressed" from="Player/CanvasLayer/Pause Menu/CenterContainer/Control/Panel/VBoxContainer/MarginContainer3/Toggle Fullscreen" to="Player/CanvasLayer/Pause Menu" method="_on_toggle_fullscreen_pressed"]

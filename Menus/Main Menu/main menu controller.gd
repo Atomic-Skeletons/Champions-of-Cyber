@@ -20,6 +20,7 @@ func add_menu_to_stack(node: Control):
 	disable_top_menu()
 	menu_stack.append(node)
 
+
 var im_hiding = false
 func remove_top_menu_from_stack():
 	if im_hiding:
@@ -34,11 +35,13 @@ func remove_top_menu_from_stack():
 			top_menu.hide()
 		enable_top_menu()
 
+
 func disable_top_menu():
 	if menu_stack.size() == 0:
 		focus_behavior_recursive = Control.FOCUS_BEHAVIOR_DISABLED
 	else:
 		menu_stack[-1].focus_behavior_recursive = Control.FOCUS_BEHAVIOR_DISABLED
+
 
 func enable_top_menu():
 	if menu_stack.size() == 0:
@@ -50,18 +53,7 @@ func enable_top_menu():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	hide()
 	controller_setup.hidden.connect(remove_top_menu_from_stack)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	var paused = get_tree().paused
-	if Input.is_action_just_pressed("pause"):
-		if paused:
-			remove_top_menu_from_stack()
-		else:
-			pause()
 
 
 func pause():
@@ -76,11 +68,3 @@ func unpause():
 
 func _on_controller_setup_pressed() -> void:
 	add_menu_to_stack(controller_setup)
-
-
-func _on_toggle_fullscreen_pressed() -> void:
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
-
-
-func _on_save_game_pressed() -> void:
-	SaveDataController.save_game()
