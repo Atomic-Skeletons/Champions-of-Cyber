@@ -20,11 +20,10 @@
 [ext_resource type="Texture2D" uid="uid://bkg77k1q7kyqy" path="res://Level Art/Eva'sBG_Art/Forest_Bg/2ndlayer_forestbg.png" id="10_juohv"]
 [ext_resource type="TileSet" uid="uid://dbyi4yvvgbymx" path="res://Test Levels/Eva Tileset.tres" id="11_4vt6j"]
 [ext_resource type="Texture2D" uid="uid://nt2grdjoo275" path="res://icon.svg" id="11_a3gxn"]
-[ext_resource type="Script" uid="uid://cjgicx5f63ran" path="res://Scenes/test_level.gd" id="14_ci7mw"]
+[ext_resource type="Script" uid="uid://cim2f48qo18uq" path="res://Test Levels/level_1_test_script.gd" id="15_72l2p"]
 [ext_resource type="Script" uid="uid://bdtyj37jcj626" path="res://Scenes/group_player_follow.gd" id="15_xos45"]
 [ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="16_w2iq6"]
 [ext_resource type="PackedScene" uid="uid://dgg80udjapec8" path="res://Enemies/Scenes/test_enemy_dude.tscn" id="18_w2iq6"]
-[ext_resource type="Script" uid="uid://bm4v5ospdj8vn" path="res://Enemies/Scripts/enemy_spawner.gd" id="20_4vt6j"]
 [ext_resource type="Script" uid="uid://d1qfxrkmf0a2x" path="res://Enemies/Scripts/stationary_turret_controller.gd" id="24_juohv"]
 [ext_resource type="PackedScene" uid="uid://c8bbg2hoja35u" path="res://Enemies/Scenes/enemy_laser_bullet.tscn" id="25_ci7mw"]
 [ext_resource type="Texture2D" uid="uid://b7qyud32eky12" path="res://Player/Character Assets/Explorer/Art/laser start.png" id="25_fmamq"]
@@ -390,7 +389,7 @@ size_flags_horizontal = 3
 [node name="Player Character Holder" type="Node2D" parent="Player" unique_id=2005116031 node_paths=PackedStringArray("spawn_point") groups=["Player"]]
 z_index = 2
 script = ExtResource("1_nura0")
-spawn_point = NodePath("../../Player Spawn Point")
+spawn_point = NodePath("../../Level/SpawnPoints/Start/Player Spawn Point")
 
 [node name="Camera Nodes" type="Node" parent="." unique_id=260398653]
 
@@ -444,7 +443,18 @@ shape = SubResource("WorldBoundaryShape2D_xos45")
 curve = SubResource("Curve2D_w2iq6")
 
 [node name="Level" type="Node" parent="." unique_id=1107788057]
-script = ExtResource("14_ci7mw")
+script = ExtResource("15_72l2p")
+
+[node name="SpawnPoints" type="Node" parent="Level" unique_id=712756273]
+
+[node name="Start" type="Node2D" parent="Level/SpawnPoints" unique_id=844729633]
+position = Vector2(-673, 0)
+
+[node name="Player Spawn Point" type="Marker2D" parent="Level/SpawnPoints/Start" unique_id=1432454489]
+position = Vector2(18, 0)
+
+[node name="Player Spawn Point2" type="Marker2D" parent="Level/SpawnPoints/Start" unique_id=1500643135]
+position = Vector2(-18, 0)
 
 [node name="Paralax Layers" type="Node2D" parent="Level" unique_id=1296795371]
 z_index = -2
@@ -603,6 +613,7 @@ metadata/_custom_type_script = "uid://k1npmfprvwwt"
 [node name="Door" type="Area2D" parent="Level" unique_id=858437403]
 position = Vector2(544, -69)
 script = ExtResource("27_bfpo8")
+target_scene = "uid://cjd45tn7jbxsg"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Door" unique_id=2076463780]
 position = Vector2(9, -3)
@@ -612,21 +623,8 @@ shape = SubResource("RectangleShape2D_57qmd")
 position = Vector2(9, -3)
 texture = SubResource("AtlasTexture_d0u6y")
 
-[node name="Player Spawn Point" type="Marker2D" parent="." unique_id=1432454489]
-position = Vector2(-181, -22)
-
-[node name="Player Spawn Point2" type="Marker2D" parent="." unique_id=1500643135]
-position = Vector2(-207, -22)
-
-[node name="Enemy Dude" parent="." unique_id=1938194074 instance=ExtResource("18_w2iq6")]
-
-[node name="Spawner" type="Marker2D" parent="." unique_id=1188518613]
-position = Vector2(114, -38)
-script = ExtResource("20_4vt6j")
-enemy_scene = ExtResource("18_w2iq6")
-
-[node name="Timer" type="Timer" parent="Spawner" unique_id=492084770]
-autostart = true
+[node name="Enemy Dude" parent="Level" unique_id=1938194074 instance=ExtResource("18_w2iq6")]
+position = Vector2(189, -21)
 
 [connection signal="pressed" from="Player/CanvasLayer/Pause Menu/CenterContainer/Control/Panel/VBoxContainer/MarginContainer2/Resume" to="Player/CanvasLayer/Pause Menu" method="unpause"]
 [connection signal="pressed" from="Player/CanvasLayer/Pause Menu/CenterContainer/Control/Panel/VBoxContainer/MarginContainer3/Toggle Fullscreen" to="Player/CanvasLayer/Pause Menu" method="_on_toggle_fullscreen_pressed"]
@@ -635,4 +633,3 @@ autostart = true
 [connection signal="died" from="Level/Turret/HealthComponent" to="Level/Turret" method="_on_health_component_died"]
 [connection signal="timeout" from="Level/Turret/Shot Interval Timer" to="Level/Turret" method="_on_shot_interval_timer_timeout"]
 [connection signal="died" from="Level/Destructable/HealthComponent" to="Level/Destructable" method="_on_health_component_died"]
-[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

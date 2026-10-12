@@ -59,7 +59,7 @@ func is_joypad_connected() -> bool:
 	
 	return false
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if input.is_action_just_pressed("left"):
 		move_left()
 	elif input.is_action_just_pressed("right"):

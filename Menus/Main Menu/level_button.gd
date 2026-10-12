@@ -1,7 +1,7 @@
 extends Button
 
 
-@export var scene_name: String
+@export_file("*.tscn") var scene_name: String
 
 
 func _ready() -> void:

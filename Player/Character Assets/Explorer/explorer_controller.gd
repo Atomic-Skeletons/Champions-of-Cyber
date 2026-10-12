@@ -3,7 +3,9 @@ class_name Explorer extends Character
 
 signal jumped()
 signal shot_laser_bullet()
-signal started_laser_beam()
+signal laser_beam_started()
+signal laser_beam_ended()
+signal started_charging()
 
 
 # components
@@ -71,11 +73,7 @@ func _physics_process(delta: float) -> void:
 		air_movement = true
 	# Handle jump.
 	if input.is_action_just_pressed("jump"):
-		if is_on_floor():
-			velocity.y = -jump_strength
-		elif air_movement:
-			air_movement = false
-			velocity.y = -jump_strength
+		jump()
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -95,6 +93,8 @@ func _physics_process(delta: float) -> void:
 	
 	if input.is_action_pressed("attack"):
 		anim_sprite.play("attack")
+		if laser_charge == 0:
+			started_charging.emit()
 		laser_charge += delta
 		if not mega_laser and laser_charge >= laser_charge_duration:
 			start_mega_laser()
@@ -118,13 +118,23 @@ func update_facing_direction(dir: int):
 	fliproot.scale.x = sign(facing_dir)
 	laser_hitbox.knockback_flipped = facing_dir == -1 if true else false
 
-@onready var laser_bullet: RandomPitchPlayer = %LaserBullet
+func jump():
+	if is_on_floor():
+			velocity.y = -jump_strength
+	elif air_movement:
+		air_movement = false
+		velocity.y = -jump_strength
+	jumped.emit()
+
 
 func shoot_laser_bullet():
-	var metter_used = 20
-	if attack_metter_component.can_use_metter(metter_used):
-		attack_metter_component.use_metter(20)
-		laser_bullet.play_random_pitch()
+	# checking for enough meter
+	if attack_metter_component.can_use_metter(laser_bullet_meter_use):
+		# use meter
+		attack_metter_component.use_metter(laser_bullet_meter_use)
+		# signal that shot happened
+		shot_laser_bullet.emit()
+		# spawn bullet
 		var laser_bullet_object: RigidBody2D = laser_bullet_scene.instantiate()
 		get_parent().add_child(laser_bullet_object)
 		
@@ -141,6 +151,7 @@ func shoot_laser_bullet():
 @onready var mega_laser_shake: PhantomCameraNoiseEmitter2D = $"Mega Laser Shake"
 
 func start_mega_laser():
+	laser_beam_started.emit()
 	can_tag = false
 	mega_laser = true
 	laser_pieces.show()
@@ -149,6 +160,7 @@ func start_mega_laser():
 	mega_laser_shake.emit()
 
 func end_mega_laser():
+	laser_beam_started.emit()
 	can_tag = true
 	mega_laser = false
 	laser_pieces.hide()

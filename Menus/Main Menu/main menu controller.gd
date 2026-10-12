@@ -6,9 +6,8 @@ func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 
-@onready var resume: Button = %Resume
 var last_focus_button: Button
-@onready var controller_setup: Control = %"Controller Setup"
+@export var menus: Array[Control]
 
 var menu_stack: Array[Control] = []
 
@@ -53,13 +52,14 @@ func enable_top_menu():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	controller_setup.hidden.connect(remove_top_menu_from_stack)
+	for menu in menus:
+		menu.hidden.connect(remove_top_menu_from_stack)
 
 
 func pause():
 	get_tree().paused = true
 	show()
-	resume.grab_focus()
+	#first button.grab_focus()
 
 func unpause():
 	get_tree().paused = false
@@ -67,4 +67,5 @@ func unpause():
 
 
 func _on_controller_setup_pressed() -> void:
-	add_menu_to_stack(controller_setup)
+	pass
+	#add_menu_to_stack(controller_setup)

@@ -2,7 +2,7 @@ extends Node
 
 
 func get_closest_character(node: Node2D) -> Character:
-	var closest_character: Character
+	var closest_character: Character = null
 	
 	for player_holder: PlayerCharacterHolder in get_tree().get_nodes_in_group("Player"):
 		# if there wasn't a closest character yet

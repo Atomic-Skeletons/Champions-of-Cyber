@@ -18,16 +18,16 @@ var fade_out = false
 func _ready() -> void:
 	pass
 
-func control_time_scale(target_time_scale: float, duration: float, fade_in_duration: float, fade_out_duration: float,  priority: int):
+func control_time_scale(_target_time_scale: float, duration: float, _fade_in_duration: float, _fade_out_duration: float,  priority: int):
 	if priority >= current_priority:
 		Engine.time_scale = 1
 		active_time_change = true
 		fade_in = true
 		fade_out = false
-		self.target_time_scale = target_time_scale
-		time_scale_difference = 1 - target_time_scale
-		self.fade_in_duration = fade_in_duration
-		self.fade_out_duration = fade_out_duration
+		target_time_scale = _target_time_scale
+		time_scale_difference = 1 - _target_time_scale
+		fade_in_duration = _fade_in_duration
+		fade_out_duration = _fade_out_duration
 		time_duration = duration
 		duration_timer = 0
 

@@ -1,6 +1,8 @@
 extends Area2D
 
 
+@export_file("*.tscn") var target_scene: String
+@export var target_spawn: StringName
 
 
 # Called when the node enters the scene tree for the first time.

@@ -12,7 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Main Menu Panel" type="Control" parent="." unique_id=1519572522]
+[node name="Main Menu Panel" type="Control" parent="." unique_id=1519572522 node_paths=PackedStringArray("menus")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,6 +20,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s5h8b")
+menus = [NodePath("../Controller Setup")]
 
 [node name="Test Scene Button" type="Button" parent="Main Menu Panel" unique_id=1075987319]
 layout_mode = 1
@@ -34,6 +35,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Test Scene"
 script = ExtResource("2_h6le2")
+scene_name = "uid://de5h44var8xll"
 
 [node name="2 Player Test Scene Button" type="Button" parent="Main Menu Panel" unique_id=1180323521]
 layout_mode = 1

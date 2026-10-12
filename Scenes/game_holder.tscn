@@ -341,10 +341,9 @@ size_flags_stretch_ratio = 0.3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Player Character Holder" type="Node2D" parent="Player" unique_id=2005116031 node_paths=PackedStringArray("spawn_point") groups=["Player"]]
+[node name="Player Character Holder" type="Node2D" parent="Player" unique_id=2005116031 groups=["Player"]]
 z_index = 2
 script = ExtResource("11_4wedu")
-spawn_point = NodePath("")
 
 [node name="Camera Nodes" type="Node" parent="." unique_id=260398653]
 
@@ -360,14 +359,13 @@ process_physics_priority = 300
 script = ExtResource("12_n2ab8")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="PhantomCamera2D" type="Node2D" parent="Camera Nodes" unique_id=1156627732 node_paths=PackedStringArray("follow_target", "follow_path") groups=["Phantom Camera"]]
+[node name="PhantomCamera2D" type="Node2D" parent="Camera Nodes" unique_id=1156627732 node_paths=PackedStringArray("follow_target") groups=["Phantom Camera"]]
 top_level = true
 position = Vector2(20, -30)
 script = ExtResource("13_tufbe")
 priority = 1
 follow_mode = 2
 follow_target = NodePath("../Group Player Follow")
-follow_path = NodePath("")
 zoom = Vector2(2, 2)
 tween_resource = SubResource("Resource_a3gxn")
 follow_offset = Vector2(20, -30)
