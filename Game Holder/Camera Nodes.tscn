@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bb5qjap5gsjos"]
+
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_xruj1"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_bxef0"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_ne2c5"]
+[ext_resource type="Script" uid="uid://bdtyj37jcj626" path="res://Scenes/group_player_follow.gd" id="4_hfqdh"]
+
+[sub_resource type="Resource" id="Resource_a3gxn"]
+script = ExtResource("3_ne2c5")
+duration = 0.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xos45"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="Curve2D" id="Curve2D_w2iq6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1709, -71, 0, 0, 0, 0, 1217.275, -71)
+}
+point_count = 2
+
+[node name="Camera Nodes" type="Node" unique_id=1510677209]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=619739612]
+top_level = true
+position = Vector2(20, -30)
+zoom = Vector2(1.5, 1.5)
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=2123225963]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("1_xruj1")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera2D" type="Node2D" parent="." unique_id=1116200298 node_paths=PackedStringArray("follow_target", "follow_path") groups=["Phantom Camera"]]
+top_level = true
+position = Vector2(20, -30)
+script = ExtResource("2_bxef0")
+priority = 1
+follow_mode = 2
+follow_target = NodePath("../Group Player Follow")
+follow_path = NodePath("../Path2D")
+zoom = Vector2(1.5, 1.5)
+tween_resource = SubResource("Resource_a3gxn")
+follow_offset = Vector2(20, -30)
+follow_damping = true
+lookahead_max = true
+lookahead_max_value = Vector2(20, 20)
+draw_limits = true
+noise_emitter_layer = 1
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Group Player Follow" type="Marker2D" parent="." unique_id=615243559]
+process_physics_priority = 1
+script = ExtResource("4_hfqdh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Group Player Follow" unique_id=132968956]
+collision_layer = 4096
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Group Player Follow/StaticBody2D" unique_id=1106690358]
+position = Vector2(-161, 0)
+shape = SubResource("WorldBoundaryShape2D_g4v7s")
+disabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Group Player Follow/StaticBody2D" unique_id=1633796969]
+position = Vector2(162, 0)
+shape = SubResource("WorldBoundaryShape2D_xos45")
+disabled = true
+
+[node name="Path2D" type="Path2D" parent="." unique_id=250149136]
+curve = SubResource("Curve2D_w2iq6")

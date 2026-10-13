@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://brycuu1vf6d4"]
+
+[ext_resource type="Shader" uid="uid://bfqjypm8l61mc" path="res://Shaders/double_dither.gdshader" id="1_4kkq0"]
+[ext_resource type="Script" uid="uid://c1chu8bp6m25d" path="res://Menus/black_transition_screen.gd" id="2_iftk7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
+shader = ExtResource("1_4kkq0")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 0.45
+shader_parameter/pixel_size = 8.0
+shader_parameter/resolution = Vector2(720, 480)
+shader_parameter/dither_offset = Vector2(2, 0)
+shader_parameter/bayer_size = 2
+shader_parameter/interpolate = true
+shader_parameter/invert = true
+shader_parameter/falloff = 2.5
+shader_parameter/color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=2024892144]
+script = ExtResource("2_iftk7")
+
+[node name="Black Transition Screen" type="ColorRect" parent="." unique_id=2055064176]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_g4v7s")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

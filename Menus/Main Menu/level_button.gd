@@ -8,4 +8,4 @@ func _ready() -> void:
 	pressed.connect(open_level)
 
 func open_level():
-	get_tree().change_scene_to_file(scene_name)
+	LevelManager.open_level(scene_name)

@@ -10,9 +10,10 @@ func _ready() -> void:
 	var spawn_name :StringName = LevelManager.next_spawn if LevelManager.next_spawn != &"" else default_spawn
 	var spawn := get_node_or_null("SpawnPoints/%s" % spawn_name)
 	if spawn:
-		player1.active_character.global_position = spawn.global_position
+		var player_1_spawn_point = spawn.get_child(0).global_position
+		player1.active_character.global_position = player_1_spawn_point
 		if player2:
-			player2.active_character.global_position = spawn.global_position
+			player2.active_character.global_position = spawn.get_child(1).global_position
 	else:
 		push_warning("Spawn point '%s' not found in %s" % [spawn_name, name])
 	LevelManager.next_spawn = &""

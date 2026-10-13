@@ -20,6 +20,11 @@ collision_mask = 5
 script = ExtResource("1_qabkg")
 move_speed = 50.0
 
+[node name="HealthComponent" type="Node" parent="." unique_id=1076224343]
+script = ExtResource("3_8iene")
+max_hp = 20
+metadata/_custom_type_script = "uid://k1npmfprvwwt"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1008038119]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_w2iq6")
@@ -29,11 +34,6 @@ material = SubResource("ShaderMaterial_43yf3")
 position = Vector2(-0.5000001, 0)
 scale = Vector2(0.079, 0.084)
 texture = ExtResource("2_6sjec")
-
-[node name="HealthComponent" type="Node" parent="." unique_id=1076224343]
-script = ExtResource("3_8iene")
-max_hp = 20
-metadata/_custom_type_script = "uid://k1npmfprvwwt"
 
 [connection signal="damaged" from="HealthComponent" to="." method="_on_damaged"]
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]

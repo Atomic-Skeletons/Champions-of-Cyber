@@ -12,7 +12,6 @@ var character_2: Character
 @onready var character_2_scene: PackedScene = load(PlayerInfo.p1_character2_uid) if player_id == 1 else load(PlayerInfo.p2_character2_uid)
 
 
-@export var spawn_point: Marker2D
 
 @onready var phantom_camera: PhantomCamera2D = Global.get_phantom_camera()
 
@@ -32,9 +31,6 @@ func _ready() -> void:
 		character_2.input.update_input_data()
 		character_2.attack_metter_component.reparent(self)
 		deactivate_character(character_2)
-	
-	#phantom_camera.follow_target = active_character
-	active_character.global_position = spawn_point.global_position
 	
 	await get_tree().process_frame
 	phantom_camera.teleport_position()
