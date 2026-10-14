@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://bs1gkeavl1uf1" path="res://Player/Character Assets/Explorer/Scripts/laser_bullet.tscn" id="6_a2jtb"]
 [ext_resource type="Texture2D" uid="uid://khdibka87ybe" path="res://Player/Character Assets/Explorer/Art/laser body.png" id="6_j2i38"]
 [ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="6_nq4sq"]
-[ext_resource type="AudioStream" uid="uid://b8ce55ehoyvlk" path="res://Player/Character Assets/Explorer/Audio/SFX_startup_and_laser.wav" id="7_r15qa"]
 [ext_resource type="AudioStream" uid="uid://ds6a60w4wj0kt" path="res://Player/Character Assets/Explorer/Audio/SFX_one_laser_shot.wav" id="7_w36s2"]
 [ext_resource type="AudioStream" uid="uid://be7jigadfogu0" path="res://Player/Character Assets/Explorer/Audio/SFX_other_laser_shot.wav" id="8_aykj2"]
 [ext_resource type="Script" uid="uid://cybfhnkr2grvs" path="res://Player/Character Assets/constant_trigger_hitbox.gd" id="8_neio3"]
@@ -29,16 +28,6 @@ random_pitch = 1.0293022
 streams_count = 2
 stream_0/stream = ExtResource("7_w36s2")
 stream_1/stream = ExtResource("8_aykj2")
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_y1kxa"]
-random_pitch = 1.0293022
-streams_count = 1
-stream_0/stream = ExtResource("7_r15qa")
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_w36s2"]
-random_pitch = 1.0293022
-streams_count = 1
-stream_0/stream = ExtResource("7_r15qa")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_r15qa"]
 random_pitch = 1.0293022
@@ -109,10 +98,8 @@ metadata/_custom_type_script = "uid://cr2xbhach1rlt"
 stream = SubResource("AudioStreamRandomizer_aykj2")
 
 [node name="Laser Charge Up" type="AudioStreamPlayer" parent="Audio" unique_id=531103463]
-stream = SubResource("AudioStreamRandomizer_y1kxa")
 
 [node name="Laser Beam" type="AudioStreamPlayer" parent="Audio" unique_id=773479681]
-stream = SubResource("AudioStreamRandomizer_w36s2")
 
 [node name="Sfx Jump" type="AudioStreamPlayer" parent="Audio" unique_id=218857365]
 stream = SubResource("AudioStreamRandomizer_r15qa")
