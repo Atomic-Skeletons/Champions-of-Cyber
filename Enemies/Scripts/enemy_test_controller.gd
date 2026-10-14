@@ -1,6 +1,8 @@
 class_name Enemy
 extends CharacterBody2D
 
+@onready var bt_player: BTPlayer = %BTPlayer
+
 @export var move_speed: float = 200
 @onready var player_holder := Global.get_player()
 @onready var health_component: HealthComponent = $HealthComponent
@@ -64,3 +66,7 @@ func _on_damaged(_amount: Variant, hitstun_duration: Variant, hitstop_duration: 
 	if hitstop_duration:
 		is_hitstopped = true
 		hitstop_timer.start(hitstop_duration)
+
+
+func _on_saw_character(_character: Character) -> void:
+	bt_player.blackboard.set_var("chasing_player", true)

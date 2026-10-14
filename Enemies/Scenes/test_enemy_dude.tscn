@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bjbplvepshil1" path="res://Player/Character Assets/Explorer/Art/explorer.webp" id="2_6sjec"]
 [ext_resource type="Shader" uid="uid://des7fibqi0pj" path="res://Shaders/stacked_pixel_art_outlines_shader.gdshader" id="2_8iene"]
 [ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="3_8iene"]
+[ext_resource type="Script" uid="uid://dtw8wpyiiwnhg" path="res://Enemies/Scripts/player_detection_ray_cast.gd" id="5_8iene"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2iq6"]
 size = Vector2(14, 29)
@@ -13,6 +14,62 @@ shader = ExtResource("2_8iene")
 shader_parameter/active_outlines = 3
 shader_parameter/line_thickness = 1.0
 shader_parameter/outline_colors = PackedColorArray(0.6392157, 0, 0.08627451, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_6sjec"]
+var/chasing_player/name = &"chasing_player"
+var/chasing_player/type = 1
+var/chasing_player/value = false
+var/chasing_player/hint = 0
+var/chasing_player/hint_string = ""
+
+[sub_resource type="BBVariant" id="BBVariant_8iene"]
+type = 1
+saved_value = true
+resource_name = "true"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_om2bn"]
+variable = &"chasing_player"
+value = SubResource("BBVariant_8iene")
+
+[sub_resource type="BTSequence" id="BTSequence_8iene"]
+custom_name = "Sequence - Chase"
+children = [SubResource("BTCheckVar_om2bn")]
+
+[sub_resource type="BTComment" id="BTComment_8iene"]
+custom_name = "Stops to smell the flowers"
+
+[sub_resource type="BTConsolePrint" id="BTConsolePrint_8iene"]
+text = "stopped to smell the flowers"
+
+[sub_resource type="BTSequence" id="BTSequence_om2bn"]
+custom_name = "Sequence - Chill"
+children = [SubResource("BTComment_8iene"), SubResource("BTConsolePrint_8iene")]
+
+[sub_resource type="BTProbability" id="BTProbability_om2bn"]
+children = [SubResource("BTSequence_om2bn")]
+
+[sub_resource type="BTCooldown" id="BTCooldown_6p7mm"]
+duration = 5.0
+children = [SubResource("BTProbability_om2bn")]
+
+[sub_resource type="BTConsolePrint" id="BTConsolePrint_om2bn"]
+
+[sub_resource type="BTSequence" id="BTSequence_6sjec"]
+custom_name = "Sequence - Move"
+children = [SubResource("BTConsolePrint_om2bn")]
+
+[sub_resource type="BTSelector" id="BTSelector_dtafg"]
+custom_name = "Selector - Patrol"
+children = [SubResource("BTCooldown_6p7mm"), SubResource("BTSequence_6sjec")]
+
+[sub_resource type="BTSelector" id="BTSelector_n4iwp"]
+children = [SubResource("BTSequence_8iene"), SubResource("BTSelector_dtafg")]
+
+[sub_resource type="BehaviorTree" id="BehaviorTree_6sjec"]
+blackboard_plan = SubResource("BlackboardPlan_6sjec")
+root_task = SubResource("BTSelector_n4iwp")
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_8iene"]
 
 [node name="Enemy Dude" type="CharacterBody2D" unique_id=1938194074 groups=["Enemy"]]
 collision_layer = 2
@@ -29,12 +86,35 @@ metadata/_custom_type_script = "uid://k1npmfprvwwt"
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_w2iq6")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1204134202]
+[node name="Fliproot" type="Node2D" parent="." unique_id=939790774]
+
+[node name="Sprite2D" type="Sprite2D" parent="Fliproot" unique_id=1204134202]
 material = SubResource("ShaderMaterial_43yf3")
 position = Vector2(-0.5000001, 0)
 scale = Vector2(0.079, 0.084)
 texture = ExtResource("2_6sjec")
 
+[node name="Floor Cast 1" type="RayCast2D" parent="Fliproot" unique_id=1786751595]
+position = Vector2(-7, 14)
+target_position = Vector2(0, 10)
+
+[node name="Floor Cast 2" type="RayCast2D" parent="Fliproot" unique_id=1665672534]
+position = Vector2(7, 14)
+target_position = Vector2(0, 10)
+
+[node name="BTPlayer" type="BTPlayer" parent="." unique_id=986736306]
+behavior_tree = SubResource("BehaviorTree_6sjec")
+blackboard_plan = SubResource("BlackboardPlan_8iene")
+unique_name_in_owner = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=692064747]
+
+[node name="Player Detection Ray" type="RayCast2D" parent="." unique_id=1931418668]
+target_position = Vector2(100, 0)
+collision_mask = 261
+script = ExtResource("5_8iene")
+
 [connection signal="damaged" from="HealthComponent" to="." method="_on_damaged"]
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="knockback" from="HealthComponent" to="." method="_on_health_component_knockback"]
+[connection signal="saw_character" from="Player Detection Ray" to="." method="_on_saw_character"]
