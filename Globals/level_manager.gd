@@ -20,8 +20,8 @@ func open_level(path: String):
 	await TransitionScreen.animation_done
 	change_room(path)
 
-func open_room(path: String):
+func open_room(path: String, spawn_name: String):
 	TransitionScreen.reset_center()
 	TransitionScreen.start_level_transition()
 	await TransitionScreen.animation_done
-	change_room(path)
+	change_room(path, spawn_name)

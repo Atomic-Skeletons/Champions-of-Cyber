@@ -11,14 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://nt2grdjoo275" path="res://icon.svg" id="11_a3gxn"]
 [ext_resource type="Script" uid="uid://dtw8wpyiiwnhg" path="res://Enemies/Scripts/player_detection_ray_cast.gd" id="13_ivchk"]
 [ext_resource type="Script" uid="uid://cim2f48qo18uq" path="res://Test Levels/level_1_test_script.gd" id="15_72l2p"]
+[ext_resource type="PackedScene" uid="uid://21srs1gejciy" path="res://Test Levels/door.tscn" id="16_24m4q"]
 [ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="16_w2iq6"]
 [ext_resource type="PackedScene" uid="uid://8wekicljdp7u" path="res://Enemies/Scenes/test_big_enemy_dude.tscn" id="18_24m4q"]
 [ext_resource type="PackedScene" uid="uid://dgg80udjapec8" path="res://Enemies/Scenes/test_enemy_dude.tscn" id="18_w2iq6"]
 [ext_resource type="Script" uid="uid://d1qfxrkmf0a2x" path="res://Enemies/Scripts/stationary_turret_controller.gd" id="24_juohv"]
 [ext_resource type="PackedScene" uid="uid://c8bbg2hoja35u" path="res://Enemies/Scenes/enemy_laser_bullet.tscn" id="25_ci7mw"]
 [ext_resource type="Texture2D" uid="uid://b7qyud32eky12" path="res://Player/Character Assets/Explorer/Art/laser start.png" id="25_fmamq"]
-[ext_resource type="Script" uid="uid://781x11kx0qap" path="res://Level Objects/Doors/door_controller.gd" id="27_bfpo8"]
-[ext_resource type="Texture2D" uid="uid://dmbr2vmivljtj" path="res://Level Art/tilemap_packed.png" id="27_kjwkn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4vt6j"]
 
@@ -40,13 +39,6 @@ point_count = 4
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(20, 131)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
-size = Vector2(20, 26)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d0u6y"]
-atlas = ExtResource("27_kjwkn")
-region = Rect2(180, 103, 18, 23)
-
 [node name="Game Holder" type="Node2D" unique_id=1246508524]
 
 [node name="Player Nodes" parent="." unique_id=2037837404 instance=ExtResource("1_i5ayg")]
@@ -65,6 +57,15 @@ position = Vector2(-1597, -21)
 position = Vector2(18, 0)
 
 [node name="Player Spawn Point2" type="Marker2D" parent="Level Nodes/SpawnPoints/Start" unique_id=1500643135]
+position = Vector2(-18, 0)
+
+[node name="Door1" type="Node2D" parent="Level Nodes/SpawnPoints" unique_id=453737272]
+position = Vector2(554, -73)
+
+[node name="Player Spawn Point" type="Marker2D" parent="Level Nodes/SpawnPoints/Door1" unique_id=336768548]
+position = Vector2(18, 0)
+
+[node name="Player Spawn Point2" type="Marker2D" parent="Level Nodes/SpawnPoints/Door1" unique_id=371946112]
 position = Vector2(-18, 0)
 
 [node name="Paralax Layers" type="Node2D" parent="Level Nodes" unique_id=1296795371]
@@ -226,18 +227,9 @@ weakness_tags = Array[int]([2])
 weakness_only_damage = true
 metadata/_custom_type_script = "uid://k1npmfprvwwt"
 
-[node name="Door" type="Area2D" parent="Level Nodes" unique_id=858437403]
+[node name="Door" parent="Level Nodes" unique_id=1487951020 instance=ExtResource("16_24m4q")]
 position = Vector2(544, -69)
-script = ExtResource("27_bfpo8")
-target_scene = "uid://cjd45tn7jbxsg"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level Nodes/Door" unique_id=2076463780]
-position = Vector2(9, -3)
-shape = SubResource("RectangleShape2D_57qmd")
-
-[node name="Sprite2D" type="Sprite2D" parent="Level Nodes/Door" unique_id=1854294843]
-position = Vector2(9, -3)
-texture = SubResource("AtlasTexture_d0u6y")
+target_scene = "uid://d3fusudy0ioj"
 
 [node name="Enemy Dude" parent="Level Nodes" unique_id=1938194074 instance=ExtResource("18_w2iq6")]
 position = Vector2(-14, -52)

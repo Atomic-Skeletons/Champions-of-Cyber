@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://21srs1gejciy"]
+
+[ext_resource type="Script" uid="uid://781x11kx0qap" path="res://Level Objects/Doors/door_controller.gd" id="1_0mycm"]
+[ext_resource type="Texture2D" uid="uid://dmbr2vmivljtj" path="res://Level Art/tilemap_packed.png" id="2_p34al"]
+[ext_resource type="Texture2D" uid="uid://otr3rdtrp64x" path="res://GUI/Input Prompts/tile_0035.png" id="3_4q72d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
+size = Vector2(20, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0u6y"]
+atlas = ExtResource("2_p34al")
+region = Rect2(180, 103, 18, 23)
+
+[node name="Door" type="Area2D" unique_id=1487951020]
+script = ExtResource("1_0mycm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=527674436]
+position = Vector2(9, -3)
+shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1883017136]
+position = Vector2(9, -3)
+texture = SubResource("AtlasTexture_d0u6y")
+
+[node name="Interaction Indicator" type="Sprite2D" parent="." unique_id=2104363728]
+unique_name_in_owner = true
+position = Vector2(9, -25)
+texture = ExtResource("3_4q72d")
