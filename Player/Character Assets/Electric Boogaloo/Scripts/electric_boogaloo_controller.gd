@@ -29,8 +29,11 @@ var dash_velocity: Vector2
 @onready var attack_sprite: Sprite2D = $"Fliproot/Melee Hitbox/Attack Sprite"
 
 @export var downward_kick_meter_use: float = 30
+@onready var burst_attack_timer: Timer = %"Burst Attack Timer"
+@export var burst_attack_meter_use: float = 50
 
 var in_attack = false
+var just_attacked = false
 
 func _ready() -> void:
 	dash_timer.wait_time = dash_duration
@@ -75,13 +78,27 @@ func _physics_process(delta: float) -> void:
 	if in_dash:
 		velocity = dash_velocity
 	
+	if in_burst:
+		velocity = Vector2.ZERO
+	
 	move_and_slide()
 	
-	if input.is_action_just_released("attack") and not in_dash:
+	if input.is_action_just_released("attack") and not just_attacked and not in_dash:
 		if input.is_action_pressed("down"):
 			downward_kick_attack()
 		else:
 			neutral_melee_attack()
+	
+	if input.is_action_just_pressed("attack"):
+		burst_attack_timer.start()
+	if input.is_action_pressed("attack") and not in_attack:
+		burst_attack_timer.paused = false
+	else:
+		burst_attack_timer.paused = true
+	if input.is_action_just_released("attack"):
+		just_attacked = false
+		burst_attack_timer.stop()
+	
 
 func update_facing_direction(dir: int):
 	if dir != 0 and dir != facing_dir:
@@ -117,12 +134,23 @@ func downward_kick_attack():
 		in_attack = false
 		
 
+var in_burst = false
 func burst_attack():
-	used_charge_attack.emit()
+	if attack_metter_component.can_use_metter(burst_attack_meter_use):
+		attack_metter_component.use_metter(burst_attack_meter_use)
+		used_charge_attack.emit()
+		in_attack = true
+		in_burst = true
+		just_attacked = true
+		animation_player.play("Burst Attack")
+		await animation_player.animation_finished
+		in_attack = false
+		in_burst = false
 
 func air_dash(dir: float):
 	used_air_movement.emit()
 	
+	animation_player.play("Enter Dash Stance")
 	can_tag = false
 	in_dash = true
 	air_movement = false
@@ -141,6 +169,7 @@ func _on_melee_hitbox_hit_body(body: Node2D) -> void:
 func _on_dash_timer_timeout() -> void:
 	in_dash = false
 	can_tag = true
+	animation_player.play("RESET")
 	Utilities.enable_enemy_collision(self)
 
 
@@ -173,3 +202,7 @@ func _on_health_component_knockback(vector: Vector2) -> void:
 func _on_downward_kick_hitbox_hit_body(body: Node2D) -> void:
 	air_movement = true
 	jump()
+
+
+func _on_burst_attack_timer_timeout() -> void:
+	burst_attack()
