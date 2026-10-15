@@ -35,7 +35,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Test Scene"
 script = ExtResource("2_h6le2")
-scene_name = "uid://de5h44var8xll"
+scene_name = "uid://bhmns7y06ox7s"
 
 [node name="Quit" type="Button" parent="Main Menu Panel" unique_id=1509722116]
 layout_mode = 1

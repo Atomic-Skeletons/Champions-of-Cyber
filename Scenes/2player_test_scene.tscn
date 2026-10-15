@@ -19,7 +19,7 @@
 [ext_resource type="Script" uid="uid://yllam5egj4yw" path="res://Scenes/destructable.gd" id="17_eu60e"]
 [ext_resource type="Texture2D" uid="uid://nt2grdjoo275" path="res://icon.svg" id="18_aibbg"]
 [ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="19_haojn"]
-[ext_resource type="PackedScene" uid="uid://dgg80udjapec8" path="res://Enemies/Scenes/test_enemy_dude.tscn" id="20_axba2"]
+[ext_resource type="PackedScene" uid="uid://dgg80udjapec8" path="res://Level Objects/Enemies/test_enemy_dude.tscn" id="20_axba2"]
 [ext_resource type="Script" uid="uid://bm4v5ospdj8vn" path="res://Enemies/Scripts/enemy_spawner.gd" id="21_fc8i1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]

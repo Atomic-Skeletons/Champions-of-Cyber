@@ -79,3 +79,8 @@ func _on_toggle_fullscreen_pressed() -> void:
 
 func _on_save_game_pressed() -> void:
 	SaveDataController.save_game()
+
+
+func _on_restart_room_pressed() -> void:
+	unpause()
+	LevelManager.restart_room()

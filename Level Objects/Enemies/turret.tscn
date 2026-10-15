@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bag7eslpq1be4"]
+
+[ext_resource type="Script" uid="uid://d1qfxrkmf0a2x" path="res://Enemies/Scripts/stationary_turret_controller.gd" id="1_x7mw7"]
+[ext_resource type="PackedScene" uid="uid://c8bbg2hoja35u" path="res://Level Objects/Enemies/enemy_laser_bullet.tscn" id="2_mloon"]
+[ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="3_8j6hu"]
+[ext_resource type="Texture2D" uid="uid://b7qyud32eky12" path="res://Player/Character Assets/Explorer/Art/laser start.png" id="4_ukjtm"]
+[ext_resource type="Script" uid="uid://dtw8wpyiiwnhg" path="res://Enemies/Scripts/player_detection_ray_cast.gd" id="5_7n8em"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+
+[node name="Turret" type="StaticBody2D" unique_id=475323464]
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("1_x7mw7")
+bullet_scene = ExtResource("2_mloon")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=524963016]
+script = ExtResource("3_8j6hu")
+metadata/_custom_type_script = "uid://k1npmfprvwwt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=427317136]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=798807197]
+texture = ExtResource("4_ukjtm")
+
+[node name="Shot Interval Timer" type="Timer" parent="." unique_id=262547143]
+autostart = true
+
+[node name="PlayerDetectionCast" type="RayCast2D" parent="." unique_id=1054190716]
+target_position = Vector2(170, 0)
+script = ExtResource("5_7n8em")
+metadata/_custom_type_script = "uid://dtw8wpyiiwnhg"
+
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="timeout" from="Shot Interval Timer" to="." method="_on_shot_interval_timer_timeout"]
+[connection signal="saw_character" from="PlayerDetectionCast" to="." method="_on_player_detection_cast_saw_character"]

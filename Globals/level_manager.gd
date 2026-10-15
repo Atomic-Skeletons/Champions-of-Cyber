@@ -25,3 +25,11 @@ func open_room(path: String, spawn_name: String):
 	TransitionScreen.start_level_transition()
 	await TransitionScreen.animation_done
 	change_room(path, spawn_name)
+
+func restart_room():
+	TransitionScreen.reset_center()
+	TransitionScreen.start_level_transition()
+	await TransitionScreen.animation_done
+	get_tree().reload_current_scene()
+	TransitionScreen.reset_center()
+	TransitionScreen.fade_out()

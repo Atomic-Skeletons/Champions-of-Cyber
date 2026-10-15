@@ -80,6 +80,7 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="Toggle Fullscreen" type="Button" parent="GUI/Pause Menu/CenterContainer/Control/Panel/VBoxContainer/MarginContainer3" unique_id=633756798]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 text = "Toggle Fullscreen"
@@ -93,9 +94,23 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="Save Game" type="Button" parent="GUI/Pause Menu/CenterContainer/Control/Panel/VBoxContainer/MarginContainer4" unique_id=1816866268]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 text = "Save Game"
+
+[node name="MarginContainer5" type="MarginContainer" parent="GUI/Pause Menu/CenterContainer/Control/Panel/VBoxContainer" unique_id=962989103]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Restart Room" type="Button" parent="GUI/Pause Menu/CenterContainer/Control/Panel/VBoxContainer/MarginContainer5" unique_id=1990763730]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Restart Room"
 
 [node name="MarginContainer" type="MarginContainer" parent="GUI/Pause Menu/CenterContainer/Control/Panel/VBoxContainer" unique_id=787572356]
 layout_mode = 2
@@ -304,4 +319,5 @@ script = ExtResource("9_onf82")
 [connection signal="pressed" from="GUI/Pause Menu/CenterContainer/Control/Panel/VBoxContainer/MarginContainer2/Resume" to="GUI/Pause Menu" method="unpause"]
 [connection signal="pressed" from="GUI/Pause Menu/CenterContainer/Control/Panel/VBoxContainer/MarginContainer3/Toggle Fullscreen" to="GUI/Pause Menu" method="_on_toggle_fullscreen_pressed"]
 [connection signal="pressed" from="GUI/Pause Menu/CenterContainer/Control/Panel/VBoxContainer/MarginContainer4/Save Game" to="GUI/Pause Menu" method="_on_save_game_pressed"]
+[connection signal="pressed" from="GUI/Pause Menu/CenterContainer/Control/Panel/VBoxContainer/MarginContainer5/Restart Room" to="GUI/Pause Menu" method="_on_restart_room_pressed"]
 [connection signal="pressed" from="GUI/Pause Menu/CenterContainer/Control/Panel/VBoxContainer/MarginContainer/Controller Setup" to="GUI/Pause Menu" method="_on_controller_setup_pressed"]
