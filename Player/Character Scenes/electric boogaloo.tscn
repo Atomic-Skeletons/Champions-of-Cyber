@@ -12,7 +12,6 @@
 [ext_resource type="AudioStream" uid="uid://c1ri1axv430q6" path="res://Player/Character Assets/Electric Boogaloo/Audio/SFX_Electric_Kick.wav" id="7_064tw"]
 [ext_resource type="Script" uid="uid://bxcx45dpdno2q" path="res://Player/random_pitch_shifter.gd" id="7_j7wdp"]
 [ext_resource type="Script" uid="uid://crxaysem1tfnv" path="res://Components/hitbox.gd" id="8_qyvub"]
-[ext_resource type="Texture2D" uid="uid://khdibka87ybe" path="res://Player/Character Assets/Explorer/Art/laser body.png" id="9_7hw07"]
 [ext_resource type="AudioStream" uid="uid://browkq6aj3i3i" path="res://Player/Character Assets/Electric Boogaloo/Audio/SFX_JUMMP.wav" id="9_j7wdp"]
 [ext_resource type="Script" uid="uid://bhd4nuiu23e7l" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd" id="10_cwy66"]
 [ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="11_qdcu2"]
@@ -24,6 +23,31 @@ shader_parameter/saturation = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(6, 31)
+
+[sub_resource type="Resource" id="Resource_0phe6"]
+script = ExtResource("13_0phe6")
+damage = 20
+damage_tags = Array[int]([2])
+metadata/_custom_type_script = "uid://dh1mpplaeqbu5"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 37.01351
+
+[sub_resource type="Gradient" id="Gradient_j7wdp"]
+offsets = PackedFloat32Array(0.6996644, 0.70302016)
+colors = PackedColorArray(0.78238267, 0.6310656, 0.007533425, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
+gradient = SubResource("Gradient_j7wdp")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Resource" id="Resource_qyvub"]
+script = ExtResource("13_0phe6")
+metadata/_custom_type_script = "uid://dh1mpplaeqbu5"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
+size = Vector2(25.650059, 15.66355)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -59,6 +83,122 @@ script = ExtResource("11_qdcu2")
 frequency = 5.0
 noise_seed = 672
 metadata/_custom_type_script = "uid://dimvdouy8g0sv"
+
+[sub_resource type="Animation" id="Animation_j7wdp"]
+resource_name = "Burst Attack"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Burst Attack Hitbox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Burst Attack Hitbox:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0phe6"]
+resource_name = "Downward Kick"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fliproot/Downward Kick Hitbox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fliproot/Downward Kick Hitbox/CollisionShape2D/Attack Sprite2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_qyvub"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Burst Attack Hitbox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Burst Attack Hitbox:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fliproot/Downward Kick Hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fliproot/Downward Kick Hitbox/CollisionShape2D/Attack Sprite2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qyvub"]
+_data = {
+&"Burst Attack": SubResource("Animation_j7wdp"),
+&"Downward Kick": SubResource("Animation_0phe6"),
+&"RESET": SubResource("Animation_qyvub")
+}
 
 [node name="Player" type="CharacterBody2D" unique_id=1713843606 node_paths=PackedStringArray("melee_collision_shape")]
 material = SubResource("ShaderMaterial_jbxru")
@@ -109,9 +249,49 @@ wait_time = 0.1
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_yf5fn")
 
+[node name="Burst Attack Hitbox" type="Area2D" parent="." unique_id=1881052862]
+scale = Vector2(1e-05, 1e-05)
+collision_layer = 0
+collision_mask = 66
+script = ExtResource("8_qyvub")
+attack_data = SubResource("Resource_0phe6")
+metadata/_custom_type_script = "uid://crxaysem1tfnv"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Burst Attack Hitbox" unique_id=2067555112]
+shape = SubResource("CircleShape2D_g4v7s")
+disabled = true
+
+[node name="Burst Attack Ball" type="TextureRect" parent="Burst Attack Hitbox" unique_id=521772367]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = SubResource("GradientTexture2D_g4v7s")
+
 [node name="Fliproot" type="Node2D" parent="." unique_id=1052527165]
 unique_name_in_owner = true
 use_parent_material = true
+
+[node name="Downward Kick Hitbox" type="Area2D" parent="Fliproot" unique_id=1280755576]
+collision_layer = 0
+collision_mask = 66
+script = ExtResource("8_qyvub")
+attack_data = SubResource("Resource_qyvub")
+metadata/_custom_type_script = "uid://crxaysem1tfnv"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fliproot/Downward Kick Hitbox" unique_id=868840683]
+position = Vector2(9, 16.000002)
+rotation = 0.91856253
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_57qmd")
+disabled = true
+
+[node name="Attack Sprite2" type="Sprite2D" parent="Fliproot/Downward Kick Hitbox/CollisionShape2D" unique_id=903876124]
+visible = false
+position = Vector2(0.5303539, -0.07104218)
+rotation = 1.5707964
+scale = Vector2(0.12198996, 0.20066956)
+texture = ExtResource("6_v60ed")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fliproot" unique_id=86812366]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
@@ -137,15 +317,6 @@ position = Vector2(16, 1.0000002)
 scale = Vector2(0.140625, 0.1875)
 texture = ExtResource("6_v60ed")
 
-[node name="Laser Line" type="Line2D" parent="." unique_id=1163900613]
-unique_name_in_owner = true
-visible = false
-position = Vector2(2.250657, -7.3175907)
-points = PackedVector2Array(10.749343, -0.6824093, 34.749344, -0.6824093)
-width = 32.0
-texture = ExtResource("9_7hw07")
-texture_mode = 1
-
 [node name="Mega Laser Shake" type="Node2D" parent="." unique_id=1089475892]
 script = ExtResource("10_cwy66")
 noise = SubResource("Resource_neio3")
@@ -158,11 +329,16 @@ metadata/_custom_type_script = "uid://bhd4nuiu23e7l"
 unique_name_in_owner = true
 one_shot = true
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2127007497]
+libraries/ = SubResource("AnimationLibrary_qyvub")
+
 [connection signal="jumped" from="." to="Audio/SfxJummp" method="play_random_pitch"]
 [connection signal="used_charge_attack" from="." to="Audio/SfxElectricBall" method="play_random_pitch"]
 [connection signal="used_melee_attack" from="." to="Audio/SfxElectricKick" method="play_random_pitch"]
 [connection signal="damaged" from="HealthComponent" to="." method="_on_health_component_damaged"]
 [connection signal="knockback" from="HealthComponent" to="." method="_on_health_component_knockback"]
 [connection signal="timeout" from="Melee Attack Hitstop Timer" to="." method="_on_melee_attack_hitstop_timer_timeout"]
+[connection signal="hit_body" from="Fliproot/Downward Kick Hitbox" to="." method="_on_melee_hitbox_hit_body"]
+[connection signal="hit_body" from="Fliproot/Downward Kick Hitbox" to="." method="_on_downward_kick_hitbox_hit_body"]
 [connection signal="hit_body" from="Fliproot/Melee Hitbox" to="." method="_on_melee_hitbox_hit_body"]
 [connection signal="timeout" from="Dash Timer" to="." method="_on_dash_timer_timeout"]

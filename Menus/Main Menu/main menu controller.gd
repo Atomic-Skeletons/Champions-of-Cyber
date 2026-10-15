@@ -52,6 +52,7 @@ func enable_top_menu():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$"Test Scene Button".grab_focus()
 	for menu in menus:
 		menu.hidden.connect(remove_top_menu_from_stack)
 

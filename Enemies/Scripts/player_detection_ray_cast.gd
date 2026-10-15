@@ -16,4 +16,3 @@ func _process(_delta: float) -> void:
 		var collider = get_collider()
 		if collider is Character:
 			saw_character.emit(collider)
-			active = false
