@@ -24,6 +24,7 @@ func _ready() -> void:
 		character_1.input.player_id = player_id
 		character_1.input.update_input_data()
 		character_1.attack_metter_component.reparent(self)
+		character_1.get_node("Audio").reparent(self)
 	if not character_2:
 		character_2 = character_2_scene.instantiate()
 		add_child(character_2)
@@ -31,6 +32,7 @@ func _ready() -> void:
 		character_2.input.update_input_data()
 		character_2.attack_metter_component.reparent(self)
 		deactivate_character(character_2)
+		character_2.get_node("Audio").reparent(self)
 	
 	await get_tree().process_frame
 	phantom_camera.teleport_position()

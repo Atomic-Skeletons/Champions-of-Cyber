@@ -4,10 +4,12 @@ signal jumped()
 signal used_air_movement()
 signal used_melee_attack()
 signal used_charge_attack()
+signal used_downwarde_kick()
 
 # components
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var attack_metter_component: AttackMetterComponent = $AttackMetterComponent
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 @export var move_speed := 200
@@ -25,6 +27,8 @@ var dash_velocity: Vector2
 @onready var melee_hitbox: Hitbox = %"Melee Hitbox"
 @export var melee_collision_shape: CollisionShape2D
 @onready var attack_sprite: Sprite2D = $"Fliproot/Melee Hitbox/Attack Sprite"
+
+@export var downward_kick_meter_use: float = 30
 
 var in_attack = false
 
@@ -59,8 +63,7 @@ func _physics_process(delta: float) -> void:
 	if input.is_action_just_pressed("jump") and not in_dash:
 		if is_on_floor():
 			# jump
-			jumped.emit()
-			velocity.y = -jump_strength
+			jump()
 		elif air_movement:
 			air_dash(direction)
 			
@@ -74,14 +77,21 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-	if input.is_action_just_pressed("attack") and not in_dash:
-		neutral_melee_attack()
+	if input.is_action_just_released("attack") and not in_dash:
+		if input.is_action_pressed("down"):
+			downward_kick_attack()
+		else:
+			neutral_melee_attack()
 
 func update_facing_direction(dir: int):
 	if dir != 0 and dir != facing_dir:
 		facing_dir = dir
 	fliproot.scale.x = facing_dir
 	melee_hitbox.knockback_flipped = false if facing_dir == 1 else true
+
+func jump():
+	jumped.emit()
+	velocity.y = -jump_strength
 
 #region Attack Methods
 func neutral_melee_attack():
@@ -95,6 +105,17 @@ func neutral_melee_attack():
 		in_attack = false
 		attack_sprite.hide()
 		melee_collision_shape.disabled = true
+
+func downward_kick_attack():
+	if attack_metter_component.can_use_metter(downward_kick_meter_use):
+		attack_metter_component.use_metter(downward_kick_meter_use)
+		used_downwarde_kick.emit()
+		in_attack = true
+		animation_player.play("Downward Kick")
+		velocity.y = 40
+		await animation_player.animation_finished
+		in_attack = false
+		
 
 func burst_attack():
 	used_charge_attack.emit()
@@ -147,3 +168,8 @@ func _on_health_component_damaged(amount: Variant, hitstun_duration: Variant, hi
 
 func _on_health_component_knockback(vector: Vector2) -> void:
 	velocity = vector
+
+
+func _on_downward_kick_hitbox_hit_body(body: Node2D) -> void:
+	air_movement = true
+	jump()
