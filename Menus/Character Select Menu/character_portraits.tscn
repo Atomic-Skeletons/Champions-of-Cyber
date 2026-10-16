@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://chugbu1kdeco2"]
+
+[ext_resource type="Texture2D" uid="uid://chxconcuso2pk" path="res://Player/Character Assets/Explorer/Art/explorer shape sprite.png" id="1_i36mq"]
+[ext_resource type="Texture2D" uid="uid://e0454mamtsq2" path="res://Player/Character Assets/Electric Boogaloo/Art/electric boogaloo.png" id="2_ej30m"]
+[ext_resource type="Texture2D" uid="uid://cw40pe2v3j4hy" path="res://Player/Character Assets/Roller Shark/Art/rollerblading.png" id="3_ej30m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4v7s"]
+atlas = ExtResource("3_ej30m")
+region = Rect2(0, 0, 38, 32)
+
+[node name="Character Portraits" type="Control" unique_id=2072413364]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+
+[node name="Explorer" type="TextureRect" parent="." unique_id=1115856347]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_i36mq")
+
+[node name="Electric Boogaloo" type="TextureRect" parent="." unique_id=204450583]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_ej30m")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1623624940]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_g4v7s")

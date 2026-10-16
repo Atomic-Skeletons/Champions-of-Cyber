@@ -6,12 +6,17 @@ extends Control
 # and the selection menu when each controller moves around
 # one controller can have 2 ui input controllers
 
+@onready var input_p1: UiInputHandler = $UiInputHandler
+@onready var input_p2: UiInputHandler = $UiInputHandler2
 
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready() -> void:
-	pass # Replace with function body.
+	input_p1.player_id = 1
+	input_p1.update_input_data()
+	input_p2.player_id = 2
+	input_p2.update_input_data()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
