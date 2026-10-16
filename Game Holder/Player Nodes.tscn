@@ -72,6 +72,7 @@ size_flags_vertical = 3
 text = "Resume"
 
 [node name="MarginContainer3" type="MarginContainer" parent="GUI/Pause Menu/CenterContainer/Control/Panel/VBoxContainer" unique_id=367121919]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 10
@@ -80,12 +81,12 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="Toggle Fullscreen" type="Button" parent="GUI/Pause Menu/CenterContainer/Control/Panel/VBoxContainer/MarginContainer3" unique_id=633756798]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 text = "Toggle Fullscreen"
 
 [node name="MarginContainer4" type="MarginContainer" parent="GUI/Pause Menu/CenterContainer/Control/Panel/VBoxContainer" unique_id=2108503882]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 10
@@ -94,7 +95,6 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="Save Game" type="Button" parent="GUI/Pause Menu/CenterContainer/Control/Panel/VBoxContainer/MarginContainer4" unique_id=1816866268]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 text = "Save Game"

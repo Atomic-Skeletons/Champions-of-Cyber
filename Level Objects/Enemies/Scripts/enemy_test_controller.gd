@@ -1,9 +1,13 @@
 class_name Enemy
 extends CharacterBody2D
 
+signal melee_attacked()
+signal took_damage()
+
 enum states {
 	patroling,
-	chasing
+	chasing,
+	attacking
 }
 var state = states.patroling
 
@@ -19,6 +23,8 @@ var look_dir = 1:
 
 @onready var player_holder := Global.get_player()
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var melee_attack_cooldown: Timer = $"Melee Attack Cooldown"
 
 var in_knockback := false
 var is_hitstopped := false
@@ -68,16 +74,35 @@ func _physics_process(delta: float) -> void:
 			if is_on_floor() and player_holder:
 				# Get the input direction and handle the movement/deceleration.
 				# As good practice, you should replace UI actions with custom gameplay actions.
-				var player_pos = player_holder.active_character.global_position.x
-				var direction : int = sign(player_pos - global_position.x)
+				var player_pos = player_holder.active_character.global_position
+				var direction : int = sign(player_pos.x - global_position.x)
 				if direction:
 					look_dir = direction
 					velocity.x = direction * move_speed
 				else:
 					velocity.x = move_toward(velocity.x, 0, move_speed)
+				
+				if not front_ground_cast.is_colliding():
+					velocity.x = 0
+				
+				var distance_to_player = global_position.distance_to(player_pos)
+				if distance_to_player < 50 :
+					melee_attack()
+		
+		states.attacking:
+			pass
 	
 	move_and_slide()
 
+func melee_attack():
+	if not melee_attack_cooldown.is_stopped():
+		return
+	melee_attacked.emit()
+	animation_player.play("Melee Attack")
+	state = states.attacking
+	await animation_player.animation_finished
+	melee_attack_cooldown.start()
+	state = states.chasing
 
 func _on_health_component_died() -> void:
 	await get_tree().create_timer(.3).timeout
@@ -94,6 +119,8 @@ func end_hitstop():
 	is_hitstopped = false
 
 func _on_damaged(_amount: Variant, hitstun_duration: Variant, hitstop_duration: Variant) -> void:
+	took_damage.emit()
+	animation_player.call_deferred("play", "RESET")
 	flash_hit(.3)
 	if hitstun_duration:
 		in_knockback = true

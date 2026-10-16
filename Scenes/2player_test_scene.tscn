@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://nt2grdjoo275" path="res://icon.svg" id="18_aibbg"]
 [ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="19_haojn"]
 [ext_resource type="PackedScene" uid="uid://dgg80udjapec8" path="res://Level Objects/Enemies/test_enemy_dude.tscn" id="20_axba2"]
-[ext_resource type="Script" uid="uid://bm4v5ospdj8vn" path="res://Enemies/Scripts/enemy_spawner.gd" id="21_fc8i1"]
+[ext_resource type="Script" uid="uid://bm4v5ospdj8vn" path="res://Level Objects/Enemies/Scripts/enemy_spawner.gd" id="21_fc8i1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("1_h6w4y")

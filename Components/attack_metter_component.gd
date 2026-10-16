@@ -4,8 +4,8 @@ extends Node
 @export var max_metter: float = 100
 var value : float
 
-@export var normal_recharge_rate: float = 10
-@export var out_recharge_rate: float = 20
+@export var normal_recharge_rate: float = 1
+@export var out_recharge_rate: float = 10
 
 var out = false
 

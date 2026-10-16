@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bkg77k1q7kyqy" path="res://Level Art/Eva'sBG_Art/Forest_Bg/2ndlayer_forestbg.png" id="18_37vmf"]
 [ext_resource type="Texture2D" uid="uid://cwp8g7883o37n" path="res://Level Art/Eva'sBG_Art/Forest_Bg/foreground-layer_forest-bg_02.png" id="19_5rpdl"]
 [ext_resource type="TileSet" uid="uid://dbyi4yvvgbymx" path="res://Test Levels/Eva Tileset.tres" id="20_dvwlk"]
-[ext_resource type="Script" uid="uid://d1qfxrkmf0a2x" path="res://Enemies/Scripts/stationary_turret_controller.gd" id="21_wttxi"]
+[ext_resource type="Script" uid="uid://d1qfxrkmf0a2x" path="res://Level Objects/Enemies/Scripts/stationary_turret_controller.gd" id="21_wttxi"]
 [ext_resource type="PackedScene" uid="uid://c8bbg2hoja35u" path="res://Level Objects/Enemies/enemy_laser_bullet.tscn" id="22_2cy75"]
 [ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="23_xqfxl"]
 [ext_resource type="Texture2D" uid="uid://b7qyud32eky12" path="res://Player/Character Assets/Explorer/Art/laser start.png" id="24_lolt6"]
@@ -29,7 +29,7 @@
 [ext_resource type="Script" uid="uid://781x11kx0qap" path="res://Level Objects/Doors/door_controller.gd" id="27_ctlls"]
 [ext_resource type="Texture2D" uid="uid://dmbr2vmivljtj" path="res://Level Art/tilemap_packed.png" id="28_tmv40"]
 [ext_resource type="PackedScene" uid="uid://dgg80udjapec8" path="res://Level Objects/Enemies/test_enemy_dude.tscn" id="29_x3wtw"]
-[ext_resource type="Script" uid="uid://bm4v5ospdj8vn" path="res://Enemies/Scripts/enemy_spawner.gd" id="30_tphsr"]
+[ext_resource type="Script" uid="uid://bm4v5ospdj8vn" path="res://Level Objects/Enemies/Scripts/enemy_spawner.gd" id="30_tphsr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("1_owhpl")

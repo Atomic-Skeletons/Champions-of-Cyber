@@ -17,6 +17,7 @@ shader_parameter/falloff = 2.5
 shader_parameter/color = Color(0, 0, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=2024892144]
+process_mode = 3
 script = ExtResource("2_iftk7")
 
 [node name="Black Transition Screen" type="ColorRect" parent="." unique_id=2055064176]
