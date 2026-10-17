@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ew38d1pqpoxn"
+path="res://.godot/imported/SFX_FIVE_laser_shot.wav-d62ce916c86d129d84141d38bd23c413.sample"
+
+[deps]
+
+source_file="res://Player/Character Assets/Explorer/Audio/Laser Bullet Variations/SFX_FIVE_laser_shot.wav"
+dest_files=["res://.godot/imported/SFX_FIVE_laser_shot.wav-d62ce916c86d129d84141d38bd23c413.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

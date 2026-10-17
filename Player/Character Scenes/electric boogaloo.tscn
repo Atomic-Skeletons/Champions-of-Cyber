@@ -7,22 +7,43 @@
 [ext_resource type="Texture2D" uid="uid://0puqleepv0k0" path="res://Player/Character Assets/Explorer/Art/laser_shot_anim.png" id="4_titfj"]
 [ext_resource type="Texture2D" uid="uid://e0454mamtsq2" path="res://Player/Character Assets/Electric Boogaloo/Art/electric boogaloo.png" id="5_0otec"]
 [ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="5_n7p02"]
-[ext_resource type="AudioStream" uid="uid://b66srkljm7ncd" path="res://Player/Character Assets/Electric Boogaloo/Audio/SFX_Electric_Ball.wav" id="6_titfj"]
+[ext_resource type="AudioStream" uid="uid://b3mqlf4kjxxpm" path="res://Player/Character Assets/Electric Boogaloo/Audio/SFX_Electric_Punch.wav" id="6_cwy66"]
+[ext_resource type="AudioStream" uid="uid://iytxnfskifk5" path="res://Player/Character Assets/Electric Boogaloo/Audio/SFX_electric_dash.wav" id="6_j7wdp"]
 [ext_resource type="Texture2D" uid="uid://nt2grdjoo275" path="res://icon.svg" id="6_v60ed"]
-[ext_resource type="AudioStream" uid="uid://c1ri1axv430q6" path="res://Player/Character Assets/Electric Boogaloo/Audio/SFX_Electric_Kick.wav" id="7_064tw"]
-[ext_resource type="Script" uid="uid://bxcx45dpdno2q" path="res://Player/random_pitch_shifter.gd" id="7_j7wdp"]
+[ext_resource type="AudioStream" uid="uid://qlnl3k6otxxj" path="res://Player/Character Assets/Electric Boogaloo/Audio/SFX_Electric_Kick.wav" id="7_cwy66"]
+[ext_resource type="AudioStream" uid="uid://ccie0uctrcpkj" path="res://Player/Character Assets/Movement Audio/jump_audio_randomizer.tres" id="8_7hw07"]
+[ext_resource type="AudioStream" uid="uid://bvokmpii5a5pn" path="res://Player/Character Assets/Electric Boogaloo/Audio/SFX_Electric_Ball.wav" id="8_cwy66"]
 [ext_resource type="Script" uid="uid://crxaysem1tfnv" path="res://Components/hitbox.gd" id="8_qyvub"]
-[ext_resource type="AudioStream" uid="uid://browkq6aj3i3i" path="res://Player/Character Assets/Electric Boogaloo/Audio/SFX_JUMMP.wav" id="9_j7wdp"]
 [ext_resource type="Script" uid="uid://bhd4nuiu23e7l" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd" id="10_cwy66"]
 [ext_resource type="Texture2D" uid="uid://82ix15nf31cd" path="res://GUI/progress_bar_inner_and_fill.png" id="10_qyvub"]
 [ext_resource type="Texture2D" uid="uid://bl60mtj3i88ss" path="res://GUI/progress_bar_outter.png" id="11_7hw07"]
 [ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="11_qdcu2"]
-[ext_resource type="Script" uid="uid://cdbh6m2hm3nxt" path="res://Player/Character Scenes/metter_visualization.gd" id="12_7hw07"]
+[ext_resource type="Script" uid="uid://cdbh6m2hm3nxt" path="res://Player/metter_visualization.gd" id="12_7hw07"]
 [ext_resource type="Script" uid="uid://dh1mpplaeqbu5" path="res://Components/attack_data_resource.gd" id="13_0phe6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jbxru"]
 shader = ExtResource("1_0otec")
 shader_parameter/saturation = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cwy66"]
+random_pitch = 1.0594631
+streams_count = 1
+stream_0/stream = ExtResource("6_cwy66")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qdcu2"]
+random_pitch = 1.0594631
+streams_count = 1
+stream_0/stream = ExtResource("7_cwy66")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_46hbe"]
+random_pitch = 1.0594631
+streams_count = 1
+stream_0/stream = ExtResource("8_cwy66")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qyvub"]
+random_pitch = 1.0594631
+streams_count = 1
+stream_0/stream = ExtResource("6_j7wdp")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(6, 31)
@@ -274,20 +295,20 @@ metadata/_custom_type_script = "uid://cr2xbhach1rlt"
 
 [node name="Audio" type="Node" parent="." unique_id=17032005]
 
-[node name="SfxElectricBall" type="AudioStreamPlayer" parent="Audio" unique_id=893120688]
-stream = ExtResource("6_titfj")
-script = ExtResource("7_j7wdp")
-metadata/_custom_type_script = "uid://bxcx45dpdno2q"
+[node name="SfxElectricPunch" type="AudioStreamPlayer" parent="Audio" unique_id=1972644141]
+stream = SubResource("AudioStreamRandomizer_cwy66")
 
-[node name="SfxElectricKick" type="AudioStreamPlayer" parent="Audio" unique_id=2050717029]
-stream = ExtResource("7_064tw")
-script = ExtResource("7_j7wdp")
-metadata/_custom_type_script = "uid://bxcx45dpdno2q"
+[node name="SfxElectricKick" type="AudioStreamPlayer" parent="Audio" unique_id=12777748]
+stream = SubResource("AudioStreamRandomizer_qdcu2")
 
-[node name="SfxJummp" type="AudioStreamPlayer" parent="Audio" unique_id=2012208167]
-stream = ExtResource("9_j7wdp")
-script = ExtResource("7_j7wdp")
-metadata/_custom_type_script = "uid://bxcx45dpdno2q"
+[node name="SfxElectricBall" type="AudioStreamPlayer" parent="Audio" unique_id=77162799]
+stream = SubResource("AudioStreamRandomizer_46hbe")
+
+[node name="SfxJummp" type="AudioStreamPlayer" parent="Audio" unique_id=1881617385]
+stream = ExtResource("8_7hw07")
+
+[node name="SfxElectricDash" type="AudioStreamPlayer" parent="Audio" unique_id=1478122005]
+stream = SubResource("AudioStreamRandomizer_qyvub")
 
 [node name="Melee Attack Hitstop Timer" type="Timer" parent="." unique_id=189695193]
 unique_name_in_owner = true
@@ -422,10 +443,11 @@ one_shot = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2127007497]
 libraries/ = SubResource("AnimationLibrary_qyvub")
 
-[connection signal="jumped" from="." to="Audio/SfxJummp" method="play_random_pitch"]
-[connection signal="used_air_movement" from="." to="Audio/SfxElectricKick" method="play"]
-[connection signal="used_charge_attack" from="." to="Audio/SfxElectricBall" method="play_random_pitch"]
-[connection signal="used_melee_attack" from="." to="Audio/SfxElectricKick" method="play_random_pitch"]
+[connection signal="jumped" from="." to="Audio/SfxJummp" method="play"]
+[connection signal="used_air_movement" from="." to="Audio/SfxElectricDash" method="play"]
+[connection signal="used_charge_attack" from="." to="Audio/SfxElectricBall" method="play"]
+[connection signal="used_downwarde_kick" from="." to="Audio/SfxElectricKick" method="play"]
+[connection signal="used_melee_attack" from="." to="Audio/SfxElectricPunch" method="play"]
 [connection signal="damaged" from="HealthComponent" to="." method="_on_health_component_damaged"]
 [connection signal="knockback" from="HealthComponent" to="." method="_on_health_component_knockback"]
 [connection signal="timeout" from="Melee Attack Hitstop Timer" to="." method="_on_melee_attack_hitstop_timer_timeout"]

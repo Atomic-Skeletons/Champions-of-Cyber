@@ -13,10 +13,15 @@
 [ext_resource type="PackedScene" uid="uid://bs1gkeavl1uf1" path="res://Player/Character Assets/Explorer/Scripts/laser_bullet.tscn" id="6_a2jtb"]
 [ext_resource type="Texture2D" uid="uid://khdibka87ybe" path="res://Player/Character Assets/Explorer/Art/laser body.png" id="6_j2i38"]
 [ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="6_nq4sq"]
-[ext_resource type="AudioStream" uid="uid://ds6a60w4wj0kt" path="res://Player/Character Assets/Explorer/Audio/SFX_one_laser_shot.wav" id="7_w36s2"]
-[ext_resource type="AudioStream" uid="uid://be7jigadfogu0" path="res://Player/Character Assets/Explorer/Audio/SFX_other_laser_shot.wav" id="8_aykj2"]
+[ext_resource type="AudioStream" uid="uid://cxcs8t12y2fjq" path="res://Player/Character Assets/Explorer/Audio/Laser Bullet Variations/SFX_ONE_laser_shot.wav" id="7_5rt6o"]
+[ext_resource type="AudioStream" uid="uid://cofqv01fcgysv" path="res://Player/Character Assets/Explorer/Audio/Laser Bullet Variations/SFX_TWO_laser_shot.wav" id="8_l72of"]
 [ext_resource type="Script" uid="uid://cybfhnkr2grvs" path="res://Player/Character Assets/constant_trigger_hitbox.gd" id="8_neio3"]
-[ext_resource type="AudioStream" uid="uid://browkq6aj3i3i" path="res://Player/Character Assets/Electric Boogaloo/Audio/SFX_JUMMP.wav" id="9_w36s2"]
+[ext_resource type="AudioStream" uid="uid://nki6j78uabgn" path="res://Player/Character Assets/Explorer/Audio/Laser Bullet Variations/SFX_THREE_laser_shot.wav" id="9_dfbu7"]
+[ext_resource type="AudioStream" uid="uid://ccie0uctrcpkj" path="res://Player/Character Assets/Movement Audio/jump_audio_randomizer.tres" id="9_w36s2"]
+[ext_resource type="AudioStream" uid="uid://dhb5tl18hfk88" path="res://Player/Character Assets/Explorer/Audio/Laser Bullet Variations/SFX_FOUR_laser_shot.wav" id="10_c8xvm"]
+[ext_resource type="AudioStream" uid="uid://ew38d1pqpoxn" path="res://Player/Character Assets/Explorer/Audio/Laser Bullet Variations/SFX_FIVE_laser_shot.wav" id="11_jebn5"]
+[ext_resource type="AudioStream" uid="uid://bqufnqa4woi7l" path="res://Player/Character Assets/Explorer/Audio/SFX_hyperbeam_wind_up.wav" id="12_l72of"]
+[ext_resource type="AudioStream" uid="uid://cpcf1dp4ygc3y" path="res://Player/Character Assets/Explorer/Audio/SFX_Beam_hyperbeam.wav" id="13_dfbu7"]
 [ext_resource type="Script" uid="uid://dh1mpplaeqbu5" path="res://Components/attack_data_resource.gd" id="15_w36s2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jbxru"]
@@ -25,14 +30,22 @@ shader_parameter/saturation = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_aykj2"]
 random_pitch = 1.0293022
-streams_count = 2
-stream_0/stream = ExtResource("7_w36s2")
-stream_1/stream = ExtResource("8_aykj2")
+streams_count = 5
+stream_0/stream = ExtResource("7_5rt6o")
+stream_1/stream = ExtResource("8_l72of")
+stream_2/stream = ExtResource("9_dfbu7")
+stream_3/stream = ExtResource("10_c8xvm")
+stream_4/stream = ExtResource("11_jebn5")
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_r15qa"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_l72of"]
 random_pitch = 1.0293022
 streams_count = 1
-stream_0/stream = ExtResource("9_w36s2")
+stream_0/stream = ExtResource("12_l72of")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dfbu7"]
+random_pitch = 1.0293022
+streams_count = 1
+stream_0/stream = ExtResource("13_dfbu7")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(10, 31)
@@ -99,11 +112,13 @@ metadata/_custom_type_script = "uid://cr2xbhach1rlt"
 stream = SubResource("AudioStreamRandomizer_aykj2")
 
 [node name="Laser Charge Up" type="AudioStreamPlayer" parent="Audio" unique_id=531103463]
+stream = SubResource("AudioStreamRandomizer_l72of")
 
 [node name="Laser Beam" type="AudioStreamPlayer" parent="Audio" unique_id=773479681]
+stream = SubResource("AudioStreamRandomizer_dfbu7")
 
 [node name="Sfx Jump" type="AudioStreamPlayer" parent="Audio" unique_id=218857365]
-stream = SubResource("AudioStreamRandomizer_r15qa")
+stream = ExtResource("9_w36s2")
 
 [node name="Normal Hurtbox" type="CollisionShape2D" parent="." unique_id=1992489529]
 position = Vector2(0, 0.5)
@@ -181,7 +196,10 @@ decay_time = 0.5
 metadata/_custom_type_script = "uid://bhd4nuiu23e7l"
 
 [connection signal="jumped" from="." to="Audio/Sfx Jump" method="play"]
+[connection signal="laser_beam_ended" from="." to="Audio/Laser Beam" method="stop"]
+[connection signal="laser_beam_started" from="." to="Audio/Laser Beam" method="play"]
 [connection signal="shot_laser_bullet" from="." to="Audio/Laser Bullet" method="play"]
 [connection signal="started_charging" from="." to="Audio/Laser Charge Up" method="play"]
+[connection signal="stopped_charging" from="." to="Audio/Laser Charge Up" method="stop"]
 [connection signal="damaged" from="HealthComponent" to="." method="_on_health_component_damaged"]
 [connection signal="knockback" from="HealthComponent" to="." method="_on_health_component_knockback"]

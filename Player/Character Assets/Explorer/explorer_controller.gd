@@ -6,6 +6,7 @@ signal shot_laser_bullet()
 signal laser_beam_started()
 signal laser_beam_ended()
 signal started_charging()
+signal stopped_charging()
 
 
 # components
@@ -106,6 +107,7 @@ func _physics_process(delta: float) -> void:
 		if mega_laser:
 			end_mega_laser()
 		else:
+			stopped_charging.emit()
 			shoot_laser_bullet()
 			anim_sprite.stop()
 		anim_sprite.play("idle")
@@ -151,6 +153,7 @@ func shoot_laser_bullet():
 @onready var mega_laser_shake: PhantomCameraNoiseEmitter2D = $"Mega Laser Shake"
 
 func start_mega_laser():
+	stopped_charging.emit()
 	laser_beam_started.emit()
 	can_tag = false
 	mega_laser = true
@@ -160,7 +163,7 @@ func start_mega_laser():
 	mega_laser_shake.emit()
 
 func end_mega_laser():
-	laser_beam_started.emit()
+	laser_beam_ended.emit()
 	can_tag = true
 	mega_laser = false
 	laser_pieces.hide()

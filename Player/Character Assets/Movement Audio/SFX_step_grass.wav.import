@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://csx6nwv783m78"
+path="res://.godot/imported/SFX_step_grass.wav-60357f6d2fe409833245bd53648ae2d5.sample"
+
+[deps]
+
+source_file="res://Player/Character Assets/Movement Audio/SFX_step_grass.wav"
+dest_files=["res://.godot/imported/SFX_step_grass.wav-60357f6d2fe409833245bd53648ae2d5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -46,7 +46,7 @@ func _ready() -> void:
 	grid_width = character_grid.columns
 	# for this one I need to get a count of each visible child
 	# of the grid
-	unlocked_character_count = 3
+	unlocked_character_count = 2
 	
 	# initialize portrait and grid
 	update_portrait(character_1_portrait, character_1_id)
