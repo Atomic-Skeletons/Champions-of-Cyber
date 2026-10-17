@@ -8,15 +8,19 @@ var active_character_index = 1
 var character_1: Character
 var character_2: Character
 
-@onready var character_1_scene: PackedScene = load(PlayerInfo.p1_character1_uid) if player_id == 1 else load(PlayerInfo.p2_character1_uid)
-@onready var character_2_scene: PackedScene = load(PlayerInfo.p1_character2_uid) if player_id == 1 else load(PlayerInfo.p2_character2_uid)
-
+var character_1_scene: PackedScene
+var character_2_scene: PackedScene
 
 
 @onready var phantom_camera: PhantomCamera2D = Global.get_phantom_camera()
 
 
 func _ready() -> void:
+	var characters = PlayerInfo.get_characters_from_player_id(player_id)
+	
+	character_1_scene = characters[0]
+	character_2_scene = characters[0]
+	
 	if not character_1:
 		character_1 = character_1_scene.instantiate()
 		active_character = character_1

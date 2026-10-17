@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bklb47do52hcb"
-path="res://.godot/imported/13_tile_tilemap_test.png-012d57c88ec0163c4f73b922ca1a99a4.ctex"
+uid="uid://c0dsthj5t7lx2"
+path="res://.godot/imported/BTSelector.svg-859c7746bc77c632d2a60052d2e96cf0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level Art/Eva'sTILEMAP/13_tile_tilemap_test.png"
-dest_files=["res://.godot/imported/13_tile_tilemap_test.png-012d57c88ec0163c4f73b922ca1a99a4.ctex"]
+source_file="res://addons/limboai/icons/BTSelector.svg"
+dest_files=["res://.godot/imported/BTSelector.svg-859c7746bc77c632d2a60052d2e96cf0.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=true
+editor/convert_colors_with_editor_theme=true
