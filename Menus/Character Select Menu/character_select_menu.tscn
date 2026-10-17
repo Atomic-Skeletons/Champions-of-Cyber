@@ -78,11 +78,11 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 columns = 3
 
-[node name="Panel" type="Panel" parent="VBoxContainer/Selection Menu/GridContainer" unique_id=1330262443]
+[node name="Explorer" type="Panel" parent="VBoxContainer/Selection Menu/GridContainer" unique_id=1330262443]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Selection Menu/GridContainer/Panel" unique_id=1076374337]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Selection Menu/GridContainer/Explorer" unique_id=1076374337]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 15
@@ -92,7 +92,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_uguow")
 
-[node name="Player 1 Indicator" type="Control" parent="VBoxContainer/Selection Menu/GridContainer/Panel" unique_id=706504194]
+[node name="Player 1 Indicator" type="Control" parent="VBoxContainer/Selection Menu/GridContainer/Explorer" unique_id=706504194]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -100,7 +100,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Selection Menu/GridContainer/Panel/Player 1 Indicator" unique_id=1188408217]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Selection Menu/GridContainer/Explorer/Player 1 Indicator" unique_id=1188408217]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -111,7 +111,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.39841208, 0.3984121, 0.39841208, 1)
 
-[node name="Label" type="Label" parent="VBoxContainer/Selection Menu/GridContainer/Panel/Player 1 Indicator/ColorRect" unique_id=2118792976]
+[node name="Label" type="Label" parent="VBoxContainer/Selection Menu/GridContainer/Explorer/Player 1 Indicator/ColorRect" unique_id=2118792976]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -122,7 +122,7 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Player 2 Indicator" type="Control" parent="VBoxContainer/Selection Menu/GridContainer/Panel" unique_id=1994451515]
+[node name="Player 2 Indicator" type="Control" parent="VBoxContainer/Selection Menu/GridContainer/Explorer" unique_id=1994451515]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -131,7 +131,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Selection Menu/GridContainer/Panel/Player 2 Indicator" unique_id=885524246]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Selection Menu/GridContainer/Explorer/Player 2 Indicator" unique_id=885524246]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -142,7 +142,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.39841208, 0.3984121, 0.39841208, 1)
 
-[node name="Label" type="Label" parent="VBoxContainer/Selection Menu/GridContainer/Panel/Player 2 Indicator/ColorRect" unique_id=884864782]
+[node name="Label" type="Label" parent="VBoxContainer/Selection Menu/GridContainer/Explorer/Player 2 Indicator/ColorRect" unique_id=884864782]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -153,11 +153,11 @@ text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel2" type="Panel" parent="VBoxContainer/Selection Menu/GridContainer" unique_id=1991946323]
+[node name="Electric Boogaloo" type="Panel" parent="VBoxContainer/Selection Menu/GridContainer" unique_id=1991946323]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Selection Menu/GridContainer/Panel2" unique_id=415335734]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Selection Menu/GridContainer/Electric Boogaloo" unique_id=415335734]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 15
@@ -167,7 +167,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_sc23g")
 
-[node name="Player 1 Indicator" type="Control" parent="VBoxContainer/Selection Menu/GridContainer/Panel2" unique_id=1482440777]
+[node name="Player 1 Indicator" type="Control" parent="VBoxContainer/Selection Menu/GridContainer/Electric Boogaloo" unique_id=1482440777]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -175,7 +175,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Selection Menu/GridContainer/Panel2/Player 1 Indicator" unique_id=1903641731]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Selection Menu/GridContainer/Electric Boogaloo/Player 1 Indicator" unique_id=1903641731]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -186,7 +186,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.39841208, 0.3984121, 0.39841208, 1)
 
-[node name="Label" type="Label" parent="VBoxContainer/Selection Menu/GridContainer/Panel2/Player 1 Indicator/ColorRect" unique_id=1814918113]
+[node name="Label" type="Label" parent="VBoxContainer/Selection Menu/GridContainer/Electric Boogaloo/Player 1 Indicator/ColorRect" unique_id=1814918113]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -197,7 +197,7 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Player 2 Indicator" type="Control" parent="VBoxContainer/Selection Menu/GridContainer/Panel2" unique_id=2083779504]
+[node name="Player 2 Indicator" type="Control" parent="VBoxContainer/Selection Menu/GridContainer/Electric Boogaloo" unique_id=2083779504]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -206,7 +206,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Selection Menu/GridContainer/Panel2/Player 2 Indicator" unique_id=1104065032]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Selection Menu/GridContainer/Electric Boogaloo/Player 2 Indicator" unique_id=1104065032]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -217,7 +217,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.39841208, 0.3984121, 0.39841208, 1)
 
-[node name="Label" type="Label" parent="VBoxContainer/Selection Menu/GridContainer/Panel2/Player 2 Indicator/ColorRect" unique_id=1784269366]
+[node name="Label" type="Label" parent="VBoxContainer/Selection Menu/GridContainer/Electric Boogaloo/Player 2 Indicator/ColorRect" unique_id=1784269366]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -228,12 +228,11 @@ text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel3" type="Panel" parent="VBoxContainer/Selection Menu/GridContainer" unique_id=1284282392]
-visible = false
+[node name="Rollershark" type="Panel" parent="VBoxContainer/Selection Menu/GridContainer" unique_id=1284282392]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Selection Menu/GridContainer/Panel3" unique_id=98727081]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Selection Menu/GridContainer/Rollershark" unique_id=98727081]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 15
@@ -243,7 +242,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_x1wui")
 
-[node name="Player 1 Indicator" type="Control" parent="VBoxContainer/Selection Menu/GridContainer/Panel3" unique_id=785534953]
+[node name="Player 1 Indicator" type="Control" parent="VBoxContainer/Selection Menu/GridContainer/Rollershark" unique_id=785534953]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -251,7 +250,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Selection Menu/GridContainer/Panel3/Player 1 Indicator" unique_id=1587307865]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Selection Menu/GridContainer/Rollershark/Player 1 Indicator" unique_id=1587307865]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -262,7 +261,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.39841208, 0.3984121, 0.39841208, 1)
 
-[node name="Label" type="Label" parent="VBoxContainer/Selection Menu/GridContainer/Panel3/Player 1 Indicator/ColorRect" unique_id=959124459]
+[node name="Label" type="Label" parent="VBoxContainer/Selection Menu/GridContainer/Rollershark/Player 1 Indicator/ColorRect" unique_id=959124459]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -273,7 +272,7 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Player 2 Indicator" type="Control" parent="VBoxContainer/Selection Menu/GridContainer/Panel3" unique_id=341115855]
+[node name="Player 2 Indicator" type="Control" parent="VBoxContainer/Selection Menu/GridContainer/Rollershark" unique_id=341115855]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -282,7 +281,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Selection Menu/GridContainer/Panel3/Player 2 Indicator" unique_id=1264180151]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Selection Menu/GridContainer/Rollershark/Player 2 Indicator" unique_id=1264180151]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -293,7 +292,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.39841208, 0.3984121, 0.39841208, 1)
 
-[node name="Label" type="Label" parent="VBoxContainer/Selection Menu/GridContainer/Panel3/Player 2 Indicator/ColorRect" unique_id=1107296577]
+[node name="Label" type="Label" parent="VBoxContainer/Selection Menu/GridContainer/Rollershark/Player 2 Indicator/ColorRect" unique_id=1107296577]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

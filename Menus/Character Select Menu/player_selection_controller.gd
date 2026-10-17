@@ -18,6 +18,7 @@ signal characters_selected(character_1_id: int, character_2_id: int)
 
 @export var character_grid: GridContainer
 
+var unlocked_character_ids = []
 var unlocked_character_count: int
 var grid_width: int
 
@@ -46,7 +47,11 @@ func _ready() -> void:
 	grid_width = character_grid.columns
 	# for this one I need to get a count of each visible child
 	# of the grid
-	unlocked_character_count = 2
+	for i in range(character_grid.get_child_count()):
+		if character_grid.get_child(i).visible:
+			unlocked_character_ids.append(i)
+	
+	unlocked_character_count = unlocked_character_ids.size()
 	
 	# initialize portrait and grid
 	update_portrait(character_1_portrait, character_1_id)
@@ -79,7 +84,7 @@ func is_done() -> bool:
 func update_portrait(portrait: Control, value):
 	hide_all_portrait_children(portrait)
 	if value != -1:
-		portrait.get_child(value).show()
+		portrait.get_child(unlocked_character_ids[value]).show()
 
 func hide_all_portrait_children(portrait: Control):
 	for child in portrait.get_children():
@@ -98,7 +103,7 @@ func update_grid(character_num: int, value: int):
 		child.get_node(indicator_path).hide()
 	
 	if value != -1:
-		character_grid.get_child(value).get_node(indicator_path).show()
+		character_grid.get_child(unlocked_character_ids[value]).get_node(indicator_path).show()
 
 
 @warning_ignore("integer_division")
