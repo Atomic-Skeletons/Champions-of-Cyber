@@ -30,6 +30,7 @@ autostart = true
 
 [node name="PlayerDetectionCast" type="RayCast2D" parent="." unique_id=1054190716]
 target_position = Vector2(170, 0)
+collision_mask = 261
 script = ExtResource("5_7n8em")
 metadata/_custom_type_script = "uid://dtw8wpyiiwnhg"
 

@@ -18,8 +18,8 @@ func shoot():
 	if not attacking: return
 	
 	var bullet_object: RigidBody2D = bullet_scene.instantiate()
-	bullet_object.global_position = global_position
 	get_parent().add_child(bullet_object)
+	bullet_object.global_position = global_position
 	
 	var closest_character = Global.get_closest_character(self)
 	

@@ -19,7 +19,7 @@ func _ready() -> void:
 	var characters = PlayerInfo.get_characters_from_player_id(player_id)
 	
 	character_1_scene = characters[0]
-	character_2_scene = characters[0]
+	character_2_scene = characters[1]
 	
 	if not character_1:
 		character_1 = character_1_scene.instantiate()
