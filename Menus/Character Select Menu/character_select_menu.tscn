@@ -6,7 +6,11 @@
 [ext_resource type="Script" uid="uid://5v7830v2lvsd" path="res://Menus/Character Select Menu/player_selection_controller.gd" id="3_ofdq7"]
 [ext_resource type="Texture2D" uid="uid://e0454mamtsq2" path="res://Player/Character Assets/Electric Boogaloo/Art/electric boogaloo.png" id="3_sc23g"]
 [ext_resource type="PackedScene" uid="uid://chugbu1kdeco2" path="res://Menus/Character Select Menu/character_portraits.tscn" id="3_x1wui"]
+[ext_resource type="Script" uid="uid://cewpub1jb311j" path="res://Menus/Character Select Menu/States/character_1_selection_state.gd" id="4_g7s25"]
+[ext_resource type="Script" uid="uid://c8rimvk0gmyte" path="res://Menus/Character Select Menu/character_2_selection_state.gd" id="5_4j03v"]
 [ext_resource type="Texture2D" uid="uid://cw40pe2v3j4hy" path="res://Player/Character Assets/Roller Shark/Art/rollerblading.png" id="6_40ylq"]
+[ext_resource type="Script" uid="uid://b7tvafi7vmwqx" path="res://Menus/Character Select Menu/done_state.gd" id="6_lpj6h"]
+[ext_resource type="Script" uid="uid://comninumgkadn" path="res://Menus/Character Select Menu/ui_input_handler_test.gd" id="7_kneoj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x1wui"]
 atlas = ExtResource("6_40ylq")
@@ -38,14 +42,25 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Player 1" type="HBoxContainer" parent="VBoxContainer/Character Full Art" unique_id=387343132]
+[node name="Player 1" type="HBoxContainer" parent="VBoxContainer/Character Full Art" unique_id=387343132 node_paths=PackedStringArray("character_grid")]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("3_ofdq7")
+character_grid = NodePath("../../Selection Menu/GridContainer")
 
-[node name="UiInputHandler" type="Node" parent="VBoxContainer/Character Full Art/Player 1" unique_id=1389123151]
-script = ExtResource("1_1po3u")
-metadata/_custom_type_script = "uid://du5nykuhfv02p"
+[node name="LimboHSM" type="LimboHSM" parent="VBoxContainer/Character Full Art/Player 1" unique_id=1350392275]
+
+[node name="Character 1 Selection" type="LimboState" parent="VBoxContainer/Character Full Art/Player 1/LimboHSM" unique_id=256113262]
+script = ExtResource("4_g7s25")
+
+[node name="Character 2 Selection" type="LimboState" parent="VBoxContainer/Character Full Art/Player 1/LimboHSM" unique_id=968299527]
+script = ExtResource("5_4j03v")
+
+[node name="Done" type="LimboState" parent="VBoxContainer/Character Full Art/Player 1/LimboHSM" unique_id=792920049]
+script = ExtResource("6_lpj6h")
+
+[node name="UiInputHandler" type="Node" parent="VBoxContainer/Character Full Art/Player 1" unique_id=1269404864]
+script = ExtResource("7_kneoj")
 
 [node name="Character Portraits" parent="VBoxContainer/Character Full Art/Player 1" unique_id=2072413364 instance=ExtResource("3_x1wui")]
 layout_mode = 2
@@ -67,7 +82,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/Selection Menu" unique_id=1549759868]
 layout_mode = 2
-columns = 4
+columns = 2
 
 [node name="Panel" type="Panel" parent="VBoxContainer/Selection Menu/GridContainer" unique_id=1330262443]
 custom_minimum_size = Vector2(100, 100)
@@ -158,6 +173,67 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_sc23g")
 
+[node name="Player 1 Indicator" type="Control" parent="VBoxContainer/Selection Menu/GridContainer/Panel2" unique_id=1482440777]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Selection Menu/GridContainer/Panel2/Player 1 Indicator" unique_id=1903641731]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -83.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.39841208, 0.3984121, 0.39841208, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/Selection Menu/GridContainer/Panel2/Player 1 Indicator/ColorRect" unique_id=1814918113]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player 2 Indicator" type="Control" parent="VBoxContainer/Selection Menu/GridContainer/Panel2" unique_id=2083779504]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Selection Menu/GridContainer/Panel2/Player 2 Indicator" unique_id=1104065032]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 83.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.39841208, 0.3984121, 0.39841208, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/Selection Menu/GridContainer/Panel2/Player 2 Indicator/ColorRect" unique_id=1784269366]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Panel3" type="Panel" parent="VBoxContainer/Selection Menu/GridContainer" unique_id=1284282392]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -171,3 +247,64 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_x1wui")
+
+[node name="Player 1 Indicator" type="Control" parent="VBoxContainer/Selection Menu/GridContainer/Panel3" unique_id=785534953]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Selection Menu/GridContainer/Panel3/Player 1 Indicator" unique_id=1587307865]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -83.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.39841208, 0.3984121, 0.39841208, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/Selection Menu/GridContainer/Panel3/Player 1 Indicator/ColorRect" unique_id=959124459]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player 2 Indicator" type="Control" parent="VBoxContainer/Selection Menu/GridContainer/Panel3" unique_id=341115855]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Selection Menu/GridContainer/Panel3/Player 2 Indicator" unique_id=1264180151]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 83.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.39841208, 0.3984121, 0.39841208, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/Selection Menu/GridContainer/Panel3/Player 2 Indicator/ColorRect" unique_id=1107296577]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
