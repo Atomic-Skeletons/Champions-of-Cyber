@@ -1,15 +1,10 @@
 extends LimboState
 
 
-func _enter() -> void:
-	pass
-
-func _exit() -> void:
-	pass
-
-func _ready() -> void:
-	pass
-
 func _update(_delta: float) -> void:
-	if agent.input.is_action_just_pressed("cancel"):
+	var input : UiInputHandlerTest = agent.input
+	
+	if input.is_action_just_pressed("accept"):
+		agent.accepted_characters()
+	if input.is_action_just_pressed("cancel"):
 		get_root().dispatch("back")

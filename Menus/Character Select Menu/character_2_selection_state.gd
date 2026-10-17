@@ -2,7 +2,7 @@ extends LimboState
 
 
 func _enter() -> void:
-	pass
+	agent.character_2_id = agent.character_1_id
 
 func _ready() -> void:
 	pass
@@ -11,7 +11,8 @@ func _update(_delta: float) -> void:
 	var input : UiInputHandlerTest = agent.input
 	
 	if input.is_action_just_pressed("accept"):
-		get_root().dispatch("character_selected")
+		if agent.character_2_id != agent.character_1_id:
+			get_root().dispatch("character_selected")
 	
 	elif input.is_action_just_pressed("cancel"):
 		agent.deselect_character_2()

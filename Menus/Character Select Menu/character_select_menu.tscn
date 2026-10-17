@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://qwf08mxbvhth"]
 
-[ext_resource type="Script" uid="uid://du5nykuhfv02p" path="res://Player/Input Controller/ui_input_handler.gd" id="1_1po3u"]
 [ext_resource type="Script" uid="uid://choatjq4mi8w3" path="res://Menus/Character Select Menu/character_select_menu_controller.gd" id="1_sc23g"]
 [ext_resource type="Texture2D" uid="uid://chxconcuso2pk" path="res://Player/Character Assets/Explorer/Art/explorer shape sprite.png" id="2_uguow"]
 [ext_resource type="Script" uid="uid://5v7830v2lvsd" path="res://Menus/Character Select Menu/player_selection_controller.gd" id="3_ofdq7"]
@@ -24,11 +23,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sc23g")
-
-[node name="UiInputHandler2" type="Node" parent="." unique_id=74079044]
-script = ExtResource("1_1po3u")
-player_index = 2
-metadata/_custom_type_script = "uid://du5nykuhfv02p"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=707770001]
 layout_mode = 1
@@ -82,7 +76,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/Selection Menu" unique_id=1549759868]
 layout_mode = 2
-columns = 2
+columns = 3
 
 [node name="Panel" type="Panel" parent="VBoxContainer/Selection Menu/GridContainer" unique_id=1330262443]
 custom_minimum_size = Vector2(100, 100)
@@ -308,3 +302,5 @@ grow_vertical = 2
 text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="characters_selected" from="VBoxContainer/Character Full Art/Player 1" to="." method="_on_player_1_characters_selected"]
