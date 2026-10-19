@@ -62,4 +62,4 @@ text = "Controller Setup"
 visible = false
 layout_mode = 1
 
-[connection signal="pressed" from="Main Menu Panel/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Main Menu Panel/Quit" to="Main Menu Panel" method="_on_quit_pressed"]
