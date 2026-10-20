@@ -116,12 +116,12 @@ scale = Vector2(0.16197836, 0.17223015)
 texture = ExtResource("4_pcsic")
 
 [node name="Front Wall Cast" type="RayCast2D" parent="Fliproot" unique_id=317802836]
-position = Vector2(7, -2.4260006)
+position = Vector2(14, -2)
 target_position = Vector2(2, 0)
 collision_mask = 4
 
 [node name="Front Ground Cast" type="RayCast2D" parent="Fliproot" unique_id=1394398238]
-position = Vector2(7, -0.4260006)
+position = Vector2(14, 0)
 target_position = Vector2(0, 10)
 collision_mask = 4
 

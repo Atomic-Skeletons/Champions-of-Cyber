@@ -16,8 +16,8 @@ signal stopped_charging()
 
 @export_group("Movement Variables")
 @export var move_speed = 100.0
-@export var jump_strength = 300.0
-
+@export var jump_strength = 400.0
+@export var terminal_velocity: = 350
 
 @onready var laser_start_point: Marker2D = %"Laser Start Point"
 @onready var laser_raycast: RayCast2D = %"Laser Raycast"
@@ -89,6 +89,13 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
+	
+	if is_on_ceiling():
+		velocity.y = 0
+		await get_tree().create_timer(.01, false, true).timeout
+		velocity.y = 1
+	
+	velocity.y = min(velocity.y, terminal_velocity)
 	
 	move_and_slide()
 	
