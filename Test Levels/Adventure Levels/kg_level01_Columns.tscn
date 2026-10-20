@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://21srs1gejciy" path="res://Level Objects/Doors/door.tscn" id="11_e0gfh"]
 [ext_resource type="PackedScene" uid="uid://8wekicljdp7u" path="res://Level Objects/Enemies/test_big_enemy_dude.tscn" id="12_t3n65"]
 [ext_resource type="PackedScene" uid="uid://bag7eslpq1be4" path="res://Level Objects/Enemies/turret.tscn" id="13_7im45"]
+[ext_resource type="Texture2D" uid="uid://nt2grdjoo275" path="res://icon.svg" id="14_e8omy"]
+[ext_resource type="Script" uid="uid://23avvl1yuwqe" path="res://Level Objects/Moving Platform/moving_platform.gd" id="14_qog3t"]
 [ext_resource type="Script" uid="uid://cim2f48qo18uq" path="res://Test Levels/level_1_test_script.gd" id="15_wn43c"]
 [ext_resource type="PackedScene" uid="uid://dgg80udjapec8" path="res://Level Objects/Enemies/test_enemy_dude.tscn" id="20_5kte7"]
 
@@ -34,6 +36,15 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -1709, -71, 0, 0, 0, 0, 1217.275, -71)
 }
 point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_wmykb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -169, -15, 0, 0, 0, 0, 105, -15, 0, 0, 0, 0, 142, -72, 0, 0, 0, 0, -169, -79, 0, 0, 0, 0, -169, -15)
+}
+point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(53, 18)
 
 [node name="Game Holder" type="Node2D" unique_id=1246508524]
 script = ExtResource("1_hv3sl")
@@ -206,3 +217,27 @@ position = Vector2(1115, -59)
 
 [node name="Turret" parent="Active Room/Level" unique_id=475323464 instance=ExtResource("13_7im45")]
 position = Vector2(1600, -208)
+
+[node name="Path2D2" type="Path2D" parent="Active Room/Level" unique_id=171891162]
+curve = SubResource("Curve2D_wmykb")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Active Room/Level/Path2D2" unique_id=1571121505]
+position = Vector2(-169, -15)
+rotates = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Active Room/Level/Path2D2/PathFollow2D" unique_id=787816700]
+remote_path = NodePath("../../../Moving Platform")
+
+[node name="Moving Platform" type="AnimatableBody2D" parent="Active Room/Level" unique_id=959950293 node_paths=PackedStringArray("path")]
+position = Vector2(-169, -15)
+collision_layer = 4100
+collision_mask = 819
+script = ExtResource("14_qog3t")
+path = NodePath("../Path2D2/PathFollow2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Active Room/Level/Moving Platform" unique_id=1583986346]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Moving Platform" unique_id=807372454]
+scale = Vector2(0.41406247, 0.14062497)
+texture = ExtResource("14_e8omy")
