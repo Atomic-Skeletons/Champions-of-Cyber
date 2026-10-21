@@ -18,6 +18,7 @@ signal stopped_charging()
 @export var move_speed = 100.0
 @export var jump_strength = 400.0
 @export var terminal_velocity: = 350
+var prev_is_on_floor = false
 
 @onready var laser_start_point: Marker2D = %"Laser Start Point"
 @onready var laser_raycast: RayCast2D = %"Laser Raycast"
@@ -74,8 +75,8 @@ func _physics_process(delta: float) -> void:
 		air_movement = true
 	# Handle jump.
 	if input.is_action_just_pressed("jump"):
-		jump()
-	
+		input.buffer_action("jump", .2)
+	attempt_jump()
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := input.get_x_axis()
@@ -119,6 +120,7 @@ func _physics_process(delta: float) -> void:
 			anim_sprite.stop()
 		anim_sprite.play("idle")
 	
+	prev_is_on_floor = is_on_floor()
 	global_position = global_position.round()
 
 func update_facing_direction(dir: int):
@@ -127,12 +129,20 @@ func update_facing_direction(dir: int):
 	fliproot.scale.x = sign(facing_dir)
 	laser_hitbox.knockback_flipped = facing_dir == -1 if true else false
 
+func attempt_jump():
+	# check if the jump action is buffered
+	if input.is_action_buffered("jump"):
+		# if the character is on the floor
+		if is_on_floor():
+				jump()
+		# if the character is not on the floor and they just pressed the jump button
+		elif input.is_action_just_pressed("jump") and air_movement:
+			air_movement = false
+			jump()
+
 func jump():
-	if is_on_floor():
-			velocity.y = -jump_strength
-	elif air_movement:
-		air_movement = false
-		velocity.y = -jump_strength
+	input.use_buffered_action("jump")
+	velocity.y = -jump_strength
 	jumped.emit()
 
 

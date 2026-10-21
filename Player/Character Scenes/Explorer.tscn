@@ -119,6 +119,14 @@ stream = SubResource("AudioStreamRandomizer_dfbu7")
 [node name="Sfx Jump" type="AudioStreamPlayer" parent="Audio" unique_id=218857365]
 stream = ExtResource("9_w36s2")
 
+[node name="Character States" type="LimboHSM" parent="." unique_id=1273866113]
+
+[node name="Active" type="LimboState" parent="Character States" unique_id=922432502]
+
+[node name="Locked" type="LimboState" parent="Character States" unique_id=942292871]
+
+[node name="Tagged Out" type="LimboState" parent="Character States" unique_id=846538851]
+
 [node name="Normal Hurtbox" type="CollisionShape2D" parent="." unique_id=1992489529]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_yf5fn")

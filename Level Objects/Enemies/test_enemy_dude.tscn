@@ -12,7 +12,7 @@
 size = Vector2(34, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pkbkr"]
-size = Vector2(13, 18)
+size = Vector2(13, 27)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_om2bn"]
 resource_local_to_scene = true
@@ -108,7 +108,7 @@ position = Vector2(1, -6.5)
 shape = SubResource("RectangleShape2D_w2iq6")
 
 [node name="Hurtbox Head" type="CollisionShape2D" parent="." unique_id=1754789169]
-position = Vector2(11.5, -9)
+position = Vector2(11.5, -13.5)
 shape = SubResource("RectangleShape2D_pkbkr")
 
 [node name="Fliproot" type="Node2D" parent="." unique_id=939790774]

@@ -31,12 +31,31 @@ var _joy_now := {
 }
 var _joy_prev := _joy_now.duplicate()
 
+"""
+I need to make choyote time and jump buffering.
+Jump buffering: easy cause I just store the jump input
+for a set number of frames. then when the player presses
+the jump button they use up that buffered input.
+
+what if i have a 
+func jump()
+
+instead of a if action just pressed just for the jump
+buffering thing
+
+
+I could store the variables for coyote time inside this script
+like how long the coyote time should be, and the counter.
+"""
+var jump_buffered = false
+
 func _ready() -> void:
 	update_input_data()
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if input_source == InputSource.JOYPAD:
 		_poll_joypad()
+	update_buffered_actions(delta)
 	update_input_data()
 
 
@@ -95,6 +114,37 @@ func get_y_axis() -> float:
 		return axis
 	return float(is_action_pressed("down")) - float(is_action_pressed("up"))
 
+
+
+var buffered_actions : Dictionary[String, float]
+
+func buffer_action(action: String, duration: float):
+	buffered_actions.set(action, duration)
+
+func is_action_buffered(action: String) -> bool:
+	if action in buffered_actions.keys():
+		return true
+	else:
+		return false
+
+func use_buffered_action(action: String) -> bool:
+	if action in buffered_actions.keys():
+		buffered_actions.erase(action)
+		return true
+	else:
+		return false
+
+
+func update_buffered_actions(delta: float):
+	for action in buffered_actions.keys():
+		var duration_left = buffered_actions.get(action) - delta
+		
+		if duration_left <= 0:
+			buffered_actions.erase(action)
+		else:
+			buffered_actions.set(action, duration_left)
+
+## Setup and update functions
 func update_input_data():
 	var input_data: Dictionary
 	
