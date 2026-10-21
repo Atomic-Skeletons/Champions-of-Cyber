@@ -1,3 +1,4 @@
+class_name CharacterSelectMenuController
 extends HBoxContainer
 
 signal characters_selected(character_1_id: int, character_2_id: int)

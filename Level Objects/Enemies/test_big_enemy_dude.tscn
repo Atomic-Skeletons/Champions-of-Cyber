@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://bt5jjllfu0jka" path="res://Level Objects/Enemies/Scripts/enemy_test_controller.gd" id="1_tdqo0"]
 [ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="2_lsxvm"]
 [ext_resource type="Shader" uid="uid://bodskbsx1ac3o" path="res://Shaders/hit_flash_shader.gdshader" id="3_lygmv"]
-[ext_resource type="Texture2D" uid="uid://bjbplvepshil1" path="res://Player/Character Assets/Explorer/Art/explorer.webp" id="4_pcsic"]
+[ext_resource type="Texture2D" uid="uid://ckx22187usssd" path="res://Level Art/Enemy Art/Enemy_Sprites/Fodder-BIG/enemy_fodder-bigSPRITE1.png" id="4_0jwy1"]
 [ext_resource type="Script" uid="uid://crxaysem1tfnv" path="res://Components/hitbox.gd" id="5_0jwy1"]
 [ext_resource type="Script" uid="uid://dtw8wpyiiwnhg" path="res://Level Objects/Enemies/Scripts/player_detection_ray_cast.gd" id="5_nivit"]
 [ext_resource type="Script" uid="uid://dh1mpplaeqbu5" path="res://Components/attack_data_resource.gd" id="6_skd4b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xgme"]
-size = Vector2(28, 60)
+size = Vector2(38, 52)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bq6cw"]
 resource_local_to_scene = true
@@ -23,8 +23,8 @@ knockback_angle = 30.0
 knockback_strength = 20.0
 metadata/_custom_type_script = "uid://dh1mpplaeqbu5"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgec3"]
-size = Vector2(38, 46)
+[sub_resource type="CircleShape2D" id="CircleShape2D_skd4b"]
+radius = 30.0
 
 [sub_resource type="Animation" id="Animation_jcbv7"]
 resource_name = "Melee Attack"
@@ -100,7 +100,7 @@ max_hp = 100
 metadata/_custom_type_script = "uid://k1npmfprvwwt"
 
 [node name="Hurtbox" type="CollisionShape2D" parent="." unique_id=1972452331]
-position = Vector2(0, -30)
+position = Vector2(0, -26)
 shape = SubResource("RectangleShape2D_1xgme")
 
 [node name="Fliproot" type="Node2D" parent="." unique_id=701963987]
@@ -111,17 +111,17 @@ unique_name_in_owner = true
 [node name="Sprite2D" type="Sprite2D" parent="Fliproot/Rotation Pivot" unique_id=1908362602]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_bq6cw")
-position = Vector2(9.536743e-07, -29.733932)
-scale = Vector2(0.16197836, 0.17223015)
-texture = ExtResource("4_pcsic")
+position = Vector2(13, -32)
+texture = ExtResource("4_0jwy1")
+flip_h = true
 
 [node name="Front Wall Cast" type="RayCast2D" parent="Fliproot" unique_id=317802836]
-position = Vector2(14, -2)
+position = Vector2(19, -2)
 target_position = Vector2(2, 0)
 collision_mask = 4
 
 [node name="Front Ground Cast" type="RayCast2D" parent="Fliproot" unique_id=1394398238]
-position = Vector2(14, 0)
+position = Vector2(20, 0)
 target_position = Vector2(0, 10)
 collision_mask = 4
 
@@ -133,8 +133,8 @@ attack_data = SubResource("Resource_k5x0i")
 metadata/_custom_type_script = "uid://crxaysem1tfnv"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fliproot/Melee Attack Hitbox" unique_id=1869844629]
-position = Vector2(21, 3)
-shape = SubResource("RectangleShape2D_qgec3")
+position = Vector2(9, 3)
+shape = SubResource("CircleShape2D_skd4b")
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1027481715]

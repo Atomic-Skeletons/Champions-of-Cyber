@@ -36,7 +36,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Player 1" type="HBoxContainer" parent="VBoxContainer/Character Full Art" unique_id=387343132 node_paths=PackedStringArray("character_grid")]
+[node name="Player 1" type="HBoxContainer" parent="VBoxContainer/Character Full Art" unique_id=387343132 node_paths=PackedStringArray("character_grid") groups=["Character Select Controller"]]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("3_ofdq7")

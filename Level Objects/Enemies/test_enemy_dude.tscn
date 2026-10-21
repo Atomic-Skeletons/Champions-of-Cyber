@@ -2,14 +2,17 @@
 
 [ext_resource type="Shader" uid="uid://bodskbsx1ac3o" path="res://Shaders/hit_flash_shader.gdshader" id="1_om2bn"]
 [ext_resource type="Script" uid="uid://bt5jjllfu0jka" path="res://Level Objects/Enemies/Scripts/enemy_test_controller.gd" id="1_qabkg"]
-[ext_resource type="Texture2D" uid="uid://bjbplvepshil1" path="res://Player/Character Assets/Explorer/Art/explorer.webp" id="2_6sjec"]
 [ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="3_8iene"]
+[ext_resource type="Texture2D" uid="uid://bj3j5ijnytjdk" path="res://Level Art/Enemy Art/Enemy_Sprites/Fodder-SMALL/enemy_fodder-smallSPRITE1.png" id="4_jcbv7"]
 [ext_resource type="Script" uid="uid://crxaysem1tfnv" path="res://Components/hitbox.gd" id="5_0xrkp"]
 [ext_resource type="Script" uid="uid://dtw8wpyiiwnhg" path="res://Level Objects/Enemies/Scripts/player_detection_ray_cast.gd" id="5_8iene"]
 [ext_resource type="Script" uid="uid://dh1mpplaeqbu5" path="res://Components/attack_data_resource.gd" id="6_jcbv7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2iq6"]
-size = Vector2(14, 29.5)
+size = Vector2(34, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkbkr"]
+size = Vector2(13, 18)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_om2bn"]
 resource_local_to_scene = true
@@ -100,9 +103,13 @@ metadata/_custom_type_script = "uid://k1npmfprvwwt"
 
 [node name="LimboHSM" type="LimboHSM" parent="." unique_id=137792350]
 
-[node name="Hurtbox" type="CollisionShape2D" parent="." unique_id=1008038119]
-position = Vector2(0, -14.75)
+[node name="Hurtbox Body" type="CollisionShape2D" parent="." unique_id=1008038119]
+position = Vector2(1, -6.5)
 shape = SubResource("RectangleShape2D_w2iq6")
+
+[node name="Hurtbox Head" type="CollisionShape2D" parent="." unique_id=1754789169]
+position = Vector2(11.5, -9)
+shape = SubResource("RectangleShape2D_pkbkr")
 
 [node name="Fliproot" type="Node2D" parent="." unique_id=939790774]
 unique_name_in_owner = true
@@ -112,22 +119,22 @@ unique_name_in_owner = true
 [node name="Sprite2D" type="Sprite2D" parent="Fliproot/Rotation Pivot" unique_id=1204134202]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_om2bn")
-position = Vector2(-0.5000001, -14.426)
-scale = Vector2(0.079, 0.084)
-texture = ExtResource("2_6sjec")
+position = Vector2(-14, -32)
+texture = ExtResource("4_jcbv7")
+flip_h = true
 
 [node name="Front Wall Cast" type="RayCast2D" parent="Fliproot" unique_id=1786751595]
-position = Vector2(7, -2.4260006)
+position = Vector2(18, -2.4260006)
 target_position = Vector2(2, 0)
 collision_mask = 4
 
 [node name="Front Ground Cast" type="RayCast2D" parent="Fliproot" unique_id=1665672534]
-position = Vector2(7, -0.4260006)
+position = Vector2(19, 0)
 target_position = Vector2(0, 10)
 collision_mask = 4
 
 [node name="Melee Attack Hitbox" type="Area2D" parent="Fliproot" unique_id=264424443]
-position = Vector2(0, -14.426001)
+position = Vector2(10, -8)
 collision_layer = 0
 script = ExtResource("5_0xrkp")
 attack_data = SubResource("Resource_0xrkp")

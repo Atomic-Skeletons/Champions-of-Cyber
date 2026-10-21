@@ -50,14 +50,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Quit"
 
-[node name="Controller Setup Button" type="Button" parent="Main Menu Panel" unique_id=1999475357]
-layout_mode = 0
-offset_left = 281.0
-offset_top = 237.0
-offset_right = 431.0
-offset_bottom = 265.0
-text = "Controller Setup"
-
 [node name="Controller Setup" parent="." unique_id=465136458 instance=ExtResource("3_unecm")]
 visible = false
 layout_mode = 1
