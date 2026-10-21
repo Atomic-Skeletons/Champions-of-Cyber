@@ -1,8 +1,6 @@
 [gd_scene format=4 uid="uid://cidkhra0legvv"]
 
 [ext_resource type="Script" uid="uid://drvcxtpf6wvu3" path="res://Player/player_character_holder.gd" id="1_ply5q"]
-[ext_resource type="PackedScene" uid="uid://7lw1yr2xg5ye" path="res://Player/Character Scenes/Explorer.tscn" id="2_tvwhj"]
-[ext_resource type="PackedScene" uid="uid://cb3g7rkvm3hel" path="res://Player/Character Scenes/Roller Shark.tscn" id="3_87p33"]
 [ext_resource type="Texture2D" uid="uid://j0uvimf66mwa" path="res://Level Art/Floor Tiles1.png" id="4_yddkp"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_qc46c"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_75rs4"]
@@ -421,11 +419,8 @@ script = ExtResource("6_75rs4")
 
 [node name="Node2D" type="Node2D" unique_id=1246508524]
 
-[node name="Player Character Holder" type="Node" parent="." unique_id=1787809907 node_paths=PackedStringArray("spawn_point") groups=["Player"]]
+[node name="Player Character Holder" type="Node" parent="." unique_id=1787809907 groups=["Player"]]
 script = ExtResource("1_ply5q")
-character_1_scene = ExtResource("2_tvwhj")
-character_2_scene = ExtResource("3_87p33")
-spawn_point = NodePath("../Player Spawn Point")
 
 [node name="Player Spawn Point" type="Marker2D" parent="." unique_id=1432454489]
 position = Vector2(-264, -117)
