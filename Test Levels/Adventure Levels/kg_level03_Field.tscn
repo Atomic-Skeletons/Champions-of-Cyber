@@ -4,14 +4,38 @@
 [ext_resource type="PackedScene" uid="uid://cwkpu61rxkoh1" path="res://Game Holder/Player Nodes.tscn" id="2_yfxov"]
 [ext_resource type="PackedScene" uid="uid://bb5qjap5gsjos" path="res://Game Holder/Camera Nodes.tscn" id="3_e5s4p"]
 [ext_resource type="Script" uid="uid://cim2f48qo18uq" path="res://Test Levels/level_1_test_script.gd" id="4_4orfj"]
-[ext_resource type="Texture2D" uid="uid://cfh3tvbso0ky2" path="res://Level Art/Eva'sBG_Art/Forest_Bg/4thlayer_forestbg.png" id="5_pd5qp"]
+[ext_resource type="Texture2D" uid="uid://cpwffef4jvahx" path="res://Level Art/Eva'sBG_Art/Forest_Bg/Forest_bg2.0-LAYER1.png" id="5_p30or"]
 [ext_resource type="Texture2D" uid="uid://g2eu2vmi5gov" path="res://Level Art/Eva'sBG_Art/Forest_Bg/3rdlayer_forestbg.png" id="6_p3n2n"]
-[ext_resource type="Texture2D" uid="uid://bkg77k1q7kyqy" path="res://Level Art/Eva'sBG_Art/Forest_Bg/2ndlayer_forestbg.png" id="7_0knku"]
+[ext_resource type="Texture2D" uid="uid://dqcg6qlykahpm" path="res://Level Art/Eva'sBG_Art/Forest_Bg/Forest_bg2.0-LAYER2.png" id="6_p30or"]
+[ext_resource type="Texture2D" uid="uid://bmrck6lvu2yhb" path="res://Level Art/Eva'sBG_Art/Forest_Bg/Forest_bg2.0-LAYER3.png" id="7_yfxov"]
 [ext_resource type="Texture2D" uid="uid://cwp8g7883o37n" path="res://Level Art/Eva'sBG_Art/Forest_Bg/foreground-layer_forest-bg_02.png" id="8_42ksk"]
 [ext_resource type="TileSet" uid="uid://dbyi4yvvgbymx" path="res://Test Levels/Eva Tileset.tres" id="9_beq15"]
+[ext_resource type="Shader" uid="uid://co1utmf6e0mor" path="res://Shaders/animated_2d_fog.gdshader" id="9_e5s4p"]
 [ext_resource type="PackedScene" uid="uid://21srs1gejciy" path="res://Level Objects/Doors/door.tscn" id="10_nfu1e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4vt6j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p30or"]
+atlas = ExtResource("7_yfxov")
+region = Rect2(0, 0, 375, 250)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e5s4p"]
+shader = ExtResource("9_e5s4p")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/OCTAVES = 4
+shader_parameter/enable_pixelation = true
+shader_parameter/pixelation_amount = 150
+shader_parameter/fog_direction = Vector2(1, 1)
+shader_parameter/scroll_noise_tex = false
+shader_parameter/noise_scroll_direction = Vector2(1, 0)
+
+[sub_resource type="Gradient" id="Gradient_4orfj"]
+colors = PackedColorArray(0.347975, 0.33733952, 0.34797642, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yfxov"]
+gradient = SubResource("Gradient_4orfj")
+width = 375
+height = 294
 
 [sub_resource type="Gradient" id="Gradient_e0gfh"]
 offsets = PackedFloat32Array(0.3135965, 0.5504386)
@@ -66,7 +90,7 @@ position = Vector2(18, 0)
 position = Vector2(-18, 0)
 
 [node name="Paralax Layers" type="Node2D" parent="Active Room/Level" unique_id=1296795371]
-position = Vector2(187, -71)
+position = Vector2(187, -267)
 
 [node name="Background 3" type="Parallax2D" parent="Active Room/Level/Paralax Layers" unique_id=875341397]
 scroll_scale = Vector2(0.4, 1)
@@ -75,15 +99,21 @@ repeat_times = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Background 3" unique_id=193252541]
 material = SubResource("ShaderMaterial_4vt6j")
-texture = ExtResource("5_pd5qp")
+texture = ExtResource("5_p30or")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Background 3" unique_id=43044979]
+material = SubResource("ShaderMaterial_4vt6j")
+position = Vector2(0, -456)
+texture = ExtResource("5_p30or")
 
 [node name="Background 2" type="Parallax2D" parent="Active Room/Level/Paralax Layers" unique_id=906204194]
 scroll_scale = Vector2(0.5, 1)
 repeat_size = Vector2(375, 0)
 repeat_times = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Background 2" unique_id=157173689]
+[node name="Sprite2D3" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Background 2" unique_id=1543750585]
 material = SubResource("ShaderMaterial_4vt6j")
+position = Vector2(0, 108)
 texture = ExtResource("6_p3n2n")
 
 [node name="Background 1" type="Parallax2D" parent="Active Room/Level/Paralax Layers" unique_id=1875273663]
@@ -91,9 +121,24 @@ scroll_scale = Vector2(0.6, 1)
 repeat_size = Vector2(375, 0)
 repeat_times = 4
 
+[node name="Sprite2D2" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Background 1" unique_id=157173689]
+material = SubResource("ShaderMaterial_4vt6j")
+position = Vector2(0, -105)
+texture = SubResource("AtlasTexture_p30or")
+
 [node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Background 1" unique_id=2064531861]
 material = SubResource("ShaderMaterial_4vt6j")
-texture = ExtResource("7_0knku")
+texture = ExtResource("6_p30or")
+
+[node name="Background Fog" type="Parallax2D" parent="Active Room/Level/Paralax Layers" unique_id=26936424]
+scroll_scale = Vector2(0.8, 1)
+repeat_size = Vector2(375, 0)
+repeat_times = 4
+
+[node name="Sprite2D2" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Background Fog" unique_id=1601625740]
+material = SubResource("ShaderMaterial_e5s4p")
+position = Vector2(0, -105)
+texture = SubResource("GradientTexture2D_yfxov")
 
 [node name="Foreground 1" type="Parallax2D" parent="Active Room/Level/Paralax Layers" unique_id=1858490790]
 z_index = 3
