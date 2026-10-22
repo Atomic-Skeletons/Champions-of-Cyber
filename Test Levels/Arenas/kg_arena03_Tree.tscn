@@ -1,38 +1,38 @@
-[gd_scene format=4 uid="uid://bn61ei5nlrro6"]
+[gd_scene format=4 uid="uid://2xece6rpcjov"]
 
-[ext_resource type="Shader" uid="uid://bfqjypm8l61mc" path="res://Shaders/double_dither.gdshader" id="1_m5cvq"]
-[ext_resource type="Script" uid="uid://cetcpqlgpoh36" path="res://Menus/Pause Menu/pause menu controller.gd" id="2_pcgwk"]
-[ext_resource type="PackedScene" uid="uid://bndhmjwv3783" path="res://Menus/controller_setup.tscn" id="3_bo1hc"]
-[ext_resource type="Script" uid="uid://csmg2t23mawo6" path="res://Player/player_health_bar_and_metter_controller.gd" id="4_ey14e"]
-[ext_resource type="Texture2D" uid="uid://chxconcuso2pk" path="res://Player/Character Assets/Explorer/Art/explorer shape sprite.png" id="5_81mn4"]
-[ext_resource type="Texture2D" uid="uid://82ix15nf31cd" path="res://GUI/progress_bar_inner_and_fill.png" id="6_slfso"]
-[ext_resource type="Texture2D" uid="uid://bl60mtj3i88ss" path="res://GUI/progress_bar_outter.png" id="7_beqrp"]
-[ext_resource type="Script" uid="uid://ffrn8kv8vaec" path="res://GUI/ui_bar_value_shower.gd" id="8_yxnp7"]
-[ext_resource type="Texture2D" uid="uid://e0454mamtsq2" path="res://Player/Character Assets/Electric Boogaloo/Art/electric boogaloo.png" id="9_yh6dw"]
-[ext_resource type="Script" uid="uid://drvcxtpf6wvu3" path="res://Player/player_character_holder.gd" id="10_y2f6e"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="11_b15ne"]
-[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="12_pom4n"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="13_5wjlt"]
-[ext_resource type="Script" uid="uid://bdtyj37jcj626" path="res://Scenes/group_player_follow.gd" id="14_yaab8"]
-[ext_resource type="Script" uid="uid://cjgicx5f63ran" path="res://Scenes/test_level.gd" id="15_piwt6"]
-[ext_resource type="Texture2D" uid="uid://cfh3tvbso0ky2" path="res://Level Art/Eva'sBG_Art/Forest_Bg/4thlayer_forestbg.png" id="16_6rekx"]
-[ext_resource type="Texture2D" uid="uid://g2eu2vmi5gov" path="res://Level Art/Eva'sBG_Art/Forest_Bg/3rdlayer_forestbg.png" id="17_j10ar"]
-[ext_resource type="Texture2D" uid="uid://bkg77k1q7kyqy" path="res://Level Art/Eva'sBG_Art/Forest_Bg/2ndlayer_forestbg.png" id="18_p10qr"]
-[ext_resource type="Texture2D" uid="uid://cwp8g7883o37n" path="res://Level Art/Eva'sBG_Art/Forest_Bg/foreground-layer_forest-bg_02.png" id="19_q3k23"]
-[ext_resource type="TileSet" uid="uid://dbyi4yvvgbymx" path="res://Test Levels/Eva Tileset.tres" id="20_hrt58"]
-[ext_resource type="Script" uid="uid://d1qfxrkmf0a2x" path="res://Level Objects/Enemies/Scripts/stationary_turret_controller.gd" id="21_dj73p"]
-[ext_resource type="PackedScene" uid="uid://c8bbg2hoja35u" path="res://Level Objects/Enemies/enemy_laser_bullet.tscn" id="22_igvl8"]
-[ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="23_kmj58"]
-[ext_resource type="Texture2D" uid="uid://b7qyud32eky12" path="res://Player/Character Assets/Explorer/Art/laser start.png" id="24_mnpsi"]
-[ext_resource type="Script" uid="uid://yllam5egj4yw" path="res://Scenes/destructable.gd" id="25_a3u87"]
-[ext_resource type="Texture2D" uid="uid://nt2grdjoo275" path="res://icon.svg" id="26_4pvn6"]
-[ext_resource type="Script" uid="uid://781x11kx0qap" path="res://Level Objects/Doors/door_controller.gd" id="27_8yxjc"]
-[ext_resource type="Texture2D" uid="uid://dmbr2vmivljtj" path="res://Level Art/tilemap_packed.png" id="28_bno7h"]
-[ext_resource type="PackedScene" uid="uid://dgg80udjapec8" path="res://Level Objects/Enemies/test_enemy_dude.tscn" id="29_4ihy4"]
-[ext_resource type="Script" uid="uid://bm4v5ospdj8vn" path="res://Level Objects/Enemies/Scripts/enemy_spawner.gd" id="30_yr26n"]
+[ext_resource type="Shader" uid="uid://bfqjypm8l61mc" path="res://Shaders/double_dither.gdshader" id="1_lvsf6"]
+[ext_resource type="Script" uid="uid://cetcpqlgpoh36" path="res://Menus/Pause Menu/pause menu controller.gd" id="2_wtv57"]
+[ext_resource type="PackedScene" uid="uid://bndhmjwv3783" path="res://Menus/controller_setup.tscn" id="3_qdolw"]
+[ext_resource type="Script" uid="uid://csmg2t23mawo6" path="res://Player/player_health_bar_and_metter_controller.gd" id="4_ioom6"]
+[ext_resource type="Texture2D" uid="uid://chxconcuso2pk" path="res://Player/Character Assets/Explorer/Art/explorer shape sprite.png" id="5_dvewo"]
+[ext_resource type="Texture2D" uid="uid://82ix15nf31cd" path="res://GUI/progress_bar_inner_and_fill.png" id="6_wksat"]
+[ext_resource type="Texture2D" uid="uid://bl60mtj3i88ss" path="res://GUI/progress_bar_outter.png" id="7_57va0"]
+[ext_resource type="Script" uid="uid://ffrn8kv8vaec" path="res://GUI/ui_bar_value_shower.gd" id="8_4o7xu"]
+[ext_resource type="Texture2D" uid="uid://e0454mamtsq2" path="res://Player/Character Assets/Electric Boogaloo/Art/electric boogaloo.png" id="9_demk3"]
+[ext_resource type="Script" uid="uid://drvcxtpf6wvu3" path="res://Player/player_character_holder.gd" id="10_islnq"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="11_8vn5i"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="12_v0al4"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="13_rqvl0"]
+[ext_resource type="Script" uid="uid://bdtyj37jcj626" path="res://Scenes/group_player_follow.gd" id="14_k56o5"]
+[ext_resource type="Script" uid="uid://cjgicx5f63ran" path="res://Scenes/test_level.gd" id="15_xc01y"]
+[ext_resource type="Texture2D" uid="uid://cfh3tvbso0ky2" path="res://Level Art/Eva'sBG_Art/Forest_Bg/4thlayer_forestbg.png" id="16_0u5o1"]
+[ext_resource type="Texture2D" uid="uid://g2eu2vmi5gov" path="res://Level Art/Eva'sBG_Art/Forest_Bg/3rdlayer_forestbg.png" id="17_ptx2t"]
+[ext_resource type="Texture2D" uid="uid://bkg77k1q7kyqy" path="res://Level Art/Eva'sBG_Art/Forest_Bg/2ndlayer_forestbg.png" id="18_2kqow"]
+[ext_resource type="Texture2D" uid="uid://cwp8g7883o37n" path="res://Level Art/Eva'sBG_Art/Forest_Bg/foreground-layer_forest-bg_02.png" id="19_8cl5u"]
+[ext_resource type="TileSet" uid="uid://dbyi4yvvgbymx" path="res://Test Levels/Eva Tileset.tres" id="20_en5tn"]
+[ext_resource type="Script" uid="uid://d1qfxrkmf0a2x" path="res://Level Objects/Enemies/Scripts/stationary_turret_controller.gd" id="21_5rqxy"]
+[ext_resource type="PackedScene" uid="uid://c8bbg2hoja35u" path="res://Level Objects/Enemies/enemy_laser_bullet.tscn" id="22_vjmia"]
+[ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="23_tcwo8"]
+[ext_resource type="Texture2D" uid="uid://b7qyud32eky12" path="res://Player/Character Assets/Explorer/Art/laser start.png" id="24_0avyp"]
+[ext_resource type="Script" uid="uid://yllam5egj4yw" path="res://Scenes/destructable.gd" id="25_42qeq"]
+[ext_resource type="Texture2D" uid="uid://nt2grdjoo275" path="res://icon.svg" id="26_oyfhg"]
+[ext_resource type="Script" uid="uid://781x11kx0qap" path="res://Level Objects/Doors/door_controller.gd" id="27_1783o"]
+[ext_resource type="Texture2D" uid="uid://dmbr2vmivljtj" path="res://Level Art/tilemap_packed.png" id="28_cn40u"]
+[ext_resource type="PackedScene" uid="uid://dgg80udjapec8" path="res://Level Objects/Enemies/test_enemy_dude.tscn" id="29_sck87"]
+[ext_resource type="Script" uid="uid://bm4v5ospdj8vn" path="res://Level Objects/Enemies/Scripts/enemy_spawner.gd" id="30_mydbp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
-shader = ExtResource("1_m5cvq")
+shader = ExtResource("1_lvsf6")
 shader_parameter/center = Vector2(0.5, 0.67)
 shader_parameter/radius = 0.45
 shader_parameter/pixel_size = 8.0
@@ -45,7 +45,7 @@ shader_parameter/falloff = 2.5
 shader_parameter/color = Color(0, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_a3gxn"]
-script = ExtResource("13_5wjlt")
+script = ExtResource("13_rqvl0")
 duration = 0.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
@@ -84,7 +84,7 @@ size = Vector2(20, 131)
 size = Vector2(20, 26)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d0u6y"]
-atlas = ExtResource("28_bno7h")
+atlas = ExtResource("28_cn40u")
 region = Rect2(180, 103, 18, 23)
 
 [node name="Game Holder" type="Node2D" unique_id=1246508524]
@@ -111,9 +111,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_pcgwk")
+script = ExtResource("2_wtv57")
 
-[node name="Controller Setup" parent="Player/CanvasLayer/Pause Menu" unique_id=465136458 instance=ExtResource("3_bo1hc")]
+[node name="Controller Setup" parent="Player/CanvasLayer/Pause Menu" unique_id=465136458 instance=ExtResource("3_qdolw")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -221,7 +221,7 @@ grow_vertical = 2
 [node name="Player UI" type="VBoxContainer" parent="Player/CanvasLayer/Player GUI/HBoxContainer" unique_id=1956674037 node_paths=PackedStringArray("health_bar_1", "metter_bar_1", "health_bar_2", "metter_bar_2")]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("4_ey14e")
+script = ExtResource("4_ioom6")
 health_bar_1 = NodePath("HBoxContainer2/VBoxContainer/Character 1 Health Bar")
 metter_bar_1 = NodePath("HBoxContainer2/VBoxContainer/Character 1 Metter")
 health_bar_2 = NodePath("HBoxContainer3/VBoxContainer/Character 2 Health Bar")
@@ -235,7 +235,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
-texture = ExtResource("5_81mn4")
+texture = ExtResource("5_dvewo")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer2" unique_id=534953585]
 layout_mode = 2
@@ -251,9 +251,9 @@ stretch_margin_left = 1
 stretch_margin_top = 1
 stretch_margin_right = 1
 stretch_margin_bottom = 1
-texture_under = ExtResource("6_slfso")
-texture_over = ExtResource("7_beqrp")
-texture_progress = ExtResource("6_slfso")
+texture_under = ExtResource("6_wksat")
+texture_over = ExtResource("7_57va0")
+texture_progress = ExtResource("6_wksat")
 tint_under = Color(0.3019608, 0.32156864, 0.32156864, 1)
 tint_over = Color(0, 0, 0, 1)
 tint_progress = Color(1, 0, 0, 1)
@@ -269,7 +269,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer/Character 1 Health Bar/CenterContainer" unique_id=1007728992]
 layout_mode = 2
 text = "0"
-script = ExtResource("8_yxnp7")
+script = ExtResource("8_4o7xu")
 
 [node name="Character 1 Metter" type="TextureProgressBar" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer" unique_id=162281084]
 layout_mode = 2
@@ -282,9 +282,9 @@ stretch_margin_left = 1
 stretch_margin_top = 1
 stretch_margin_right = 1
 stretch_margin_bottom = 1
-texture_under = ExtResource("6_slfso")
-texture_over = ExtResource("7_beqrp")
-texture_progress = ExtResource("6_slfso")
+texture_under = ExtResource("6_wksat")
+texture_over = ExtResource("7_57va0")
+texture_progress = ExtResource("6_wksat")
 tint_under = Color(0.3019608, 0.32156864, 0.32156864, 1)
 tint_over = Color(0, 0, 0, 1)
 tint_progress = Color(4.428029e-06, 0.57824045, 0.80593693, 1)
@@ -300,7 +300,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer/Character 1 Metter/CenterContainer" unique_id=182985218]
 layout_mode = 2
 text = "0"
-script = ExtResource("8_yxnp7")
+script = ExtResource("8_4o7xu")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI" unique_id=1467561423]
 layout_mode = 2
@@ -310,7 +310,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
-texture = ExtResource("9_yh6dw")
+texture = ExtResource("9_demk3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer3" unique_id=958601320]
 layout_mode = 2
@@ -326,9 +326,9 @@ stretch_margin_left = 1
 stretch_margin_top = 1
 stretch_margin_right = 1
 stretch_margin_bottom = 1
-texture_under = ExtResource("6_slfso")
-texture_over = ExtResource("7_beqrp")
-texture_progress = ExtResource("6_slfso")
+texture_under = ExtResource("6_wksat")
+texture_over = ExtResource("7_57va0")
+texture_progress = ExtResource("6_wksat")
 tint_under = Color(0.3019608, 0.32156864, 0.32156864, 1)
 tint_over = Color(0, 0, 0, 1)
 tint_progress = Color(1, 0, 0, 1)
@@ -344,7 +344,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer3/VBoxContainer/Character 2 Health Bar/CenterContainer" unique_id=73388923]
 layout_mode = 2
 text = "0"
-script = ExtResource("8_yxnp7")
+script = ExtResource("8_4o7xu")
 
 [node name="Character 2 Metter" type="TextureProgressBar" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer3/VBoxContainer" unique_id=1406717503]
 layout_mode = 2
@@ -357,9 +357,9 @@ stretch_margin_left = 1
 stretch_margin_top = 1
 stretch_margin_right = 1
 stretch_margin_bottom = 1
-texture_under = ExtResource("6_slfso")
-texture_over = ExtResource("7_beqrp")
-texture_progress = ExtResource("6_slfso")
+texture_under = ExtResource("6_wksat")
+texture_over = ExtResource("7_57va0")
+texture_progress = ExtResource("6_wksat")
 tint_under = Color(0.3019608, 0.32156864, 0.32156864, 1)
 tint_over = Color(0, 0, 0, 1)
 tint_progress = Color(4.428029e-06, 0.57824045, 0.80593693, 1)
@@ -375,7 +375,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer3/VBoxContainer/Character 2 Metter/CenterContainer" unique_id=1044638480]
 layout_mode = 2
 text = "0"
-script = ExtResource("8_yxnp7")
+script = ExtResource("8_4o7xu")
 
 [node name="Panel" type="Panel" parent="Player/CanvasLayer/Player GUI/HBoxContainer" unique_id=2052811008]
 layout_mode = 2
@@ -386,10 +386,9 @@ size_flags_stretch_ratio = 0.3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Player Character Holder" type="Node2D" parent="Player" unique_id=2005116031 node_paths=PackedStringArray("spawn_point") groups=["Player"]]
+[node name="Player Character Holder" type="Node2D" parent="Player" unique_id=2005116031 groups=["Player"]]
 z_index = 2
-script = ExtResource("10_y2f6e")
-spawn_point = NodePath("../../Player Spawn Point")
+script = ExtResource("10_islnq")
 
 [node name="Camera Nodes" type="Node" parent="." unique_id=260398653]
 
@@ -402,13 +401,13 @@ editor_draw_limits = true
 [node name="PhantomCameraHost" type="Node" parent="Camera Nodes/Camera2D" unique_id=1755526593]
 process_priority = 300
 process_physics_priority = 300
-script = ExtResource("11_b15ne")
+script = ExtResource("11_8vn5i")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="Camera Nodes" unique_id=1156627732 node_paths=PackedStringArray("follow_target", "follow_path") groups=["Phantom Camera"]]
 top_level = true
 position = Vector2(20, -30)
-script = ExtResource("12_pom4n")
+script = ExtResource("12_v0al4")
 priority = 1
 follow_mode = 2
 follow_target = NodePath("../Group Player Follow")
@@ -425,7 +424,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Group Player Follow" type="Marker2D" parent="Camera Nodes" unique_id=54974854]
 process_physics_priority = 1
-script = ExtResource("14_yaab8")
+script = ExtResource("14_k56o5")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Camera Nodes/Group Player Follow" unique_id=353084144]
 collision_layer = 4096
@@ -443,7 +442,7 @@ shape = SubResource("WorldBoundaryShape2D_xos45")
 curve = SubResource("Curve2D_w2iq6")
 
 [node name="Level" type="Node" parent="." unique_id=1107788057]
-script = ExtResource("15_piwt6")
+script = ExtResource("15_xc01y")
 
 [node name="Paralax Layers" type="Node2D" parent="Level" unique_id=1296795371]
 z_index = -2
@@ -456,7 +455,7 @@ repeat_times = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Level/Paralax Layers/Background 3" unique_id=193252541]
 material = SubResource("ShaderMaterial_4vt6j")
-texture = ExtResource("16_6rekx")
+texture = ExtResource("16_0u5o1")
 
 [node name="Background 2" type="Parallax2D" parent="Level/Paralax Layers" unique_id=906204194]
 scroll_scale = Vector2(0.5, 1)
@@ -465,7 +464,7 @@ repeat_times = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Level/Paralax Layers/Background 2" unique_id=157173689]
 material = SubResource("ShaderMaterial_4vt6j")
-texture = ExtResource("17_j10ar")
+texture = ExtResource("17_ptx2t")
 
 [node name="Background 1" type="Parallax2D" parent="Level/Paralax Layers" unique_id=1875273663]
 scroll_scale = Vector2(0.6, 1)
@@ -474,7 +473,7 @@ repeat_times = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Level/Paralax Layers/Background 1" unique_id=2064531861]
 material = SubResource("ShaderMaterial_4vt6j")
-texture = ExtResource("18_p10qr")
+texture = ExtResource("18_2kqow")
 
 [node name="Foreground 1" type="Parallax2D" parent="Level/Paralax Layers" unique_id=1858490790]
 z_index = 3
@@ -508,7 +507,7 @@ repeat_times = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Level/Paralax Layers/Foreground 2" unique_id=889147733]
 material = SubResource("ShaderMaterial_4vt6j")
-texture = ExtResource("19_q3k23")
+texture = ExtResource("19_8cl5u")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Level/Paralax Layers/Foreground 2" unique_id=2135659027]
 amount = 10
@@ -554,25 +553,25 @@ color = Color(0.4627451, 0, 1, 0.72156864)
 
 [node name="Platform Tilemap Layer2" type="TileMapLayer" parent="Level" unique_id=2069029130]
 z_index = -1
-tile_map_data = PackedByteArray("AAD6/wEAAQABAAEAAAD6/wAAAQACAAEAAAD5/wEAAQAAAAEAAAD5/wAAAQAAAAEAAAAEAAEAAQABAAAAAAADAAEAAQABAAAAAAACAAEAAQABAAAAAAABAAEAAQABAAEAAAAAAAEAAQABAAEAAAD//wEAAQABAAEAAAD+/wEAAQABAAAAAAD9/wEAAQABAAAAAAD8/wEAAQABAAAAAAD7/wEAAQABAAAAAAAEAAIAAQABAAIAAAADAAIAAQABAAIAAAACAAIAAQABAAIAAAABAAIAAQABAAIAAAAAAAIAAQABAAIAAAD//wIAAQABAAIAAAD+/wIAAQABAAIAAAD9/wIAAQABAAIAAAD8/wIAAQABAAIAAAD7/wIAAQABAAIAAAD6/wIAAQABAAIAAAD5/wIAAQAAAAIAAAAFAAIAAQABAAIAAAAGAAIAAQABAAIAAAAGAAEAAQABAAEAAAAFAAEAAQABAAAAAAAGAPv/AQAAAAEAAAAGAPz/AQAAAAEAAAAGAP3/AQABAAEAAAAHAP3/AQACAAEAAAAHAP7/AQACAAEAAAAGAP7/AQABAAEAAAAGAP//AQAAAAEAAAAGAAAAAQAAAAEAAAAHAAAAAQACAAEAAAAHAAEAAQACAAEAAAD6//v/AQACAAEAAAD6//z/AQACAAEAAAD6//3/AQABAAEAAAD6//7/AQABAAEAAAD6////AQACAAEAAAD5////AQAAAAEAAAD5//7/AQAAAAEAAAD5//3/AQAAAAEAAAD5//z/AQAAAAEAAAD5//v/AQAAAAEAAAAHAP//AQACAAEAAAAHAPz/AQACAAEAAAAHAPv/AQACAAEAAAAHAAIAAQACAAIAAAD5//r/AQAAAAEAAAD6//r/AQABAAEAAAD7//r/AQABAAIAAAD8//r/AQABAAIAAAD9//r/AQABAAIAAAD+//r/AQABAAIAAAD///r/AQABAAIAAAAAAPr/AQABAAIAAAABAPr/AQABAAIAAAACAPr/AQABAAIAAAADAPr/AQABAAIAAAAEAPr/AQABAAIAAAAFAPr/AQABAAIAAAAGAPr/AQABAAEAAAAHAPr/AQACAAEAAAD5//n/AQAAAAAAAAD6//n/AQABAAAAAAD7//n/AQABAAAAAAD8//n/AQABAAAAAAD9//n/AQABAAAAAAD+//n/AQABAAAAAAD///n/AQABAAAAAAAAAPn/AQABAAAAAAABAPn/AQABAAAAAAACAPn/AQABAAAAAAADAPn/AQABAAAAAAAEAPn/AQABAAAAAAAFAPn/AQABAAAAAAAGAPn/AQABAAAAAAAHAPn/AQACAAAAAAD//wAAAQAAAAEAAAAAAAAAAQABAAEAAAABAAAAAQACAAEAAAABAP//AQACAAAAAAAAAP//AQABAAAAAAD/////AQAAAAAAAAD7//3/AQABAAAAAAD8//3/AQACAAAAAAAFAP3/AQABAAAAAAAEAP3/AQAAAAAAAAAEAP7/AQAAAAIAAAAFAP7/AQABAAIAAAD8//7/AQACAAIAAAD7//7/AQABAAIAAAA=")
-tile_set = ExtResource("20_hrt58")
+tile_map_data = PackedByteArray("AAD6/wEAAQABAAEAAAD5/wEAAQABAAEAAAAEAAEAAQABAAAAAAADAAEAAQABAAAAAAACAAEAAQAIAAQAAAABAAEAAQABAAEAAAAAAAEAAQABAAEAAAD//wEAAQABAAEAAAD+/wEAAQAHAAQAAAD9/wEAAQABAAAAAAD8/wEAAQABAAAAAAD7/wEAAQAIAAQAAAAEAAIAAQABAAIAAAADAAIAAQAHAAAAAAACAAIAAQABAAIAAAABAAIAAQAHAAAAAAAAAAIAAQABAAIAAAD//wIAAQAHAAAAAAD+/wIAAQAHAAAAAAD9/wIAAQAHAAAAAAD8/wIAAQABAAIAAAD7/wIAAQAHAAAAAAD6/wIAAQABAAIAAAD5/wIAAQAHAAAAAAAFAAIAAQAHAAAAAAAGAAIAAQAHAAAAAAAGAAEAAQABAAEAAAAFAAEAAQAHAAQAAAAHAAEAAQABAAEAAAAHAAIAAQAHAAAAAAACAAAAAQACAAAAAAABAAAAAQABAAAAAAAAAAAAAQABAAAAAAD//wAAAQABAAAAAAD+/wAAAQAAAAAAAAACAPv/AQAGAAAAAAACAPr/AQAIAAQAAAACAPn/AQACAAAAAAABAPr/AQABAAEAAAABAPn/AQABAAAAAAAAAPr/AQABAAEAAAAAAPn/AQABAAAAAAD///r/AQABAAEAAAD///n/AQABAAAAAAD+//r/AQAHAAQAAAD+//n/AQAAAAAAAAACAPX/AQACAAIAAAACAPT/AQAGAAAAAAACAPP/AQAAAAAAAAABAPX/AQABAAIAAAABAPT/AQABAAAAAAAAAPX/AQABAAIAAAAAAPT/AQABAAAAAAD///X/AQABAAIAAAD///T/AQABAAAAAAD+//X/AQAAAAIAAAD+//T/AQAIAAAAAAD+//P/AQABAAAAAAD4/wIAAQABAAIAAAD4/wEAAQABAAEAAAD3/wIAAQABAAIAAAD3/wEAAQABAAEAAAD6/wAAAQABAAEAAAD6////AQABAAAAAAD5/wAAAQABAAEAAAD5////AQABAAAAAAD4/wAAAQABAAEAAAD4////AQABAAAAAAD3/wAAAQABAAEAAAD3////AQAIAAQAAAD3//7/AQACAAEAAAD3//3/AQACAAAAAAD7//v/AQAHAAUAAAD9//r/AQABAAAAAAD8//r/AQAAAAAAAAAEAPv/AQAHAAAAAAAEAPr/AQACAAAAAAADAPv/AQABAAIAAAADAPr/AQABAAAAAAD6//v/AQAGAAUAAAAGAPv/AQAIAAUAAAAFAPv/AQAHAAUAAAD2/wIAAQABAAIAAAD2/wEAAQABAAEAAAD2/wAAAQABAAEAAAD2////AQABAAEAAAD2//7/AQABAAEAAAD2//3/AQABAAAAAAAHAAAAAQABAAEAAAAHAP//AQABAAAAAAAGAAAAAQABAAEAAAAGAP//AQABAAAAAAAIAAIAAQABAAIAAAAIAAEAAQABAAEAAAAIAAAAAQABAAEAAAAIAP//AQABAAAAAAALAAIAAQAHAAAAAAALAAEAAQABAAEAAAALAAAAAQABAAEAAAALAP//AQABAAEAAAALAP7/AQABAAEAAAALAP3/AQABAAAAAAAKAAIAAQABAAIAAAAKAAEAAQABAAEAAAAKAAAAAQABAAEAAAAKAP//AQABAAEAAAAKAP7/AQABAAEAAAAKAP3/AQABAAAAAAAJAAIAAQAHAAAAAAAJAAEAAQABAAEAAAAJAAAAAQABAAEAAAAJAP//AQAHAAQAAAAJAP7/AQAAAAEAAAAJAP3/AQAAAAAAAAD1/wIAAQABAAIAAAD1/wEAAQABAAEAAAD1/wAAAQABAAEAAAD1////AQABAAEAAAD1//7/AQABAAEAAAD1//3/AQABAAAAAAD7//f/AQAIAAUAAAD6//f/AQAHAAUAAAAGAPf/AQAHAAUAAAAFAPf/AQAGAAUAAAAJAPb/AQABAAAAAAAIAPb/AQABAAAAAAAHAPb/AQAAAAAAAAALAPX/AQABAAAAAAAKAPX/AQAAAAAAAAD5//b/AQACAAAAAAD4//b/AQABAAAAAAD3//b/AQABAAAAAAD2//X/AQACAAAAAAD1//X/AQABAAAAAAD9//T/AQAHAAAAAAD9//P/AQABAAAAAAD8//T/AQAAAAIAAAD8//P/AQAAAAAAAAD7//P/AQAHAAUAAAD6//P/AQAHAAUAAAD5//P/AQAGAAUAAAAEAPT/AQACAAIAAAAEAPP/AQACAAAAAAADAPT/AQAHAAAAAAADAPP/AQABAAAAAAAHAPP/AQAIAAUAAAAGAPP/AQAHAAUAAAAFAPP/AQAHAAUAAAAEAO//AQACAAIAAAAEAO7/AQACAAEAAAADAO//AQAAAAIAAAADAO7/AQAIAAAAAAACAO7/AQAAAAIAAAD+/+7/AQACAAIAAAD9/+//AQACAAIAAAD9/+7/AQAGAAAAAAD8/+//AQAAAAIAAAD8/+7/AQAAAAEAAAAEAO3/AQACAAEAAAADAO3/AQABAAEAAAACAO3/AQAIAAAAAAABAO3/AQAHAAAAAAAAAO3/AQAHAAAAAAD//+3/AQABAAIAAAD+/+3/AQAGAAAAAAD9/+3/AQABAAEAAAD8/+3/AQAAAAEAAAD0/wIAAQAHAAAAAAD0/wEAAQABAAEAAAD0/wAAAQABAAEAAAD0////AQABAAEAAAD0//7/AQABAAEAAAD0//3/AQAIAAQAAAD0//z/AQACAAEAAAD0//v/AQACAAEAAAD0//r/AQACAAEAAAD0//n/AQAGAAAAAAD0//j/AQABAAEAAAD0//f/AQABAAEAAAD0//b/AQABAAEAAAD0//X/AQABAAAAAAD0//T/AQABAAoAAAD0//P/AQABAAoAAAD0//L/AQABAAoAAAD0//H/AQACAAQAAAD0//D/AQACAAEAAAD0/+//AQACAAEAAAD0/+7/AQACAAEAAAD0/+3/AQACAAEAAADz/wIAAQABAAIAAADz/wEAAQABAAEAAADz/wAAAQABAAEAAADz////AQABAAEAAADz//7/AQABAAEAAADz//3/AQABAAEAAADz//z/AQABAAEAAADz//v/AQABAAEAAADz//r/AQABAAEAAADz//n/AQABAAEAAADz//j/AQABAAEAAADz//f/AQABAAEAAADz//b/AQABAAEAAADz//X/AQAIAAQAAADz//T/AQACAAEAAADz//P/AQACAAEAAADz//L/AQACAAEAAADz//H/AQABAAEAAADz//D/AQABAAEAAADz/+//AQABAAEAAADz/+7/AQABAAEAAADz/+3/AQABAAEAAAALAOz/AQABAAIAAAALAOv/AQABAAAAAAAKAOz/AQABAAIAAAAKAOv/AQABAAAAAAAJAOz/AQABAAIAAAAJAOv/AQABAAAAAAAIAOz/AQAHAAAAAAAIAOv/AQABAAAAAAAHAOz/AQAHAAAAAAAHAOv/AQABAAAAAAAGAOz/AQAHAAAAAAAGAOv/AQABAAAAAAAFAOz/AQABAAIAAAAFAOv/AQABAAAAAAAEAOz/AQAGAAAAAAAEAOv/AQABAAAAAAADAOz/AQABAAEAAAADAOv/AQABAAAAAAACAOz/AQABAAEAAAACAOv/AQABAAAAAAABAOz/AQABAAEAAAABAOv/AQABAAAAAAAAAOz/AQABAAEAAAAAAOv/AQABAAAAAAD//+z/AQABAAEAAAD//+v/AQABAAAAAAD+/+z/AQABAAEAAAD+/+v/AQABAAAAAAD9/+z/AQABAAEAAAD9/+v/AQABAAAAAAD8/+z/AQAIAAAAAAD8/+v/AQABAAAAAAD7/+z/AQABAAIAAAD7/+v/AQABAAAAAAD6/+z/AQABAAIAAAD6/+v/AQABAAAAAAD5/+z/AQABAAIAAAD5/+v/AQABAAAAAAD4/+z/AQABAAIAAAD4/+v/AQABAAAAAAD3/+z/AQABAAIAAAD3/+v/AQABAAAAAAD2/+z/AQABAAIAAAD2/+v/AQABAAAAAAD1/+z/AQAHAAAAAAD1/+v/AQABAAAAAAD0/+z/AQAGAAAAAAD0/+v/AQABAAAAAADz/+z/AQABAAEAAADz/+v/AQABAAAAAAANAAIAAQABAAIAAAANAAEAAQABAAEAAAANAAAAAQABAAEAAAANAP//AQABAAEAAAANAP7/AQABAAEAAAANAP3/AQABAAEAAAANAPz/AQABAAEAAAANAPv/AQABAAEAAAANAPr/AQABAAEAAAANAPn/AQABAAEAAAANAPj/AQABAAEAAAANAPf/AQABAAEAAAANAPb/AQABAAEAAAANAPX/AQAHAAQAAAANAPT/AQAAAAEAAAANAPP/AQAAAAEAAAANAPL/AQAAAAEAAAAMAAIAAQAHAAAAAAAMAAEAAQABAAEAAAAMAAAAAQABAAEAAAAMAP//AQABAAEAAAAMAP7/AQABAAEAAAAMAP3/AQAHAAQAAAAMAPz/AQAAAAEAAAAMAPv/AQAAAAEAAAAMAPr/AQAAAAEAAAAMAPn/AQAIAAAAAAAMAPj/AQABAAEAAAAMAPf/AQABAAEAAAAMAPb/AQABAAEAAAAMAPX/AQABAAAAAAAMAPT/AQABAAoAAAAMAPP/AQABAAoAAAAMAPL/AQABAAoAAAANAPH/AQABAAEAAAANAPD/AQABAAEAAAANAO//AQABAAEAAAANAO7/AQABAAEAAAANAO3/AQABAAEAAAANAOz/AQABAAEAAAANAOv/AQABAAAAAAAMAPH/AQABAAQAAAAMAPD/AQAAAAEAAAAMAO//AQAAAAEAAAAMAO7/AQAAAAEAAAAMAO3/AQAAAAEAAAAMAOz/AQAIAAAAAAAMAOv/AQABAAAAAAALAPH/AQAHAAUAAAAKAPH/AQAGAAUAAAD2//H/AQAIAAUAAAD1//H/AQAHAAUAAAD7/+//AQAIAAUAAAD6/+//AQAHAAUAAAAGAO//AQAHAAUAAAAFAO//AQAHAAUAAAAHAO//AQAIAAUAAAD5/+//AQAGAAUAAAD2//j/AQAGAAAAAAD2//f/AQABAAEAAAD2//b/AQAIAAQAAAD1//j/AQABAAEAAAD1//f/AQABAAEAAAD1//b/AQABAAEAAAD5//f/AQABAAIAAAD4//f/AQAGAAAAAAD3//f/AQABAAEAAAALAPf/AQABAAEAAAAKAPf/AQABAAEAAAAJAPf/AQABAAEAAAAIAPf/AQAIAAAAAAAHAPf/AQAHAAAAAAALAPj/AQABAAEAAAALAPb/AQABAAEAAAAKAPj/AQAIAAAAAAAKAPb/AQAHAAQAAAD2//n/AQACAAIAAAD1//n/AQAHAAAAAAD3//j/AQABAAIAAAD4//j/AQACAAIAAAALAPn/AQAHAAAAAAAKAPn/AQAAAAIAAAAJAPj/AQAHAAAAAAAIAPj/AQAAAAIAAAD7/wAAAQACAAEAAAD7////AQACAAAAAAAFAAAAAQAAAAEAAAAFAP//AQAAAAAAAAD9//v/AQAHAAAAAAD8//v/AQABAAIAAAACAPz/AQACAAIAAAABAPz/AQABAAIAAAABAPv/AQABAAEAAAAAAPz/AQABAAIAAAAAAPv/AQABAAEAAAD///z/AQABAAIAAAD///v/AQABAAEAAAD+//z/AQAAAAIAAAD+//v/AQAIAAAAAAD9/wAAAQABAAoAAAD8/wAAAQABAAoAAAAEAAAAAQABAAoAAAADAAAAAQABAAoAAAALAPz/AQABAAoAAAALAPv/AQABAAoAAAALAPr/AQABAAoAAAD1//z/AQABAAoAAAD1//v/AQABAAoAAAD1//r/AQABAAoAAAAFAO7/AQABAAoAAAAFAO3/AQABAAoAAAD7/+7/AQABAAoAAAD7/+3/AQABAAoAAAABAPP/AQABAAoAAAAAAPP/AQABAAoAAAD///P/AQABAAoAAADy/wIAAQAAAAIAAADy/wEAAQAAAAEAAADy/wAAAQAAAAEAAADy////AQAAAAEAAADy//7/AQAAAAEAAADy//3/AQAAAAEAAADy//z/AQAAAAEAAADy//v/AQAAAAEAAADy//r/AQAAAAEAAADy//n/AQAAAAEAAADy//j/AQAAAAEAAADy//f/AQAAAAEAAADy//b/AQAAAAEAAADy//X/AQAAAAEAAADy//T/AQAAAAEAAADy//P/AQAAAAEAAADy//L/AQAAAAEAAADy//H/AQAAAAEAAADy//D/AQAAAAEAAADy/+//AQAAAAEAAADy/+7/AQAAAAEAAADy/+3/AQAAAAEAAADy/+z/AQAAAAEAAADy/+v/AQAAAAAAAAAOAAIAAQACAAIAAAAOAAEAAQACAAEAAAAOAAAAAQACAAEAAAAOAP//AQACAAEAAAAOAP7/AQACAAEAAAAOAP3/AQACAAEAAAAOAPz/AQACAAEAAAAOAPv/AQACAAEAAAAOAPr/AQACAAEAAAAOAPn/AQACAAEAAAAOAPj/AQACAAEAAAAOAPf/AQACAAEAAAAOAPb/AQACAAEAAAAOAPX/AQACAAEAAAAOAPT/AQACAAEAAAAOAPP/AQACAAEAAAAOAPL/AQACAAEAAAAOAPH/AQACAAEAAAAOAPD/AQACAAEAAAAOAO//AQACAAEAAAAOAO7/AQACAAEAAAAOAO3/AQACAAEAAAAOAOz/AQACAAEAAAAOAOv/AQACAAAAAAA=")
+tile_set = ExtResource("20_en5tn")
 
 [node name="Turret" type="StaticBody2D" parent="Level" unique_id=1181078644]
 position = Vector2(11, -133)
 collision_layer = 64
 collision_mask = 0
-script = ExtResource("21_dj73p")
-bullet_scene = ExtResource("22_igvl8")
+script = ExtResource("21_5rqxy")
+bullet_scene = ExtResource("22_vjmia")
 
 [node name="HealthComponent" type="Node" parent="Level/Turret" unique_id=2038527022]
-script = ExtResource("23_kmj58")
+script = ExtResource("23_tcwo8")
 metadata/_custom_type_script = "uid://k1npmfprvwwt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Turret" unique_id=457255158]
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Sprite2D" type="Sprite2D" parent="Level/Turret" unique_id=266150381]
-texture = ExtResource("24_mnpsi")
+texture = ExtResource("24_0avyp")
 
 [node name="Shot Interval Timer" type="Timer" parent="Level/Turret" unique_id=1252081858]
 autostart = true
@@ -581,7 +580,7 @@ autostart = true
 position = Vector2(506, -69)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("25_a3u87")
+script = ExtResource("25_42qeq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Destructable" unique_id=1585320480]
 position = Vector2(0, -55.5)
@@ -590,18 +589,18 @@ shape = SubResource("RectangleShape2D_yf5fn")
 [node name="Sprite2D" type="Sprite2D" parent="Level/Destructable" unique_id=961941010]
 position = Vector2(-7.838011e-06, -56.000004)
 scale = Vector2(0.15624999, 1.03125)
-texture = ExtResource("26_4pvn6")
+texture = ExtResource("26_oyfhg")
 
 [node name="HealthComponent" type="Node" parent="Level/Destructable" unique_id=71169911]
 unique_name_in_owner = true
-script = ExtResource("23_kmj58")
+script = ExtResource("23_tcwo8")
 weakness_tags = Array[int]([2])
 weakness_only_damage = true
 metadata/_custom_type_script = "uid://k1npmfprvwwt"
 
 [node name="Door" type="Area2D" parent="Level" unique_id=858437403]
 position = Vector2(544, -69)
-script = ExtResource("27_8yxjc")
+script = ExtResource("27_1783o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Door" unique_id=2076463780]
 position = Vector2(9, -3)
@@ -617,12 +616,12 @@ position = Vector2(-181, -22)
 [node name="Player Spawn Point2" type="Marker2D" parent="." unique_id=1500643135]
 position = Vector2(-207, -22)
 
-[node name="Enemy Dude" parent="." unique_id=1938194074 instance=ExtResource("29_4ihy4")]
+[node name="Enemy Dude" parent="." unique_id=1938194074 instance=ExtResource("29_sck87")]
 
 [node name="Spawner" type="Marker2D" parent="." unique_id=1188518613]
 position = Vector2(114, -38)
-script = ExtResource("30_yr26n")
-enemy_scene = ExtResource("29_4ihy4")
+script = ExtResource("30_mydbp")
+enemy_scene = ExtResource("29_sck87")
 
 [node name="Timer" type="Timer" parent="Spawner" unique_id=492084770]
 autostart = true

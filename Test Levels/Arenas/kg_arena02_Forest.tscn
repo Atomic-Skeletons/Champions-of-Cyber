@@ -1,38 +1,38 @@
-[gd_scene format=4 uid="uid://2xece6rpcjov"]
+[gd_scene format=4 uid="uid://d0pkvr4geda28"]
 
-[ext_resource type="Shader" uid="uid://bfqjypm8l61mc" path="res://Shaders/double_dither.gdshader" id="1_m7hx0"]
-[ext_resource type="Script" uid="uid://cetcpqlgpoh36" path="res://Menus/Pause Menu/pause menu controller.gd" id="2_7o787"]
-[ext_resource type="PackedScene" uid="uid://bndhmjwv3783" path="res://Menus/controller_setup.tscn" id="3_v2djv"]
-[ext_resource type="Script" uid="uid://csmg2t23mawo6" path="res://Player/player_health_bar_and_metter_controller.gd" id="4_iyngb"]
-[ext_resource type="Texture2D" uid="uid://chxconcuso2pk" path="res://Player/Character Assets/Explorer/Art/explorer shape sprite.png" id="5_kjauv"]
-[ext_resource type="Texture2D" uid="uid://82ix15nf31cd" path="res://GUI/progress_bar_inner_and_fill.png" id="6_xlbef"]
-[ext_resource type="Texture2D" uid="uid://bl60mtj3i88ss" path="res://GUI/progress_bar_outter.png" id="7_u11i5"]
-[ext_resource type="Script" uid="uid://ffrn8kv8vaec" path="res://GUI/ui_bar_value_shower.gd" id="8_5v6eb"]
-[ext_resource type="Texture2D" uid="uid://e0454mamtsq2" path="res://Player/Character Assets/Electric Boogaloo/Art/electric boogaloo.png" id="9_cyra5"]
-[ext_resource type="Script" uid="uid://drvcxtpf6wvu3" path="res://Player/player_character_holder.gd" id="10_xjmpx"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="11_iivm5"]
-[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="12_unjqb"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="13_4qmcs"]
-[ext_resource type="Script" uid="uid://bdtyj37jcj626" path="res://Scenes/group_player_follow.gd" id="14_esej7"]
-[ext_resource type="Script" uid="uid://cjgicx5f63ran" path="res://Scenes/test_level.gd" id="15_khpn0"]
-[ext_resource type="Texture2D" uid="uid://cfh3tvbso0ky2" path="res://Level Art/Eva'sBG_Art/Forest_Bg/4thlayer_forestbg.png" id="16_5y3wj"]
-[ext_resource type="Texture2D" uid="uid://g2eu2vmi5gov" path="res://Level Art/Eva'sBG_Art/Forest_Bg/3rdlayer_forestbg.png" id="17_pthv8"]
-[ext_resource type="Texture2D" uid="uid://bkg77k1q7kyqy" path="res://Level Art/Eva'sBG_Art/Forest_Bg/2ndlayer_forestbg.png" id="18_545bs"]
-[ext_resource type="Texture2D" uid="uid://cwp8g7883o37n" path="res://Level Art/Eva'sBG_Art/Forest_Bg/foreground-layer_forest-bg_02.png" id="19_0wljj"]
-[ext_resource type="TileSet" uid="uid://dbyi4yvvgbymx" path="res://Test Levels/Eva Tileset.tres" id="20_hrr5k"]
-[ext_resource type="Script" uid="uid://d1qfxrkmf0a2x" path="res://Level Objects/Enemies/Scripts/stationary_turret_controller.gd" id="21_h6pbv"]
-[ext_resource type="PackedScene" uid="uid://c8bbg2hoja35u" path="res://Level Objects/Enemies/enemy_laser_bullet.tscn" id="22_f8amq"]
-[ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="23_a67dl"]
-[ext_resource type="Texture2D" uid="uid://b7qyud32eky12" path="res://Player/Character Assets/Explorer/Art/laser start.png" id="24_ac2w4"]
-[ext_resource type="Script" uid="uid://yllam5egj4yw" path="res://Scenes/destructable.gd" id="25_2mtfm"]
-[ext_resource type="Texture2D" uid="uid://nt2grdjoo275" path="res://icon.svg" id="26_53tu5"]
-[ext_resource type="Script" uid="uid://781x11kx0qap" path="res://Level Objects/Doors/door_controller.gd" id="27_nn1a3"]
-[ext_resource type="Texture2D" uid="uid://dmbr2vmivljtj" path="res://Level Art/tilemap_packed.png" id="28_r0ts2"]
-[ext_resource type="PackedScene" uid="uid://dgg80udjapec8" path="res://Level Objects/Enemies/test_enemy_dude.tscn" id="29_tltd1"]
-[ext_resource type="Script" uid="uid://bm4v5ospdj8vn" path="res://Level Objects/Enemies/Scripts/enemy_spawner.gd" id="30_6ojuo"]
+[ext_resource type="Shader" uid="uid://bfqjypm8l61mc" path="res://Shaders/double_dither.gdshader" id="1_owhpl"]
+[ext_resource type="Script" uid="uid://cetcpqlgpoh36" path="res://Menus/Pause Menu/pause menu controller.gd" id="2_hp0pb"]
+[ext_resource type="PackedScene" uid="uid://bndhmjwv3783" path="res://Menus/controller_setup.tscn" id="3_krdjx"]
+[ext_resource type="Script" uid="uid://csmg2t23mawo6" path="res://Player/player_health_bar_and_metter_controller.gd" id="4_k64eo"]
+[ext_resource type="Texture2D" uid="uid://chxconcuso2pk" path="res://Player/Character Assets/Explorer/Art/explorer shape sprite.png" id="5_d64fm"]
+[ext_resource type="Texture2D" uid="uid://82ix15nf31cd" path="res://GUI/progress_bar_inner_and_fill.png" id="6_hulth"]
+[ext_resource type="Texture2D" uid="uid://bl60mtj3i88ss" path="res://GUI/progress_bar_outter.png" id="7_rir4s"]
+[ext_resource type="Script" uid="uid://ffrn8kv8vaec" path="res://GUI/ui_bar_value_shower.gd" id="8_s87yv"]
+[ext_resource type="Texture2D" uid="uid://e0454mamtsq2" path="res://Player/Character Assets/Electric Boogaloo/Art/electric boogaloo.png" id="9_kwwfb"]
+[ext_resource type="Script" uid="uid://drvcxtpf6wvu3" path="res://Player/player_character_holder.gd" id="10_d0ifc"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="11_vpe1l"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="12_f2sjm"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="13_p3nlr"]
+[ext_resource type="Script" uid="uid://bdtyj37jcj626" path="res://Scenes/group_player_follow.gd" id="14_v3iw7"]
+[ext_resource type="Script" uid="uid://cjgicx5f63ran" path="res://Scenes/test_level.gd" id="15_dewpo"]
+[ext_resource type="Texture2D" uid="uid://cfh3tvbso0ky2" path="res://Level Art/Eva'sBG_Art/Forest_Bg/4thlayer_forestbg.png" id="16_qidk3"]
+[ext_resource type="Texture2D" uid="uid://g2eu2vmi5gov" path="res://Level Art/Eva'sBG_Art/Forest_Bg/3rdlayer_forestbg.png" id="17_awilj"]
+[ext_resource type="Texture2D" uid="uid://bkg77k1q7kyqy" path="res://Level Art/Eva'sBG_Art/Forest_Bg/2ndlayer_forestbg.png" id="18_37vmf"]
+[ext_resource type="Texture2D" uid="uid://cwp8g7883o37n" path="res://Level Art/Eva'sBG_Art/Forest_Bg/foreground-layer_forest-bg_02.png" id="19_5rpdl"]
+[ext_resource type="TileSet" uid="uid://dbyi4yvvgbymx" path="res://Test Levels/Eva Tileset.tres" id="20_dvwlk"]
+[ext_resource type="Script" uid="uid://d1qfxrkmf0a2x" path="res://Level Objects/Enemies/Scripts/stationary_turret_controller.gd" id="21_wttxi"]
+[ext_resource type="PackedScene" uid="uid://c8bbg2hoja35u" path="res://Level Objects/Enemies/enemy_laser_bullet.tscn" id="22_2cy75"]
+[ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="23_xqfxl"]
+[ext_resource type="Texture2D" uid="uid://b7qyud32eky12" path="res://Player/Character Assets/Explorer/Art/laser start.png" id="24_lolt6"]
+[ext_resource type="Script" uid="uid://yllam5egj4yw" path="res://Scenes/destructable.gd" id="25_fqktr"]
+[ext_resource type="Texture2D" uid="uid://nt2grdjoo275" path="res://icon.svg" id="26_mdif7"]
+[ext_resource type="Script" uid="uid://781x11kx0qap" path="res://Level Objects/Doors/door_controller.gd" id="27_ctlls"]
+[ext_resource type="Texture2D" uid="uid://dmbr2vmivljtj" path="res://Level Art/tilemap_packed.png" id="28_tmv40"]
+[ext_resource type="PackedScene" uid="uid://dgg80udjapec8" path="res://Level Objects/Enemies/test_enemy_dude.tscn" id="29_x3wtw"]
+[ext_resource type="Script" uid="uid://bm4v5ospdj8vn" path="res://Level Objects/Enemies/Scripts/enemy_spawner.gd" id="30_tphsr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
-shader = ExtResource("1_m7hx0")
+shader = ExtResource("1_owhpl")
 shader_parameter/center = Vector2(0.5, 0.67)
 shader_parameter/radius = 0.45
 shader_parameter/pixel_size = 8.0
@@ -45,7 +45,7 @@ shader_parameter/falloff = 2.5
 shader_parameter/color = Color(0, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_a3gxn"]
-script = ExtResource("13_4qmcs")
+script = ExtResource("13_p3nlr")
 duration = 0.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
@@ -84,7 +84,7 @@ size = Vector2(20, 131)
 size = Vector2(20, 26)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d0u6y"]
-atlas = ExtResource("28_r0ts2")
+atlas = ExtResource("28_tmv40")
 region = Rect2(180, 103, 18, 23)
 
 [node name="Game Holder" type="Node2D" unique_id=1246508524]
@@ -111,9 +111,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_7o787")
+script = ExtResource("2_hp0pb")
 
-[node name="Controller Setup" parent="Player/CanvasLayer/Pause Menu" unique_id=465136458 instance=ExtResource("3_v2djv")]
+[node name="Controller Setup" parent="Player/CanvasLayer/Pause Menu" unique_id=465136458 instance=ExtResource("3_krdjx")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -221,7 +221,7 @@ grow_vertical = 2
 [node name="Player UI" type="VBoxContainer" parent="Player/CanvasLayer/Player GUI/HBoxContainer" unique_id=1956674037 node_paths=PackedStringArray("health_bar_1", "metter_bar_1", "health_bar_2", "metter_bar_2")]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("4_iyngb")
+script = ExtResource("4_k64eo")
 health_bar_1 = NodePath("HBoxContainer2/VBoxContainer/Character 1 Health Bar")
 metter_bar_1 = NodePath("HBoxContainer2/VBoxContainer/Character 1 Metter")
 health_bar_2 = NodePath("HBoxContainer3/VBoxContainer/Character 2 Health Bar")
@@ -235,7 +235,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
-texture = ExtResource("5_kjauv")
+texture = ExtResource("5_d64fm")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer2" unique_id=534953585]
 layout_mode = 2
@@ -251,9 +251,9 @@ stretch_margin_left = 1
 stretch_margin_top = 1
 stretch_margin_right = 1
 stretch_margin_bottom = 1
-texture_under = ExtResource("6_xlbef")
-texture_over = ExtResource("7_u11i5")
-texture_progress = ExtResource("6_xlbef")
+texture_under = ExtResource("6_hulth")
+texture_over = ExtResource("7_rir4s")
+texture_progress = ExtResource("6_hulth")
 tint_under = Color(0.3019608, 0.32156864, 0.32156864, 1)
 tint_over = Color(0, 0, 0, 1)
 tint_progress = Color(1, 0, 0, 1)
@@ -269,7 +269,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer/Character 1 Health Bar/CenterContainer" unique_id=1007728992]
 layout_mode = 2
 text = "0"
-script = ExtResource("8_5v6eb")
+script = ExtResource("8_s87yv")
 
 [node name="Character 1 Metter" type="TextureProgressBar" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer" unique_id=162281084]
 layout_mode = 2
@@ -282,9 +282,9 @@ stretch_margin_left = 1
 stretch_margin_top = 1
 stretch_margin_right = 1
 stretch_margin_bottom = 1
-texture_under = ExtResource("6_xlbef")
-texture_over = ExtResource("7_u11i5")
-texture_progress = ExtResource("6_xlbef")
+texture_under = ExtResource("6_hulth")
+texture_over = ExtResource("7_rir4s")
+texture_progress = ExtResource("6_hulth")
 tint_under = Color(0.3019608, 0.32156864, 0.32156864, 1)
 tint_over = Color(0, 0, 0, 1)
 tint_progress = Color(4.428029e-06, 0.57824045, 0.80593693, 1)
@@ -300,7 +300,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer/Character 1 Metter/CenterContainer" unique_id=182985218]
 layout_mode = 2
 text = "0"
-script = ExtResource("8_5v6eb")
+script = ExtResource("8_s87yv")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI" unique_id=1467561423]
 layout_mode = 2
@@ -310,7 +310,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
-texture = ExtResource("9_cyra5")
+texture = ExtResource("9_kwwfb")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer3" unique_id=958601320]
 layout_mode = 2
@@ -326,9 +326,9 @@ stretch_margin_left = 1
 stretch_margin_top = 1
 stretch_margin_right = 1
 stretch_margin_bottom = 1
-texture_under = ExtResource("6_xlbef")
-texture_over = ExtResource("7_u11i5")
-texture_progress = ExtResource("6_xlbef")
+texture_under = ExtResource("6_hulth")
+texture_over = ExtResource("7_rir4s")
+texture_progress = ExtResource("6_hulth")
 tint_under = Color(0.3019608, 0.32156864, 0.32156864, 1)
 tint_over = Color(0, 0, 0, 1)
 tint_progress = Color(1, 0, 0, 1)
@@ -344,7 +344,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer3/VBoxContainer/Character 2 Health Bar/CenterContainer" unique_id=73388923]
 layout_mode = 2
 text = "0"
-script = ExtResource("8_5v6eb")
+script = ExtResource("8_s87yv")
 
 [node name="Character 2 Metter" type="TextureProgressBar" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer3/VBoxContainer" unique_id=1406717503]
 layout_mode = 2
@@ -357,9 +357,9 @@ stretch_margin_left = 1
 stretch_margin_top = 1
 stretch_margin_right = 1
 stretch_margin_bottom = 1
-texture_under = ExtResource("6_xlbef")
-texture_over = ExtResource("7_u11i5")
-texture_progress = ExtResource("6_xlbef")
+texture_under = ExtResource("6_hulth")
+texture_over = ExtResource("7_rir4s")
+texture_progress = ExtResource("6_hulth")
 tint_under = Color(0.3019608, 0.32156864, 0.32156864, 1)
 tint_over = Color(0, 0, 0, 1)
 tint_progress = Color(4.428029e-06, 0.57824045, 0.80593693, 1)
@@ -375,7 +375,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="Player/CanvasLayer/Player GUI/HBoxContainer/Player UI/HBoxContainer3/VBoxContainer/Character 2 Metter/CenterContainer" unique_id=1044638480]
 layout_mode = 2
 text = "0"
-script = ExtResource("8_5v6eb")
+script = ExtResource("8_s87yv")
 
 [node name="Panel" type="Panel" parent="Player/CanvasLayer/Player GUI/HBoxContainer" unique_id=2052811008]
 layout_mode = 2
@@ -386,10 +386,9 @@ size_flags_stretch_ratio = 0.3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Player Character Holder" type="Node2D" parent="Player" unique_id=2005116031 node_paths=PackedStringArray("spawn_point") groups=["Player"]]
+[node name="Player Character Holder" type="Node2D" parent="Player" unique_id=2005116031 groups=["Player"]]
 z_index = 2
-script = ExtResource("10_xjmpx")
-spawn_point = NodePath("../../Player Spawn Point")
+script = ExtResource("10_d0ifc")
 
 [node name="Camera Nodes" type="Node" parent="." unique_id=260398653]
 
@@ -402,13 +401,13 @@ editor_draw_limits = true
 [node name="PhantomCameraHost" type="Node" parent="Camera Nodes/Camera2D" unique_id=1755526593]
 process_priority = 300
 process_physics_priority = 300
-script = ExtResource("11_iivm5")
+script = ExtResource("11_vpe1l")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="Camera Nodes" unique_id=1156627732 node_paths=PackedStringArray("follow_target", "follow_path") groups=["Phantom Camera"]]
 top_level = true
 position = Vector2(20, -30)
-script = ExtResource("12_unjqb")
+script = ExtResource("12_f2sjm")
 priority = 1
 follow_mode = 2
 follow_target = NodePath("../Group Player Follow")
@@ -425,7 +424,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Group Player Follow" type="Marker2D" parent="Camera Nodes" unique_id=54974854]
 process_physics_priority = 1
-script = ExtResource("14_esej7")
+script = ExtResource("14_v3iw7")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Camera Nodes/Group Player Follow" unique_id=353084144]
 collision_layer = 4096
@@ -443,7 +442,7 @@ shape = SubResource("WorldBoundaryShape2D_xos45")
 curve = SubResource("Curve2D_w2iq6")
 
 [node name="Level" type="Node" parent="." unique_id=1107788057]
-script = ExtResource("15_khpn0")
+script = ExtResource("15_dewpo")
 
 [node name="Paralax Layers" type="Node2D" parent="Level" unique_id=1296795371]
 z_index = -2
@@ -456,7 +455,7 @@ repeat_times = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Level/Paralax Layers/Background 3" unique_id=193252541]
 material = SubResource("ShaderMaterial_4vt6j")
-texture = ExtResource("16_5y3wj")
+texture = ExtResource("16_qidk3")
 
 [node name="Background 2" type="Parallax2D" parent="Level/Paralax Layers" unique_id=906204194]
 scroll_scale = Vector2(0.5, 1)
@@ -465,7 +464,7 @@ repeat_times = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Level/Paralax Layers/Background 2" unique_id=157173689]
 material = SubResource("ShaderMaterial_4vt6j")
-texture = ExtResource("17_pthv8")
+texture = ExtResource("17_awilj")
 
 [node name="Background 1" type="Parallax2D" parent="Level/Paralax Layers" unique_id=1875273663]
 scroll_scale = Vector2(0.6, 1)
@@ -474,7 +473,7 @@ repeat_times = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Level/Paralax Layers/Background 1" unique_id=2064531861]
 material = SubResource("ShaderMaterial_4vt6j")
-texture = ExtResource("18_545bs")
+texture = ExtResource("18_37vmf")
 
 [node name="Foreground 1" type="Parallax2D" parent="Level/Paralax Layers" unique_id=1858490790]
 z_index = 3
@@ -508,7 +507,7 @@ repeat_times = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Level/Paralax Layers/Foreground 2" unique_id=889147733]
 material = SubResource("ShaderMaterial_4vt6j")
-texture = ExtResource("19_0wljj")
+texture = ExtResource("19_5rpdl")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Level/Paralax Layers/Foreground 2" unique_id=2135659027]
 amount = 10
@@ -554,25 +553,25 @@ color = Color(0.4627451, 0, 1, 0.72156864)
 
 [node name="Platform Tilemap Layer2" type="TileMapLayer" parent="Level" unique_id=2069029130]
 z_index = -1
-tile_map_data = PackedByteArray("AAD6/wEAAQABAAEAAAD6/wAAAQACAAEAAAD5/wEAAQAAAAEAAAD5/wAAAQAAAAEAAAAEAAEAAQABAAAAAAADAAEAAQABAAAAAAACAAEAAQABAAAAAAABAAEAAQABAAAAAAAAAAEAAQABAAAAAAD//wEAAQABAAAAAAD+/wEAAQABAAAAAAD9/wEAAQABAAAAAAD8/wEAAQABAAAAAAD7/wEAAQABAAAAAAAEAAIAAQABAAIAAAADAAIAAQABAAIAAAACAAIAAQABAAIAAAABAAIAAQABAAIAAAAAAAIAAQABAAIAAAD//wIAAQABAAIAAAD+/wIAAQABAAIAAAD9/wIAAQABAAIAAAD8/wIAAQABAAIAAAD7/wIAAQABAAIAAAD6/wIAAQABAAIAAAD5/wIAAQAAAAIAAAAFAAIAAQABAAIAAAAGAAIAAQABAAIAAAAGAAEAAQABAAEAAAAFAAEAAQABAAAAAAAGAPv/AQAAAAEAAAAGAPz/AQAAAAEAAAAGAP3/AQAAAAEAAAAHAP3/AQACAAEAAAAHAP7/AQACAAEAAAAGAP7/AQAAAAEAAAAGAP//AQAAAAEAAAAGAAAAAQAAAAEAAAAHAAAAAQACAAEAAAAHAAEAAQACAAEAAAD6//v/AQACAAEAAAD6//z/AQACAAEAAAD6//3/AQACAAEAAAD6//7/AQACAAEAAAD6////AQACAAEAAAD5////AQAAAAEAAAD5//7/AQAAAAEAAAD5//3/AQAAAAEAAAD5//z/AQAAAAEAAAD5//v/AQAAAAEAAAAHAP//AQACAAEAAAAHAPz/AQACAAEAAAAHAPv/AQACAAEAAAAHAAIAAQACAAIAAAD5//r/AQAAAAEAAAD6//r/AQABAAEAAAD7//r/AQABAAIAAAD8//r/AQABAAIAAAD9//r/AQABAAIAAAD+//r/AQABAAIAAAD///r/AQABAAIAAAAAAPr/AQABAAIAAAABAPr/AQABAAIAAAACAPr/AQABAAIAAAADAPr/AQABAAIAAAAEAPr/AQABAAIAAAAFAPr/AQABAAIAAAAGAPr/AQABAAEAAAAHAPr/AQACAAEAAAD5//n/AQAAAAAAAAD6//n/AQABAAAAAAD7//n/AQABAAAAAAD8//n/AQABAAAAAAD9//n/AQABAAAAAAD+//n/AQABAAAAAAD///n/AQABAAAAAAAAAPn/AQABAAAAAAABAPn/AQABAAAAAAACAPn/AQABAAAAAAADAPn/AQABAAAAAAAEAPn/AQABAAAAAAAFAPn/AQACAAAAAAAGAPn/AQAAAAAAAAAHAPn/AQACAAAAAAA=")
-tile_set = ExtResource("20_hrr5k")
+tile_map_data = PackedByteArray("AAD6/wEAAQABAAEAAAD5/wEAAQABAAEAAAAEAAEAAQAHAAQAAAADAAEAAQABAAAAAAACAAEAAQABAAAAAAABAAEAAQABAAAAAAAAAAEAAQABAAAAAAD//wEAAQABAAAAAAD+/wEAAQABAAAAAAD9/wEAAQABAAAAAAD8/wEAAQAIAAQAAAD7/wEAAQABAAEAAAAEAAIAAQABAAIAAAADAAIAAQABAAIAAAACAAIAAQABAAIAAAABAAIAAQABAAIAAAAAAAIAAQABAAIAAAD//wIAAQABAAIAAAD+/wIAAQABAAIAAAD9/wIAAQABAAIAAAD8/wIAAQABAAIAAAD7/wIAAQABAAIAAAD6/wIAAQABAAIAAAD5/wIAAQAHAAAAAAAFAAIAAQABAAIAAAAGAAIAAQABAAIAAAAGAAEAAQABAAEAAAAFAAEAAQABAAEAAAAHAAEAAQABAAEAAAAHAAIAAQAHAAAAAAD8/wAAAQACAAEAAAD8////AQACAAAAAAD7/wAAAQABAAEAAAD7////AQABAAAAAAD6/wAAAQABAAEAAAD6////AQABAAAAAAD5/wAAAQABAAEAAAD5////AQABAAAAAAD4/wIAAQABAAIAAAD4/wEAAQABAAEAAAD4/wAAAQABAAEAAAD4////AQAIAAQAAAD4//7/AQACAAEAAAD4//3/AQACAAAAAAD3/wIAAQABAAIAAAD3/wEAAQABAAEAAAD3/wAAAQABAAEAAAD3////AQABAAEAAAD3//7/AQABAAEAAAD3//3/AQABAAAAAAD2/wIAAQAHAAAAAAD2/wEAAQABAAEAAAD2/wAAAQABAAEAAAD2////AQABAAEAAAD2//7/AQABAAEAAAD2//3/AQABAAAAAAD1/wIAAQAAAAIAAAD1/wEAAQAAAAEAAAD1/wAAAQAAAAEAAAD1////AQAAAAEAAAD1//7/AQAAAAEAAAD1//3/AQAAAAAAAAAHAAAAAQABAAEAAAAHAP//AQABAAAAAAAGAAAAAQABAAEAAAAGAP//AQABAAAAAAAFAAAAAQABAAEAAAAFAP//AQABAAAAAAAEAAAAAQAAAAEAAAAEAP//AQAAAAAAAAALAAIAAQACAAIAAAALAAEAAQACAAEAAAALAAAAAQACAAEAAAALAP//AQACAAEAAAALAP7/AQACAAEAAAALAP3/AQACAAAAAAAKAAIAAQABAAIAAAAKAAEAAQABAAEAAAAKAAAAAQABAAEAAAAKAP//AQABAAEAAAAKAP7/AQABAAEAAAAKAP3/AQABAAAAAAAJAAIAAQAHAAAAAAAJAAEAAQABAAEAAAAJAAAAAQABAAEAAAAJAP//AQABAAEAAAAJAP7/AQABAAEAAAAJAP3/AQABAAAAAAAIAAIAAQABAAIAAAAIAAEAAQABAAEAAAAIAAAAAQABAAEAAAAIAP//AQAHAAQAAAAIAP7/AQAAAAEAAAAIAP3/AQAAAAAAAAADAPv/AQAHAAUAAAACAPv/AQAHAAUAAAABAPv/AQAHAAUAAAAAAPv/AQAHAAUAAAD///v/AQAHAAUAAAD+//v/AQAHAAUAAAD9//v/AQAHAAUAAAD8//v/AQAHAAUAAAD7//v/AQAGAAUAAAAFAPv/AQAIAAUAAAAEAPv/AQAHAAUAAAA=")
+tile_set = ExtResource("20_dvwlk")
 
 [node name="Turret" type="StaticBody2D" parent="Level" unique_id=1181078644]
 position = Vector2(11, -133)
 collision_layer = 64
 collision_mask = 0
-script = ExtResource("21_h6pbv")
-bullet_scene = ExtResource("22_f8amq")
+script = ExtResource("21_wttxi")
+bullet_scene = ExtResource("22_2cy75")
 
 [node name="HealthComponent" type="Node" parent="Level/Turret" unique_id=2038527022]
-script = ExtResource("23_a67dl")
+script = ExtResource("23_xqfxl")
 metadata/_custom_type_script = "uid://k1npmfprvwwt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Turret" unique_id=457255158]
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Sprite2D" type="Sprite2D" parent="Level/Turret" unique_id=266150381]
-texture = ExtResource("24_ac2w4")
+texture = ExtResource("24_lolt6")
 
 [node name="Shot Interval Timer" type="Timer" parent="Level/Turret" unique_id=1252081858]
 autostart = true
@@ -581,7 +580,7 @@ autostart = true
 position = Vector2(506, -69)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("25_2mtfm")
+script = ExtResource("25_fqktr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Destructable" unique_id=1585320480]
 position = Vector2(0, -55.5)
@@ -590,18 +589,18 @@ shape = SubResource("RectangleShape2D_yf5fn")
 [node name="Sprite2D" type="Sprite2D" parent="Level/Destructable" unique_id=961941010]
 position = Vector2(-7.838011e-06, -56.000004)
 scale = Vector2(0.15624999, 1.03125)
-texture = ExtResource("26_53tu5")
+texture = ExtResource("26_mdif7")
 
 [node name="HealthComponent" type="Node" parent="Level/Destructable" unique_id=71169911]
 unique_name_in_owner = true
-script = ExtResource("23_a67dl")
+script = ExtResource("23_xqfxl")
 weakness_tags = Array[int]([2])
 weakness_only_damage = true
 metadata/_custom_type_script = "uid://k1npmfprvwwt"
 
 [node name="Door" type="Area2D" parent="Level" unique_id=858437403]
 position = Vector2(544, -69)
-script = ExtResource("27_nn1a3")
+script = ExtResource("27_ctlls")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Door" unique_id=2076463780]
 position = Vector2(9, -3)
@@ -617,12 +616,12 @@ position = Vector2(-181, -22)
 [node name="Player Spawn Point2" type="Marker2D" parent="." unique_id=1500643135]
 position = Vector2(-207, -22)
 
-[node name="Enemy Dude" parent="." unique_id=1938194074 instance=ExtResource("29_tltd1")]
+[node name="Enemy Dude" parent="." unique_id=1938194074 instance=ExtResource("29_x3wtw")]
 
 [node name="Spawner" type="Marker2D" parent="." unique_id=1188518613]
 position = Vector2(114, -38)
-script = ExtResource("30_6ojuo")
-enemy_scene = ExtResource("29_tltd1")
+script = ExtResource("30_tphsr")
+enemy_scene = ExtResource("29_x3wtw")
 
 [node name="Timer" type="Timer" parent="Spawner" unique_id=492084770]
 autostart = true
