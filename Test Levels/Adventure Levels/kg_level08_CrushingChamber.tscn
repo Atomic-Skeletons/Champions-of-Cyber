@@ -29,9 +29,9 @@ point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_w2iq6"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1709, -71, 0, 0, 0, 0, 1217.275, -71)
+"points": PackedVector2Array(0, 0, 0, 0, -1709, -71, 0, 0, 0, 0, 1217.275, -71, 0, 0, 0, 0, 1606, -301, 0, 0, 0, 0, 4363, -335, 0, 0, 0, 0, 6623, -384)
 }
-point_count = 2
+point_count = 5
 
 [node name="Game Holder" type="Node2D" unique_id=1246508524]
 script = ExtResource("1_g02qw")

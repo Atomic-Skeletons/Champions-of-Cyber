@@ -310,6 +310,24 @@ stream = ExtResource("8_7hw07")
 [node name="SfxElectricDash" type="AudioStreamPlayer" parent="Audio" unique_id=1478122005]
 stream = SubResource("AudioStreamRandomizer_qyvub")
 
+[node name="Character States" type="LimboHSM" parent="." unique_id=1912443356]
+
+[node name="Active" type="LimboState" parent="Character States" unique_id=817039993]
+
+[node name="LimboHSM" type="LimboHSM" parent="Character States/Active" unique_id=89953867]
+
+[node name="Jumping" type="LimboState" parent="Character States/Active/LimboHSM" unique_id=1686547829]
+
+[node name="Falling" type="LimboState" parent="Character States/Active/LimboHSM" unique_id=1581551177]
+
+[node name="Attacking" type="LimboState" parent="Character States/Active/LimboHSM" unique_id=2100096331]
+
+[node name="Giga Laser" type="LimboState" parent="Character States/Active/LimboHSM" unique_id=1060004851]
+
+[node name="Locked" type="LimboState" parent="Character States" unique_id=1068504408]
+
+[node name="Tagged Out" type="LimboState" parent="Character States" unique_id=5855411]
+
 [node name="Melee Attack Hitstop Timer" type="Timer" parent="." unique_id=189695193]
 unique_name_in_owner = true
 wait_time = 0.1

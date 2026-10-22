@@ -40,7 +40,7 @@ var prev_is_on_floor = false
 var laser_charge = 0
 var mega_laser = false
 @export var max_move_speed: float = 50
-
+var jumping = false
 
 func _ready() -> void:
 	laser_hitbox.reparent(get_parent())
@@ -53,7 +53,6 @@ func _physics_process(delta: float) -> void:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 		else:
-			input.start_coyote_time()
 			air_movement = true
 		
 		move_and_slide()
@@ -71,8 +70,20 @@ func _physics_process(delta: float) -> void:
 				if velocity.y > max_move_speed:
 					velocity.y = lerp(velocity.y, max_move_speed, .2)
 		else:
+			# if the player is moving downwards
+			if velocity.y > 10:
+				jumping = false
+			# if the player is moving upwards and holding the jumping button
+			elif jumping:
+				if not input.is_action_pressed("jump"):
+					# add gravity again to double it
+					velocity += get_gravity() * delta
+				else:
+					jumping = false
 			velocity += get_gravity() * delta
 	else:
+		jumping = false
+		input.start_coyote_time()
 		air_movement = true
 	# Handle jump.
 	if input.is_action_just_pressed("jump"):
@@ -145,6 +156,7 @@ func attempt_jump():
 				jump()
 
 func jump():
+	jumping = true
 	input.stop_coyote_time()
 	input.use_buffered_action("jump")
 	velocity.y = -jump_strength
