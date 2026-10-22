@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cwp8g7883o37n" path="res://Level Art/Eva'sBG_Art/Forest_Bg/foreground-layer_forest-bg_02.png" id="8_4ms4s"]
 [ext_resource type="TileSet" uid="uid://dbyi4yvvgbymx" path="res://Test Levels/Eva Tileset.tres" id="9_pko2i"]
 [ext_resource type="PackedScene" uid="uid://21srs1gejciy" path="res://Level Objects/Doors/door.tscn" id="10_gf4t3"]
+[ext_resource type="Texture2D" uid="uid://nt2grdjoo275" path="res://icon.svg" id="11_11axq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4vt6j"]
 
@@ -182,3 +183,8 @@ curve = SubResource("Curve2D_w2iq6")
 [node name="End Door" parent="Active Room/Level" unique_id=1487951020 instance=ExtResource("10_gf4t3")]
 position = Vector2(350, 35)
 target_scene = "uid://c7mg8ret6gtxq"
+
+[node name="Bat Placeholder" type="Sprite2D" parent="Active Room/Level" unique_id=1850281023]
+position = Vector2(180.99998, -148)
+scale = Vector2(0.21875, 0.21875)
+texture = ExtResource("11_11axq")
