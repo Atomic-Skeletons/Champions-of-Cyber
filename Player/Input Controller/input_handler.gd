@@ -31,25 +31,11 @@ var _joy_now := {
 }
 var _joy_prev := _joy_now.duplicate()
 
-"""
-I need to make choyote time and jump buffering.
-Jump buffering: easy cause I just store the jump input
-for a set number of frames. then when the player presses
-the jump button they use up that buffered input.
-
-what if i have a 
-func jump()
-
-instead of a if action just pressed just for the jump
-buffering thing
-
-
-I could store the variables for coyote time inside this script
-like how long the coyote time should be, and the counter.
-"""
 var jump_buffered = false
 
 func _ready() -> void:
+	add_child(coyote_timer)
+	coyote_timer.one_shot = true
 	update_input_data()
 
 func _physics_process(delta: float) -> void:
@@ -143,6 +129,21 @@ func update_buffered_actions(delta: float):
 			buffered_actions.erase(action)
 		else:
 			buffered_actions.set(action, duration_left)
+
+var coyote_timer := Timer.new()
+@export var coyote_duration : float = .2
+# Coyote Time
+func start_coyote_time():
+	coyote_timer.start(coyote_duration)
+
+func stop_coyote_time():
+	coyote_timer.stop()
+
+func in_coyote_time() -> bool:
+	if coyote_timer and not coyote_timer.is_stopped():
+		return true
+	return false
+
 
 ## Setup and update functions
 func update_input_data():

@@ -45,6 +45,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	else:
+		input.start_coyote_time()
 		air_movement = true
 	
 	if is_hitstunned:
@@ -63,17 +64,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
 	
 	# Handle jump.
-	if input.is_action_just_pressed("jump") and not in_dash:
-		if is_on_floor():
-			# jump
-			jump()
-		elif air_movement:
-			air_dash(direction)
-			
-			Utilities.disable_enemy_collision(self)
-			dash_velocity = Vector2(facing_dir * dash_distance/dash_duration, 0)
-			
-			dash_timer.start()
+	if input.is_action_just_pressed("jump"):
+		input.buffer_action("jump", .2)
+	attempt_jump()
+	
 	
 	if in_dash:
 		velocity = dash_velocity
@@ -106,9 +100,28 @@ func update_facing_direction(dir: int):
 	fliproot.scale.x = facing_dir
 	melee_hitbox.knockback_flipped = false if facing_dir == 1 else true
 
+func attempt_jump():
+	# check if the jump action is buffered
+	if input.is_action_buffered("jump"):
+		# if the character is on the floor
+		if is_on_floor():
+				jump()
+		# if the character is not on the floor and they just pressed the jump button
+		else:
+			# this is where I check for coyote time
+			if input.in_coyote_time():
+				input.stop_coyote_time()
+				jump()
+			elif input.is_action_just_pressed("jump") and air_movement:
+				air_movement = false
+				start_air_dash()
+
 func jump():
-	jumped.emit()
+	input.stop_coyote_time()
+	input.use_buffered_action("jump")
 	velocity.y = -jump_strength
+	jumped.emit()
+
 
 #region Attack Methods
 func neutral_melee_attack():
@@ -147,16 +160,20 @@ func burst_attack():
 		in_attack = false
 		in_burst = false
 
-func air_dash(dir: float):
+func start_air_dash():
 	used_air_movement.emit()
+	
+	# disable collisions so the player passes through enemies but not platforms
+	Utilities.disable_enemy_collision(self)
+	
+	dash_velocity = Vector2(facing_dir * dash_distance/dash_duration, 0)
+	
+	dash_timer.start()
 	
 	animation_player.play("Enter Dash Stance")
 	can_tag = false
 	in_dash = true
 	air_movement = false
-	# this is where the dash happens
-	if not dir:
-		dir = facing_dir
 
 @onready var melee_attack_hitstop_timer: Timer = %"Melee Attack Hitstop Timer"
 var hit_counter = 0

@@ -53,6 +53,7 @@ func _physics_process(delta: float) -> void:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 		else:
+			input.start_coyote_time()
 			air_movement = true
 		
 		move_and_slide()
@@ -136,11 +137,15 @@ func attempt_jump():
 		if is_on_floor():
 				jump()
 		# if the character is not on the floor and they just pressed the jump button
-		elif input.is_action_just_pressed("jump") and air_movement:
-			air_movement = false
-			jump()
+		else:
+			if input.in_coyote_time():
+				jump()
+			elif input.is_action_just_pressed("jump") and air_movement:
+				air_movement = false
+				jump()
 
 func jump():
+	input.stop_coyote_time()
 	input.use_buffered_action("jump")
 	velocity.y = -jump_strength
 	jumped.emit()
