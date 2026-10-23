@@ -34,6 +34,7 @@ var dash_velocity: Vector2
 
 var in_attack = false
 var just_attacked = false
+var jumping = false
 
 func _ready() -> void:
 	dash_timer.wait_time = dash_duration
@@ -43,6 +44,15 @@ func _physics_process(delta: float) -> void:
 	
 	# Add the gravity.
 	if not is_on_floor():
+		# if the player is moving downwards
+		if velocity.y > 10:
+			jumping = false
+		# if the player is moving upwards and holding the jumping button
+		elif jumping:
+			if not input.is_action_pressed("jump"):
+				# add gravity again to double it
+				velocity += get_gravity() * delta
+		
 		velocity += get_gravity() * delta
 	else:
 		input.start_coyote_time()
@@ -75,6 +85,7 @@ func _physics_process(delta: float) -> void:
 	if in_burst:
 		velocity = Vector2.ZERO
 	
+	velocity.y = min(velocity.y, terminal_velocity)
 	move_and_slide()
 	
 	if input.is_action_just_released("attack") and not just_attacked and not in_dash:
@@ -117,6 +128,7 @@ func attempt_jump():
 				start_air_dash()
 
 func jump():
+	jumping = true
 	input.stop_coyote_time()
 	input.use_buffered_action("jump")
 	velocity.y = -jump_strength

@@ -7,6 +7,7 @@ var air_movement := true
 var can_tag := true
 var is_hitstopped := false
 var is_hitstunned := false
+@export var terminal_velocity: = 350
 
 func get_input_handler_node() -> PlayerInputHandler:
 	for child in get_children():

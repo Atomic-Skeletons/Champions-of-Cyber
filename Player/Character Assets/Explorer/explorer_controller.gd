@@ -17,7 +17,6 @@ signal stopped_charging()
 @export_group("Movement Variables")
 @export var move_speed = 100.0
 @export var jump_strength = 400.0
-@export var terminal_velocity: = 350
 var prev_is_on_floor = false
 
 @onready var laser_start_point: Marker2D = %"Laser Start Point"
@@ -78,8 +77,6 @@ func _physics_process(delta: float) -> void:
 				if not input.is_action_pressed("jump"):
 					# add gravity again to double it
 					velocity += get_gravity() * delta
-				else:
-					jumping = false
 			velocity += get_gravity() * delta
 	else:
 		jumping = false

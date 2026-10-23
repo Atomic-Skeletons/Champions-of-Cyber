@@ -322,7 +322,7 @@ stream = SubResource("AudioStreamRandomizer_qyvub")
 
 [node name="Attacking" type="LimboState" parent="Character States/Active/LimboHSM" unique_id=2100096331]
 
-[node name="Giga Laser" type="LimboState" parent="Character States/Active/LimboHSM" unique_id=1060004851]
+[node name="Dash" type="LimboState" parent="Character States/Active/LimboHSM" unique_id=1060004851]
 
 [node name="Locked" type="LimboState" parent="Character States" unique_id=1068504408]
 
