@@ -19,36 +19,60 @@
 atlas = ExtResource("7_yfxov")
 region = Rect2(0, 0, 375, 250)
 
+[sub_resource type="Gradient" id="Gradient_pd5qp"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e5s4p"]
+gradient = SubResource("Gradient_pd5qp")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_e5s4p"]
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_pd5qp"]
 noise_type = 4
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pd5qp"]
 noise = SubResource("FastNoiseLite_pd5qp")
+color_ramp = SubResource("Gradient_e5s4p")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0knku"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p3n2n"]
+noise = SubResource("FastNoiseLite_0knku")
 seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e5s4p"]
 shader = ExtResource("9_e5s4p")
 shader_parameter/noise_tex = SubResource("NoiseTexture2D_pd5qp")
+shader_parameter/warp_tex = SubResource("NoiseTexture2D_p3n2n")
 shader_parameter/detail_weight = 0.35
+shader_parameter/fade_tex = SubResource("GradientTexture2D_e5s4p")
+shader_parameter/fade_amount = 1.0
+shader_parameter/fade_invert = false
+shader_parameter/fade_screen_space = false
 shader_parameter/noise_repeat = Vector2i(1, 1)
+shader_parameter/warp_repeat = Vector2i(1, 1)
 shader_parameter/detail_repeat = Vector2i(3, 3)
-shader_parameter/pixel_res = Vector2(375, 294)
-shader_parameter/coverage = 0.42
+shader_parameter/pixel_res = Vector2(1000, 500)
+shader_parameter/warp_strength = 0.06
+shader_parameter/noise_speed = Vector2(10, -5)
+shader_parameter/warp_speed = Vector2(-2, 3)
+shader_parameter/detail_speed = Vector2(-6, 1)
+shader_parameter/coverage = 0.3670000174325
 shader_parameter/softness = 0.35
-shader_parameter/color_shadow = Color(0.45, 0.5, 0.65, 1)
-shader_parameter/color_light = Color(0.85, 0.9, 1, 1)
 shader_parameter/density = 0.30000001425
 shader_parameter/levels = 6
 shader_parameter/dither = 0.4950000235125
-shader_parameter/scroll_speed = Vector2(4, -1)
 
 [sub_resource type="Gradient" id="Gradient_4orfj"]
-colors = PackedColorArray(0.347975, 0.33733952, 0.34797642, 1, 0, 0, 0, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_yfxov"]
 gradient = SubResource("Gradient_4orfj")
-width = 375
-height = 294
+width = 1000
+height = 500
+fill_from = Vector2(1, 1)
 
 [sub_resource type="Gradient" id="Gradient_e0gfh"]
 offsets = PackedFloat32Array(0.3135965, 0.5504386)
@@ -103,7 +127,7 @@ position = Vector2(18, 0)
 position = Vector2(-18, 0)
 
 [node name="Paralax Layers" type="Node2D" parent="Active Room/Level" unique_id=1296795371]
-position = Vector2(187, -267)
+position = Vector2(187, -124)
 
 [node name="Background 3" type="Parallax2D" parent="Active Room/Level/Paralax Layers" unique_id=875341397]
 scroll_scale = Vector2(0.4, 1)
@@ -145,27 +169,13 @@ texture = ExtResource("6_p30or")
 
 [node name="Background Fog" type="Parallax2D" parent="Active Room/Level/Paralax Layers" unique_id=26936424]
 scroll_scale = Vector2(0.8, 1)
-repeat_size = Vector2(375, 0)
+scroll_offset = Vector2(0, -141)
+repeat_size = Vector2(1000, 0)
 repeat_times = 4
-
-[node name="Sprite2D2" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Background Fog" unique_id=1601625740]
-material = SubResource("ShaderMaterial_e5s4p")
-position = Vector2(0, -349)
-texture = SubResource("GradientTexture2D_yfxov")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Background Fog" unique_id=114165506]
-material = SubResource("ShaderMaterial_e5s4p")
-position = Vector2(0, -643)
-texture = SubResource("GradientTexture2D_yfxov")
-
-[node name="Sprite2D4" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Background Fog" unique_id=246901114]
-material = SubResource("ShaderMaterial_e5s4p")
-position = Vector2(0, -55)
-texture = SubResource("GradientTexture2D_yfxov")
 
 [node name="Fog Bottom" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Background Fog" unique_id=1014239961]
 material = SubResource("ShaderMaterial_e5s4p")
-position = Vector2(0, 239)
+position = Vector2(0, 133)
 texture = SubResource("GradientTexture2D_yfxov")
 
 [node name="Foreground 1" type="Parallax2D" parent="Active Room/Level/Paralax Layers" unique_id=1858490790]
