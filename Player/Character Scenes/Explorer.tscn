@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://dhnoghyfltoyg" path="res://Player/Character Assets/Explorer/Art/laser end.png" id="5_6vsvd"]
 [ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="5_a2jtb"]
 [ext_resource type="Script" uid="uid://cr2xbhach1rlt" path="res://Components/attack_metter_component.gd" id="5_i3a4x"]
-[ext_resource type="Texture2D" uid="uid://chxconcuso2pk" path="res://Player/Character Assets/Explorer/Art/explorer shape sprite.png" id="5_j2i38"]
 [ext_resource type="PackedScene" uid="uid://bs1gkeavl1uf1" path="res://Player/Character Assets/Explorer/Scripts/laser_bullet.tscn" id="6_a2jtb"]
 [ext_resource type="Texture2D" uid="uid://khdibka87ybe" path="res://Player/Character Assets/Explorer/Art/laser body.png" id="6_j2i38"]
 [ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="6_nq4sq"]
@@ -23,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://bqufnqa4woi7l" path="res://Player/Character Assets/Explorer/Audio/SFX_hyperbeam_wind_up.wav" id="12_l72of"]
 [ext_resource type="AudioStream" uid="uid://cpcf1dp4ygc3y" path="res://Player/Character Assets/Explorer/Audio/SFX_Beam_hyperbeam.wav" id="13_dfbu7"]
 [ext_resource type="Script" uid="uid://dh1mpplaeqbu5" path="res://Components/attack_data_resource.gd" id="15_w36s2"]
+[ext_resource type="Texture2D" uid="uid://dngot74gqt4f3" path="res://Player/Character Assets/Explorer/Art/spr_explorer.png" id="16_dfbu7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jbxru"]
 shader = ExtResource("1_a2jtb")
@@ -62,7 +62,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_j2i38")
+"texture": ExtResource("16_dfbu7")
 }],
 "loop": 1,
 "name": &"idle",
@@ -144,15 +144,16 @@ stream = ExtResource("9_w36s2")
 [node name="Tagged Out" type="LimboState" parent="Character States" unique_id=846538851]
 
 [node name="Normal Hurtbox" type="CollisionShape2D" parent="." unique_id=1992489529]
-position = Vector2(0, 0.5)
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="Fliproot" type="Node2D" parent="." unique_id=1052527165]
 use_parent_material = true
+position = Vector2(0, -17)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fliproot" unique_id=86812366]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"attack"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Laser Start Point" type="Marker2D" parent="Fliproot" unique_id=1436290803]
@@ -189,6 +190,7 @@ position = Vector2(-8, 0)
 
 [node name="Laser Hitbox" type="Area2D" parent="." unique_id=1300442941]
 unique_name_in_owner = true
+position = Vector2(0, -17)
 collision_layer = 0
 collision_mask = 66
 script = ExtResource("8_neio3")
