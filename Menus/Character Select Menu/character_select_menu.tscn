@@ -229,6 +229,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Rollershark" type="Panel" parent="VBoxContainer/Selection Menu/GridContainer" unique_id=1284282392]
+visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 

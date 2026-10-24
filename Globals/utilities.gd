@@ -5,7 +5,7 @@ static func center_control(control_node: Control) -> void:
 	control_node.pivot_offset_ratio = Vector2(0.5, 0.5)
 
 static func clear_all_children(parent: Node) -> void:
-	for child: Node in parent:
+	for child: Node in parent.get_children():
 		child.queue_free()
 
 static func reset_tween(tween: Tween, parent: Node) -> Tween:

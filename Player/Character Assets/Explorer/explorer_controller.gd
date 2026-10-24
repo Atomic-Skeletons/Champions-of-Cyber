@@ -130,7 +130,6 @@ func _physics_process(delta: float) -> void:
 		anim_sprite.play("idle")
 	
 	prev_is_on_floor = is_on_floor()
-	global_position = global_position.round()
 
 func update_facing_direction(dir: int):
 	if dir != 0 and dir != facing_dir:
