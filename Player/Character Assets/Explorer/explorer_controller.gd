@@ -61,7 +61,7 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor(): # if in the air
 		if input.is_action_pressed("attack"):
 			# while the player is holding the mega laser button
 			# they slow down their movement
@@ -81,6 +81,11 @@ func _physics_process(delta: float) -> void:
 					# add gravity again to double it
 					velocity += get_gravity() * delta
 			velocity += get_gravity() * delta
+		# if the player is moving up
+		if velocity.y < 0:
+			anim_sprite.play("jump")
+		if velocity.y > 0:
+			anim_sprite.play("fall")
 	else:
 		jumping = false
 		input.start_coyote_time()
@@ -95,12 +100,16 @@ func _physics_process(delta: float) -> void:
 	update_facing_direction(sign(direction))
 	
 	if direction:
+		if is_on_floor() and anim_sprite.animation != "walk":
+			anim_sprite.play("walk")
 		var speed = move_speed
 		if mega_laser:
 			speed /= 2
 		#velocity.x += direction * ground_acceleration * delta
 		velocity.x = direction * speed
 	else:
+		if is_on_floor():
+			anim_sprite.play("idle")
 		velocity.x = move_toward(velocity.x, 0, move_speed)
 	
 	if is_on_ceiling():
