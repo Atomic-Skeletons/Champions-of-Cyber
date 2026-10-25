@@ -7,9 +7,14 @@ var value : float
 @export var normal_recharge_rate: float = 1
 @export var out_recharge_rate: float = 10
 
+@export var number_of_bars := 5
+var bar_value := 20
+
+
 var out = false
 
 func _ready() -> void:
+	max_metter = number_of_bars * bar_value
 	value = max_metter
 
 func _process(delta: float) -> void:

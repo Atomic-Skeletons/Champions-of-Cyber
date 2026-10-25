@@ -11,8 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://21srs1gejciy" path="res://Level Objects/Doors/door.tscn" id="11_e0gfh"]
 [ext_resource type="PackedScene" uid="uid://8wekicljdp7u" path="res://Level Objects/Enemies/test_big_enemy_dude.tscn" id="12_t3n65"]
 [ext_resource type="PackedScene" uid="uid://bag7eslpq1be4" path="res://Level Objects/Enemies/turret.tscn" id="13_7im45"]
-[ext_resource type="Texture2D" uid="uid://nt2grdjoo275" path="res://icon.svg" id="14_e8omy"]
 [ext_resource type="Script" uid="uid://23avvl1yuwqe" path="res://Level Objects/Moving Platform/moving_platform.gd" id="14_qog3t"]
+[ext_resource type="TileSet" uid="uid://dmxsr4k3gv75h" path="res://Level Art/16x16 tilemap.tres" id="15_qog3t"]
 [ext_resource type="Script" uid="uid://cim2f48qo18uq" path="res://Test Levels/level_1_test_script.gd" id="15_wn43c"]
 [ext_resource type="PackedScene" uid="uid://dgg80udjapec8" path="res://Level Objects/Enemies/test_enemy_dude.tscn" id="20_5kte7"]
 
@@ -44,7 +44,7 @@ _data = {
 point_count = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(53, 18)
+size = Vector2(58, 24)
 
 [node name="Game Holder" type="Node2D" unique_id=1246508524]
 script = ExtResource("1_hv3sl")
@@ -235,9 +235,9 @@ collision_mask = 819
 script = ExtResource("14_qog3t")
 path = NodePath("../Path2D2/PathFollow2D")
 
+[node name="TileMapLayer" type="TileMapLayer" parent="Active Room/Level/Moving Platform" unique_id=1852493665]
+tile_map_data = PackedByteArray("AAD+////AAAAAAAAAAD/////AAABAAAAAAD//wAAAAABAAIAAAAAAAAAAAABAAIAAAABAAAAAAACAAIAAAABAP//AAACAAAAAAAAAP//AAABAAAAAAD+/wAAAAAAAAIAAAA=")
+tile_set = ExtResource("15_qog3t")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Active Room/Level/Moving Platform" unique_id=1583986346]
 shape = SubResource("RectangleShape2D_g4v7s")
-
-[node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Moving Platform" unique_id=807372454]
-scale = Vector2(0.41406247, 0.14062497)
-texture = ExtResource("14_e8omy")

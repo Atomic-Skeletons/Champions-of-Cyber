@@ -4,7 +4,7 @@ extends VBoxContainer
 @export_range(1,2) var player_id = 1
 
 @export var health_bar_1: Range
-@export var metter_bar_1: Range
+@export var meter_container_1: HBoxContainer
 var health_controller_1: HealthComponent
 var metter_controller_1: AttackMetterComponent
 
@@ -17,14 +17,24 @@ var metter_controller_2: AttackMetterComponent
 func _ready() -> void:
 	await get_tree().process_frame
 	set_player_controllers()
+	
+	var meter_bar: Range = meter_container_1.get_child(0)
+	meter_bar.max_value = metter_controller_1.bar_value
+	for bar in metter_controller_1.number_of_bars - 1:
+		meter_bar.add_sibling(meter_bar.duplicate())
 
 func _process(delta: float) -> void:
 	health_bar_1.value = health_controller_1.current_hp
-	metter_bar_1.value = metter_controller_1.value
+	set_meter_values(meter_container_1, metter_controller_1.value)
+	#metter_bar_1.value = metter_controller_1.value
 	
 	health_bar_2.value = health_controller_2.current_hp
 	metter_bar_2.value = metter_controller_2.value
-	
+
+func set_meter_values(meter_container: HBoxContainer, value: float):
+	for meter: Range in meter_container.get_children():
+		meter.value = max(value, 0)
+		value -= metter_controller_1.bar_value
 
 func set_player_controllers():
 	for holder: PlayerCharacterHolder in get_tree().get_nodes_in_group("Player"):
@@ -33,7 +43,7 @@ func set_player_controllers():
 			health_controller_1 = holder.character_1.health_component
 			metter_controller_1 = holder.character_1.attack_metter_component
 			health_bar_1.max_value = health_controller_1.max_hp
-			metter_bar_1.max_value = metter_controller_1.max_metter
+			#metter_bar_1.max_value = metter_controller_1.max_metter
 			
 			health_controller_2 = holder.character_2.health_component
 			metter_controller_2 = holder.character_2.attack_metter_component

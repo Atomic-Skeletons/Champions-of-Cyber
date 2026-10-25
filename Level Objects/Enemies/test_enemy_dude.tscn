@@ -108,7 +108,7 @@ position = Vector2(1, -6.5)
 shape = SubResource("RectangleShape2D_w2iq6")
 
 [node name="Hurtbox Head" type="CollisionShape2D" parent="." unique_id=1754789169]
-position = Vector2(11.5, -13.5)
+position = Vector2(12, -14)
 shape = SubResource("RectangleShape2D_pkbkr")
 
 [node name="Fliproot" type="Node2D" parent="." unique_id=939790774]
@@ -144,6 +144,10 @@ metadata/_custom_type_script = "uid://crxaysem1tfnv"
 position = Vector2(12, -2)
 shape = SubResource("RectangleShape2D_g4v7s")
 disabled = true
+
+[node name="Hurtbox Head Position" type="RemoteTransform2D" parent="Fliproot" unique_id=515993556]
+position = Vector2(12, -14)
+remote_path = NodePath("../../Hurtbox Head")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=692064747]
 libraries/ = SubResource("AnimationLibrary_ggguw")

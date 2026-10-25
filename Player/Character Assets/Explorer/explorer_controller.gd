@@ -24,6 +24,9 @@ var prev_is_on_floor = false
 @onready var laser_line: Line2D = %"Laser Line"
 @onready var laser_hitbox: Hitbox = %"Laser Hitbox"
 
+
+@onready var attack_cooldown_timer: Timer = %"Attack Cooldown Timer"
+
 @export_group("Laser Bullet")
 @export var laser_bullet_meter_use: float = 20
 @export var laser_bullet_scene: PackedScene
@@ -158,8 +161,17 @@ func jump():
 	velocity.y = -jump_strength
 	jumped.emit()
 
+func in_attack_cooldown() -> bool:
+	# if the timer is not going it means you're not in cooldown
+	if attack_cooldown_timer.is_stopped():
+		return false
+	return true
 
 func shoot_laser_bullet():
+	if in_attack_cooldown():
+		return
+	else:
+		attack_cooldown_timer.start()
 	# checking for enough meter
 	if attack_metter_component.can_use_metter(laser_bullet_meter_use):
 		# use meter
@@ -183,6 +195,8 @@ func shoot_laser_bullet():
 @onready var mega_laser_shake: PhantomCameraNoiseEmitter2D = $"Mega Laser Shake"
 
 func start_mega_laser():
+	if in_attack_cooldown():
+		return
 	stopped_charging.emit()
 	laser_beam_started.emit()
 	can_tag = false
@@ -201,6 +215,8 @@ func end_mega_laser():
 	laser_collision_polygon.set_deferred("disabled", true)
 	mega_laser_shake.stop(true)
 	laser_charge = 0
+	
+	attack_cooldown_timer.start()
 
 func update_mega_laser(delta: float):
 	var mega_laser_meter_use = laser_meter_use_per_sec * delta

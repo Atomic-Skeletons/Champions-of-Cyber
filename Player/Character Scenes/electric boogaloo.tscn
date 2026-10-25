@@ -314,28 +314,33 @@ stream = SubResource("AudioStreamRandomizer_qyvub")
 
 [node name="Active" type="LimboState" parent="Character States" unique_id=817039993]
 
-[node name="LimboHSM" type="LimboHSM" parent="Character States/Active" unique_id=89953867]
+[node name="Hitstun" type="LimboState" parent="Character States" unique_id=1828164607]
 
-[node name="Jumping" type="LimboState" parent="Character States/Active/LimboHSM" unique_id=1686547829]
-
-[node name="Falling" type="LimboState" parent="Character States/Active/LimboHSM" unique_id=1581551177]
-
-[node name="Attacking" type="LimboState" parent="Character States/Active/LimboHSM" unique_id=2100096331]
-
-[node name="Dash" type="LimboState" parent="Character States/Active/LimboHSM" unique_id=1060004851]
+[node name="Knockback" type="LimboState" parent="Character States" unique_id=923642929]
 
 [node name="Locked" type="LimboState" parent="Character States" unique_id=1068504408]
 
 [node name="Tagged Out" type="LimboState" parent="Character States" unique_id=5855411]
 
-[node name="Melee Attack Hitstop Timer" type="Timer" parent="." unique_id=189695193]
+[node name="Timers" type="Node" parent="." unique_id=475967593]
+
+[node name="Melee Attack Hitstop Timer" type="Timer" parent="Timers" unique_id=189695193]
 unique_name_in_owner = true
 wait_time = 0.1
 
-[node name="Burst Attack Timer" type="Timer" parent="." unique_id=1281801416]
+[node name="Burst Attack Timer" type="Timer" parent="Timers" unique_id=1281801416]
 unique_name_in_owner = true
 process_callback = 0
 wait_time = 0.3
+one_shot = true
+
+[node name="Dash Timer" type="Timer" parent="Timers" unique_id=1437718145]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="Melee Attack Cooldown" type="Timer" parent="Timers" unique_id=1375302026]
+unique_name_in_owner = true
+wait_time = 0.2
 one_shot = true
 
 [node name="Normal Hurtbox" type="CollisionShape2D" parent="." unique_id=1992489529]
@@ -456,10 +461,6 @@ duration = 0.1
 decay_time = 0.5
 metadata/_custom_type_script = "uid://bhd4nuiu23e7l"
 
-[node name="Dash Timer" type="Timer" parent="." unique_id=1437718145]
-unique_name_in_owner = true
-one_shot = true
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2127007497]
 libraries/ = SubResource("AnimationLibrary_qyvub")
 
@@ -470,9 +471,9 @@ libraries/ = SubResource("AnimationLibrary_qyvub")
 [connection signal="used_melee_attack" from="." to="Audio/SfxElectricPunch" method="play"]
 [connection signal="damaged" from="HealthComponent" to="." method="_on_health_component_damaged"]
 [connection signal="knockback" from="HealthComponent" to="." method="_on_health_component_knockback"]
-[connection signal="timeout" from="Melee Attack Hitstop Timer" to="." method="_on_melee_attack_hitstop_timer_timeout"]
-[connection signal="timeout" from="Burst Attack Timer" to="." method="_on_burst_attack_timer_timeout"]
+[connection signal="timeout" from="Timers/Melee Attack Hitstop Timer" to="." method="_on_melee_attack_hitstop_timer_timeout"]
+[connection signal="timeout" from="Timers/Burst Attack Timer" to="." method="_on_burst_attack_timer_timeout"]
+[connection signal="timeout" from="Timers/Dash Timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="hit_body" from="Fliproot/Downward Kick Hitbox" to="." method="_on_downward_kick_hitbox_hit_body"]
 [connection signal="hit_body" from="Fliproot/Downward Kick Hitbox" to="." method="_on_melee_hitbox_hit_body"]
 [connection signal="hit_body" from="Fliproot/Melee Hitbox" to="." method="_on_melee_hitbox_hit_body"]
-[connection signal="timeout" from="Dash Timer" to="." method="_on_dash_timer_timeout"]

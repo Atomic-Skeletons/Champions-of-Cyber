@@ -144,12 +144,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Player UI" type="VBoxContainer" parent="GUI/Player GUI/HBoxContainer" unique_id=862887288 node_paths=PackedStringArray("health_bar_1", "metter_bar_1", "health_bar_2", "metter_bar_2")]
+[node name="Player UI" type="VBoxContainer" parent="GUI/Player GUI/HBoxContainer" unique_id=862887288 node_paths=PackedStringArray("health_bar_1", "meter_container_1", "health_bar_2", "metter_bar_2")]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("3_qyxg1")
 health_bar_1 = NodePath("HBoxContainer2/VBoxContainer/Character 1 Health Bar")
-metter_bar_1 = NodePath("HBoxContainer2/VBoxContainer/Character 1 Metter")
+meter_container_1 = NodePath("HBoxContainer2/VBoxContainer/Meter Container 1")
 health_bar_2 = NodePath("HBoxContainer3/VBoxContainer/Character 2 Health Bar")
 metter_bar_2 = NodePath("HBoxContainer3/VBoxContainer/Character 2 Metter")
 
@@ -197,7 +197,11 @@ layout_mode = 2
 text = "0"
 script = ExtResource("7_kvkb3")
 
-[node name="Character 1 Metter" type="TextureProgressBar" parent="GUI/Player GUI/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer" unique_id=669940960]
+[node name="Meter Container 1" type="HBoxContainer" parent="GUI/Player GUI/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer" unique_id=761713021]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Bar" type="TextureProgressBar" parent="GUI/Player GUI/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer/Meter Container 1" unique_id=669940960]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -214,19 +218,6 @@ texture_progress = ExtResource("5_xsq3y")
 tint_under = Color(0.3019608, 0.32156864, 0.32156864, 1)
 tint_over = Color(0, 0, 0, 1)
 tint_progress = Color(4.428029e-06, 0.57824045, 0.80593693, 1)
-
-[node name="CenterContainer" type="CenterContainer" parent="GUI/Player GUI/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer/Character 1 Metter" unique_id=60880206]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="GUI/Player GUI/HBoxContainer/Player UI/HBoxContainer2/VBoxContainer/Character 1 Metter/CenterContainer" unique_id=951816970]
-layout_mode = 2
-text = "0"
-script = ExtResource("7_kvkb3")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="GUI/Player GUI/HBoxContainer/Player UI" unique_id=1230681513]
 layout_mode = 2

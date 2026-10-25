@@ -23,6 +23,8 @@ var dash_velocity: Vector2
 
 @onready var fliproot: Node2D = %Fliproot
 
+@onready var melee_attack_cooldown_timer: Timer = %"Melee Attack Cooldown"
+
 @export var melee_meter_use: float = 30
 @onready var melee_hitbox: Hitbox = %"Melee Hitbox"
 @export var melee_collision_shape: CollisionShape2D
@@ -103,7 +105,7 @@ func _physics_process(delta: float) -> void:
 	if input.is_action_just_released("attack"):
 		just_attacked = false
 		burst_attack_timer.stop()
-	
+
 
 func update_facing_direction(dir: int):
 	if dir != 0 and dir != facing_dir:
@@ -136,7 +138,14 @@ func jump():
 
 
 #region Attack Methods
+func in_attack_cooldown():
+	if melee_attack_cooldown_timer.is_stopped():
+		return false
+	return true
+
 func neutral_melee_attack():
+	if in_attack_cooldown():
+		return
 	if attack_metter_component.can_use_metter(melee_meter_use):
 		attack_metter_component.use_metter(melee_meter_use)
 		used_melee_attack.emit()
@@ -144,11 +153,14 @@ func neutral_melee_attack():
 		melee_collision_shape.disabled = false
 		attack_sprite.show()
 		await get_tree().create_timer(.1).timeout
+		melee_attack_cooldown_timer.start()
 		in_attack = false
 		attack_sprite.hide()
 		melee_collision_shape.disabled = true
 
 func downward_kick_attack():
+	if in_attack_cooldown():
+		return
 	if attack_metter_component.can_use_metter(downward_kick_meter_use):
 		attack_metter_component.use_metter(downward_kick_meter_use)
 		used_downwarde_kick.emit()
@@ -156,11 +168,14 @@ func downward_kick_attack():
 		animation_player.play("Downward Kick")
 		velocity.y = 40
 		await animation_player.animation_finished
+		melee_attack_cooldown_timer.start()
 		in_attack = false
 		
 
 var in_burst = false
 func burst_attack():
+	if in_attack_cooldown():
+		return
 	if attack_metter_component.can_use_metter(burst_attack_meter_use):
 		attack_metter_component.use_metter(burst_attack_meter_use)
 		used_charge_attack.emit()
@@ -169,6 +184,7 @@ func burst_attack():
 		just_attacked = true
 		animation_player.play("Burst Attack")
 		await animation_player.animation_finished
+		melee_attack_cooldown_timer.start()
 		in_attack = false
 		in_burst = false
 
