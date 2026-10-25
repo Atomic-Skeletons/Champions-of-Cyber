@@ -28,6 +28,7 @@ PlayerInfo="*uid://c3i7102hh6ttq"
 LevelManager="*uid://bhk5uj0fihtuc"
 TransitionScreen="*uid://brycuu1vf6d4"
 LevelBus="*uid://285txojc4eqv"
+Debug="*uid://bcdwsf3gj4l83"
 
 [display]
 
