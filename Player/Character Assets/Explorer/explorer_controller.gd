@@ -212,17 +212,35 @@ func shoot_laser_bullet():
 		laser_bullet_object.global_position.x += 15 * facing_dir
 		laser_bullet_object.linear_velocity = Vector2(facing_dir*laser_bullet_speed, 0)
 
+func update_animations():
+	# in attack
+	# on ground
+	# direction
+	# in knockback
+	if is_hitstunned or is_hitstopped:
+		anim_player.play("recoil")
+	
+	# attack checks
+	elif mega_laser:
+		anim_player.play("hold_attack")
+	elif Input.is_action_pressed("attack") and not in_attack_cooldown():
+		anim_player.play("attack")
+	
+	# movement checks
+	
+
 
 @onready var laser_pieces: Node2D = $"Fliproot/Laser Pieces"
 @onready var start_marker: Marker2D = %"Start Marker"
 @onready var end_marker: Marker2D = %"End Marker"
 @onready var laser_collision_polygon: CollisionPolygon2D = %"Laser Collision Polygon"
-@onready var laser_end: Sprite2D = %"Laser End"
+@onready var laser_end: AnimatedSprite2D = %"Laser End"
 @onready var mega_laser_shake: PhantomCameraNoiseEmitter2D = $"Mega Laser Shake"
 
 func start_mega_laser():
 	if in_attack_cooldown():
 		return
+	anim_player.play("hold_attack")
 	stopped_charging.emit()
 	laser_beam_started.emit()
 	can_tag = false
@@ -259,7 +277,7 @@ func update_mega_laser(delta: float):
 	if laser_raycast.is_colliding():
 		collision_point = laser_raycast.get_collision_point()
 	
-	laser_end.position = fliproot.to_local(collision_point)
+	end_marker.position = fliproot.to_local(collision_point)
 	
 	laser_line.clear_points()
 	

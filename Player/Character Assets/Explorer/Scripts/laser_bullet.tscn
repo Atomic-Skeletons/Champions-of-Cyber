@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dh1mpplaeqbu5" path="res://Components/attack_data_resource.gd" id="2_7gdpj"]
 [ext_resource type="PackedScene" uid="uid://b1n1r103f6dv0" path="res://Player/Character Assets/Explorer/Scripts/laser_explosion.tscn" id="3_ffq5e"]
 [ext_resource type="Texture2D" uid="uid://dgb211t2iwh42" path="res://Player/Character Assets/Explorer/spr_laser-individual_vers1.png" id="4_btucs"]
+[ext_resource type="Script" uid="uid://oujpwmysh7fw" path="res://Player/Character Assets/Explorer/Scripts/trail_line2d.gd" id="5_btucs"]
 
 [sub_resource type="Resource" id="Resource_6sjec"]
 script = ExtResource("2_7gdpj")
@@ -14,6 +15,10 @@ metadata/_custom_type_script = "uid://dh1mpplaeqbu5"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2jtb"]
 size = Vector2(14, 5)
+
+[sub_resource type="Curve" id="Curve_btucs"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="RigidBody2D" type="RigidBody2D" unique_id=859712774]
 collision_layer = 16
@@ -35,4 +40,15 @@ shape = SubResource("RectangleShape2D_a2jtb")
 texture = ExtResource("4_btucs")
 offset = Vector2(0.5, 0)
 
+[node name="Line2D" type="Line2D" parent="." unique_id=1243970597]
+z_index = 3
+width = 2.0
+width_curve = SubResource("Curve_btucs")
+default_color = Color(1, 0.10980392, 0.40784314, 1)
+script = ExtResource("5_btucs")
+max_points = 5
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=261928940]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

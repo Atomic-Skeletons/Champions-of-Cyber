@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://bpnymhyuho87h"]
+
+[ext_resource type="Script" uid="uid://rdd47gwq7knu" path="res://Menus/Level Select Menu/level_select_map_controller.gd" id="1_ssk2x"]
+[ext_resource type="Script" uid="uid://bfjpl83o7odd4" path="res://Menus/Level Select Menu/level_marker_node.gd" id="2_bwoev"]
+[ext_resource type="Shader" uid="uid://bqu4wyyrglxli" path="res://Shaders/3d_pixelation_shader.gdshader" id="3_22auc"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ssk2x"]
+albedo_color = Color(0, 0.40784314, 1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_g4v7s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yf5fn"]
+render_priority = 0
+shader = ExtResource("3_22auc")
+
+[node name="Level Select Map" type="Node2D" unique_id=1491408011 node_paths=PackedStringArray("current_level_marker")]
+script = ExtResource("1_ssk2x")
+current_level_marker = NodePath("CanvasLayer/CenterContainer/SubViewportContainer/SubViewport/CSGMesh3D/CSGCylinder3D/Level Marker")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1488713787]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=426482624]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer" unique_id=682265759]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 169.0
+offset_top = -12.0
+offset_right = 169.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/CenterContainer" unique_id=1613040284]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/CenterContainer/SubViewportContainer" unique_id=1115675365]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="CanvasLayer/CenterContainer/SubViewportContainer/SubViewport" unique_id=1596120041]
+mesh = SubResource("SphereMesh_g4v7s")
+material = SubResource("StandardMaterial3D_ssk2x")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CanvasLayer/CenterContainer/SubViewportContainer/SubViewport/CSGMesh3D" unique_id=1678766389]
+transform = Transform3D(1, 0, 0, 0, 0.27146116, -0.9624495, 0, 0.9624495, 0.27146116, 0, 0.15730056, 0.49603182)
+radius = 0.02
+height = 0.106
+
+[node name="Level Marker" type="Marker3D" parent="CanvasLayer/CenterContainer/SubViewportContainer/SubViewport/CSGMesh3D/CSGCylinder3D" unique_id=905983560 node_paths=PackedStringArray("left_marker", "right_marker")]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.11031073, 0.05915621)
+script = ExtResource("2_bwoev")
+left_marker = NodePath("../../CSGCylinder3D3/Level Marker")
+right_marker = NodePath("../../CSGCylinder3D2/Level Marker")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CanvasLayer/CenterContainer/SubViewportContainer/SubViewport/CSGMesh3D" unique_id=1743109579]
+transform = Transform3D(1, 0, 0, 0, 0.27146116, -0.9624495, 0, 0.9624495, 0.27146116, 0.20957878, -0.019522548, 0.49603182)
+radius = 0.02
+height = 0.106
+
+[node name="Level Marker" type="Marker3D" parent="CanvasLayer/CenterContainer/SubViewportContainer/SubViewport/CSGMesh3D/CSGCylinder3D2" unique_id=1266029059 node_paths=PackedStringArray("left_marker", "right_marker")]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.11031073, 0.05915621)
+script = ExtResource("2_bwoev")
+left_marker = NodePath("../../CSGCylinder3D/Level Marker")
+right_marker = NodePath("../../CSGCylinder3D3/Level Marker")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CanvasLayer/CenterContainer/SubViewportContainer/SubViewport/CSGMesh3D" unique_id=831575718]
+transform = Transform3D(1, 0, 0, 0, 0.27146116, -0.9624495, 0, 0.9624495, 0.27146116, 0.50243604, -0.028292358, -0.053610146)
+radius = 0.02
+height = 0.106
+
+[node name="Level Marker" type="Marker3D" parent="CanvasLayer/CenterContainer/SubViewportContainer/SubViewport/CSGMesh3D/CSGCylinder3D3" unique_id=943014123 node_paths=PackedStringArray("left_marker", "right_marker")]
+transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, -7.562339e-05, 0.00067356974)
+script = ExtResource("2_bwoev")
+left_marker = NodePath("../../CSGCylinder3D2/Level Marker")
+right_marker = NodePath("../../CSGCylinder3D/Level Marker")
+
+[node name="Camera Pivot Point" type="Node3D" parent="CanvasLayer/CenterContainer/SubViewportContainer/SubViewport" unique_id=998828112]
+
+[node name="Camera3D" type="Camera3D" parent="CanvasLayer/CenterContainer/SubViewportContainer/SubViewport/Camera Pivot Point" unique_id=1080736202]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -1.0584126)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CanvasLayer/CenterContainer/SubViewportContainer/SubViewport/Camera Pivot Point/Camera3D" unique_id=374770048]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7987037e-08, 0, -0.54890776)
+mesh = SubResource("QuadMesh_g4v7s")
+surface_material_override/0 = SubResource("ShaderMaterial_yf5fn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CanvasLayer/CenterContainer/SubViewportContainer/SubViewport/Camera Pivot Point" unique_id=317308399]
+transform = Transform3D(0.85447, -0.34350556, -0.38972428, -0.06874949, -0.81836194, 0.57057655, -0.5149317, -0.4607471, -0.72288144, -0.5576674, 1.1024063, -1.4341657)
+shadow_enabled = true
+
+[node name="Level Marker Controller" type="Marker3D" parent="CanvasLayer/CenterContainer/SubViewportContainer/SubViewport" unique_id=1175011619]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8649964)

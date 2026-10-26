@@ -25,3 +25,7 @@ func _on_body_entered(body: Node) -> void:
 	explosion.global_position = global_position
 	
 	queue_free()
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	queue_free()
