@@ -34,7 +34,7 @@ var prev_is_on_floor = false
 
 @onready var fliproot: Node2D = $Fliproot
 
-@onready var anim_sprite: AnimatedSprite2D = $Fliproot/AnimatedSprite2D
+@onready var anim_player: AnimationPlayer = %AnimationPlayer
 
 @export_group("Laser Charge")
 @export var laser_meter_use_per_sec: float = 20
@@ -81,11 +81,14 @@ func _physics_process(delta: float) -> void:
 					# add gravity again to double it
 					velocity += get_gravity() * delta
 			velocity += get_gravity() * delta
-		# if the player is moving up
-		if velocity.y < 0:
-			anim_sprite.play("jump")
+		# if the player is moving down
 		if velocity.y > 0:
-			anim_sprite.play("fall")
+			anim_player.play("fall")
+		# if the player is moving up
+		elif velocity.y < 0:
+			if will_hit_ceiling_in_frames(2):
+				velocity.y *= 1./3
+	# if the player is grounded
 	else:
 		jumping = false
 		input.start_coyote_time()
@@ -100,21 +103,21 @@ func _physics_process(delta: float) -> void:
 	update_facing_direction(sign(direction))
 	
 	if direction:
-		if is_on_floor() and anim_sprite.animation != "walk":
-			anim_sprite.play("walk")
+		if is_on_floor() and anim_player.current_animation != "walk" and anim_player.current_animation != "jump":
+			anim_player.play("walk")
 		var speed = move_speed
 		if mega_laser:
 			speed /= 2
 		#velocity.x += direction * ground_acceleration * delta
 		velocity.x = direction * speed
 	else:
-		if is_on_floor():
-			anim_sprite.play("idle")
+		if is_on_floor() and not anim_player.current_animation in ["jump", "land"]:
+			anim_player.play("idle")
 		velocity.x = move_toward(velocity.x, 0, move_speed)
 	
 	if is_on_ceiling():
 		velocity.y = 0
-		await get_tree().create_timer(.01, false, true).timeout
+		await get_tree().create_timer(.03, false, true).timeout
 		velocity.y = 1
 	
 	velocity.y = min(velocity.y, terminal_velocity)
@@ -122,7 +125,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if input.is_action_pressed("attack"):
-		anim_sprite.play("attack")
+		anim_player.play("attack")
 		if laser_charge == 0:
 			started_charging.emit()
 		laser_charge += delta
@@ -138,9 +141,10 @@ func _physics_process(delta: float) -> void:
 		else:
 			stopped_charging.emit()
 			shoot_laser_bullet()
-			anim_sprite.stop()
-		anim_sprite.play("idle")
-	
+			anim_player.stop()
+		#anim_player.play("idle")
+	if (not prev_is_on_floor) and is_on_floor() and not direction:
+		anim_player.play("land")
 	prev_is_on_floor = is_on_floor()
 
 func update_facing_direction(dir: int):
@@ -148,6 +152,17 @@ func update_facing_direction(dir: int):
 		facing_dir = sign(dir)
 	fliproot.scale.x = sign(facing_dir)
 	laser_hitbox.knockback_flipped = facing_dir == -1 if true else false
+
+func will_hit_ceiling_in_frames(frames: int) -> bool:
+	var total_movement = velocity * get_physics_process_delta_time() * frames
+	var collision_detected = test_move(global_transform, total_movement)
+	
+	if collision_detected:
+		var collision_info = KinematicCollision2D.new()
+		if test_move(global_transform, total_movement, collision_info):
+			if collision_info.get_normal().y > 0.7: # Adjust threshold based on your slopes
+				return true
+	return false
 
 func attempt_jump():
 	# check if the jump action is buffered
@@ -164,6 +179,8 @@ func attempt_jump():
 				jump()
 
 func jump():
+	anim_player.stop(true)
+	anim_player.play("jump")
 	jumping = true
 	input.stop_coyote_time()
 	input.use_buffered_action("jump")
