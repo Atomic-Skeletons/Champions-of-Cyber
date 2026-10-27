@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://dqtier8s750jn" path="res://Player/Input Controller/input_handler.gd" id="3_q6cqq"]
 [ext_resource type="Script" uid="uid://cr2xbhach1rlt" path="res://Components/attack_metter_component.gd" id="4_0otec"]
 [ext_resource type="Texture2D" uid="uid://0puqleepv0k0" path="res://Player/Character Assets/Explorer/Art/laser_shot_anim.png" id="4_titfj"]
-[ext_resource type="Texture2D" uid="uid://e0454mamtsq2" path="res://Player/Character Assets/Electric Boogaloo/Art/electric boogaloo.png" id="5_0otec"]
 [ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="5_n7p02"]
 [ext_resource type="AudioStream" uid="uid://b3mqlf4kjxxpm" path="res://Player/Character Assets/Electric Boogaloo/Audio/SFX_Electric_Punch.wav" id="6_cwy66"]
 [ext_resource type="AudioStream" uid="uid://iytxnfskifk5" path="res://Player/Character Assets/Electric Boogaloo/Audio/SFX_electric_dash.wav" id="6_j7wdp"]
@@ -20,6 +19,7 @@
 [ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="11_qdcu2"]
 [ext_resource type="Script" uid="uid://cdbh6m2hm3nxt" path="res://Player/metter_visualization.gd" id="12_7hw07"]
 [ext_resource type="Script" uid="uid://dh1mpplaeqbu5" path="res://Components/attack_data_resource.gd" id="13_0phe6"]
+[ext_resource type="Texture2D" uid="uid://dyxk0flu36cox" path="res://Player/Character Assets/Electric Boogaloo/Art/spr_electrician_vers1.png" id="18_cwy66"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jbxru"]
 shader = ExtResource("1_0otec")
@@ -97,7 +97,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_0otec")
+"texture": ExtResource("18_cwy66")
 }],
 "loop": 1,
 "name": &"idle",
