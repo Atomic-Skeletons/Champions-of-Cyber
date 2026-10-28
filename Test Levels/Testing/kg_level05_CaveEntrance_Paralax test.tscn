@@ -1,0 +1,235 @@
+[gd_scene format=4 uid="uid://be14dvg3ky2ku"]
+
+[ext_resource type="Script" uid="uid://c0lt1tcf3rv6y" path="res://Test Levels/game_manager.gd" id="1_avgow"]
+[ext_resource type="PackedScene" uid="uid://cwkpu61rxkoh1" path="res://Game Holder/Player Nodes.tscn" id="2_u7530"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_ensnd"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_5rliw"]
+[ext_resource type="Script" uid="uid://cim2f48qo18uq" path="res://Test Levels/level_1_test_script.gd" id="4_ndvu7"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_px21a"]
+[ext_resource type="Texture2D" uid="uid://d1r2wwxqoaj1y" path="res://Level Art/Eva'sBG_Art/Cave Entrance Layers/Forest-TO-cave_skybg.png" id="5_uggrs"]
+[ext_resource type="Script" uid="uid://bdtyj37jcj626" path="res://Scenes/group_player_follow.gd" id="6_a3k6o"]
+[ext_resource type="Texture2D" uid="uid://c0yubjhik34xn" path="res://Level Art/Eva'sBG_Art/Cave Entrance Layers/Forest-TO-cave_furthest-parallax.png" id="6_pa3s7"]
+[ext_resource type="Texture2D" uid="uid://bk51ua843s8c2" path="res://Level Art/Eva'sBG_Art/Cave Entrance Layers/Forest-TO-cave_middle-parallax.png" id="7_2q645"]
+[ext_resource type="Texture2D" uid="uid://cs5n23543kfd0" path="res://Level Art/Eva'sBG_Art/Cave Entrance Layers/Forest-TO-cave_frontparallax.png" id="8_skl73"]
+[ext_resource type="TileSet" uid="uid://dbyi4yvvgbymx" path="res://Test Levels/Eva Tileset.tres" id="9_axg34"]
+[ext_resource type="PackedScene" uid="uid://21srs1gejciy" path="res://Level Objects/Doors/door.tscn" id="10_u08xo"]
+[ext_resource type="Texture2D" uid="uid://nt2grdjoo275" path="res://icon.svg" id="11_ohjer"]
+
+[sub_resource type="Resource" id="Resource_a3gxn"]
+script = ExtResource("5_px21a")
+duration = 0.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xos45"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="Curve2D" id="Curve2D_w2iq6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1709, -71, 0, 0, 0, 0, 1217.275, -71)
+}
+point_count = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4vt6j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_echq3"]
+atlas = ExtResource("5_uggrs")
+region = Rect2(0, 0, 375, 456)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eer3m"]
+atlas = ExtResource("5_uggrs")
+region = Rect2(0, 583, 375, 383)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfabo"]
+atlas = ExtResource("6_pa3s7")
+region = Rect2(0, 0, 375, 456)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11axq"]
+atlas = ExtResource("6_pa3s7")
+region = Rect2(0, 734, 375, 232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u12ga"]
+atlas = ExtResource("7_2q645")
+region = Rect2(0, 727, 375, 239)
+
+[sub_resource type="Curve2D" id="Curve2D_6wsy1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1709, -71, 0, 0, 0, 0, 1217.275, -71)
+}
+point_count = 2
+
+[node name="Game Holder" type="Node2D" unique_id=1246508524]
+script = ExtResource("1_avgow")
+
+[node name="Player" parent="." unique_id=2037837404 instance=ExtResource("2_u7530")]
+
+[node name="Camera Nodes2" type="Node" parent="." unique_id=1510677209]
+
+[node name="Camera2D" type="Camera2D" parent="Camera Nodes2" unique_id=619739612]
+top_level = true
+position = Vector2(269, 223)
+zoom = Vector2(1.5, 1.5)
+limit_left = 29
+limit_top = 63
+limit_right = 897
+limit_bottom = 789
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera Nodes2/Camera2D" unique_id=2123225963]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_ensnd")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera2D" type="Node2D" parent="Camera Nodes2" unique_id=1116200298 node_paths=PackedStringArray("follow_target", "follow_path") groups=["Phantom Camera"]]
+top_level = true
+position = Vector2(20, -30)
+script = ExtResource("4_5rliw")
+priority = 1
+follow_mode = 2
+follow_target = NodePath("../Group Player Follow")
+follow_path = NodePath("../Path2D")
+zoom = Vector2(1.5, 1.5)
+tween_resource = SubResource("Resource_a3gxn")
+follow_offset = Vector2(20, -30)
+follow_damping = true
+lookahead_max = true
+lookahead_max_value = Vector2(20, 20)
+draw_limits = true
+limit_left = 29
+limit_top = 63
+limit_right = 897
+limit_bottom = 789
+noise_emitter_layer = 1
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Group Player Follow" type="Marker2D" parent="Camera Nodes2" unique_id=615243559]
+process_physics_priority = 1
+script = ExtResource("6_a3k6o")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Camera Nodes2/Group Player Follow" unique_id=132968956]
+collision_layer = 4096
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Nodes2/Group Player Follow/StaticBody2D" unique_id=1106690358]
+position = Vector2(-161, 0)
+shape = SubResource("WorldBoundaryShape2D_g4v7s")
+disabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera Nodes2/Group Player Follow/StaticBody2D" unique_id=1633796969]
+position = Vector2(162, 0)
+shape = SubResource("WorldBoundaryShape2D_xos45")
+disabled = true
+
+[node name="Path2D" type="Path2D" parent="Camera Nodes2" unique_id=250149136]
+curve = SubResource("Curve2D_w2iq6")
+
+[node name="Active Room" type="Node" parent="." unique_id=1107788057]
+unique_name_in_owner = true
+
+[node name="Level" type="Node2D" parent="Active Room" unique_id=1334882633]
+script = ExtResource("4_ndvu7")
+
+[node name="SpawnPoints" type="Node" parent="Active Room/Level" unique_id=1952735771]
+
+[node name="Start" type="Node2D" parent="Active Room/Level/SpawnPoints" unique_id=1597415959]
+position = Vector2(466, 178)
+
+[node name="Player Spawn Point" type="Marker2D" parent="Active Room/Level/SpawnPoints/Start" unique_id=482724752]
+position = Vector2(18, 0)
+
+[node name="Player Spawn Point2" type="Marker2D" parent="Active Room/Level/SpawnPoints/Start" unique_id=1188092257]
+position = Vector2(-18, 0)
+
+[node name="End Door" type="Node2D" parent="Active Room/Level/SpawnPoints" unique_id=540416004]
+position = Vector2(712, 711)
+
+[node name="Player Spawn Point" type="Marker2D" parent="Active Room/Level/SpawnPoints/End Door" unique_id=1133144191]
+position = Vector2(18, 0)
+
+[node name="Player Spawn Point2" type="Marker2D" parent="Active Room/Level/SpawnPoints/End Door" unique_id=1984254419]
+position = Vector2(-18, 0)
+
+[node name="Paralax Layers" type="Node2D" parent="Active Room/Level" unique_id=1296795371]
+
+[node name="Forest Sky" type="Parallax2D" parent="Active Room/Level/Paralax Layers" unique_id=1278872286]
+scroll_scale = Vector2(0.3, 0.4)
+scroll_offset = Vector2(492, 19)
+repeat_size = Vector2(375, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Forest Sky" unique_id=73737395]
+material = SubResource("ShaderMaterial_4vt6j")
+position = Vector2(193, 91)
+texture = SubResource("AtlasTexture_echq3")
+
+[node name="Cave Sky" type="Parallax2D" parent="Active Room/Level/Paralax Layers" unique_id=875341397]
+scroll_scale = Vector2(0.3, 0.6)
+scroll_offset = Vector2(-895, -571)
+repeat_size = Vector2(375, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Cave Sky" unique_id=193252541]
+material = SubResource("ShaderMaterial_4vt6j")
+position = Vector2(195, 404)
+texture = SubResource("AtlasTexture_eer3m")
+
+[node name="Background 4" type="Parallax2D" parent="Active Room/Level/Paralax Layers" unique_id=1438575741]
+scroll_scale = Vector2(0.4, 0.6)
+repeat_size = Vector2(375, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Background 4" unique_id=400224492]
+material = SubResource("ShaderMaterial_4vt6j")
+position = Vector2(6, -208)
+texture = SubResource("AtlasTexture_gfabo")
+centered = false
+
+[node name="Background 5" type="Parallax2D" parent="Active Room/Level/Paralax Layers" unique_id=864153018]
+scroll_scale = Vector2(0.4, 0.7)
+repeat_size = Vector2(375, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Background 5" unique_id=1379579805]
+material = SubResource("ShaderMaterial_4vt6j")
+position = Vector2(165, 546)
+texture = SubResource("AtlasTexture_11axq")
+
+[node name="Background 2" type="Parallax2D" parent="Active Room/Level/Paralax Layers" unique_id=906204194]
+scroll_scale = Vector2(0.5, 0.8)
+repeat_size = Vector2(375, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Background 2" unique_id=157173689]
+material = SubResource("ShaderMaterial_4vt6j")
+position = Vector2(164, 563.5)
+texture = SubResource("AtlasTexture_u12ga")
+
+[node name="Background 1" type="Parallax2D" parent="Active Room/Level/Paralax Layers" unique_id=1875273663]
+scroll_scale = Vector2(0.6, 0.9)
+repeat_size = Vector2(375, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Background 1" unique_id=2064531861]
+material = SubResource("ShaderMaterial_4vt6j")
+position = Vector2(165, 256)
+texture = ExtResource("8_skl73")
+
+[node name="Platform Tilemap Layer2" type="TileMapLayer" parent="Active Room/Level" unique_id=2069029130]
+position = Vector2(365, 701)
+tile_map_data = PackedByteArray("AAAEAAEAAQAIAAQAAAADAAEAAQABAAEAAAACAAEAAQABAAEAAAABAAEAAQABAAEAAAAAAAEAAQABAAEAAAD//wEAAQABAAEAAAD+/wEAAQABAAEAAAD9/wEAAQABAAEAAAD8/wEAAQABAAEAAAD7/wEAAQABAAEAAAD7/wIAAQABAAEAAAD8/wIAAQABAAEAAAD9/wIAAQABAAEAAAD+/wIAAQABAAEAAAD//wIAAQABAAEAAAAAAAIAAQABAAEAAAABAAIAAQABAAEAAAACAAIAAQABAAEAAAADAAIAAQABAAEAAAAEAAIAAQABAAEAAAAEAAMAAQABAAEAAAADAAMAAQABAAEAAAACAAMAAQABAAEAAAABAAMAAQABAAEAAAAAAAMAAQABAAEAAAD//wMAAQABAAEAAAD+/wMAAQABAAEAAAD9/wMAAQABAAEAAAD8/wMAAQABAAEAAAD7/wMAAQABAAEAAAD7/wQAAQABAAIAAAD8/wQAAQABAAIAAAD9/wQAAQABAAIAAAD+/wQAAQABAAIAAAD//wQAAQABAAIAAAAAAAQAAQABAAIAAAABAAQAAQABAAIAAAACAAQAAQABAAIAAAADAAQAAQABAAIAAAAEAAQAAQABAAIAAAAFAAEAAQABAAAAAAAJAAEAAQABAAAAAAAIAAEAAQABAAAAAAAHAAEAAQABAAAAAAAGAAEAAQABAAAAAAAFAAIAAQABAAEAAAAFAAMAAQABAAEAAAAFAAQAAQABAAIAAAAGAAQAAQABAAIAAAAHAAQAAQABAAIAAAAHAAMAAQABAAEAAAAHAAIAAQABAAEAAAAGAAIAAQABAAEAAAAGAAMAAQABAAEAAAAIAAMAAQABAAEAAAAIAAIAAQABAAEAAAAIAAQAAQABAAIAAAAJAAQAAQABAAIAAAAJAAMAAQABAAEAAAAJAAIAAQABAAEAAAAKAAEAAQABAAAAAAALAAEAAQABAAAAAAAMAAEAAQABAAAAAAAMAAIAAQABAAEAAAALAAIAAQABAAEAAAAKAAIAAQABAAEAAAAKAAMAAQABAAEAAAALAAMAAQABAAEAAAALAAQAAQABAAIAAAAMAAQAAQAHAAAAAAAMAAMAAQABAAEAAAAKAAQAAQABAAIAAAD6/wEAAQABAAEAAAD6/wIAAQABAAEAAAD6/wMAAQABAAEAAAD6/wQAAQABAAIAAAD5/wEAAQABAAEAAAD5/wIAAQABAAEAAAD5/wMAAQABAAEAAAD5/wQAAQABAAIAAAD4/wEAAQABAAEAAAD4/wIAAQABAAEAAAD4/wMAAQABAAEAAAD4/wQAAQABAAIAAAD3/wQAAQABAAIAAAD3/wMAAQABAAEAAAD3/wIAAQABAAEAAAD3/wEAAQABAAEAAAD2/wQAAQAHAAAAAAD1/wMAAQAAAAEAAAD1/wIAAQAAAAEAAAD1/wEAAQAAAAEAAAD2/wEAAQABAAEAAAD2/wIAAQABAAEAAAD2/wMAAQABAAEAAAD1/wQAAQAAAAIAAAD2/wAAAQABAAEAAAD2////AQABAAEAAAD2//7/AQAIAAQAAAD2//3/AQACAAEAAAD2//z/AQACAAEAAAD2//v/AQACAAEAAAD2//r/AQACAAEAAAD2//n/AQACAAEAAAD1/wAAAQAAAAEAAAD1////AQAAAAEAAAD1//7/AQAAAAEAAAD1//3/AQAAAAEAAAD1//z/AQAAAAEAAAD1//v/AQAAAAEAAAD1//r/AQAAAAEAAAD1//n/AQAAAAEAAAD2//j/AQACAAEAAAD2//f/AQACAAEAAAD2//b/AQACAAEAAAD1//j/AQAAAAEAAAD1//f/AQAAAAEAAAD1//b/AQAAAAEAAAAQAAQAAQACAAIAAAAQAAMAAQACAAEAAAAQAAIAAQACAAEAAAAQAAEAAQACAAEAAAAPAAQAAQAHAAAAAAAPAAMAAQABAAEAAAAPAAIAAQABAAEAAAAPAAEAAQAHAAQAAAAOAAQAAQABAAIAAAAOAAMAAQABAAEAAAAOAAIAAQABAAEAAAAOAAEAAQABAAAAAAANAAQAAQAHAAAAAAANAAMAAQABAAEAAAANAAIAAQABAAEAAAANAAEAAQABAAAAAAAQAAAAAQACAAEAAAAQAP//AQACAAEAAAAQAP7/AQACAAEAAAAQAP3/AQACAAEAAAAQAPz/AQACAAEAAAAQAPv/AQACAAEAAAAQAPr/AQACAAEAAAAQAPn/AQACAAEAAAAQAPj/AQACAAEAAAAQAPf/AQACAAEAAAAQAPb/AQACAAEAAAAPAAAAAQAAAAEAAAAPAP//AQAAAAEAAAAPAP7/AQAAAAEAAAAPAP3/AQAAAAEAAAAPAPz/AQAAAAEAAAAPAPv/AQAAAAEAAAAPAPr/AQAAAAEAAAAPAPn/AQAAAAEAAAAPAPj/AQAAAAEAAAAPAPf/AQAAAAEAAAAPAPb/AQAAAAEAAAANAPz/AQACAAIAAAANAPv/AQACAAEAAAAMAPz/AQABAAIAAAAMAPv/AQABAAEAAAALAPz/AQABAAIAAAALAPv/AQABAAEAAAAKAPz/AQAHAAAAAAAKAPv/AQABAAEAAAANAPr/AQACAAEAAAANAPn/AQACAAEAAAAMAPr/AQABAAEAAAAMAPn/AQABAAEAAAALAPr/AQABAAEAAAALAPn/AQABAAEAAAAKAPr/AQABAAEAAAAKAPn/AQABAAEAAAANAPj/AQACAAEAAAANAPf/AQACAAEAAAAMAPj/AQABAAEAAAAMAPf/AQABAAEAAAALAPj/AQABAAEAAAALAPf/AQABAAEAAAAKAPj/AQABAAEAAAAKAPf/AQABAAEAAAANAPb/AQACAAEAAAAMAPb/AQABAAEAAAALAPb/AQABAAEAAAAKAPb/AQABAAEAAAAQAPX/AQACAAEAAAAQAPT/AQACAAEAAAAQAPP/AQACAAEAAAAPAPX/AQAAAAEAAAAPAPT/AQAAAAEAAAAPAPP/AQAAAAEAAAANAPX/AQACAAEAAAANAPT/AQACAAEAAAANAPP/AQACAAEAAAAMAPX/AQABAAEAAAAMAPT/AQABAAEAAAAMAPP/AQABAAEAAAALAPX/AQABAAEAAAALAPT/AQABAAEAAAALAPP/AQABAAEAAAAKAPX/AQABAAEAAAAKAPT/AQABAAEAAAAKAPP/AQABAAEAAAD2//T/AQACAAEAAAD2//P/AQACAAEAAAD1//T/AQAAAAEAAAD1//P/AQAAAAEAAAD2//X/AQACAAEAAAD1//X/AQAAAAEAAAAJAPz/AQAHAAAAAAAJAPv/AQABAAEAAAAJAPr/AQABAAEAAAAJAPn/AQABAAEAAAAJAPj/AQABAAEAAAAJAPf/AQABAAEAAAAJAPb/AQABAAEAAAAJAPX/AQABAAEAAAAJAPT/AQABAAEAAAAJAPP/AQABAAEAAAAIAPz/AQAAAAIAAAAIAPv/AQAAAAEAAAAIAPr/AQAIAAAAAAAIAPn/AQABAAEAAAAIAPj/AQABAAEAAAAIAPf/AQABAAEAAAAIAPb/AQABAAEAAAAIAPX/AQABAAEAAAAIAPT/AQABAAEAAAAIAPP/AQABAAEAAAABAPP/AQAIAAAAAAABAPT/AQAAAAEAAAABAPX/AQAAAAEAAAABAPb/AQAAAAIAAAACAPP/AQABAAEAAAACAPT/AQABAAEAAAACAPX/AQABAAEAAAACAPb/AQAIAAAAAAADAPP/AQABAAEAAAADAPT/AQABAAEAAAADAPX/AQABAAEAAAADAPb/AQABAAEAAAADAPf/AQAAAAEAAAADAPj/AQAAAAIAAAAEAPP/AQABAAEAAAAEAPT/AQABAAEAAAAEAPX/AQABAAEAAAAEAPb/AQABAAEAAAAEAPf/AQABAAEAAAAEAPj/AQAHAAAAAAAFAPP/AQABAAEAAAAFAPT/AQABAAEAAAAFAPX/AQABAAEAAAAFAPb/AQABAAEAAAAFAPf/AQABAAEAAAAFAPj/AQAIAAAAAAAFAPn/AQAAAAEAAAAFAPr/AQAAAAIAAAAGAPP/AQABAAEAAAAGAPT/AQABAAEAAAAGAPX/AQABAAEAAAAGAPb/AQABAAEAAAAGAPf/AQABAAEAAAAGAPj/AQABAAEAAAAGAPn/AQABAAEAAAAGAPr/AQAHAAAAAAAHAPP/AQABAAEAAAAHAPT/AQABAAEAAAAHAPX/AQABAAEAAAAHAPb/AQABAAEAAAAHAPf/AQABAAEAAAAHAPj/AQABAAEAAAAHAPn/AQABAAEAAAAHAPr/AQABAAIAAAD6/wAAAQABAAEAAAD6////AQABAAEAAAD6//7/AQABAAAAAAD5/wAAAQABAAEAAAD5////AQABAAEAAAD5//7/AQABAAAAAAD4/wAAAQABAAEAAAD4////AQABAAEAAAD4//7/AQABAAAAAAD3/wAAAQABAAEAAAD3////AQABAAEAAAD3//7/AQABAAAAAAD+/wAAAQABAAEAAAD+////AQABAAAAAAD9/wAAAQABAAEAAAD9////AQABAAAAAAD8/wAAAQABAAEAAAD8////AQABAAAAAAD7/wAAAQABAAEAAAD7////AQAIAAQAAAACAAAAAQABAAAAAAABAAAAAQABAAAAAAAAAAAAAQAIAAQAAAD//wAAAQABAAEAAAD7//7/AQACAAAAAAD/////AQABAAAAAAADAAAAAQABAAAAAAAAAP//AQACAAAAAAAEAAAAAQACAAAAAAAQAPL/AQACAAEAAAAQAPH/AQACAAEAAAAQAPD/AQACAAEAAAAQAO//AQACAAEAAAAQAO7/AQACAAEAAAAQAO3/AQACAAEAAAAQAOz/AQACAAEAAAAQAOv/AQACAAAAAAAPAPL/AQAAAAEAAAAPAPH/AQAAAAEAAAAPAPD/AQAAAAEAAAAPAO//AQAAAAEAAAAPAO7/AQAAAAEAAAAPAO3/AQAAAAEAAAAPAOz/AQAIAAAAAAAPAOv/AQABAAAAAAAOAOz/AQABAAIAAAAOAOv/AQABAAAAAAANAOz/AQAHAAAAAAANAOv/AQABAAAAAAD2//L/AQAGAAAAAAD2//H/AQABAAEAAAD2//D/AQABAAEAAAD2/+//AQABAAEAAAD2/+7/AQABAAEAAAD2/+3/AQABAAEAAAD2/+z/AQABAAEAAAD2/+v/AQABAAAAAAD1//L/AQAAAAEAAAD1//H/AQAAAAEAAAD1//D/AQAAAAEAAAD1/+//AQAAAAEAAAD1/+7/AQAAAAEAAAD1/+3/AQAAAAEAAAD1/+z/AQAAAAEAAAD1/+v/AQAAAAAAAAD4/+z/AQABAAEAAAD4/+v/AQABAAAAAAD3/+z/AQABAAEAAAD3/+v/AQABAAAAAAANAPL/AQACAAEAAAAMAPL/AQABAAEAAAALAPL/AQABAAEAAAAKAPL/AQABAAEAAAAJAPL/AQABAAEAAAAIAPL/AQABAAEAAAAHAPL/AQABAAEAAAAGAPL/AQABAAEAAAAFAPL/AQABAAEAAAAEAPL/AQABAAEAAAADAPL/AQABAAEAAAACAPL/AQABAAEAAAABAPL/AQABAAEAAAAMAOz/AQABAAIAAAAMAOv/AQABAAAAAAALAOz/AQAHAAAAAAALAOv/AQABAAAAAAAKAOz/AQAHAAAAAAAKAOv/AQABAAAAAAAJAOz/AQAHAAAAAAAJAOv/AQABAAAAAAAIAOz/AQAHAAAAAAAIAOv/AQABAAAAAAAHAOz/AQAHAAAAAAAHAOv/AQABAAAAAAAGAOz/AQAHAAAAAAAGAOv/AQABAAAAAAAFAOz/AQABAAIAAAAFAOv/AQABAAAAAAAEAOz/AQABAAIAAAAEAOv/AQABAAAAAAADAOz/AQABAAIAAAADAOv/AQABAAAAAAACAOz/AQAHAAAAAAACAOv/AQABAAAAAAABAOz/AQABAAIAAAABAOv/AQABAAAAAAAAAOz/AQABAAIAAAAAAOv/AQABAAAAAAD//+z/AQAHAAAAAAD//+v/AQABAAAAAAD+/+z/AQAHAAAAAAD+/+v/AQABAAAAAAD9/+z/AQABAAIAAAD9/+v/AQABAAAAAAD8/+z/AQABAAIAAAD8/+v/AQABAAAAAAD7/+z/AQAHAAAAAAD7/+v/AQABAAAAAAD6/+z/AQAGAAAAAAD6/+v/AQABAAAAAAD5/+z/AQABAAEAAAD5/+v/AQABAAAAAAAAAPP/AQAHAAAAAAAAAPL/AQABAAEAAAD///P/AQAAAAIAAAD///L/AQAAAAEAAAANAPH/AQACAAEAAAANAPD/AQACAAAAAAAMAPH/AQABAAEAAAAMAPD/AQABAAAAAAALAPH/AQABAAEAAAALAPD/AQABAAAAAAAKAPH/AQABAAEAAAAKAPD/AQABAAAAAAAJAPH/AQABAAEAAAAJAPD/AQABAAAAAAAIAPH/AQABAAEAAAAIAPD/AQABAAAAAAAHAPH/AQABAAEAAAAHAPD/AQABAAAAAAAGAPH/AQABAAEAAAAGAPD/AQABAAAAAAAFAPH/AQABAAEAAAAFAPD/AQABAAAAAAAEAPH/AQABAAEAAAAEAPD/AQABAAAAAAADAPH/AQABAAEAAAADAPD/AQABAAAAAAACAPH/AQABAAEAAAACAPD/AQABAAAAAAABAPH/AQABAAEAAAABAPD/AQABAAAAAAAAAPH/AQABAAEAAAAAAPD/AQABAAAAAAD///H/AQAAAAEAAAD///D/AQAAAAAAAAD6/+7/AQACAAIAAAD6/+3/AQACAAEAAAD5/+7/AQAHAAAAAAD5/+3/AQABAAEAAAD4/+7/AQAGAAAAAAD4/+3/AQABAAEAAAD3/+7/AQABAAEAAAD3/+3/AQABAAEAAAD4//L/AQACAAIAAAD4//H/AQACAAEAAAD4//D/AQACAAEAAAD4/+//AQACAAEAAAD3//L/AQAHAAAAAAD3//H/AQABAAEAAAD3//D/AQABAAEAAAD3/+//AQABAAEAAAA=")
+tile_set = ExtResource("9_axg34")
+
+[node name="Path2D" type="Path2D" parent="Active Room/Level" unique_id=206212382]
+position = Vector2(365, 701)
+curve = SubResource("Curve2D_6wsy1")
+
+[node name="End Door" parent="Active Room/Level" unique_id=1487951020 instance=ExtResource("10_u08xo")]
+position = Vector2(715, 736)
+target_scene = "uid://c7mg8ret6gtxq"
+
+[node name="Bat Placeholder" type="Sprite2D" parent="Active Room/Level" unique_id=1850281023]
+position = Vector2(545.99994, 552.99994)
+scale = Vector2(0.21875, 0.21875)
+texture = ExtResource("11_ohjer")
