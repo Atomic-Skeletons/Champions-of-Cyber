@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://bqufnqa4woi7l" path="res://Player/Character Assets/Explorer/Audio/SFX_hyperbeam_wind_up.wav" id="12_l72of"]
 [ext_resource type="AudioStream" uid="uid://cpcf1dp4ygc3y" path="res://Player/Character Assets/Explorer/Audio/SFX_Beam_hyperbeam.wav" id="13_dfbu7"]
 [ext_resource type="Texture2D" uid="uid://babqosk8jnsgb" path="res://Player/Character Assets/Explorer/Art/anim_explorer-attack-hold-vers1-sheet.png" id="15_g0o3y"]
+[ext_resource type="Script" uid="uid://byoko3w4or785" path="res://Player/Character Scenes/Explorer State Scripts/active_state.gd" id="15_t404s"]
 [ext_resource type="Script" uid="uid://dh1mpplaeqbu5" path="res://Components/attack_data_resource.gd" id="15_w36s2"]
 [ext_resource type="Texture2D" uid="uid://sd08u1qgbb77" path="res://Player/Character Assets/Explorer/Art/anim_explorer-idle-vers1-sheet.png" id="16_c8xvm"]
 [ext_resource type="Texture2D" uid="uid://2ocq4d3hh0ff" path="res://Player/Character Assets/Explorer/Art/anim_explorer-jump-begin-vers1-sheet.png" id="16_jebn5"]
@@ -839,6 +840,7 @@ material = SubResource("ShaderMaterial_jbxru")
 collision_layer = 257
 collision_mask = 4102
 script = ExtResource("1_dmmqk")
+jump_strength = 300.0
 laser_bullet_meter_use = 5.0
 laser_bullet_scene = ExtResource("6_a2jtb")
 laser_bullet_speed = 1000.0
@@ -874,6 +876,17 @@ stream = ExtResource("9_w36s2")
 [node name="Character States" type="LimboHSM" parent="." unique_id=1273866113]
 
 [node name="Active" type="LimboState" parent="Character States" unique_id=922432502]
+script = ExtResource("15_t404s")
+
+[node name="Explorer States" type="LimboHSM" parent="Character States/Active" unique_id=811869457]
+
+[node name="Aerial" type="LimboState" parent="Character States/Active/Explorer States" unique_id=2020362824]
+
+[node name="Grounded" type="LimboState" parent="Character States/Active/Explorer States" unique_id=1018726378]
+
+[node name="Attack" type="LimboState" parent="Character States/Active/Explorer States" unique_id=1466945660]
+
+[node name="Mega Laser" type="LimboState" parent="Character States/Active/Explorer States" unique_id=1718159495]
 
 [node name="Hitstun" type="LimboState" parent="Character States" unique_id=2065122791]
 

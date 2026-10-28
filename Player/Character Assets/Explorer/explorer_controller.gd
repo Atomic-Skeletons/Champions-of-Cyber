@@ -52,6 +52,7 @@ func _physics_process(delta: float) -> void:
 	if is_hitstopped: return
 	
 	if is_hitstunned:
+		anim_player.play("recoil")
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 		else:
@@ -112,7 +113,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * speed
 	else:
 		if is_on_floor() and not anim_player.current_animation in ["jump", "land"]:
-			anim_player.play("idle")
+			#anim_player.play("idle")
+			anim_play("idle")
 		velocity.x = move_toward(velocity.x, 0, move_speed)
 	
 	if is_on_ceiling():
@@ -146,6 +148,9 @@ func _physics_process(delta: float) -> void:
 	if (not prev_is_on_floor) and is_on_floor() and not direction:
 		anim_player.play("land")
 	prev_is_on_floor = is_on_floor()
+
+func anim_play(anim_name: String):
+	anim_player.play(anim_name)
 
 func update_facing_direction(dir: int):
 	if dir != 0 and dir != facing_dir:
@@ -217,7 +222,7 @@ func update_animations():
 	# on ground
 	# direction
 	# in knockback
-	if is_hitstunned or is_hitstopped:
+	if is_hitstunned:
 		anim_player.play("recoil")
 	
 	# attack checks
@@ -226,8 +231,20 @@ func update_animations():
 	elif Input.is_action_pressed("attack") and not in_attack_cooldown():
 		anim_player.play("attack")
 	
-	# movement checks
-	
+	# If in air
+	elif not is_on_floor():
+		# rising up
+		if velocity.y < 0:
+			anim_player.play("jump")
+		# falling down
+		elif velocity.y > 0:
+			anim_player.play("fall")
+	# if on floor
+	else:
+		if velocity.x:
+			pass
+	# directional movement for walking
+	# gravity animations
 
 
 @onready var laser_pieces: Node2D = $"Fliproot/Laser Pieces"
