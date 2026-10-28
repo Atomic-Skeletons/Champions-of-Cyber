@@ -1,17 +1,17 @@
 extends Parallax2D
 
-## Camera position at which the layers line up. Defaults to the parent object.
+## The point where the layers line up. Defaults to the parent object.
 @export var anchor: Node2D
-## If true, every sprite aligns when the camera is on that sprite itself.
-@export var anchor_each_child := false
 
+var child_start_pos: Vector2
 
 func _ready() -> void:
-	var a := (anchor if anchor else get_parent() as Node2D).global_position
-	var k := Vector2.ONE - scroll_scale   # per-axis, so non-uniform scales work too
+	if anchor == null:
+		anchor = get_parent() as Node2D
+	_apply()
+	child_start_pos = get_child(0).global_position
+	print(child_start_pos)
 
-	for child in get_children():
-		if child is Node2D:
-			var g: Vector2 = child.global_position          # where you placed it in the editor
-			var pivot := g if anchor_each_child else a
-			child.global_position = g - k * pivot
+func _apply() -> void:
+	pass
+	scroll_offset = -(Vector2.ONE - scroll_scale) * anchor.global_position/2
