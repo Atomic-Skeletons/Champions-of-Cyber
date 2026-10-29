@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccgu2y35qsobk"
-path="res://.godot/imported/EVA'SVERS_tilemap1.0.png-6f3737a7336d98bed6f354520c1a9d2a.ctex"
+path="res://.godot/imported/EVA'SVERS_tilemap1.0.png-72d1d36c7ce585346419b570470964b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level Art/Eva'sTILEMAP/EVA'SVERS_tilemap1.0.png"
-dest_files=["res://.godot/imported/EVA'SVERS_tilemap1.0.png-6f3737a7336d98bed6f354520c1a9d2a.ctex"]
+source_file="res://Level Art/Eva'sTILEMAP/Forest Tiles/EVA'SVERS_tilemap1.0.png"
+dest_files=["res://.godot/imported/EVA'SVERS_tilemap1.0.png-72d1d36c7ce585346419b570470964b6.ctex"]
 
 [params]
 

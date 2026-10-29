@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" format=3 uid="uid://dbyi4yvvgbymx"]
 
-[ext_resource type="Texture2D" uid="uid://c7ph5sdwsmjtn" path="res://Level Art/Eva'sTILEMAP/Level Tilemap.png" id="1_tbsb5"]
-[ext_resource type="Texture2D" uid="uid://ccgu2y35qsobk" path="res://Level Art/Eva'sTILEMAP/EVA'SVERS_tilemap1.0.png" id="2_blbfn"]
+[ext_resource type="Texture2D" uid="uid://c7ph5sdwsmjtn" path="res://Level Art/Eva'sTILEMAP/Forest Tiles/Level Tilemap.png" id="1_tbsb5"]
+[ext_resource type="Texture2D" uid="uid://ccgu2y35qsobk" path="res://Level Art/Eva'sTILEMAP/Forest Tiles/EVA'SVERS_tilemap1.0.png" id="2_blbfn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nx035"]
 texture = ExtResource("1_tbsb5")

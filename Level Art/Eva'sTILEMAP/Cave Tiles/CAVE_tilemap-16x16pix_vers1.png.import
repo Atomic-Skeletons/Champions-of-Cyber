@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8i4b4bfy25j2"
-path="res://.godot/imported/16x16_tile_tilemap_test-export3.png-1b78406833c36d78d9e3674d62d0709e.ctex"
+uid="uid://cccwq7fa2ln0k"
+path="res://.godot/imported/CAVE_tilemap-16x16pix_vers1.png-0720726e9c641b0f50a5b417e31dbfa9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level Art/Eva'sTILEMAP/16x16_tile_tilemap_test-export3.png"
-dest_files=["res://.godot/imported/16x16_tile_tilemap_test-export3.png-1b78406833c36d78d9e3674d62d0709e.ctex"]
+source_file="res://Level Art/Eva'sTILEMAP/Cave Tiles/CAVE_tilemap-16x16pix_vers1.png"
+dest_files=["res://.godot/imported/CAVE_tilemap-16x16pix_vers1.png-0720726e9c641b0f50a5b417e31dbfa9.ctex"]
 
 [params]
 

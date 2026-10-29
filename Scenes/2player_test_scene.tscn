@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://7lw1yr2xg5ye" path="res://Player/Character Scenes/Explorer.tscn" id="9_2l0sa"]
 [ext_resource type="PackedScene" uid="uid://bfukd726rcgk2" path="res://Player/Character Scenes/electric boogaloo.tscn" id="10_xclqn"]
 [ext_resource type="Texture2D" uid="uid://j0uvimf66mwa" path="res://Level Art/Floor Tiles1.png" id="11_43p0j"]
-[ext_resource type="Texture2D" uid="uid://ccgu2y35qsobk" path="res://Level Art/Eva'sTILEMAP/EVA'SVERS_tilemap1.0.png" id="12_t1ar8"]
+[ext_resource type="Texture2D" uid="uid://ccgu2y35qsobk" path="res://Level Art/Eva'sTILEMAP/Forest Tiles/EVA'SVERS_tilemap1.0.png" id="12_t1ar8"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="13_2qvwh"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="14_iqffb"]
 [ext_resource type="Script" uid="uid://bdtyj37jcj626" path="res://Scenes/group_player_follow.gd" id="15_khj5h"]

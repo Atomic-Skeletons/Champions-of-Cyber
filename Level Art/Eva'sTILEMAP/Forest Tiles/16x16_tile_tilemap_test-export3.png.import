@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l1mdaua3je70"
-path="res://.godot/imported/16x16_tile_tilemap_test.png-4131ff6c9880fdc659ae45cc434ebb64.ctex"
+uid="uid://c8i4b4bfy25j2"
+path="res://.godot/imported/16x16_tile_tilemap_test-export3.png-28d8b41d3e57f5e72ca4d2db20828ce5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level Art/Eva'sTILEMAP/16x16_tile_tilemap_test.png"
-dest_files=["res://.godot/imported/16x16_tile_tilemap_test.png-4131ff6c9880fdc659ae45cc434ebb64.ctex"]
+source_file="res://Level Art/Eva'sTILEMAP/Forest Tiles/16x16_tile_tilemap_test-export3.png"
+dest_files=["res://.godot/imported/16x16_tile_tilemap_test-export3.png-28d8b41d3e57f5e72ca4d2db20828ce5.ctex"]
 
 [params]
 
