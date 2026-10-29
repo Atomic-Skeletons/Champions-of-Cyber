@@ -150,102 +150,124 @@ position = Vector2(-18, 0)
 
 [node name="Paralax Layers" type="Node2D" parent="Active Room/Level" unique_id=1296795371]
 
-[node name="Forest Paralax" type="Node2D" parent="Active Room/Level/Paralax Layers" unique_id=342683599]
+[node name="Forest Parallax Pivot" type="Marker2D" parent="Active Room/Level/Paralax Layers" unique_id=1428405618]
+position = Vector2(-540, 347)
+
+[node name="Forest Sky" type="Node2D" parent="Active Room/Level/Paralax Layers" unique_id=708710614 node_paths=PackedStringArray("anchor")]
+z_index = -4
 position = Vector2(-539, 366)
-
-[node name="Marker2D" type="Marker2D" parent="Active Room/Level/Paralax Layers/Forest Paralax" unique_id=1428405618]
-position = Vector2(-1, -19)
-
-[node name="Forest Sky" type="Node2D" parent="Active Room/Level/Paralax Layers/Forest Paralax" unique_id=708710614 node_paths=PackedStringArray("anchor")]
 script = ExtResource("10_px21a")
 scroll_scale = Vector2(0.3, 0.4)
-anchor = NodePath("../Marker2D")
+anchor = NodePath("../Forest Parallax Pivot")
 repeat_size = Vector2(375, 0)
 metadata/_custom_type_script = "uid://cqnjpwhyeg7sx"
 
-[node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Forest Paralax/Forest Sky" unique_id=73737395]
+[node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Forest Sky" unique_id=73737395]
 material = SubResource("ShaderMaterial_4vt6j")
 position = Vector2(95, -212)
 texture = SubResource("AtlasTexture_echq3")
 
-[node name="Background 4" type="Node2D" parent="Active Room/Level/Paralax Layers/Forest Paralax" unique_id=74973202 node_paths=PackedStringArray("anchor")]
+[node name="Background 4" type="Node2D" parent="Active Room/Level/Paralax Layers" unique_id=74973202 node_paths=PackedStringArray("anchor")]
+z_index = -3
+position = Vector2(-539, 366)
 script = ExtResource("10_px21a")
 scroll_scale = Vector2(0.6, 0.7)
-anchor = NodePath("../Marker2D")
+anchor = NodePath("../Forest Parallax Pivot")
 repeat_size = Vector2(375, 0)
 metadata/_custom_type_script = "uid://cqnjpwhyeg7sx"
 
-[node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Forest Paralax/Background 4" unique_id=400224492]
+[node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Background 4" unique_id=400224492]
 material = SubResource("ShaderMaterial_4vt6j")
 position = Vector2(95, -86)
 texture = SubResource("AtlasTexture_gfabo")
 region_enabled = true
 region_rect = Rect2(0, 246, 375, 210)
 
-[node name="Forest bg 1" type="Node2D" parent="Active Room/Level/Paralax Layers/Forest Paralax" unique_id=911482425 node_paths=PackedStringArray("anchor")]
+[node name="Transition" type="Node2D" parent="Active Room/Level/Paralax Layers" unique_id=1261015682 node_paths=PackedStringArray("anchor")]
+z_index = -2
+position = Vector2(-539, 366)
 script = ExtResource("10_px21a")
 scroll_scale = Vector2(0.8, 0.9)
-anchor = NodePath("../Marker2D")
+anchor = NodePath("../Forest Parallax Pivot")
 repeat_size = Vector2(375, 0)
 metadata/_custom_type_script = "uid://cqnjpwhyeg7sx"
 
-[node name="Sprite2D2" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Forest Paralax/Forest bg 1" unique_id=1524924932]
+[node name="Transition Sprite" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Transition" unique_id=1896813026]
+position = Vector2(474, 125.99999)
+scale = Vector2(1, 3.1168833)
+texture = ExtResource("8_skl73")
+region_enabled = true
+region_rect = Rect2(0, 468, 375, 77)
+
+[node name="Forest bg 1" type="Node2D" parent="Active Room/Level/Paralax Layers" unique_id=911482425 node_paths=PackedStringArray("anchor")]
+z_index = -1
+position = Vector2(-539, 366)
+script = ExtResource("10_px21a")
+scroll_scale = Vector2(0.8, 0.9)
+anchor = NodePath("../Forest Parallax Pivot")
+repeat_size = Vector2(375, 0)
+metadata/_custom_type_script = "uid://cqnjpwhyeg7sx"
+
+[node name="Sprite2D2" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Forest bg 1" unique_id=1524924932]
 material = SubResource("ShaderMaterial_4vt6j")
 position = Vector2(95, -209)
 texture = ExtResource("12_px21a")
 
-[node name="Cave Paralax" type="Node2D" parent="Active Room/Level/Paralax Layers" unique_id=1457374111]
+[node name="Cave Parallax Pivot" type="Marker2D" parent="Active Room/Level/Paralax Layers" unique_id=699964910]
+position = Vector2(446, 923)
+
+[node name="Cave Sky" type="Node2D" parent="Active Room/Level/Paralax Layers" unique_id=691264863 node_paths=PackedStringArray("anchor")]
+z_index = -5
 position = Vector2(446, 959)
-
-[node name="Marker2D" type="Marker2D" parent="Active Room/Level/Paralax Layers/Cave Paralax" unique_id=699964910]
-position = Vector2(0, -36)
-
-[node name="Cave Sky" type="Node2D" parent="Active Room/Level/Paralax Layers/Cave Paralax" unique_id=691264863 node_paths=PackedStringArray("anchor")]
 script = ExtResource("10_px21a")
 scroll_scale = Vector2(0.3, 0.6)
-anchor = NodePath("../Marker2D")
+anchor = NodePath("../Cave Parallax Pivot")
 repeat_size = Vector2(375, 0)
 metadata/_custom_type_script = "uid://cqnjpwhyeg7sx"
 
-[node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Cave Paralax/Cave Sky" unique_id=193252541]
+[node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Cave Sky" unique_id=193252541]
 material = SubResource("ShaderMaterial_4vt6j")
 position = Vector2(0, -125)
 texture = SubResource("AtlasTexture_eer3m")
 
-[node name="Pink Stalagtites" type="Node2D" parent="Active Room/Level/Paralax Layers/Cave Paralax" unique_id=1924392727 node_paths=PackedStringArray("anchor")]
+[node name="Pink Stalagtites" type="Node2D" parent="Active Room/Level/Paralax Layers" unique_id=1924392727 node_paths=PackedStringArray("anchor")]
+z_index = -4
+position = Vector2(446, 959)
 script = ExtResource("10_px21a")
 scroll_scale = Vector2(0.4, 0.7)
-anchor = NodePath("../Marker2D")
+anchor = NodePath("../Cave Parallax Pivot")
 repeat_size = Vector2(375, 0)
 metadata/_custom_type_script = "uid://cqnjpwhyeg7sx"
 
-[node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Cave Paralax/Pink Stalagtites" unique_id=1379579805]
+[node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Pink Stalagtites" unique_id=1379579805]
 material = SubResource("ShaderMaterial_4vt6j")
 position = Vector2(0, -65)
 texture = SubResource("AtlasTexture_11axq")
 
-[node name="Purple Stalagtites" type="Node2D" parent="Active Room/Level/Paralax Layers/Cave Paralax" unique_id=281116574 node_paths=PackedStringArray("anchor")]
-position = Vector2(0, -6)
+[node name="Purple Stalagtites" type="Node2D" parent="Active Room/Level/Paralax Layers" unique_id=281116574 node_paths=PackedStringArray("anchor")]
+z_index = -3
+position = Vector2(446, 953)
 script = ExtResource("10_px21a")
 scroll_scale = Vector2(0.5, 0.8)
-anchor = NodePath("../Marker2D")
+anchor = NodePath("../Cave Parallax Pivot")
 repeat_size = Vector2(375, 0)
 metadata/_custom_type_script = "uid://cqnjpwhyeg7sx"
 
-[node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Cave Paralax/Purple Stalagtites" unique_id=157173689]
+[node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Purple Stalagtites" unique_id=157173689]
 material = SubResource("ShaderMaterial_4vt6j")
 position = Vector2(0, -62)
 texture = SubResource("AtlasTexture_u12ga")
 
-[node name="Cave Bg 1" type="Node2D" parent="Active Room/Level/Paralax Layers/Cave Paralax" unique_id=13216456 node_paths=PackedStringArray("anchor")]
-position = Vector2(0, -4)
+[node name="Cave Bg 1" type="Node2D" parent="Active Room/Level/Paralax Layers" unique_id=13216456 node_paths=PackedStringArray("anchor")]
+z_index = -1
+position = Vector2(446, 955)
 script = ExtResource("10_px21a")
 scroll_scale = Vector2(0.6, 0.9)
-anchor = NodePath("../Marker2D")
+anchor = NodePath("../Cave Parallax Pivot")
 repeat_size = Vector2(375, 0)
 metadata/_custom_type_script = "uid://cqnjpwhyeg7sx"
 
-[node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Cave Paralax/Cave Bg 1" unique_id=2138715814]
+[node name="Sprite2D" type="Sprite2D" parent="Active Room/Level/Paralax Layers/Cave Bg 1" unique_id=2138715814]
 material = SubResource("ShaderMaterial_4vt6j")
 position = Vector2(0, -150)
 texture = SubResource("AtlasTexture_5rliw")
