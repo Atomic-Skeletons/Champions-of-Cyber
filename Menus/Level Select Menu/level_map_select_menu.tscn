@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bfjpl83o7odd4" path="res://Menus/Level Select Menu/level_marker_node.gd" id="2_bwoev"]
 [ext_resource type="Shader" uid="uid://bqu4wyyrglxli" path="res://Shaders/3d_pixelation_shader.gdshader" id="3_22auc"]
 [ext_resource type="Script" uid="uid://5vryxxlbswy4" path="res://Menus/Level Select Menu/subviewport_framerate_controller.gd" id="3_gw6ed"]
+[ext_resource type="Script" uid="uid://4asbqth3ibg3" path="res://Menus/Level Select Menu/test level select.gd" id="5_y7c0m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bwoev"]
 shader = ExtResource("3_22auc")
@@ -37,21 +38,21 @@ diffuse_mode = 3
 albedo_color = Color(0.2509804, 0.18039216, 1, 1)
 roughness = 0.56
 
-[node name="Level Select Menu" type="CanvasLayer" unique_id=426482624 node_paths=PackedStringArray("current_level_marker", "camera", "globe")]
-script = ExtResource("1_ssk2x")
-current_level_marker = NodePath("SubViewportContainer/SubViewport/World Mesh/Level 1")
-camera = NodePath("SubViewportContainer/SubViewport/Camera3D")
-globe = NodePath("SubViewportContainer/SubViewport/World Mesh")
-
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=682265759]
+[node name="Level Select Menu" type="Control" unique_id=930386880 node_paths=PackedStringArray("current_level_marker", "camera", "globe")]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ssk2x")
+current_level_marker = NodePath("SubViewportContainer/SubViewport/World Mesh/Level 1")
+camera = NodePath("SubViewportContainer/SubViewport/Camera3D")
+globe = NodePath("SubViewportContainer/SubViewport/World Mesh")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1613040284]
 material = SubResource("ShaderMaterial_bwoev")
+layout_mode = 0
 offset_left = 266.0
 offset_top = -14.0
 offset_right = 778.0
@@ -102,7 +103,44 @@ size = Vector3(1, 0.3816223, 1)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=19400189]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1301258)
+current = true
 size = 1.2519449
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=1069844376]
 transform = Transform3D(0.65574425, -0.70113295, -0.28002214, 0.5220815, 0.15318945, 0.8390256, -0.5453719, -0.69638044, 0.46650165, -0.5576676, 1.5496408, 0.26807654)
+
+[node name="Panel" type="Panel" parent="." unique_id=2119151645]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_top = 48.0
+offset_right = -43.0
+offset_bottom = -72.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1323528126]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer" unique_id=1345163497]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="FlowContainer" type="FlowContainer" parent="Panel/MarginContainer/ScrollContainer" unique_id=2009895781]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("5_y7c0m")
+level_directory = "res://Test Levels/Adventure Levels"
+
+[node name="Button" type="Button" parent="Panel/MarginContainer/ScrollContainer/FlowContainer" unique_id=1026673663]
+layout_mode = 2

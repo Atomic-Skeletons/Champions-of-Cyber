@@ -84,3 +84,11 @@ func _on_save_game_pressed() -> void:
 func _on_restart_room_pressed() -> void:
 	unpause()
 	LevelManager.restart_room()
+
+
+func _on_main_menu_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_level_select_pressed() -> void:
+	pass # Replace with function body.

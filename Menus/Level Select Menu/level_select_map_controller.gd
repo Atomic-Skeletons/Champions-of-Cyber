@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 #
 #@onready var camera_pivot_point: Node3D = $"CanvasLayer/CenterContainer/SubViewportContainer/SubViewport/Camera Pivot Point"
 #
