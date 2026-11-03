@@ -55,6 +55,15 @@ func restart_room():
 	get_tree().reload_current_scene()
 	start_scene()
 
+func open_scene(path: String):
+	if in_progress: return
+	start_transition()
+	
+	await TransitionScreen.animation_done
+	
+	get_tree().change_scene_to_file(path)
+	start_scene()
+
 func start_transition():
 	in_progress = true
 	TransitionScreen.reset_center()

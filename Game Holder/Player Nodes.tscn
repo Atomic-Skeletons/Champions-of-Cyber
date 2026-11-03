@@ -23,6 +23,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s84qx")
+main_menu_scene = "uid://dx81m8wp1kusu"
+level_select_scene = "uid://bpnymhyuho87h"
 
 [node name="Controller Setup" parent="GUI/Pause Menu" unique_id=465136458 instance=ExtResource("2_whlfa")]
 unique_name_in_owner = true

@@ -25,6 +25,8 @@ var items : Array[String]:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	items = load_data_from_directory()
+	var first_button: Button = get_child(1)
+	first_button.grab_focus()
 
 
 func load_data_from_directory() -> Array[String]:

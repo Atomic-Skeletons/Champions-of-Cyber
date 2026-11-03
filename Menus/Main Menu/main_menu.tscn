@@ -22,7 +22,7 @@ grow_vertical = 2
 script = ExtResource("1_s5h8b")
 menus = [NodePath("../Controller Setup")]
 
-[node name="Test Scene Button" type="Button" parent="Main Menu Panel" unique_id=1075987319]
+[node name="Level Select Menu" type="Button" parent="Main Menu Panel" unique_id=1075987319]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,7 +33,7 @@ offset_right = -468.0
 offset_bottom = -339.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Test Scene"
+text = "Level Select"
 script = ExtResource("2_h6le2")
 scene_name = "uid://bpnymhyuho87h"
 

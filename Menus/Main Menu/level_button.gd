@@ -8,4 +8,4 @@ func _ready() -> void:
 	pressed.connect(open_level)
 
 func open_level():
-	LevelManager.open_level(scene_name)
+	LevelManager.open_scene(scene_name)
