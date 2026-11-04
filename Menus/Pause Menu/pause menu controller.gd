@@ -3,7 +3,6 @@ extends Control
 
 @onready var resume: Button = %Resume
 var last_focus_button: Button
-@onready var controller_setup: Control = %"Controller Setup"
 
 var menu_stack: Array[Control] = []
 
@@ -46,7 +45,6 @@ func enable_top_menu():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hide()
-	controller_setup.hidden.connect(remove_top_menu_from_stack)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -67,10 +65,6 @@ func pause():
 func unpause():
 	get_tree().paused = false
 	hide()
-
-
-func _on_controller_setup_pressed() -> void:
-	add_menu_to_stack(controller_setup)
 
 
 func _on_toggle_fullscreen_pressed() -> void:

@@ -185,4 +185,4 @@ curve = SubResource("Curve2D_w2iq6")
 
 [node name="End Door" parent="Active Room/Level" unique_id=1487951020 instance=ExtResource("10_togss")]
 position = Vector2(0, -1694)
-target_scene = "uid://c7mg8ret6gtxq"
+target_scene = "uid://cw4wmtq5qj7mp"

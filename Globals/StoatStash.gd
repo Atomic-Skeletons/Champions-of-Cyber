@@ -476,6 +476,7 @@ func play_music(music: AudioStream, volume: float = 1.0, loop: bool = true, fade
 		push_warning("play_music: invalid audiostream")
 		return
 	
+	_music_player.bus = "Music"
 	# Stop current music and clean up any existing connections
 	_music_player.stop()
 	_cleanup_music_connections()

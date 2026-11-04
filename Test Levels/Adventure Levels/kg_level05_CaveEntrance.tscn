@@ -145,7 +145,7 @@ curve = SubResource("Curve2D_w2iq6")
 
 [node name="End Door" parent="Active Room/Level" unique_id=1487951020 instance=ExtResource("10_gf4t3")]
 position = Vector2(350, 35)
-target_scene = "uid://c7mg8ret6gtxq"
+target_scene = "uid://c3ilk71lunp2i"
 
 [node name="Bat Placeholder" type="Sprite2D" parent="Active Room/Level" unique_id=1850281023]
 position = Vector2(180.99998, -148)

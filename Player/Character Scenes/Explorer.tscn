@@ -863,15 +863,19 @@ metadata/_custom_type_script = "uid://cr2xbhach1rlt"
 
 [node name="Laser Bullet" type="AudioStreamPlayer" parent="Audio" unique_id=901213534]
 stream = SubResource("AudioStreamRandomizer_aykj2")
+bus = &"SFX"
 
 [node name="Laser Charge Up" type="AudioStreamPlayer" parent="Audio" unique_id=531103463]
 stream = SubResource("AudioStreamRandomizer_l72of")
+bus = &"SFX"
 
 [node name="Laser Beam" type="AudioStreamPlayer" parent="Audio" unique_id=773479681]
 stream = SubResource("AudioStreamRandomizer_dfbu7")
+bus = &"SFX"
 
 [node name="Sfx Jump" type="AudioStreamPlayer" parent="Audio" unique_id=218857365]
 stream = ExtResource("9_w36s2")
+bus = &"SFX"
 
 [node name="Character States" type="LimboHSM" parent="." unique_id=1273866113]
 

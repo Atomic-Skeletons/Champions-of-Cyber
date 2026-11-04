@@ -212,7 +212,7 @@ target_spawn = &"End Door"
 
 [node name="Door2" parent="Active Room/Level" unique_id=1691878589 instance=ExtResource("11_7rx0v")]
 position = Vector2(2174, -59)
-target_scene = "uid://dx81m8wp1kusu"
+target_scene = "uid://blbhsfhg1v7yc"
 
 [node name="Big Enemy Dude" parent="Active Room/Level" unique_id=1934428350 instance=ExtResource("12_ti8id")]
 position = Vector2(197, 36)

@@ -68,9 +68,11 @@ func start_transition():
 	in_progress = true
 	TransitionScreen.reset_center()
 	TransitionScreen.start_level_transition()
+	AudioBus.fade_out_music(.2)
 
 func start_scene():
 	in_progress = false
 	get_tree().paused = false
 	TransitionScreen.reset_center()
 	TransitionScreen.fade_out()
+	AudioBus.fade_in_music(.2)

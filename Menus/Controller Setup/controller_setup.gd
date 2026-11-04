@@ -7,7 +7,7 @@ extends Control
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
-		hide()
+		LevelManager.continue_to_level()
 
 
 func _on_visibility_changed() -> void:

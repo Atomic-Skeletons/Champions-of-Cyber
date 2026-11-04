@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cwkpu61rxkoh1"]
 
 [ext_resource type="Script" uid="uid://cetcpqlgpoh36" path="res://Menus/Pause Menu/pause menu controller.gd" id="1_s84qx"]
-[ext_resource type="PackedScene" uid="uid://bndhmjwv3783" path="res://Menus/controller_setup.tscn" id="2_whlfa"]
 [ext_resource type="Script" uid="uid://csmg2t23mawo6" path="res://Player/player_health_bar_and_metter_controller.gd" id="3_qyxg1"]
 [ext_resource type="Texture2D" uid="uid://chxconcuso2pk" path="res://Player/Character Assets/Explorer/Art/explorer shape sprite.png" id="4_xqsee"]
 [ext_resource type="Texture2D" uid="uid://82ix15nf31cd" path="res://GUI/progress_bar_inner_and_fill.png" id="5_xsq3y"]
@@ -25,11 +24,6 @@ grow_vertical = 2
 script = ExtResource("1_s84qx")
 main_menu_scene = "uid://dx81m8wp1kusu"
 level_select_scene = "uid://bpnymhyuho87h"
-
-[node name="Controller Setup" parent="GUI/Pause Menu" unique_id=465136458 instance=ExtResource("2_whlfa")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="GUI/Pause Menu" unique_id=659088421]
 layout_mode = 1

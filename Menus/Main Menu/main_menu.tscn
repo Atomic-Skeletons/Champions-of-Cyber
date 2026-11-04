@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://c1vdgov5fbf2x" path="res://Menus/Main Menu/main menu controller.gd" id="1_s5h8b"]
 [ext_resource type="Script" uid="uid://pid5dbdd2x7w" path="res://Menus/Main Menu/level_button.gd" id="2_h6le2"]
-[ext_resource type="PackedScene" uid="uid://bndhmjwv3783" path="res://Menus/controller_setup.tscn" id="3_unecm"]
 
 [node name="Main Menu" type="Control" unique_id=21229634]
 layout_mode = 3
@@ -12,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Main Menu Panel" type="Control" parent="." unique_id=1519572522 node_paths=PackedStringArray("menus")]
+[node name="Main Menu Panel" type="Control" parent="." unique_id=1519572522]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +19,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s5h8b")
-menus = [NodePath("../Controller Setup")]
 
 [node name="Level Select Menu" type="Button" parent="Main Menu Panel" unique_id=1075987319]
 layout_mode = 1
@@ -49,9 +47,5 @@ offset_bottom = -105.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Quit"
-
-[node name="Controller Setup" parent="." unique_id=465136458 instance=ExtResource("3_unecm")]
-visible = false
-layout_mode = 1
 
 [connection signal="pressed" from="Main Menu Panel/Quit" to="Main Menu Panel" method="_on_quit_pressed"]

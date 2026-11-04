@@ -297,18 +297,23 @@ metadata/_custom_type_script = "uid://cr2xbhach1rlt"
 
 [node name="SfxElectricPunch" type="AudioStreamPlayer" parent="Audio" unique_id=1972644141]
 stream = SubResource("AudioStreamRandomizer_cwy66")
+bus = &"SFX"
 
 [node name="SfxElectricKick" type="AudioStreamPlayer" parent="Audio" unique_id=12777748]
 stream = SubResource("AudioStreamRandomizer_qdcu2")
+bus = &"SFX"
 
 [node name="SfxElectricBall" type="AudioStreamPlayer" parent="Audio" unique_id=77162799]
 stream = SubResource("AudioStreamRandomizer_46hbe")
+bus = &"SFX"
 
 [node name="SfxJummp" type="AudioStreamPlayer" parent="Audio" unique_id=1881617385]
 stream = ExtResource("8_7hw07")
+bus = &"SFX"
 
 [node name="SfxElectricDash" type="AudioStreamPlayer" parent="Audio" unique_id=1478122005]
 stream = SubResource("AudioStreamRandomizer_qyvub")
+bus = &"SFX"
 
 [node name="Character States" type="LimboHSM" parent="." unique_id=1912443356]
 

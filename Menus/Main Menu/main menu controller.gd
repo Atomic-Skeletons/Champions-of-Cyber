@@ -65,8 +65,3 @@ func pause():
 func unpause():
 	get_tree().paused = false
 	hide()
-
-
-func _on_controller_setup_pressed() -> void:
-	pass
-	#add_menu_to_stack(controller_setup)
