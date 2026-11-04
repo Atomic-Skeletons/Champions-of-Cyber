@@ -132,6 +132,10 @@ script = ExtResource("1_8aoh7")
 top_level = true
 position = Vector2(20, -46)
 zoom = Vector2(2, 2)
+limit_left = -209
+limit_top = -190
+limit_right = 1005
+limit_bottom = 74
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera Nodes2/Camera2D" unique_id=2123225963]

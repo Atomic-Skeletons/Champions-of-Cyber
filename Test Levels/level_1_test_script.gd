@@ -7,6 +7,7 @@ extends Level
 @onready var player2: PlayerCharacterHolder = get_tree().get_nodes_in_group("Player")[1] if get_tree().get_nodes_in_group("Player").size() > 1 else null
 
 func _ready() -> void:
+	AudioBus.set_forest()
 	var spawn_name :StringName = LevelManager.next_spawn if LevelManager.next_spawn != &"" else default_spawn
 	var spawn := get_node_or_null("SpawnPoints/%s" % spawn_name)
 	if spawn:
