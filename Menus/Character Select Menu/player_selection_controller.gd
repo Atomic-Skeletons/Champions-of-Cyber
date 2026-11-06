@@ -137,3 +137,8 @@ func move(character_num: int, dir: Vector2i) -> void:
 		character_1_id = index
 	elif character_num == 2:
 		character_2_id = index
+		# if the character is selecting their second character
+		# and they try to go over the character already selected
+		if character_2_id == character_1_id:
+			move(character_num, dir)
+	

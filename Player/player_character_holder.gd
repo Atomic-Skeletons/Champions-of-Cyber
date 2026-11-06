@@ -13,6 +13,7 @@ var character_2_scene: PackedScene
 
 
 @onready var phantom_camera: PhantomCamera2D = Global.get_phantom_camera()
+@onready var tag_cooldown: Timer = $"Tag Cooldown"
 
 
 func _ready() -> void:
@@ -58,7 +59,8 @@ func _physics_process(_delta: float) -> void:
 		character_2.air_movement = true
 
 func tag():
-	if not active_character.can_tag: return
+	if not active_character.can_tag or not tag_cooldown.is_stopped(): return
+	tag_cooldown.start()
 	# Swap character with other based on index
 	# if the first character is active
 	if active_character_index == 1:

@@ -1,8 +1,75 @@
 [gd_scene format=3 uid="uid://chugbu1kdeco2"]
 
-[ext_resource type="Texture2D" uid="uid://chxconcuso2pk" path="res://Player/Character Assets/Explorer/Art/explorer shape sprite.png" id="1_i36mq"]
+[ext_resource type="Texture2D" uid="uid://sd08u1qgbb77" path="res://Player/Character Assets/Explorer/Art/anim_explorer-idle-vers1-sheet.png" id="2_0pe1r"]
 [ext_resource type="Texture2D" uid="uid://e0454mamtsq2" path="res://Player/Character Assets/Electric Boogaloo/Art/electric boogaloo.png" id="2_ej30m"]
 [ext_resource type="Texture2D" uid="uid://cw40pe2v3j4hy" path="res://Player/Character Assets/Roller Shark/Art/rollerblading.png" id="3_ej30m"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ej30m"]
+viewport_path = NodePath("Electric Boogaloo2/SubViewport")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6x5v"]
+atlas = ExtResource("2_0pe1r")
+region = Rect2(0, 0, 32, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_druiw"]
+atlas = ExtResource("2_0pe1r")
+region = Rect2(32, 0, 32, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3o0v8"]
+atlas = ExtResource("2_0pe1r")
+region = Rect2(64, 0, 32, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bt7xv"]
+atlas = ExtResource("2_0pe1r")
+region = Rect2(96, 0, 32, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mq4r"]
+atlas = ExtResource("2_0pe1r")
+region = Rect2(128, 0, 32, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnllb"]
+atlas = ExtResource("2_0pe1r")
+region = Rect2(160, 0, 32, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkfjd"]
+atlas = ExtResource("2_0pe1r")
+region = Rect2(192, 0, 32, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsw18"]
+atlas = ExtResource("2_0pe1r")
+region = Rect2(224, 0, 32, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6x5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_druiw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3o0v8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bt7xv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mq4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnllb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkfjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsw18")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g4v7s"]
 atlas = ExtResource("3_ej30m")
@@ -13,7 +80,7 @@ layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 3
 
-[node name="Explorer" type="TextureRect" parent="." unique_id=1115856347]
+[node name="Electric Boogaloo2" type="TextureRect" parent="." unique_id=900568433]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +88,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-texture = ExtResource("1_i36mq")
+texture = SubResource("ViewportTexture_ej30m")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SubViewport" type="SubViewport" parent="Electric Boogaloo2" unique_id=383013989]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(20, 34)
+render_target_update_mode = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Electric Boogaloo2/SubViewport" unique_id=954375507]
+position = Vector2(12, 17)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.89873713
 
 [node name="Electric Boogaloo" type="TextureRect" parent="." unique_id=204450583]
 layout_mode = 1
@@ -32,6 +113,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_ej30m")
+stretch_mode = 5
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1623624940]
 layout_mode = 1
@@ -41,3 +123,4 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_g4v7s")
+stretch_mode = 5

@@ -3,6 +3,7 @@ extends LimboState
 
 func _enter() -> void:
 	agent.character_2_id = agent.character_1_id
+	agent.move(2, Vector2i.RIGHT)
 
 func _ready() -> void:
 	pass

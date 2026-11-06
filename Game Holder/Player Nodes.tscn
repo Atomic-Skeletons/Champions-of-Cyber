@@ -337,6 +337,10 @@ size_flags_horizontal = 3
 z_index = 2
 script = ExtResource("9_onf82")
 
+[node name="Tag Cooldown" type="Timer" parent="Player Character Holder" unique_id=818417221]
+wait_time = 0.3
+one_shot = true
+
 [connection signal="pressed" from="GUI/Pause Menu/CenterContainer/Control/Panel/MarginContainer/VBoxContainer/MarginContainer2/Resume" to="GUI/Pause Menu" method="unpause"]
 [connection signal="pressed" from="GUI/Pause Menu/CenterContainer/Control/Panel/MarginContainer/VBoxContainer/MarginContainer3/Toggle Fullscreen" to="GUI/Pause Menu" method="_on_toggle_fullscreen_pressed"]
 [connection signal="pressed" from="GUI/Pause Menu/CenterContainer/Control/Panel/MarginContainer/VBoxContainer/MarginContainer4/Save Game" to="GUI/Pause Menu" method="_on_save_game_pressed"]
