@@ -1,5 +1,6 @@
 extends Node
 
+var single_player = true
 
 func get_closest_character(node: Node2D) -> Character:
 	var closest_character: Character = null
