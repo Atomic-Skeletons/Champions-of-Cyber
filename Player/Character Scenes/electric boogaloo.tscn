@@ -315,18 +315,6 @@ bus = &"SFX"
 stream = SubResource("AudioStreamRandomizer_qyvub")
 bus = &"SFX"
 
-[node name="Character States" type="LimboHSM" parent="." unique_id=1912443356]
-
-[node name="Active" type="LimboState" parent="Character States" unique_id=817039993]
-
-[node name="Hitstun" type="LimboState" parent="Character States" unique_id=1828164607]
-
-[node name="Knockback" type="LimboState" parent="Character States" unique_id=923642929]
-
-[node name="Locked" type="LimboState" parent="Character States" unique_id=1068504408]
-
-[node name="Tagged Out" type="LimboState" parent="Character States" unique_id=5855411]
-
 [node name="Timers" type="Node" parent="." unique_id=475967593]
 
 [node name="Melee Attack Hitstop Timer" type="Timer" parent="Timers" unique_id=189695193]

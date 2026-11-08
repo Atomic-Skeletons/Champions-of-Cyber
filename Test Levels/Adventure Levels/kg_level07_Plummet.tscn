@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bkg77k1q7kyqy" path="res://Level Art/Eva'sBG_Art/Forest_Bg/2ndlayer_forestbg.png" id="7_78sox"]
 [ext_resource type="Texture2D" uid="uid://cwp8g7883o37n" path="res://Level Art/Eva'sBG_Art/Forest_Bg/foreground-layer_forest-bg_02.png" id="8_deuyk"]
 [ext_resource type="PackedScene" uid="uid://21srs1gejciy" path="res://Level Objects/Doors/door.tscn" id="10_cycuf"]
-[ext_resource type="TileSet" uid="uid://dmxsr4k3gv75h" path="res://Level Art/16x16 tilemap.tres" id="10_glqfr"]
+[ext_resource type="TileSet" uid="uid://dmxsr4k3gv75h" path="res://Test Levels/16x16 tilemap.tres" id="10_glqfr"]
 [ext_resource type="Script" uid="uid://23avvl1yuwqe" path="res://Level Objects/Moving Platform/moving_platform.gd" id="12_glqfr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4vt6j"]

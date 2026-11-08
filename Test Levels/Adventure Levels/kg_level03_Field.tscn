@@ -12,7 +12,7 @@
 [ext_resource type="TileSet" uid="uid://dbyi4yvvgbymx" path="res://Test Levels/Eva Tileset.tres" id="9_beq15"]
 [ext_resource type="Shader" uid="uid://co1utmf6e0mor" path="res://Shaders/animated_2d_fog.gdshader" id="9_e5s4p"]
 [ext_resource type="PackedScene" uid="uid://21srs1gejciy" path="res://Level Objects/Doors/door.tscn" id="10_nfu1e"]
-[ext_resource type="TileSet" uid="uid://dmxsr4k3gv75h" path="res://Level Art/16x16 tilemap.tres" id="11_e5s4p"]
+[ext_resource type="TileSet" uid="uid://dmxsr4k3gv75h" path="res://Test Levels/16x16 tilemap.tres" id="11_e5s4p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4vt6j"]
 

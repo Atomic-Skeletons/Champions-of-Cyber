@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://8wekicljdp7u" path="res://Level Objects/Enemies/test_big_enemy_dude.tscn" id="12_81v55"]
 [ext_resource type="Shader" uid="uid://co1utmf6e0mor" path="res://Shaders/animated_2d_fog.gdshader" id="12_ubpgn"]
 [ext_resource type="Script" uid="uid://23avvl1yuwqe" path="res://Level Objects/Moving Platform/moving_platform.gd" id="14_uo2gm"]
-[ext_resource type="TileSet" uid="uid://dmxsr4k3gv75h" path="res://Level Art/16x16 tilemap.tres" id="15_a63wv"]
+[ext_resource type="TileSet" uid="uid://dmxsr4k3gv75h" path="res://Test Levels/16x16 tilemap.tres" id="15_a63wv"]
 
 [sub_resource type="Resource" id="Resource_a3gxn"]
 script = ExtResource("5_ffwm7")

@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://8wekicljdp7u" path="res://Level Objects/Enemies/test_big_enemy_dude.tscn" id="12_t3n65"]
 [ext_resource type="PackedScene" uid="uid://bag7eslpq1be4" path="res://Level Objects/Enemies/turret.tscn" id="13_7im45"]
 [ext_resource type="Script" uid="uid://23avvl1yuwqe" path="res://Level Objects/Moving Platform/moving_platform.gd" id="14_qog3t"]
-[ext_resource type="TileSet" uid="uid://dmxsr4k3gv75h" path="res://Level Art/16x16 tilemap.tres" id="15_qog3t"]
+[ext_resource type="TileSet" uid="uid://dmxsr4k3gv75h" path="res://Test Levels/16x16 tilemap.tres" id="15_qog3t"]
 [ext_resource type="Script" uid="uid://cim2f48qo18uq" path="res://Test Levels/level_1_test_script.gd" id="15_wn43c"]
 [ext_resource type="PackedScene" uid="uid://dgg80udjapec8" path="res://Level Objects/Enemies/test_enemy_dude.tscn" id="20_5kte7"]
 

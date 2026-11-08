@@ -477,6 +477,7 @@ func play_music(music: AudioStream, volume: float = 1.0, loop: bool = true, fade
 		return
 	
 	_music_player.bus = "Music"
+	_music_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	# Stop current music and clean up any existing connections
 	_music_player.stop()
 	_cleanup_music_connections()
@@ -1280,6 +1281,7 @@ func delete_save(filename: String = "save_game.dat"):
 ###################################### UPDATE ####################################
 ##################################################################################
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	set_process(true)
 
 func _process(delta: float) -> void:

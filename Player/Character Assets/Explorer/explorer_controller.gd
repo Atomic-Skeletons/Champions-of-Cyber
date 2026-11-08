@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 	if is_hitstopped: return
 	
 	if is_hitstunned:
-		anim_player.play("recoil")
+		#anim_player.play("recoil")
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 		else:
@@ -83,10 +83,10 @@ func _physics_process(delta: float) -> void:
 					velocity += get_gravity() * delta
 			velocity += get_gravity() * delta
 		# if the player is moving down
-		if velocity.y > 0:
-			anim_player.play("fall")
+		#if velocity.y > 0:
+			#anim_player.play("fall")
 		# if the player is moving up
-		elif velocity.y < 0:
+		if velocity.y < 0:
 			if will_hit_ceiling_in_frames(2):
 				velocity.y *= 1./3
 	# if the player is grounded
@@ -104,17 +104,16 @@ func _physics_process(delta: float) -> void:
 	update_facing_direction(sign(direction))
 	
 	if direction:
-		if is_on_floor() and anim_player.current_animation != "walk" and anim_player.current_animation != "jump":
-			anim_player.play("walk")
+		#if is_on_floor() and anim_player.current_animation != "walk" and anim_player.current_animation != "jump":
+			#anim_player.play("walk")
 		var speed = move_speed
 		if mega_laser:
 			speed /= 2
 		#velocity.x += direction * ground_acceleration * delta
 		velocity.x = direction * speed
 	else:
-		if is_on_floor() and not anim_player.current_animation in ["jump", "land"]:
-			#anim_player.play("idle")
-			anim_play("idle")
+		#if is_on_floor() and not anim_player.current_animation in ["jump", "land"]:
+			#anim_play("idle")
 		velocity.x = move_toward(velocity.x, 0, move_speed)
 	
 	if is_on_ceiling():
@@ -127,7 +126,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if input.is_action_pressed("attack"):
-		anim_player.play("attack")
+		#anim_player.play("attack")
 		if laser_charge == 0:
 			started_charging.emit()
 		laser_charge += delta
@@ -145,9 +144,11 @@ func _physics_process(delta: float) -> void:
 			shoot_laser_bullet()
 			anim_player.stop()
 		#anim_player.play("idle")
-	if (not prev_is_on_floor) and is_on_floor() and not direction:
-		anim_player.play("land")
+	#if (not prev_is_on_floor) and is_on_floor() and not direction:
+		#anim_player.play("land")
+	
 	prev_is_on_floor = is_on_floor()
+	update_animations()
 
 func anim_play(anim_name: String):
 	anim_player.play(anim_name)
@@ -241,7 +242,9 @@ func update_animations():
 			anim_player.play("fall")
 	# if on floor
 	else:
-		if velocity.x:
+		var direction := input.get_x_axis()
+		# if trying to move
+		if direction:
 			pass
 	# directional movement for walking
 	# gravity animations
@@ -322,6 +325,7 @@ func _on_health_component_damaged(amount: Variant, hitstun_duration: Variant, hi
 	if mega_laser:
 		end_mega_laser()
 	# create tween timers
+	anim_play("recoil")
 	if hitstun_duration:
 		is_hitstunned = true
 		hitstun_tween = Utilities.reset_tween(hitstun_tween, self)

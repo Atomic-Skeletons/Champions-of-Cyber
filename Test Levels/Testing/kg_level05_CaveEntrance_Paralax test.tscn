@@ -14,7 +14,7 @@
 [ext_resource type="Script" uid="uid://cqnjpwhyeg7sx" path="res://Test Levels/Testing/parallax_layer_25d.gd" id="10_px21a"]
 [ext_resource type="PackedScene" uid="uid://21srs1gejciy" path="res://Level Objects/Doors/door.tscn" id="10_u08xo"]
 [ext_resource type="Texture2D" uid="uid://dqcg6qlykahpm" path="res://Level Art/Eva'sBG_Art/Forest_Bg/Forest_bg2.0-LAYER2.png" id="12_px21a"]
-[ext_resource type="TileSet" uid="uid://dmxsr4k3gv75h" path="res://Level Art/16x16 tilemap.tres" id="13_5rliw"]
+[ext_resource type="TileSet" uid="uid://dmxsr4k3gv75h" path="res://Test Levels/16x16 tilemap.tres" id="13_5rliw"]
 
 [sub_resource type="Resource" id="Resource_a3gxn"]
 script = ExtResource("5_px21a")
@@ -271,6 +271,11 @@ metadata/_custom_type_script = "uid://cqnjpwhyeg7sx"
 material = SubResource("ShaderMaterial_4vt6j")
 position = Vector2(0, -150)
 texture = SubResource("AtlasTexture_5rliw")
+
+[node name="Platform Tilemap Layer2" type="TileMapLayer" parent="Active Room/Level" unique_id=629730106]
+position = Vector2(365, 701)
+tile_map_data = PackedByteArray("AADE/+7/AgACAAIAAADE/+3/AgACAAEAAADE/+z/AgACAAEAAADE/+v/AgACAAEAAADE/+r/AgACAAEAAADE/+n/AgACAAAAAADD/+7/AgABAAIAAADD/+3/AgABAAEAAADD/+z/AgABAAEAAADD/+v/AgABAAEAAADD/+r/AgABAAEAAADD/+n/AgABAAAAAADC/+7/AgABAAIAAADC/+3/AgABAAEAAADC/+z/AgABAAEAAADC/+v/AgABAAEAAADC/+r/AgABAAEAAADC/+n/AgABAAAAAADB/+7/AgABAAIAAADB/+3/AgABAAEAAADB/+z/AgABAAEAAADB/+v/AgABAAEAAADB/+r/AgABAAEAAADB/+n/AgABAAAAAADA/+7/AgAAAAIAAADA/+3/AgAAAAEAAADA/+z/AgAAAAEAAADA/+v/AgAAAAEAAADA/+r/AgAAAAEAAADA/+n/AgAAAAAAAADP/+z/AgACAAIAAADP/+v/AgACAAAAAADO/+z/AgAAAAIAAADO/+v/AgAAAAAAAADg//L/AgACAAIAAADg//H/AgACAAEAAADg//D/AgACAAEAAADg/+//AgACAAAAAADf//L/AgAAAAIAAADf//H/AgAAAAEAAADf//D/AgAAAAEAAADf/+//AgAAAAAAAADD/+b/AgACAAIAAADD/+X/AgACAAEAAADD/+T/AgADAAAAAADD/+P/AgABAAAAAADC/+b/AgAAAAIAAADC/+X/AgAAAAEAAADC/+T/AgAAAAEAAADC/+P/AgAAAAAAAADE/+T/AgACAAIAAADE/+P/AgACAAAAAAA=")
+tile_set = ExtResource("13_5rliw")
 
 [node name="Platform Tilemap Layer" type="TileMapLayer" parent="Active Room/Level" unique_id=2069029130]
 position = Vector2(365, 701)

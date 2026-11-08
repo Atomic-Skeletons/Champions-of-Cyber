@@ -39,10 +39,11 @@ func _ready() -> void:
 	update_input_data()
 
 func _physics_process(delta: float) -> void:
+	update_buffered_actions(delta)
+	if Global.single_player: return
+	update_input_data()
 	if input_source == InputSource.JOYPAD:
 		_poll_joypad()
-	update_buffered_actions(delta)
-	update_input_data()
 
 
 func _poll_joypad() -> void:
@@ -64,18 +65,24 @@ func _keyboard_action(action: String) -> String:
 
 
 func is_action_pressed(action: String) -> bool:
+	if Global.single_player: 
+		return Input.is_action_pressed(action)
 	if input_source == InputSource.KEYBOARD:
 		return Input.is_action_pressed(_keyboard_action(action))
 	return _joy_now.get(action, false)
 
 
 func is_action_just_pressed(action: String) -> bool:
+	if Global.single_player: 
+		return Input.is_action_just_pressed(action)
 	if input_source == InputSource.KEYBOARD:
 		return Input.is_action_just_pressed(_keyboard_action(action))
 	return _joy_now.get(action, false) and not _joy_prev.get(action, false)
 
 
 func is_action_just_released(action: String) -> bool:
+	if Global.single_player: 
+		return Input.is_action_just_released(action)
 	if input_source == InputSource.KEYBOARD:
 		return Input.is_action_just_released(_keyboard_action(action))
 	return _joy_prev.get(action, false) and not _joy_now.get(action, false)
@@ -83,6 +90,8 @@ func is_action_just_released(action: String) -> bool:
 
 ## -1..1, same idea as Input.get_axis(left_action, right_action).
 func get_x_axis() -> float:
+	if Global.single_player: 
+		return Input.get_axis("left", "right")
 	if input_source == InputSource.KEYBOARD:
 		return Input.get_axis(_keyboard_action("left"), _keyboard_action("right"))
 	var axis := Input.get_joy_axis(joypad_device, JOY_AXIS_LEFT_X)
@@ -93,6 +102,8 @@ func get_x_axis() -> float:
 
 ## -1..1 vertical axis (up = -1). Only useful if you add ladders/crouch later.
 func get_y_axis() -> float:
+	if Global.single_player: 
+		return Input.get_axis("up", "down")
 	if input_source == InputSource.KEYBOARD:
 		return Input.get_axis(_keyboard_action("up"), _keyboard_action("down"))
 	var axis := Input.get_joy_axis(joypad_device, JOY_AXIS_LEFT_Y)
