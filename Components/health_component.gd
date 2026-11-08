@@ -8,6 +8,8 @@ signal healed(amount)
 @export_category("Health")
 @export var max_hp = 10
 var current_hp = 10
+@export var invincibility_duration := 1.
+@onready var invincibility_timer := Timer.new()
 
 @export_category("Tags")
 @export var immunity_tags: Array[AttackData.damage_tag]
@@ -18,6 +20,10 @@ var current_hp = 10
 
 func _ready() -> void:
 	current_hp = max_hp
+	invincibility_timer.one_shot = true
+	invincibility_timer.wait_time = invincibility_duration
+	invincibility_timer.process_callback = Timer.TIMER_PROCESS_PHYSICS
+	add_child(invincibility_timer)
 
 func damage(data: AttackData):
 	#amount: int, damage_tags: Array[Data.damage_tag], knockback_vector: Vector2, hitstun_duration: float
@@ -28,6 +34,8 @@ func damage(data: AttackData):
 			data.damage, 
 			data.hitstun_duration, 
 			data.hitstop_duration)
+		
+		invincibility_timer.start()
 		
 		var knockback_rad = deg_to_rad(data.knockback_angle)
 		var knockback_vector: Vector2 = Vector2.RIGHT.rotated(-knockback_rad) * data.knockback_strength
@@ -44,6 +52,7 @@ func heal(amount):
 	current_hp = min(max_hp, current_hp)
 
 func can_damage(damage_tags: Array[AttackData.damage_tag]) -> bool:
+	if is_invincible(): return false
 	if not immunity_tags:
 		return true
 	# if any of the damage tags are in the immunity tag, 
@@ -59,3 +68,8 @@ func can_damage(damage_tags: Array[AttackData.damage_tag]) -> bool:
 			if tag not in immunity_tags:
 				return true
 		return false
+
+func is_invincible() -> bool:
+	if invincibility_timer.is_stopped():
+		return false
+	return true

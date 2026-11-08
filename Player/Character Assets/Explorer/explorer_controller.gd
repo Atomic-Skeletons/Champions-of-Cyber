@@ -9,11 +9,6 @@ signal started_charging()
 signal stopped_charging()
 
 
-# components
-@onready var health_component: HealthComponent = $HealthComponent
-@onready var attack_metter_component: AttackMetterComponent = $AttackMetterComponent
-
-
 @export_group("Movement Variables")
 @export var move_speed = 100.0
 @export var jump_strength = 400.0
@@ -123,7 +118,7 @@ func _physics_process(delta: float) -> void:
 	
 	velocity.y = min(velocity.y, terminal_velocity)
 	
-	move_and_slide()
+	character_move_and_slide()
 	
 	if input.is_action_pressed("attack"):
 		#anim_player.play("attack")
@@ -147,8 +142,8 @@ func _physics_process(delta: float) -> void:
 	#if (not prev_is_on_floor) and is_on_floor() and not direction:
 		#anim_player.play("land")
 	
-	prev_is_on_floor = is_on_floor()
 	update_animations()
+	prev_is_on_floor = is_on_floor()
 
 func anim_play(anim_name: String):
 	anim_player.play(anim_name)
@@ -235,19 +230,21 @@ func update_animations():
 	# If in air
 	elif not is_on_floor():
 		# rising up
-		if velocity.y < 0:
+		if velocity.y < 0 and prev_is_on_floor:
 			anim_player.play("jump")
 		# falling down
 		elif velocity.y > 0:
 			anim_player.play("fall")
+	# directional movement for walking
 	# if on floor
 	else:
 		var direction := input.get_x_axis()
 		# if trying to move
 		if direction:
-			pass
-	# directional movement for walking
-	# gravity animations
+			anim_player.play("walk")
+		else:
+			anim_player.play("idle")
+	
 
 
 @onready var laser_pieces: Node2D = $"Fliproot/Laser Pieces"

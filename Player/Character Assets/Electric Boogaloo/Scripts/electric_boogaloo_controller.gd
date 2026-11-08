@@ -7,8 +7,6 @@ signal used_charge_attack()
 signal used_downwarde_kick()
 
 # components
-@onready var health_component: HealthComponent = $HealthComponent
-@onready var attack_metter_component: AttackMetterComponent = $AttackMetterComponent
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
