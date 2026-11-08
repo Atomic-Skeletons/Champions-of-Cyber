@@ -43,8 +43,10 @@ func character_move_and_slide():
 				if spike_damage:
 					var data = AttackData.new()
 					data.damage = spike_damage
-					data.knockback_angle = get_angle_to(collision_point)-180
-					data.knockback_strength = 100
+					var rad_angle = -collision_point.angle_to_point(global_position-Vector2(0, 20))
+					var deg_angle = rad_to_deg(rad_angle)
+					data.knockback_angle = deg_angle
+					data.knockback_strength = 30
 					data.hitstun_duration = .5
 					health_component.damage(data)
 

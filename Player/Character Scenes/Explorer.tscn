@@ -843,6 +843,7 @@ jump_strength = 300.0
 laser_bullet_meter_use = 5.0
 laser_bullet_scene = ExtResource("6_a2jtb")
 laser_bullet_speed = 1000.0
+laser_charge_duration = 1.0
 
 [node name="PlayerInputHandler" type="Node" parent="." unique_id=1113545624]
 script = ExtResource("4_sdjjc")
