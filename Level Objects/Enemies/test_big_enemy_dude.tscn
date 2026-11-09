@@ -89,7 +89,7 @@ _data = {
 
 [node name="Big Enemy Dude" type="CharacterBody2D" unique_id=1938194074 groups=["Enemy"]]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 4
 script = ExtResource("1_tdqo0")
 move_speed = 25.0
 knockback_multiplier = 0.5

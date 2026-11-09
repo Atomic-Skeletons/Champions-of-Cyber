@@ -12,10 +12,24 @@
 [ext_resource type="Texture2D" uid="uid://cw40pe2v3j4hy" path="res://Player/Character Assets/Roller Shark/Art/rollerblading.png" id="6_3awjg"]
 [ext_resource type="AudioStream" uid="uid://ccie0uctrcpkj" path="res://Player/Character Assets/Movement Audio/jump_audio_randomizer.tres" id="6_m4bn3"]
 [ext_resource type="Texture2D" uid="uid://bjs8gqbjri5kv" path="res://Player/Character Assets/Roller Shark/Art/rising.png" id="7_40411"]
+[ext_resource type="Script" uid="uid://crxaysem1tfnv" path="res://Components/hitbox.gd" id="13_m0u4p"]
+[ext_resource type="Script" uid="uid://dh1mpplaeqbu5" path="res://Components/attack_data_resource.gd" id="14_cpg6p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a2jtb"]
 shader = ExtResource("1_17kqk")
 shader_parameter/saturation = 1.0
+
+[sub_resource type="Animation" id="Animation_m4bn3"]
+resource_name = "chomp attack"
+
+[sub_resource type="Animation" id="Animation_m0u4p"]
+resource_name = "stomp attack"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m0u4p"]
+_data = {
+&"chomp attack": SubResource("Animation_m4bn3"),
+&"stomp attack": SubResource("Animation_m0u4p")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_coq8p"]
 radius = 13.0
@@ -241,13 +255,17 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Resource" id="Resource_m0u4p"]
+script = ExtResource("14_cpg6p")
+metadata/_custom_type_script = "uid://dh1mpplaeqbu5"
+
 [node name="Roller Shark" type="CharacterBody2D" unique_id=1713843606 node_paths=PackedStringArray("wall_digging_raycast")]
 material = SubResource("ShaderMaterial_a2jtb")
 collision_layer = 257
-collision_mask = 4102
+collision_mask = 4100
 script = ExtResource("2_p20pb")
 digging_accelaration = 300
-wall_digging_raycast = NodePath("Wall Digging Cast")
+wall_digging_raycast = NodePath("Fliproot/Wall Digging Cast")
 
 [node name="PlayerInputHandler" type="Node" parent="." unique_id=1296874827]
 script = ExtResource("3_p20pb")
@@ -272,6 +290,9 @@ stream = ExtResource("6_m4bn3")
 unique_name_in_owner = true
 one_shot = true
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=329213740]
+libraries/ = SubResource("AnimationLibrary_m0u4p")
+
 [node name="Normal Hurtbox" type="CollisionShape2D" parent="." unique_id=1992489529]
 unique_name_in_owner = true
 position = Vector2(0, -13)
@@ -283,32 +304,43 @@ position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_g4v7s")
 disabled = true
 
-[node name="Anim Sprite" type="AnimatedSprite2D" parent="." unique_id=403601317]
+[node name="Fliproot" type="Node2D" parent="." unique_id=2054626052]
+
+[node name="Anim Sprite" type="AnimatedSprite2D" parent="Fliproot" unique_id=403601317]
 unique_name_in_owner = true
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="Digging Raycast 1" type="RayCast2D" parent="." unique_id=1750925987]
+[node name="Digging Raycast 1" type="RayCast2D" parent="Fliproot" unique_id=1750925987]
 position = Vector2(-10, 0)
 target_position = Vector2(0, -25)
 collision_mask = 4
 
-[node name="Digging Raycast 2" type="RayCast2D" parent="." unique_id=1839086121]
+[node name="Digging Raycast 2" type="RayCast2D" parent="Fliproot" unique_id=1839086121]
 position = Vector2(10, 0)
 target_position = Vector2(0, -25)
 collision_mask = 4
 
-[node name="Digging Raycast 3" type="RayCast2D" parent="." unique_id=1144860231]
+[node name="Digging Raycast 3" type="RayCast2D" parent="Fliproot" unique_id=1144860231]
 target_position = Vector2(0, -25)
 collision_mask = 4
 
-[node name="Marker2D" type="Marker2D" parent="." unique_id=1155065306]
+[node name="Marker2D" type="Marker2D" parent="Fliproot" unique_id=1155065306]
 
-[node name="Wall Digging Cast" type="RayCast2D" parent="." unique_id=1481027794]
+[node name="Wall Digging Cast" type="RayCast2D" parent="Fliproot" unique_id=1481027794]
 target_position = Vector2(0, 10)
 collision_mask = 4
+
+[node name="Undigging Hitbox" type="Area2D" parent="Fliproot" unique_id=972536483]
+script = ExtResource("13_m0u4p")
+attack_data = SubResource("Resource_m0u4p")
+metadata/_custom_type_script = "uid://crxaysem1tfnv"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fliproot/Undigging Hitbox" unique_id=1459023985]
+polygon = PackedVector2Array(-17, 0, -4, -35, 24, -40, 29, -19, 17, 0)
+disabled = true
 
 [connection signal="jumped" from="." to="Audio/SFX_JUMP" method="play"]
 [connection signal="damaged" from="HealthComponent" to="." method="_on_health_component_damaged"]

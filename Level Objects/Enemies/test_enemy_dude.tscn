@@ -92,7 +92,7 @@ _data = {
 
 [node name="Enemy Dude" type="CharacterBody2D" unique_id=1938194074 groups=["Enemy"]]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 4
 script = ExtResource("1_qabkg")
 move_speed = 50.0
 
