@@ -122,11 +122,11 @@ func _get_transition(delta):
 	
 	if state == states.airborne:
 		if is_on_floor():
-			if input.is_action_pressed("jump") and can_dig:
+			if input.is_action_pressed("jump") and _can_dig():
 				return states.digging
 			return states.skating
 		if is_on_wall():
-			if input.is_action_pressed("jump") and can_dig:
+			if input.is_action_pressed("jump") and _can_dig():
 				#get position of collision and put player there
 				return states.wall_digging
 	
@@ -220,6 +220,9 @@ func _exit_state(old_state, new_state):
 
 
 # Helper functions
+
+func _can_dig():
+	return can_dig
 
 func jump(strength: float):
 	jumped.emit()

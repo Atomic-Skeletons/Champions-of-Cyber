@@ -20,4 +20,4 @@ static func disable_enemy_collision(node: CollisionObject2D):
 
 static func enable_enemy_collision(node: CollisionObject2D):
 	node.set_collision_layer_value(1, true)
-	node.set_collision_mask_value(2, true)
+	#node.set_collision_mask_value(2, true)

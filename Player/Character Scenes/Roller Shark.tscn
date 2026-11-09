@@ -246,10 +246,7 @@ material = SubResource("ShaderMaterial_a2jtb")
 collision_layer = 257
 collision_mask = 4102
 script = ExtResource("2_p20pb")
-ground_acceleration = 300
-ground_speed = 200
-digging_accelaration = 500
-digging_move_speed = 300
+digging_accelaration = 300
 wall_digging_raycast = NodePath("Wall Digging Cast")
 
 [node name="PlayerInputHandler" type="Node" parent="." unique_id=1296874827]
