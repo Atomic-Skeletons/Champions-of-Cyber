@@ -58,11 +58,13 @@ func _process(delta: float) -> void:
 
 
 func pause():
+	AudioBus.dampen_music()
 	get_tree().paused = true
 	show()
 	resume.grab_focus()
 
 func unpause():
+	AudioBus.undampend_music()
 	get_tree().paused = false
 	hide()
 

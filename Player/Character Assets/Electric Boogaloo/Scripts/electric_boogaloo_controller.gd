@@ -1,6 +1,5 @@
 class_name ElectricController extends Character
 
-signal jumped()
 signal used_air_movement()
 signal used_melee_attack()
 signal used_charge_attack()

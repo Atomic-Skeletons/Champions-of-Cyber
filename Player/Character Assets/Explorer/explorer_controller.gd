@@ -1,7 +1,6 @@
 class_name Explorer extends Character
 
 
-signal jumped()
 signal shot_laser_bullet()
 signal laser_beam_started()
 signal laser_beam_ended()
@@ -123,7 +122,10 @@ func _physics_process(delta: float) -> void:
 	if input.is_action_pressed("attack"):
 		#anim_player.play("attack")
 		if laser_charge == 0:
+			anim_player.play("attack")
 			started_charging.emit()
+			await anim_player.animation_finished
+			start_mega_laser()
 		laser_charge += delta
 		if not mega_laser and laser_charge >= laser_charge_duration:
 			start_mega_laser()

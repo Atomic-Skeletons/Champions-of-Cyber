@@ -93,7 +93,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_0uknb"]
 resource_name = "attack"
-length = 0.6
+length = 0.7
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -114,10 +114,10 @@ tracks/1/path = NodePath("Fliproot/AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6]
+"values": [0, 1, 2, 3, 4, 5, 7, 6]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -200,7 +200,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [7, 8]
+"values": [6, 8]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -462,13 +462,13 @@ region = Rect2(256, 0, 64, 48)
 atlas = ExtResource("15_g0o3y")
 region = Rect2(320, 0, 64, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_alg2g"]
-atlas = ExtResource("15_g0o3y")
-region = Rect2(384, 0, 64, 48)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_vehph"]
 atlas = ExtResource("15_g0o3y")
 region = Rect2(448, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alg2g"]
+atlas = ExtResource("15_g0o3y")
+region = Rect2(384, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6fu1q"]
 atlas = ExtResource("15_g0o3y")
@@ -636,10 +636,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_eie3n")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_alg2g")
+"texture": SubResource("AtlasTexture_vehph")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vehph")
+"texture": SubResource("AtlasTexture_alg2g")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6fu1q")
@@ -916,7 +916,7 @@ visible = false
 
 [node name="Start Marker" type="Marker2D" parent="Fliproot/Laser Pieces" unique_id=699544545]
 unique_name_in_owner = true
-position = Vector2(17, -8)
+position = Vector2(15, -8)
 
 [node name="End Marker" type="Marker2D" parent="Fliproot/Laser Pieces" unique_id=625951810]
 unique_name_in_owner = true

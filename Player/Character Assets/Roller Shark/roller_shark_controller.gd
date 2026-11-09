@@ -42,14 +42,13 @@ func _ready() -> void:
 	add_state("wall_digging")
 	call_deferred("set_state", states.airborne)
 	
-	#SignalBus.touched_win_flag.connect(lock)
 
 func lock():
 	locked = true
 
 func _state_logic(delta):
 	call_deferred("update_last_x_speed")
-	if state == states.locked:
+	if state == states.locked and is_hitstunned:
 		move_and_slide()
 	
 	if state == states.skating:
@@ -116,10 +115,7 @@ func _get_transition(delta):
 		return states.locked
 	if state == states.skating:
 		if input.is_action_just_pressed("jump"):
-			if input.is_action_pressed("down") and standing_on_one_way_platform():
-				global_position.y += 1
-				return states.airborne
-			velocity.y = -jump_strength
+			jump(jump_strength)
 			return states.airborne
 		if not is_on_floor():
 			return states.airborne
@@ -147,8 +143,7 @@ func _get_transition(delta):
 		if resurfacing:
 			# if neither raycasts are colliding, then undig
 			if free_for_resurfacing():
-				if not input.is_action_pressed("down"):
-					velocity.y = -digging_jump_strength
+				jump(digging_jump_strength)
 				#velocity.x = sign(velocity.x) * digging_stored_speed
 				return states.airborne
 	
@@ -166,6 +161,7 @@ func _get_transition(delta):
 		
 		if resurfacing:
 			if free_for_resurfacing():
+				jumped.emit()
 				velocity.x = -wall_dig_direction * abs(velocity.y)
 				return states.airborne
 	
@@ -225,6 +221,10 @@ func _exit_state(old_state, new_state):
 
 # Helper functions
 
+func jump(strength: float):
+	jumped.emit()
+	velocity.y = -strength
+
 func moving_away(direction):
 	if sign(velocity.x) != 0 and sign(direction) != sign(velocity.x):
 		return true
@@ -247,24 +247,6 @@ func update_facing_sprite():
 	elif facing_dir == 1:
 		anim_sprite.flip_h = false
 
-func standing_on_one_way_platform():
-	var on_one_way_platform = false
-	if is_on_floor():
-		for i in range(get_slide_collision_count()):
-			var collision = get_slide_collision(i)
-			# Check if the collision normal points upwards (meaning floor is beneath)
-			if collision.get_normal().dot(Vector2.UP) > 0.5:
-				# If it's a TileMapLayer or a collision object, you can check 
-				# if the specific local shape index is a one-way collision:
-				var collider = collision.get_collider()
-				#var shape_idx = collision.get_local_shape()
-				
-				# For a standard CollisionObject2D (StaticBody2D, etc.)
-				if collider is CollisionObject2D:
-					if collider.is_shape_owner_one_way_collision_enabled(0):
-						on_one_way_platform = true
-	return on_one_way_platform
-
 func free_for_resurfacing() -> bool:
 	var raycast_colliding = false
 	for raycast: RayCast2D in resurfacing_raycasts:
@@ -280,3 +262,27 @@ func update_last_x_speed():
 func _on_digging_timer_timeout() -> void:
 	if state == states.digging or state == states.wall_digging:
 		resurfacing = true
+
+
+var hitstun_tween: Tween
+var hitstop_tween: Tween
+func _on_health_component_damaged(amount: Variant, hitstun_duration: Variant, hitstop_duration: Variant) -> void:
+	# create tween timers
+	#anim_play("recoil")
+	if hitstun_duration:
+		is_hitstunned = true
+		hitstun_tween = Utilities.reset_tween(hitstun_tween, self)
+		
+		hitstun_tween.tween_interval(hitstun_duration)
+		hitstun_tween.tween_callback(func(): is_hitstunned = false)
+	
+	if hitstop_duration:
+		is_hitstopped = true
+		hitstop_tween = Utilities.reset_tween(hitstop_tween, self)
+		
+		hitstop_tween.tween_interval(hitstop_duration)
+		hitstop_tween.tween_callback(func(): is_hitstopped = false)
+
+
+func _on_health_component_knockback(vector: Vector2) -> void:
+	velocity = vector

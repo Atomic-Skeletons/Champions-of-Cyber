@@ -5,9 +5,12 @@
 [ext_resource type="Script" uid="uid://d0pytk2ojhfhj" path="res://Player/Character Assets/Roller Shark/roller_shark_controller.gd" id="2_p20pb"]
 [ext_resource type="Texture2D" uid="uid://c1pp3o82fwr7e" path="res://Player/Character Assets/Roller Shark/Art/descending.png" id="3_artx4"]
 [ext_resource type="Script" uid="uid://dqtier8s750jn" path="res://Player/Input Controller/input_handler.gd" id="3_p20pb"]
+[ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="3_pa35h"]
 [ext_resource type="Texture2D" uid="uid://chvebfumyiuyl" path="res://Player/Character Assets/Roller Shark/Art/diggin_anim.png" id="4_p1lnk"]
 [ext_resource type="Texture2D" uid="uid://bkr1owu1lqrsp" path="res://Player/Character Assets/Roller Shark/Art/digging transition.png" id="5_ifqw5"]
+[ext_resource type="Script" uid="uid://cr2xbhach1rlt" path="res://Components/attack_metter_component.gd" id="5_m4bn3"]
 [ext_resource type="Texture2D" uid="uid://cw40pe2v3j4hy" path="res://Player/Character Assets/Roller Shark/Art/rollerblading.png" id="6_3awjg"]
+[ext_resource type="AudioStream" uid="uid://ccie0uctrcpkj" path="res://Player/Character Assets/Movement Audio/jump_audio_randomizer.tres" id="6_m4bn3"]
 [ext_resource type="Texture2D" uid="uid://bjs8gqbjri5kv" path="res://Player/Character Assets/Roller Shark/Art/rising.png" id="7_40411"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a2jtb"]
@@ -238,9 +241,10 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=1713843606 node_paths=PackedStringArray("wall_digging_raycast")]
+[node name="Roller Shark" type="CharacterBody2D" unique_id=1713843606 node_paths=PackedStringArray("wall_digging_raycast")]
 material = SubResource("ShaderMaterial_a2jtb")
-collision_mask = 6
+collision_layer = 257
+collision_mask = 4102
 script = ExtResource("2_p20pb")
 ground_acceleration = 300
 ground_speed = 200
@@ -252,47 +256,63 @@ wall_digging_raycast = NodePath("Wall Digging Cast")
 script = ExtResource("3_p20pb")
 metadata/_custom_type_script = "uid://dqtier8s750jn"
 
+[node name="HealthComponent" type="Node" parent="." unique_id=315619577]
+script = ExtResource("3_pa35h")
+metadata/_custom_type_script = "uid://k1npmfprvwwt"
+
+[node name="AttackMetterComponent" type="Node" parent="." unique_id=1216069889]
+script = ExtResource("5_m4bn3")
+metadata/_custom_type_script = "uid://cr2xbhach1rlt"
+
+[node name="Audio" type="Node" parent="." unique_id=1141907097]
+
+[node name="SFX_JUMP" type="AudioStreamPlayer" parent="Audio" unique_id=930464698]
+stream = ExtResource("6_m4bn3")
+
+[node name="Timers" type="Node" parent="." unique_id=1596650035]
+
+[node name="Digging Timer" type="Timer" parent="Timers" unique_id=2035109572]
+unique_name_in_owner = true
+one_shot = true
+
 [node name="Normal Hurtbox" type="CollisionShape2D" parent="." unique_id=1992489529]
 unique_name_in_owner = true
-position = Vector2(0, 1)
+position = Vector2(0, -13)
 shape = SubResource("CircleShape2D_coq8p")
 
 [node name="Digging Hurtbox" type="CollisionShape2D" parent="." unique_id=1379347777]
 unique_name_in_owner = true
-position = Vector2(0, 13.5)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_g4v7s")
 disabled = true
 
 [node name="Anim Sprite" type="AnimatedSprite2D" parent="." unique_id=403601317]
 unique_name_in_owner = true
-position = Vector2(0, -1)
+position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="Digging Raycast 1" type="RayCast2D" parent="." unique_id=1750925987]
-position = Vector2(-10, 14)
+position = Vector2(-10, 0)
 target_position = Vector2(0, -25)
 collision_mask = 4
 
 [node name="Digging Raycast 2" type="RayCast2D" parent="." unique_id=1839086121]
-position = Vector2(10, 14)
+position = Vector2(10, 0)
 target_position = Vector2(0, -25)
 collision_mask = 4
 
 [node name="Digging Raycast 3" type="RayCast2D" parent="." unique_id=1144860231]
-position = Vector2(0, 14)
 target_position = Vector2(0, -25)
 collision_mask = 4
 
-[node name="Digging Timer" type="Timer" parent="." unique_id=2035109572]
-unique_name_in_owner = true
-one_shot = true
-
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1155065306]
-position = Vector2(0, 14)
 
 [node name="Wall Digging Cast" type="RayCast2D" parent="." unique_id=1481027794]
-position = Vector2(0, 14)
 target_position = Vector2(0, 10)
 collision_mask = 4
+
+[connection signal="jumped" from="." to="Audio/SFX_JUMP" method="play"]
+[connection signal="damaged" from="HealthComponent" to="." method="_on_health_component_damaged"]
+[connection signal="knockback" from="HealthComponent" to="." method="_on_health_component_knockback"]

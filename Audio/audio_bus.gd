@@ -42,3 +42,10 @@ func fade_in_music(duration: float):
 
 func fade_out_music(duration: float):
 	pass
+
+var old_volume = 0
+func dampen_music():
+	old_volume = Stoat._music_volume
+	Stoat.set_music_volume(.2)
+func undampend_music():
+	Stoat.set_music_volume(old_volume)

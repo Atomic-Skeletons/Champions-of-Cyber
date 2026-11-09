@@ -1,5 +1,7 @@
 class_name Character extends CharacterBody2D
 
+signal jumped()
+
 @onready var input: PlayerInputHandler = get_input_handler_node()
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var attack_metter_component: AttackMetterComponent = $AttackMetterComponent
@@ -36,19 +38,21 @@ func character_move_and_slide():
 			var tile_data: TileData = collider.get_cell_tile_data(map_coords)
 			
 			if tile_data:
+				var spiked_damage_str := "spike damage"
 				# 7. Extract your custom data or properties
-				var spike_damage = tile_data.get_custom_data("spike damage")
-				#var friction = tile_data.get_custom_data("friction")
-				
-				if spike_damage:
-					var data = AttackData.new()
-					data.damage = spike_damage
-					var rad_angle = -collision_point.angle_to_point(global_position-Vector2(0, 20))
-					var deg_angle = rad_to_deg(rad_angle)
-					data.knockback_angle = deg_angle
-					data.knockback_strength = 30
-					data.hitstun_duration = .5
-					health_component.damage(data)
+				if tile_data.has_custom_data(spiked_damage_str):
+					var spike_damage = tile_data.get_custom_data(spiked_damage_str)
+					#var friction = tile_data.get_custom_data("friction")
+					
+					if spike_damage:
+						var data = AttackData.new()
+						data.damage = spike_damage
+						var rad_angle = -collision_point.angle_to_point(global_position-Vector2(0, 20))
+						var deg_angle = rad_to_deg(rad_angle)
+						data.knockback_angle = deg_angle
+						data.knockback_strength = 30
+						data.hitstun_duration = .5
+						health_component.damage(data)
 
 func get_input_handler_node() -> PlayerInputHandler:
 	for child in get_children():
