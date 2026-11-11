@@ -14,19 +14,74 @@
 [ext_resource type="Texture2D" uid="uid://bjs8gqbjri5kv" path="res://Player/Character Assets/Roller Shark/Art/rising.png" id="7_40411"]
 [ext_resource type="Script" uid="uid://crxaysem1tfnv" path="res://Components/hitbox.gd" id="13_m0u4p"]
 [ext_resource type="Script" uid="uid://dh1mpplaeqbu5" path="res://Components/attack_data_resource.gd" id="14_cpg6p"]
+[ext_resource type="Texture2D" uid="uid://l1mdaua3je70" path="res://Level Art/Eva'sTILEMAP/Forest Tiles/16x16_tile_tilemap_test.png" id="15_re35k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a2jtb"]
 shader = ExtResource("1_17kqk")
 shader_parameter/saturation = 1.0
+
+[sub_resource type="Animation" id="Animation_8maqn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fliproot/Earthquake Mask/Earthquake Attack:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.8636378, 39)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fliproot/Earthquake Mask/Earthquake Attack/Stomp Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_m4bn3"]
 resource_name = "chomp attack"
 
 [sub_resource type="Animation" id="Animation_m0u4p"]
 resource_name = "stomp attack"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fliproot/Earthquake Mask/Earthquake Attack:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.8636378, 39), Vector2(1.8636378, 28), Vector2(1.8636378, 39)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fliproot/Earthquake Mask/Earthquake Attack/Stomp Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m0u4p"]
 _data = {
+&"RESET": SubResource("Animation_8maqn"),
 &"chomp attack": SubResource("Animation_m4bn3"),
 &"stomp attack": SubResource("Animation_m0u4p")
 }
@@ -259,6 +314,21 @@ animations = [{
 script = ExtResource("14_cpg6p")
 metadata/_custom_type_script = "uid://dh1mpplaeqbu5"
 
+[sub_resource type="Gradient" id="Gradient_re35k"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
+gradient = SubResource("Gradient_re35k")
+width = 123
+
+[sub_resource type="Resource" id="Resource_8maqn"]
+script = ExtResource("14_cpg6p")
+hitstun_duration = 1.0
+hitstop_duration = 0.5
+metadata/_custom_type_script = "uid://dh1mpplaeqbu5"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(112, 14)
+
 [node name="Roller Shark" type="CharacterBody2D" unique_id=1713843606 node_paths=PackedStringArray("wall_digging_raycast")]
 material = SubResource("ShaderMaterial_a2jtb")
 collision_layer = 257
@@ -273,6 +343,7 @@ metadata/_custom_type_script = "uid://dqtier8s750jn"
 
 [node name="HealthComponent" type="Node" parent="." unique_id=315619577]
 script = ExtResource("3_pa35h")
+max_hp = 100
 metadata/_custom_type_script = "uid://k1npmfprvwwt"
 
 [node name="AttackMetterComponent" type="Node" parent="." unique_id=1216069889]
@@ -334,12 +405,84 @@ target_position = Vector2(0, 10)
 collision_mask = 4
 
 [node name="Undigging Hitbox" type="Area2D" parent="Fliproot" unique_id=972536483]
+collision_layer = 0
+collision_mask = 66
 script = ExtResource("13_m0u4p")
 attack_data = SubResource("Resource_m0u4p")
 metadata/_custom_type_script = "uid://crxaysem1tfnv"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fliproot/Undigging Hitbox" unique_id=1459023985]
 polygon = PackedVector2Array(-17, 0, -4, -35, 24, -40, 29, -19, 17, 0)
+disabled = true
+
+[node name="Earthquake Mask" type="Sprite2D" parent="Fliproot" unique_id=579161645]
+clip_children = 1
+position = Vector2(-2.500002, -32)
+scale = Vector2(1.3414634, 1)
+texture = SubResource("GradientTexture2D_g4v7s")
+
+[node name="Earthquake Attack" type="Node2D" parent="Fliproot/Earthquake Mask" unique_id=1222862374]
+position = Vector2(1.8636378, 39)
+scale = Vector2(0.74545455, 1)
+
+[node name="Earth Thing" type="Sprite2D" parent="Fliproot/Earthquake Mask/Earthquake Attack" unique_id=897161979]
+position = Vector2(21, 10.000001)
+rotation = 0.034906585
+texture = ExtResource("15_re35k")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(16, 17, 16, 31)
+
+[node name="Earth Thing2" type="Sprite2D" parent="Fliproot/Earthquake Mask/Earthquake Attack" unique_id=837046387]
+position = Vector2(34, 10.000001)
+rotation = 0.034906585
+texture = ExtResource("15_re35k")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(16, 17, 16, 31)
+
+[node name="Earth Thing3" type="Sprite2D" parent="Fliproot/Earthquake Mask/Earthquake Attack" unique_id=132207034]
+position = Vector2(47, 10.000001)
+rotation = 0.034906585
+texture = ExtResource("15_re35k")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(16, 17, 16, 31)
+
+[node name="Earth Thing4" type="Sprite2D" parent="Fliproot/Earthquake Mask/Earthquake Attack" unique_id=565688460]
+position = Vector2(-47.46393, 10.000001)
+rotation = -0.034906585
+texture = ExtResource("15_re35k")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(16, 17, 16, 31)
+
+[node name="Earth Thing5" type="Sprite2D" parent="Fliproot/Earthquake Mask/Earthquake Attack" unique_id=235567386]
+position = Vector2(-34.46393, 10.000001)
+rotation = -0.034906585
+texture = ExtResource("15_re35k")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(16, 17, 16, 31)
+
+[node name="Earth Thing6" type="Sprite2D" parent="Fliproot/Earthquake Mask/Earthquake Attack" unique_id=5763781]
+position = Vector2(-21.463928, 10.000001)
+rotation = -0.034906585
+texture = ExtResource("15_re35k")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(16, 17, 16, 31)
+
+[node name="Stomp Hitbox" type="Area2D" parent="Fliproot/Earthquake Mask/Earthquake Attack" unique_id=1425867097]
+collision_layer = 0
+collision_mask = 66
+script = ExtResource("13_m0u4p")
+attack_data = SubResource("Resource_8maqn")
+metadata/_custom_type_script = "uid://crxaysem1tfnv"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fliproot/Earthquake Mask/Earthquake Attack/Stomp Hitbox" unique_id=1406075878]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_yf5fn")
 disabled = true
 
 [connection signal="jumped" from="." to="Audio/SFX_JUMP" method="play"]

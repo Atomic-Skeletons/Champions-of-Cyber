@@ -119,8 +119,20 @@ func _physics_process(delta: float) -> void:
 	
 	character_move_and_slide()
 	
-	if input.is_action_pressed("attack"):
-		#anim_player.play("attack")
+	if input.is_action_just_pressed("attack"):
+		if laser_charge:
+			stopped_charging.emit()
+		shoot_laser_bullet()
+		anim_player.stop()
+	
+	if input.is_action_just_pressed("special"):
+		laser_charge = 1
+		anim_player.play("attack")
+		started_charging.emit()
+		await anim_player.animation_finished
+		start_mega_laser()
+	
+	if input.is_action_pressed("special"):
 		if laser_charge == 0:
 			anim_player.play("attack")
 			started_charging.emit()
@@ -132,17 +144,10 @@ func _physics_process(delta: float) -> void:
 		if mega_laser:
 			update_mega_laser(delta)
 	
-	if input.is_action_just_released("attack"):
+	if input.is_action_just_released("special"):
 		laser_charge = 0
 		if mega_laser:
 			end_mega_laser()
-		else:
-			stopped_charging.emit()
-			shoot_laser_bullet()
-			anim_player.stop()
-		#anim_player.play("idle")
-	#if (not prev_is_on_floor) and is_on_floor() and not direction:
-		#anim_player.play("land")
 	
 	update_animations()
 	prev_is_on_floor = is_on_floor()

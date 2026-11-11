@@ -40,6 +40,7 @@ func _ready() -> void:
 	add_state("airborne")
 	add_state("digging")
 	add_state("wall_digging")
+	add_state("stomp_attack")
 	call_deferred("set_state", states.airborne)
 	
 
@@ -109,6 +110,7 @@ func _state_logic(delta):
 		
 		move_and_slide()
 		update_facing_sprite()
+	
 
 func _get_transition(delta):
 	if locked and state != states.locked and state != states.airborne:
@@ -119,6 +121,8 @@ func _get_transition(delta):
 			return states.airborne
 		if not is_on_floor():
 			return states.airborne
+		if input.is_action_just_pressed("special"):
+			return states.stomp_attack
 	
 	if state == states.airborne:
 		if is_on_floor():
@@ -165,6 +169,10 @@ func _get_transition(delta):
 				velocity.x = -wall_dig_direction * abs(velocity.y)
 				return states.airborne
 	
+	if state == states.stomp_attack:
+		if not anim_player.is_playing():
+			return states.skating
+	
 	return null
 
 func _enter_state(new_state, old_state):
@@ -200,6 +208,9 @@ func _enter_state(new_state, old_state):
 		digging_hurtbox.disabled = false
 		anim_sprite.play("digging transition")
 	
+	if new_state == states.stomp_attack:
+		anim_player.play("stomp attack")
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 func _exit_state(old_state, new_state):
 	if old_state == states.digging:
@@ -239,6 +250,8 @@ func get_facing_direction() -> int:
 	else:
 		return -1
 
+@onready var fliproot: Node2D = $Fliproot
+@onready var fliproot_init_scale_x: float = fliproot.scale.x
 func update_facing_sprite():
 	if velocity.x < 0:
 		facing_dir = -1 # facing left
@@ -246,9 +259,15 @@ func update_facing_sprite():
 		facing_dir = 1 # facing right
 	
 	if facing_dir == -1:
-		anim_sprite.flip_h = true
+		fliproot.scale.x = -fliproot_init_scale_x
 	elif facing_dir == 1:
-		anim_sprite.flip_h = false
+		fliproot.scale.x = fliproot_init_scale_x
+
+func set_fliproot(dir: int):
+	if dir == -1:
+		fliproot.scale.x = -fliproot_init_scale_x
+	elif dir == 1:
+		fliproot.scale.x = fliproot_init_scale_x
 
 func free_for_resurfacing() -> bool:
 	var raycast_colliding = false

@@ -1,11 +1,14 @@
 extends LimboState
 
 
+func _setup() -> void:
+	pass
+
 func _enter() -> void:
 	pass
 
-func _ready() -> void:
+func _exit() -> void:
 	pass
 
-func _process(delta: float) -> void:
+func _update(delta: float) -> void:
 	pass

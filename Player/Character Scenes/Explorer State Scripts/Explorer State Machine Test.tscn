@@ -1,56 +1,63 @@
 [gd_scene format=3 uid="uid://dfjuiawgbje3u"]
 
-[ext_resource type="Shader" uid="uid://dhqnthhyhb402" path="res://Shaders/desaturation_shader.tres" id="1_d5x3s"]
-[ext_resource type="Script" uid="uid://c0qwaecn6ds12" path="res://Player/Character Scenes/Explorer State Scripts/explorer_state_machine_test_controller.gd" id="2_s2wrl"]
-[ext_resource type="Script" uid="uid://dqtier8s750jn" path="res://Player/Input Controller/input_handler.gd" id="4_4tsgl"]
-[ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="5_hf1tv"]
-[ext_resource type="Script" uid="uid://cr2xbhach1rlt" path="res://Components/attack_metter_component.gd" id="6_a4fy3"]
-[ext_resource type="AudioStream" uid="uid://cxcs8t12y2fjq" path="res://Player/Character Assets/Explorer/Audio/Laser Bullet Variations/SFX_ONE_laser_shot.wav" id="7_ffu3q"]
-[ext_resource type="AudioStream" uid="uid://cofqv01fcgysv" path="res://Player/Character Assets/Explorer/Audio/Laser Bullet Variations/SFX_TWO_laser_shot.wav" id="8_7hir3"]
-[ext_resource type="AudioStream" uid="uid://nki6j78uabgn" path="res://Player/Character Assets/Explorer/Audio/Laser Bullet Variations/SFX_THREE_laser_shot.wav" id="9_jwqxn"]
-[ext_resource type="AudioStream" uid="uid://dhb5tl18hfk88" path="res://Player/Character Assets/Explorer/Audio/Laser Bullet Variations/SFX_FOUR_laser_shot.wav" id="10_btgad"]
-[ext_resource type="AudioStream" uid="uid://ew38d1pqpoxn" path="res://Player/Character Assets/Explorer/Audio/Laser Bullet Variations/SFX_FIVE_laser_shot.wav" id="11_ptb8x"]
-[ext_resource type="AudioStream" uid="uid://bqufnqa4woi7l" path="res://Player/Character Assets/Explorer/Audio/SFX_hyperbeam_wind_up.wav" id="12_5p0it"]
-[ext_resource type="AudioStream" uid="uid://cpcf1dp4ygc3y" path="res://Player/Character Assets/Explorer/Audio/SFX_Beam_hyperbeam.wav" id="13_mltov"]
-[ext_resource type="AudioStream" uid="uid://ccie0uctrcpkj" path="res://Player/Character Assets/Movement Audio/jump_audio_randomizer.tres" id="14_c55lb"]
-[ext_resource type="Script" uid="uid://byoko3w4or785" path="res://Player/Character Scenes/Explorer State Scripts/active_state.gd" id="15_n7dw4"]
-[ext_resource type="Texture2D" uid="uid://babqosk8jnsgb" path="res://Player/Character Assets/Explorer/Art/anim_explorer-attack-hold-vers1-sheet.png" id="16_2q7xk"]
-[ext_resource type="Texture2D" uid="uid://2ocq4d3hh0ff" path="res://Player/Character Assets/Explorer/Art/anim_explorer-jump-begin-vers1-sheet.png" id="17_0aajs"]
-[ext_resource type="Texture2D" uid="uid://dbeuycdmmdh20" path="res://Player/Character Assets/Explorer/Art/anim_explorer-attack-quick-vers1-sheet.png" id="18_8rqpm"]
-[ext_resource type="Texture2D" uid="uid://sd08u1qgbb77" path="res://Player/Character Assets/Explorer/Art/anim_explorer-idle-vers1-sheet.png" id="19_iv1ie"]
-[ext_resource type="Texture2D" uid="uid://bav6v8002wne8" path="res://Player/Character Assets/Explorer/Art/anim_explorer-jump-landing-vers1-sheet.png" id="20_a55nm"]
-[ext_resource type="Texture2D" uid="uid://baox35hilopp2" path="res://Player/Character Assets/Explorer/Art/anim_explorer-recoil-vers1-sheet.png" id="21_fld2v"]
-[ext_resource type="Texture2D" uid="uid://bwa4b6pxjhx05" path="res://Player/Character Assets/Explorer/Art/anim_explorer-run-vers1-sheet.png" id="22_au4jb"]
-[ext_resource type="Texture2D" uid="uid://qu5bqhpjmnc8" path="res://Player/Character Assets/Explorer/Art/spr_laser-endcap-sheet.png" id="23_s2olq"]
-[ext_resource type="Script" uid="uid://cybfhnkr2grvs" path="res://Player/Character Assets/constant_trigger_hitbox.gd" id="24_67vlb"]
-[ext_resource type="Script" uid="uid://dh1mpplaeqbu5" path="res://Components/attack_data_resource.gd" id="25_sccw2"]
-[ext_resource type="Texture2D" uid="uid://bobjt2s46pnfh" path="res://Player/Character Assets/Explorer/Art/giga laser frame1.png" id="26_6cgpm"]
-[ext_resource type="Texture2D" uid="uid://idpxhy0u27hr" path="res://Player/Character Assets/Explorer/Art/giga laser frame2.png" id="27_mr7vq"]
-[ext_resource type="Script" uid="uid://bhd4nuiu23e7l" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd" id="28_14sg2"]
-[ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="29_36ud8"]
+[ext_resource type="Shader" uid="uid://dhqnthhyhb402" path="res://Shaders/desaturation_shader.tres" id="1_a4fy3"]
+[ext_resource type="Script" uid="uid://fxopwerwirot" path="res://Player/Character Assets/Explorer/explorer_controller.gd" id="2_ffu3q"]
+[ext_resource type="PackedScene" uid="uid://bs1gkeavl1uf1" path="res://Player/Character Assets/Explorer/Scripts/laser_bullet.tscn" id="3_7hir3"]
+[ext_resource type="Script" uid="uid://dqtier8s750jn" path="res://Player/Input Controller/input_handler.gd" id="4_jwqxn"]
+[ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="5_btgad"]
+[ext_resource type="Script" uid="uid://cr2xbhach1rlt" path="res://Components/attack_metter_component.gd" id="6_ptb8x"]
+[ext_resource type="AudioStream" uid="uid://cxcs8t12y2fjq" path="res://Player/Character Assets/Explorer/Audio/Laser Bullet Variations/SFX_ONE_laser_shot.wav" id="7_5p0it"]
+[ext_resource type="AudioStream" uid="uid://cofqv01fcgysv" path="res://Player/Character Assets/Explorer/Audio/Laser Bullet Variations/SFX_TWO_laser_shot.wav" id="8_mltov"]
+[ext_resource type="AudioStream" uid="uid://nki6j78uabgn" path="res://Player/Character Assets/Explorer/Audio/Laser Bullet Variations/SFX_THREE_laser_shot.wav" id="9_c55lb"]
+[ext_resource type="AudioStream" uid="uid://dhb5tl18hfk88" path="res://Player/Character Assets/Explorer/Audio/Laser Bullet Variations/SFX_FOUR_laser_shot.wav" id="10_n7dw4"]
+[ext_resource type="AudioStream" uid="uid://ew38d1pqpoxn" path="res://Player/Character Assets/Explorer/Audio/Laser Bullet Variations/SFX_FIVE_laser_shot.wav" id="11_2q7xk"]
+[ext_resource type="AudioStream" uid="uid://bqufnqa4woi7l" path="res://Player/Character Assets/Explorer/Audio/SFX_hyperbeam_wind_up.wav" id="12_0aajs"]
+[ext_resource type="AudioStream" uid="uid://cpcf1dp4ygc3y" path="res://Player/Character Assets/Explorer/Audio/SFX_Beam_hyperbeam.wav" id="13_8rqpm"]
+[ext_resource type="AudioStream" uid="uid://ccie0uctrcpkj" path="res://Player/Character Assets/Movement Audio/jump_audio_randomizer.tres" id="14_iv1ie"]
+[ext_resource type="Script" uid="uid://c0qwaecn6ds12" path="res://Player/Character Scenes/Explorer State Scripts/explorer_state_machine_test_controller.gd" id="15_a55nm"]
+[ext_resource type="BlackboardPlan" uid="uid://cxl0dksfseg0a" path="res://Player/Character Scenes/Explorer State Scripts/explorer_blackboard.tres" id="15_phera"]
+[ext_resource type="Script" uid="uid://cv0hlglqy1j2h" path="res://Player/Character Scenes/Explorer State Scripts/grounded_state.gd" id="16_fld2v"]
+[ext_resource type="Script" uid="uid://cbdc5w5nmd1jj" path="res://Player/Character Scenes/Explorer State Scripts/charge_laser_state.gd" id="17_au4jb"]
+[ext_resource type="Script" uid="uid://ck1i151aysscl" path="res://Player/Character Scenes/Explorer State Scripts/laser_bullet_attack_state.gd" id="18_s2olq"]
+[ext_resource type="Script" uid="uid://2uh2s8f5fxr7" path="res://Player/Character Scenes/Explorer State Scripts/hitstun_state.gd" id="19_67vlb"]
+[ext_resource type="Script" uid="uid://bhfihvj0a54w8" path="res://Player/Character Scenes/Explorer State Scripts/knockback_state.gd" id="20_sccw2"]
+[ext_resource type="Texture2D" uid="uid://babqosk8jnsgb" path="res://Player/Character Assets/Explorer/Art/anim_explorer-attack-hold-vers1-sheet.png" id="21_6cgpm"]
+[ext_resource type="Texture2D" uid="uid://2ocq4d3hh0ff" path="res://Player/Character Assets/Explorer/Art/anim_explorer-jump-begin-vers1-sheet.png" id="22_mr7vq"]
+[ext_resource type="Texture2D" uid="uid://dbeuycdmmdh20" path="res://Player/Character Assets/Explorer/Art/anim_explorer-attack-quick-vers1-sheet.png" id="23_14sg2"]
+[ext_resource type="Texture2D" uid="uid://sd08u1qgbb77" path="res://Player/Character Assets/Explorer/Art/anim_explorer-idle-vers1-sheet.png" id="24_36ud8"]
+[ext_resource type="Texture2D" uid="uid://bav6v8002wne8" path="res://Player/Character Assets/Explorer/Art/anim_explorer-jump-landing-vers1-sheet.png" id="25_dcerq"]
+[ext_resource type="Texture2D" uid="uid://baox35hilopp2" path="res://Player/Character Assets/Explorer/Art/anim_explorer-recoil-vers1-sheet.png" id="26_br5hd"]
+[ext_resource type="Texture2D" uid="uid://bwa4b6pxjhx05" path="res://Player/Character Assets/Explorer/Art/anim_explorer-run-vers1-sheet.png" id="27_q25ix"]
+[ext_resource type="Texture2D" uid="uid://qu5bqhpjmnc8" path="res://Player/Character Assets/Explorer/Art/spr_laser-endcap-sheet.png" id="28_1826x"]
+[ext_resource type="Script" uid="uid://cybfhnkr2grvs" path="res://Player/Character Assets/constant_trigger_hitbox.gd" id="29_ipcpk"]
+[ext_resource type="Script" uid="uid://dh1mpplaeqbu5" path="res://Components/attack_data_resource.gd" id="30_1gwp1"]
+[ext_resource type="Texture2D" uid="uid://bobjt2s46pnfh" path="res://Player/Character Assets/Explorer/Art/giga laser frame1.png" id="31_lf2l8"]
+[ext_resource type="Texture2D" uid="uid://idpxhy0u27hr" path="res://Player/Character Assets/Explorer/Art/giga laser frame2.png" id="32_q375t"]
+[ext_resource type="Script" uid="uid://bhd4nuiu23e7l" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd" id="33_avuc4"]
+[ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="34_wce8b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jbxru"]
-shader = ExtResource("1_d5x3s")
+shader = ExtResource("1_a4fy3")
 shader_parameter/saturation = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_aykj2"]
 random_pitch = 1.0293022
 streams_count = 5
-stream_0/stream = ExtResource("7_ffu3q")
-stream_1/stream = ExtResource("8_7hir3")
-stream_2/stream = ExtResource("9_jwqxn")
-stream_3/stream = ExtResource("10_btgad")
-stream_4/stream = ExtResource("11_ptb8x")
+stream_0/stream = ExtResource("7_5p0it")
+stream_1/stream = ExtResource("8_mltov")
+stream_2/stream = ExtResource("9_c55lb")
+stream_3/stream = ExtResource("10_n7dw4")
+stream_4/stream = ExtResource("11_2q7xk")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_l72of"]
 random_pitch = 1.0293022
 streams_count = 1
-stream_0/stream = ExtResource("12_5p0it")
+stream_0/stream = ExtResource("12_0aajs")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dfbu7"]
 random_pitch = 1.0293022
 streams_count = 1
-stream_0/stream = ExtResource("13_mltov")
+stream_0/stream = ExtResource("13_8rqpm")
 
 [sub_resource type="Animation" id="Animation_c8xvm"]
 length = 0.001
@@ -93,7 +100,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_0uknb"]
 resource_name = "attack"
-length = 0.6
+length = 0.7
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -114,10 +121,10 @@ tracks/1/path = NodePath("Fliproot/AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6]
+"values": [0, 1, 2, 3, 4, 5, 7, 6]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -200,7 +207,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [7, 8]
+"values": [6, 8]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -439,179 +446,179 @@ _data = {
 size = Vector2(10, 31.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lefwm"]
-atlas = ExtResource("16_2q7xk")
+atlas = ExtResource("21_6cgpm")
 region = Rect2(0, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_habq3"]
-atlas = ExtResource("16_2q7xk")
+atlas = ExtResource("21_6cgpm")
 region = Rect2(64, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gfg6t"]
-atlas = ExtResource("16_2q7xk")
+atlas = ExtResource("21_6cgpm")
 region = Rect2(128, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8obfq"]
-atlas = ExtResource("16_2q7xk")
+atlas = ExtResource("21_6cgpm")
 region = Rect2(192, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kewht"]
-atlas = ExtResource("16_2q7xk")
+atlas = ExtResource("21_6cgpm")
 region = Rect2(256, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eie3n"]
-atlas = ExtResource("16_2q7xk")
+atlas = ExtResource("21_6cgpm")
 region = Rect2(320, 0, 64, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_alg2g"]
-atlas = ExtResource("16_2q7xk")
-region = Rect2(384, 0, 64, 48)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_vehph"]
-atlas = ExtResource("16_2q7xk")
+atlas = ExtResource("21_6cgpm")
 region = Rect2(448, 0, 64, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_alg2g"]
+atlas = ExtResource("21_6cgpm")
+region = Rect2(384, 0, 64, 48)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_6fu1q"]
-atlas = ExtResource("16_2q7xk")
+atlas = ExtResource("21_6cgpm")
 region = Rect2(512, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c8xvm"]
-atlas = ExtResource("17_0aajs")
+atlas = ExtResource("22_mr7vq")
 region = Rect2(224, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0xapa"]
-atlas = ExtResource("18_8rqpm")
+atlas = ExtResource("23_14sg2")
 region = Rect2(0, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kl52o"]
-atlas = ExtResource("18_8rqpm")
+atlas = ExtResource("23_14sg2")
 region = Rect2(64, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wr6ub"]
-atlas = ExtResource("18_8rqpm")
+atlas = ExtResource("23_14sg2")
 region = Rect2(128, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vkkqk"]
-atlas = ExtResource("18_8rqpm")
+atlas = ExtResource("23_14sg2")
 region = Rect2(192, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p56jh"]
-atlas = ExtResource("18_8rqpm")
+atlas = ExtResource("23_14sg2")
 region = Rect2(256, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_slj0q"]
-atlas = ExtResource("19_iv1ie")
+atlas = ExtResource("24_36ud8")
 region = Rect2(0, 0, 32, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g0o3y"]
-atlas = ExtResource("19_iv1ie")
+atlas = ExtResource("24_36ud8")
 region = Rect2(32, 0, 32, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fnlba"]
-atlas = ExtResource("19_iv1ie")
+atlas = ExtResource("24_36ud8")
 region = Rect2(64, 0, 32, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t404s"]
-atlas = ExtResource("19_iv1ie")
+atlas = ExtResource("24_36ud8")
 region = Rect2(96, 0, 32, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_701fe"]
-atlas = ExtResource("19_iv1ie")
+atlas = ExtResource("24_36ud8")
 region = Rect2(128, 0, 32, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0uknb"]
-atlas = ExtResource("19_iv1ie")
+atlas = ExtResource("24_36ud8")
 region = Rect2(160, 0, 32, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2bo45"]
-atlas = ExtResource("19_iv1ie")
+atlas = ExtResource("24_36ud8")
 region = Rect2(192, 0, 32, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kyqcu"]
-atlas = ExtResource("19_iv1ie")
+atlas = ExtResource("24_36ud8")
 region = Rect2(224, 0, 32, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dljb1"]
-atlas = ExtResource("17_0aajs")
+atlas = ExtResource("22_mr7vq")
 region = Rect2(0, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0y7qo"]
-atlas = ExtResource("17_0aajs")
+atlas = ExtResource("22_mr7vq")
 region = Rect2(32, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_esjlk"]
-atlas = ExtResource("17_0aajs")
+atlas = ExtResource("22_mr7vq")
 region = Rect2(64, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_txynw"]
-atlas = ExtResource("17_0aajs")
+atlas = ExtResource("22_mr7vq")
 region = Rect2(96, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ghnyh"]
-atlas = ExtResource("17_0aajs")
+atlas = ExtResource("22_mr7vq")
 region = Rect2(128, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d1hsq"]
-atlas = ExtResource("17_0aajs")
+atlas = ExtResource("22_mr7vq")
 region = Rect2(160, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pl56o"]
-atlas = ExtResource("17_0aajs")
+atlas = ExtResource("22_mr7vq")
 region = Rect2(192, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d6bq3"]
-atlas = ExtResource("17_0aajs")
+atlas = ExtResource("22_mr7vq")
 region = Rect2(224, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u7sry"]
-atlas = ExtResource("20_a55nm")
+atlas = ExtResource("25_dcerq")
 region = Rect2(0, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4nbyh"]
-atlas = ExtResource("20_a55nm")
+atlas = ExtResource("25_dcerq")
 region = Rect2(32, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_djihb"]
-atlas = ExtResource("20_a55nm")
+atlas = ExtResource("25_dcerq")
 region = Rect2(64, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2xnad"]
-atlas = ExtResource("20_a55nm")
+atlas = ExtResource("25_dcerq")
 region = Rect2(96, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ya01"]
-atlas = ExtResource("22_au4jb")
+atlas = ExtResource("27_q25ix")
 region = Rect2(0, 0, 32, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cwwqm"]
-atlas = ExtResource("22_au4jb")
+atlas = ExtResource("27_q25ix")
 region = Rect2(32, 0, 32, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q7q8n"]
-atlas = ExtResource("22_au4jb")
+atlas = ExtResource("27_q25ix")
 region = Rect2(64, 0, 32, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1lmd2"]
-atlas = ExtResource("22_au4jb")
+atlas = ExtResource("27_q25ix")
 region = Rect2(96, 0, 32, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f6mah"]
-atlas = ExtResource("22_au4jb")
+atlas = ExtResource("27_q25ix")
 region = Rect2(128, 0, 32, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cmfcg"]
-atlas = ExtResource("22_au4jb")
+atlas = ExtResource("27_q25ix")
 region = Rect2(160, 0, 32, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bq143"]
-atlas = ExtResource("22_au4jb")
+atlas = ExtResource("27_q25ix")
 region = Rect2(192, 0, 32, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ad2j"]
-atlas = ExtResource("22_au4jb")
+atlas = ExtResource("27_q25ix")
 region = Rect2(224, 0, 32, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhvlo"]
-atlas = ExtResource("22_au4jb")
+atlas = ExtResource("27_q25ix")
 region = Rect2(256, 0, 32, 36)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
@@ -636,10 +643,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_eie3n")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_alg2g")
+"texture": SubResource("AtlasTexture_vehph")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vehph")
+"texture": SubResource("AtlasTexture_alg2g")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6fu1q")
@@ -753,7 +760,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("21_fld2v")
+"texture": ExtResource("26_br5hd")
 }],
 "loop": 1,
 "name": &"recoil",
@@ -793,11 +800,11 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1nbu"]
-atlas = ExtResource("23_s2olq")
+atlas = ExtResource("28_1826x")
 region = Rect2(0, 0, 32, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y8dtd"]
-atlas = ExtResource("23_s2olq")
+atlas = ExtResource("28_1826x")
 region = Rect2(32, 0, 32, 34)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
@@ -815,7 +822,7 @@ animations = [{
 }]
 
 [sub_resource type="Resource" id="Resource_0phe6"]
-script = ExtResource("25_sccw2")
+script = ExtResource("30_1gwp1")
 knockback_angle = 70.0
 knockback_strength = 20.0
 hitstun_duration = 0.2
@@ -823,13 +830,13 @@ metadata/_custom_type_script = "uid://dh1mpplaeqbu5"
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_icux6"]
 frames = 2
-frame_0/texture = ExtResource("26_6cgpm")
+frame_0/texture = ExtResource("31_lf2l8")
 frame_0/duration = 0.1
-frame_1/texture = ExtResource("27_mr7vq")
+frame_1/texture = ExtResource("32_q375t")
 frame_1/duration = 0.1
 
 [sub_resource type="Resource" id="Resource_neio3"]
-script = ExtResource("29_36ud8")
+script = ExtResource("34_wce8b")
 frequency = 5.0
 noise_seed = 672
 metadata/_custom_type_script = "uid://dimvdouy8g0sv"
@@ -838,19 +845,24 @@ metadata/_custom_type_script = "uid://dimvdouy8g0sv"
 material = SubResource("ShaderMaterial_jbxru")
 collision_layer = 257
 collision_mask = 4102
-script = ExtResource("2_s2wrl")
+script = ExtResource("2_ffu3q")
+jump_strength = 300.0
+laser_bullet_meter_use = 5.0
+laser_bullet_scene = ExtResource("3_7hir3")
+laser_bullet_speed = 1000.0
+laser_charge_duration = 1.0
 
 [node name="PlayerInputHandler" type="Node" parent="." unique_id=1113545624]
-script = ExtResource("4_4tsgl")
+script = ExtResource("4_jwqxn")
 metadata/_custom_type_script = "uid://dqtier8s750jn"
 
 [node name="HealthComponent" type="Node" parent="." unique_id=927420535]
-script = ExtResource("5_hf1tv")
+script = ExtResource("5_btgad")
 max_hp = 100
 metadata/_custom_type_script = "uid://k1npmfprvwwt"
 
 [node name="AttackMetterComponent" type="Node" parent="." unique_id=1657568129]
-script = ExtResource("6_a4fy3")
+script = ExtResource("6_ptb8x")
 max_metter = 90.0
 metadata/_custom_type_script = "uid://cr2xbhach1rlt"
 
@@ -858,38 +870,19 @@ metadata/_custom_type_script = "uid://cr2xbhach1rlt"
 
 [node name="Laser Bullet" type="AudioStreamPlayer" parent="Audio" unique_id=901213534]
 stream = SubResource("AudioStreamRandomizer_aykj2")
+bus = &"SFX"
 
 [node name="Laser Charge Up" type="AudioStreamPlayer" parent="Audio" unique_id=531103463]
 stream = SubResource("AudioStreamRandomizer_l72of")
+bus = &"SFX"
 
 [node name="Laser Beam" type="AudioStreamPlayer" parent="Audio" unique_id=773479681]
 stream = SubResource("AudioStreamRandomizer_dfbu7")
+bus = &"SFX"
 
 [node name="Sfx Jump" type="AudioStreamPlayer" parent="Audio" unique_id=218857365]
-stream = ExtResource("14_c55lb")
-
-[node name="Character States" type="LimboHSM" parent="." unique_id=1273866113]
-
-[node name="Active" type="LimboState" parent="Character States" unique_id=922432502]
-script = ExtResource("15_n7dw4")
-
-[node name="Explorer States" type="LimboHSM" parent="Character States/Active" unique_id=811869457]
-
-[node name="Aerial" type="LimboState" parent="Character States/Active/Explorer States" unique_id=2020362824]
-
-[node name="Grounded" type="LimboState" parent="Character States/Active/Explorer States" unique_id=1018726378]
-
-[node name="Attack" type="LimboState" parent="Character States/Active/Explorer States" unique_id=1466945660]
-
-[node name="Mega Laser" type="LimboState" parent="Character States/Active/Explorer States" unique_id=1718159495]
-
-[node name="Hitstun" type="LimboState" parent="Character States" unique_id=2065122791]
-
-[node name="Knockback" type="LimboState" parent="Character States" unique_id=1444246213]
-
-[node name="Locked" type="LimboState" parent="Character States" unique_id=942292871]
-
-[node name="Tagged Out" type="LimboState" parent="Character States" unique_id=846538851]
+stream = ExtResource("14_iv1ie")
+bus = &"SFX"
 
 [node name="Timers" type="Node" parent="." unique_id=527078354]
 
@@ -902,6 +895,33 @@ one_shot = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=997078572]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_slj0q")
+
+[node name="Character States" type="LimboHSM" parent="." unique_id=1050921828]
+blackboard_plan = ExtResource("15_phera")
+script = ExtResource("15_a55nm")
+
+[node name="Grounded" type="LimboState" parent="Character States" unique_id=1468590112]
+blackboard_plan = ExtResource("15_phera")
+script = ExtResource("16_fld2v")
+
+[node name="Aerial" type="LimboState" parent="Character States" unique_id=401625594]
+blackboard_plan = ExtResource("15_phera")
+
+[node name="Charge Laser" type="LimboState" parent="Character States" unique_id=193716699]
+blackboard_plan = ExtResource("15_phera")
+script = ExtResource("17_au4jb")
+
+[node name="Laser Bullet Attack" type="LimboState" parent="Character States" unique_id=1271737933]
+blackboard_plan = ExtResource("15_phera")
+script = ExtResource("18_s2olq")
+
+[node name="Hitstun" type="LimboState" parent="Character States" unique_id=1236254814]
+blackboard_plan = ExtResource("15_phera")
+script = ExtResource("19_67vlb")
+
+[node name="Knockback" type="LimboState" parent="Character States" unique_id=2017815225]
+blackboard_plan = ExtResource("15_phera")
+script = ExtResource("20_sccw2")
 
 [node name="Normal Hurtbox" type="CollisionShape2D" parent="." unique_id=1992489529]
 position = Vector2(0, -15.75)
@@ -930,7 +950,7 @@ visible = false
 
 [node name="Start Marker" type="Marker2D" parent="Fliproot/Laser Pieces" unique_id=699544545]
 unique_name_in_owner = true
-position = Vector2(17, -8)
+position = Vector2(15, -8)
 
 [node name="End Marker" type="Marker2D" parent="Fliproot/Laser Pieces" unique_id=625951810]
 unique_name_in_owner = true
@@ -950,7 +970,7 @@ unique_name_in_owner = true
 position = Vector2(0, -17)
 collision_layer = 0
 collision_mask = 66
-script = ExtResource("24_67vlb")
+script = ExtResource("29_ipcpk")
 damage_interval = 0.2
 attack_data = SubResource("Resource_0phe6")
 metadata/_custom_type_script = "uid://crxaysem1tfnv"
@@ -970,7 +990,7 @@ texture = SubResource("AnimatedTexture_icux6")
 texture_mode = 1
 
 [node name="Mega Laser Shake" type="Node2D" parent="." unique_id=1089475892]
-script = ExtResource("28_14sg2")
+script = ExtResource("33_avuc4")
 noise = SubResource("Resource_neio3")
 continuous = true
 duration = 0.1
@@ -985,3 +1005,4 @@ metadata/_custom_type_script = "uid://bhd4nuiu23e7l"
 [connection signal="stopped_charging" from="." to="Audio/Laser Charge Up" method="stop"]
 [connection signal="damaged" from="HealthComponent" to="." method="_on_health_component_damaged"]
 [connection signal="knockback" from="HealthComponent" to="." method="_on_health_component_knockback"]
+[connection signal="knockback" from="HealthComponent" to="Character States" method="_on_health_component_knockback"]

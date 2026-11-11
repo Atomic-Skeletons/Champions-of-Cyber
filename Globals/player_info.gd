@@ -1,7 +1,8 @@
 extends Node
 
 
-const EXPLORER = preload("uid://7lw1yr2xg5ye")
+#const EXPLORER = preload("uid://7lw1yr2xg5ye")
+const EXPLORER = preload("uid://dfjuiawgbje3u") # state machine test
 const ELECTRIC_BOOGALOO = preload("uid://bfukd726rcgk2")
 const ROLLER_SHARK = preload("uid://cb3g7rkvm3hel")
 
