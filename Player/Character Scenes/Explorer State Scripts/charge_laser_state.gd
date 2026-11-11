@@ -1,8 +1,9 @@
 extends LimboState
 
 
+var explorer: ExplorerTest
 func _setup() -> void:
-	pass
+	explorer = agent
 
 func _enter() -> void:
 	pass

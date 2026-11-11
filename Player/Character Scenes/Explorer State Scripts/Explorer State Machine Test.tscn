@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://dfjuiawgbje3u"]
 
 [ext_resource type="Shader" uid="uid://dhqnthhyhb402" path="res://Shaders/desaturation_shader.tres" id="1_a4fy3"]
-[ext_resource type="Script" uid="uid://fxopwerwirot" path="res://Player/Character Assets/Explorer/explorer_controller.gd" id="2_ffu3q"]
-[ext_resource type="PackedScene" uid="uid://bs1gkeavl1uf1" path="res://Player/Character Assets/Explorer/Scripts/laser_bullet.tscn" id="3_7hir3"]
+[ext_resource type="Script" uid="uid://b417evofmie27" path="res://Player/Character Scenes/Explorer State Scripts/old_explorer_state_machine_test_controller.gd" id="2_ximx3"]
 [ext_resource type="Script" uid="uid://dqtier8s750jn" path="res://Player/Input Controller/input_handler.gd" id="4_jwqxn"]
 [ext_resource type="Script" uid="uid://k1npmfprvwwt" path="res://Components/health_component.gd" id="5_btgad"]
 [ext_resource type="Script" uid="uid://cr2xbhach1rlt" path="res://Components/attack_metter_component.gd" id="6_ptb8x"]
@@ -14,9 +13,10 @@
 [ext_resource type="AudioStream" uid="uid://bqufnqa4woi7l" path="res://Player/Character Assets/Explorer/Audio/SFX_hyperbeam_wind_up.wav" id="12_0aajs"]
 [ext_resource type="AudioStream" uid="uid://cpcf1dp4ygc3y" path="res://Player/Character Assets/Explorer/Audio/SFX_Beam_hyperbeam.wav" id="13_8rqpm"]
 [ext_resource type="AudioStream" uid="uid://ccie0uctrcpkj" path="res://Player/Character Assets/Movement Audio/jump_audio_randomizer.tres" id="14_iv1ie"]
-[ext_resource type="Script" uid="uid://c0qwaecn6ds12" path="res://Player/Character Scenes/Explorer State Scripts/explorer_state_machine_test_controller.gd" id="15_a55nm"]
 [ext_resource type="BlackboardPlan" uid="uid://cxl0dksfseg0a" path="res://Player/Character Scenes/Explorer State Scripts/explorer_blackboard.tres" id="15_phera"]
 [ext_resource type="Script" uid="uid://cv0hlglqy1j2h" path="res://Player/Character Scenes/Explorer State Scripts/grounded_state.gd" id="16_fld2v"]
+[ext_resource type="Script" uid="uid://cr4alncpm0myn" path="res://Player/Character Scenes/Explorer State Scripts/jump_state.gd" id="16_phera"]
+[ext_resource type="Script" uid="uid://cdn2exjwk5hte" path="res://Player/Character Scenes/Explorer State Scripts/fall_state.gd" id="16_ximx3"]
 [ext_resource type="Script" uid="uid://cbdc5w5nmd1jj" path="res://Player/Character Scenes/Explorer State Scripts/charge_laser_state.gd" id="17_au4jb"]
 [ext_resource type="Script" uid="uid://ck1i151aysscl" path="res://Player/Character Scenes/Explorer State Scripts/laser_bullet_attack_state.gd" id="18_s2olq"]
 [ext_resource type="Script" uid="uid://2uh2s8f5fxr7" path="res://Player/Character Scenes/Explorer State Scripts/hitstun_state.gd" id="19_67vlb"]
@@ -442,6 +442,10 @@ _data = {
 &"walk": SubResource("Animation_slj0q")
 }
 
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_phera"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_07quu"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(10, 31.5)
 
@@ -825,7 +829,6 @@ animations = [{
 script = ExtResource("30_1gwp1")
 knockback_angle = 70.0
 knockback_strength = 20.0
-hitstun_duration = 0.2
 metadata/_custom_type_script = "uid://dh1mpplaeqbu5"
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_icux6"]
@@ -845,12 +848,7 @@ metadata/_custom_type_script = "uid://dimvdouy8g0sv"
 material = SubResource("ShaderMaterial_jbxru")
 collision_layer = 257
 collision_mask = 4102
-script = ExtResource("2_ffu3q")
-jump_strength = 300.0
-laser_bullet_meter_use = 5.0
-laser_bullet_scene = ExtResource("3_7hir3")
-laser_bullet_speed = 1000.0
-laser_charge_duration = 1.0
+script = ExtResource("2_ximx3")
 
 [node name="PlayerInputHandler" type="Node" parent="." unique_id=1113545624]
 script = ExtResource("4_jwqxn")
@@ -898,7 +896,6 @@ libraries/ = SubResource("AnimationLibrary_slj0q")
 
 [node name="Character States" type="LimboHSM" parent="." unique_id=1050921828]
 blackboard_plan = ExtResource("15_phera")
-script = ExtResource("15_a55nm")
 
 [node name="Grounded" type="LimboState" parent="Character States" unique_id=1468590112]
 blackboard_plan = ExtResource("15_phera")
@@ -906,6 +903,14 @@ script = ExtResource("16_fld2v")
 
 [node name="Aerial" type="LimboState" parent="Character States" unique_id=401625594]
 blackboard_plan = ExtResource("15_phera")
+
+[node name="Jump" type="LimboState" parent="Character States" unique_id=1352416961]
+blackboard_plan = SubResource("BlackboardPlan_phera")
+script = ExtResource("16_phera")
+
+[node name="Fall" type="LimboState" parent="Character States" unique_id=1321198182]
+blackboard_plan = SubResource("BlackboardPlan_07quu")
+script = ExtResource("16_ximx3")
 
 [node name="Charge Laser" type="LimboState" parent="Character States" unique_id=193716699]
 blackboard_plan = ExtResource("15_phera")
@@ -1004,5 +1009,5 @@ metadata/_custom_type_script = "uid://bhd4nuiu23e7l"
 [connection signal="started_charging" from="." to="Audio/Laser Charge Up" method="play"]
 [connection signal="stopped_charging" from="." to="Audio/Laser Charge Up" method="stop"]
 [connection signal="damaged" from="HealthComponent" to="." method="_on_health_component_damaged"]
+[connection signal="hit" from="HealthComponent" to="." method="_on_health_component_hit"]
 [connection signal="knockback" from="HealthComponent" to="." method="_on_health_component_knockback"]
-[connection signal="knockback" from="HealthComponent" to="Character States" method="_on_health_component_knockback"]

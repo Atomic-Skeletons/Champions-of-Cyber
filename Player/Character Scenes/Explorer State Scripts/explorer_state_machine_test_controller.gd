@@ -1,4 +1,4 @@
-class_name ExplorerTest extends LimboHSM
+extends LimboHSM
 
 
 signal shot_laser_bullet()
@@ -37,6 +37,12 @@ func _initialize_state_machine():
 		grounded_state,
 		charge_laser_state,
 		"start_charge"
+	)
+	
+	add_transition(
+		knockback_state,
+		grounded_state,
+		"recover"
 	)
 	
 	# Setup State Machine

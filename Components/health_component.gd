@@ -3,6 +3,7 @@ class_name HealthComponent extends Node
 signal died()
 signal knockback(vector: Vector2)
 signal damaged(amount, hitstun_duration, hitstop_duration)
+signal hit(amount, knockback_vector, knockback_duration, hitstun_duration)
 signal healed(amount)
 
 @export_category("Health")
@@ -30,18 +31,19 @@ func damage(data: AttackData):
 	if can_damage(data.damage_tags):
 		current_hp -= data.damage
 		
-		damaged.emit(
-			data.damage, 
-			data.hitstun_duration, 
-			data.hitstop_duration)
-		
-		invincibility_timer.start()
 		
 		var knockback_rad = deg_to_rad(data.knockback_angle)
 		var knockback_vector: Vector2 = Vector2.RIGHT.rotated(-knockback_rad) * data.knockback_strength
 		
-		if knockback_vector:
-			knockback.emit(knockback_vector * 10)
+		
+		hit.emit(
+			data.damage,
+			knockback_vector * 10,
+			data.knockback_duration,
+			data.hitstun_duration)
+		
+		invincibility_timer.start()
+	
 	if current_hp <= 0:
 		died.emit()
 
